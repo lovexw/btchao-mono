@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect x="0" y="0" width="760" height="340" rx="14" fill="#f8f8f9"/>
+  <rect x="0.5" y="0.5" width="759" height="339" rx="13.5" fill="none" stroke="#e2e2e6"/>
+  <text x="380" y="40" text-anchor="middle" font-size="19" font-weight="700" fill="#24292f">1 美元的购买力：1971 → 2025</text>
+  <text x="380" y="62" text-anchor="middle" font-size="12.5" fill="#8a8a93">年通胀约 4% 复利 · 数据口径：美国 CPI</text>
+
+  <!-- 坐标区 -->
+  <g>
+    <line x1="70" y1="270" x2="700" y2="270" stroke="#c9c9cf" stroke-width="1"/>
+    <line x1="70" y1="100" x2="70" y2="270" stroke="#c9c9cf" stroke-width="1"/>
+    <text x="64" y="105" text-anchor="end" font-size="11" fill="#8a8a93">$1</text>
+    <text x="64" y="274" text-anchor="end" font-size="11" fill="#8a8a93">$0</text>
+    <text x="70" y="290" text-anchor="middle" font-size="11" fill="#8a8a93">1971</text>
+    <text x="700" y="290" text-anchor="middle" font-size="11" fill="#8a8a93">2025</text>
+  </g>
+
+  <!-- 购买力衰减曲线: $1 -> $0.13，指数衰减 -->
+  <defs>
+    <linearGradient id="infl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f7931a"/>
+      <stop offset="1" stop-color="#e05252"/>
+    </linearGradient>
+  </defs>
+  <path d="M70,100
+           C 160,102 210,108 260,120
+           C 320,135 380,160 440,185
+           C 520,215 620,246 700,258"
+        fill="none" stroke="url(#infl)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- 面积 -->
+  <path d="M70,100 C 160,102 210,108 260,120 C 320,135 380,160 440,185 C 520,215 620,246 700,258 L700,270 L70,270 Z"
+        fill="#f7931a" opacity="0.08"/>
+  <!-- 1971 锚点 -->
+  <circle cx="70" cy="100" r="4.5" fill="#f7931a"/>
+  <text x="82" y="94" font-size="12.5" font-weight="700" fill="#d97a10">$1.00</text>
+  <!-- 2025 终点 -->
+  <circle cx="700" cy="258" r="4.5" fill="#e05252"/>
+  <text x="694" y="243" text-anchor="end" font-size="12.5" font-weight="700" fill="#e05252">$0.13</text>
+  <!-- 1971 竖线标注 -->
+  <line x1="215" y1="106" x2="215" y2="270" stroke="#d9d9de" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="215" y="304" text-anchor="middle" font-size="12" font-weight="600" fill="#55555e">1971 · 金本位终结</text>
+  <text x="215" y="321" text-anchor="middle" font-size="11" fill="#8a8a93">从此货币供应不再受黄金约束</text>
+
+  <text x="480" y="120" font-size="12.5" fill="#55555e">五十四年，87% 的购买力被抹去</text>
+  <text x="480" y="138" font-size="11.5" fill="#8a8a93">而且官方 CPI 还是偏保守的口径</text>
+</svg>
