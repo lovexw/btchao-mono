@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比特币投资日记</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="description" content="记录比特币投资交易，追踪持仓收益，管理投资策略">
+    <meta name="keywords" content="比特币,BTC,投资日记,加密货币,收益追踪">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 主应用界面 -->
+    <div id="app-container" class="app-container">
+        <div class="warning-banner">
+            <div class="warning-icon">⚠️</div>
+            <div class="warning-content">
+                <strong>数据安全提示：</strong>所有数据仅存储在浏览器本地，不会上传到任何服务器。请定期使用「导出数据」功能备份您的交易记录，避免数据丢失。清除浏览器数据将导致记录永久丢失！
+            </div>
+        </div>
+
+        <header class="header">
+            <div class="header-content">
+                <h1>₿ 比特币投资日记</h1>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- 实时价格和收益概览 -->
+            <section class="dashboard">
+                <div class="price-card">
+                    <h2>实时价格</h2>
+                    <div class="btc-price" id="btc-price">加载中...</div>
+                    <div class="price-update" id="price-update">更新时间：--</div>
+                    <div class="ahr999-indicator" id="ahr999-indicator">
+                        <div class="ahr999-value" id="ahr999-value">--</div>
+                        <div class="ahr999-tip" id="ahr999-tip">--</div>
+                    </div>
+                </div>
+                
+                <div class="stats-card">
+                    <h2>持仓统计</h2>
+                    <div class="stat-item">
+                        <span class="stat-label">持仓数量：</span>
+                        <span class="stat-value" id="total-holdings">0.00000000 BTC</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">平均成本：</span>
+                        <span class="stat-value" id="avg-cost">$0.00</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">总投入：</span>
+                        <span class="stat-value" id="total-invested">$0.00</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">当前市值：</span>
+                        <span class="stat-value" id="current-value">$0.00</span>
+                    </div>
+                    <div class="stat-item profit">
+                        <span class="stat-label">
+                            账面收益（未实现）：
+                            <span class="tooltip-icon">
+                                <span class="icon">?</span>
+                                <span class="tooltip-content">
+                                    <strong>账面收益（未实现）</strong><br>
+                                    当前持有的 BTC 还没卖出，暂时产生的盈利/亏损<br>
+                                    <em>特点：随 BTC 价格实时变动，属于"浮动收益"（没实际落袋）</em>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="stat-value" id="unrealized-profit">$0.00 (0.00%)</span>
+                    </div>
+                    <div class="stat-item profit">
+                        <span class="stat-label">
+                            已实现收益：
+                            <span class="tooltip-icon">
+                                <span class="icon">?</span>
+                                <span class="tooltip-content">
+                                    <strong>已实现收益</strong><br>
+                                    之前卖出部分 BTC 后，实际拿到手的盈利<br>
+                                    <em>特点：收益已经确定，不会再随价格变化</em>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="stat-value" id="realized-profit">$0.00 (0.00%)</span>
+                    </div>
+                    <div class="stat-item profit">
+                        <span class="stat-label">
+                            总收益：
+                            <span class="tooltip-icon">
+                                <span class="icon">?</span>
+                                <span class="tooltip-content">
+                                    <strong>总收益</strong><br>
+                                    账面收益（未实现） + 已实现收益 的总和<br>
+                                    <em>特点：反映这笔 BTC 投资的"整体盈利情况"</em>
+                                </span>
+                            </span>
+                        </span>
+                        <span class="stat-value" id="total-profit">$0.00 (0.00%)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 添加交易表单 -->
+            <section class="add-transaction">
+                <h2>添加交易记录</h2>
+                <form id="transaction-form" class="transaction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>交易类型</label>
+                            <select id="transaction-type" required>
+                                <option value="buy">买入</option>
+                                <option value="sell">卖出</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>交易日期</label>
+                            <input type="date" id="transaction-date" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>交易价格 (USD)</label>
+                            <input type="number" id="transaction-price" step="0.01" placeholder="自动填充当前价格" required>
+                            <small class="field-hint">默认使用当前价格，可自行修改</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>购买金额 (USD)</label>
+                            <input type="number" id="transaction-total" step="0.01" placeholder="例如: 1000">
+                            <small class="field-hint">输入金额自动计算数量</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>数量 (BTC)</label>
+                            <input type="number" id="transaction-amount" step="0.00000001" placeholder="例如: 0.1" required>
+                            <small class="field-hint">输入数量自动计算金额</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>投资思考（可选）</label>
+                        <textarea id="transaction-note" rows="3" placeholder="记录你当时的投资想法和策略..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">添加记录</button>
+                        <button type="button" class="btn-cancel" id="cancel-edit-btn" onclick="cancelEdit()" style="display: none;">取消编辑</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 交易历史 -->
+            <section class="transaction-history">
+                <div class="section-header">
+                    <h2>交易历史</h2>
+                    <div class="actions">
+                        <button onclick="exportData()" class="btn-secondary">导出数据</button>
+                        <button onclick="importData()" class="btn-secondary">导入数据</button>
+                        <button onclick="clearAllData()" class="btn-danger">清空数据</button>
+                    </div>
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>交易类型</label>
+                        <select id="filter-type" onchange="applyFilters()">
+                            <option value="all">全部</option>
+                            <option value="buy">买入</option>
+                            <option value="sell">卖出</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>排序方式</label>
+                        <select id="filter-sort" onchange="applyFilters()">
+                            <option value="date-desc">时间降序</option>
+                            <option value="date-asc">时间升序</option>
+                            <option value="amount-desc">金额降序</option>
+                            <option value="amount-asc">金额升序</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="transactions-list" id="transactions-list">
+                    <p class="empty-state">暂无交易记录</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>数据仅存储在浏览器本地 | 比特币投资有风险，投资需谨慎</p>
+        </footer>
+    </div>
+
+    <!-- 隐藏的文件输入用于导入 -->
+    <input type="file" id="import-file-input" accept=".json" style="display: none;">
+
+    <script src="app.js"></script>
+</body>
+</html>
