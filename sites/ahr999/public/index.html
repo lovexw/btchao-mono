@@ -14,7 +14,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background-color: #FAFAFA;
+            background-color: var(--btc-bg, #FAFAFA);
             min-height: 100vh;
             padding: 20px;
             line-height: 1.6;
@@ -66,7 +66,7 @@
         .main-value {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(135deg, #FF9900 0%, #FF7700 100%);
+            background: linear-gradient(135deg, var(--btc-orange, #FF9900) 0%, #FF7700 100%);
             border-radius: 15px;
             color: white;
             margin-bottom: 30px;
@@ -128,7 +128,7 @@
             font-size: 1.8em;
             color: #1A1A1A;
             margin-bottom: 20px;
-            border-left: 5px solid #FF9900;
+            border-left: 5px solid var(--btc-orange, #FF9900);
             padding-left: 15px;
         }
 
@@ -177,7 +177,7 @@
             font-size: 1.8em;
             color: #1A1A1A;
             margin-bottom: 20px;
-            border-left: 5px solid #FF9900;
+            border-left: 5px solid var(--btc-orange, #FF9900);
             padding-left: 15px;
         }
 
@@ -205,7 +205,7 @@
             content: "▶";
             position: absolute;
             left: 0;
-            color: #FF9900;
+            color: var(--btc-orange, #FF9900);
         }
 
         .update-time {
@@ -256,6 +256,7 @@
 
         }
     </style>
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css">
 </head>
 <body>
     <div class="container">
@@ -566,5 +567,7 @@
         fetchData();
         setInterval(fetchData, 5 * 60 * 1000);
     </script>
+<div id="btc-footer"></div>
+<script src="btc-shared/footer.js" defer></script>
 </body>
 </html>

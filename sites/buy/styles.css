@@ -5,8 +5,8 @@
 :root {
     /* HAB B 品牌配色 */
     --primary: #1A1A1A;
-    --accent: #FF9900;
-    --background: #FAFAFA;
+    --accent: var(--btc-orange, #ff9900);
+    --background: var(--btc-bg, #FAFAFA);
     --text: #222222;
     --border: #E0E0E0;
     
@@ -15,7 +15,7 @@
     --light-gray: #F5F5F5;
     --medium-gray: #999999;
     --success: #4CAF50;
-    --warning: #FF9900;
+    --warning: var(--btc-orange, #ff9900);
     --danger: #F44336;
     
     /* 阴影 */
@@ -587,7 +587,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #E68A00;
+    background: var(--btc-orange-hover, #e68a00);
     transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
 }
@@ -676,7 +676,7 @@ body {
 }
 
 .resource-card a:hover {
-    color: #E68A00;
+    color: var(--btc-orange-hover, #e68a00);
 }
 
 .invite-code-box {
@@ -710,7 +710,7 @@ body {
 }
 
 .copy-btn:hover {
-    background: #E68A00;
+    background: var(--btc-orange-hover, #e68a00);
 }
 
 .copy-btn:active {

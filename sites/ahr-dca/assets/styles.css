@@ -13,9 +13,9 @@
   --text: #e9ecf2;
   --text-soft: #b8c0cd;
   --muted: #8a93a3;
-  --accent: #f7931a;
+  --accent: var(--btc-orange, #f7931a);
   --accent-soft: rgba(247, 147, 26, 0.14);
-  --accent-2: #ffb84d;
+  --accent-2: var(--btc-orange-soft, #ffb84d);
   --green: #16c784;
   --green-soft: rgba(22, 199, 132, 0.14);
   --red: #ea3943;

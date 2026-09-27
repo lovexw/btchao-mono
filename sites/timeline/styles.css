@@ -8,8 +8,8 @@
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
+    color: var(--btc-text, #333);
+    background-color: var(--btc-bg, #fafafa);
 }
 
 .container {
@@ -20,7 +20,7 @@ body {
 
 /* 头部样式 */
 .header {
-    background: linear-gradient(135deg, #f7931a 0%, #ffa500 100%);
+    background: linear-gradient(135deg, var(--btc-orange, #f7931a) 0%, #ffa500 100%);
     color: white;
     padding: 60px 0;
     text-align: center;
@@ -74,7 +74,7 @@ body {
 }
 
 .nav-list a:hover {
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     background: rgba(247, 147, 26, 0.1);
 }
 
@@ -104,7 +104,7 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: #f7931a;
+    background: var(--btc-orange, #f7931a);
     border-radius: 2px;
 }
 
@@ -133,7 +133,7 @@ body {
 .overview-card h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
 }
 
 /* 时间线样式 */
@@ -154,7 +154,7 @@ body {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: #f7931a;
+    background: var(--btc-orange, #f7931a);
 }
 
 .timeline-item {
@@ -185,7 +185,7 @@ body {
     top: 5px;
     width: 12px;
     height: 12px;
-    background: #f7931a;
+    background: var(--btc-orange, #f7931a);
     border-radius: 50%;
     border: 3px solid white;
     box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.3);
@@ -200,7 +200,7 @@ body {
 
 .timeline-date {
     font-weight: 600;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     margin-bottom: 8px;
 }
 
@@ -212,7 +212,7 @@ body {
 
 .timeline-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 /* 里程碑样式 */
@@ -228,7 +228,7 @@ body {
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-left: 4px solid #f7931a;
+    border-left: 4px solid var(--btc-orange, #f7931a);
     transition: transform 0.3s;
 }
 
@@ -240,7 +240,7 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 10px;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
 }
 
 .milestone-title {
@@ -252,7 +252,7 @@ body {
 
 .milestone-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 /* 技术发展时间线 */
@@ -279,13 +279,13 @@ body {
 }
 
 .tech-content h4 {
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     margin-bottom: 10px;
 }
 
 .tech-date {
     font-weight: 500;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 10px;
 }
 
@@ -312,13 +312,13 @@ body {
     flex: 1;
     font-size: 1.8rem;
     font-weight: 700;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     margin-bottom: 5px;
 }
 
 .price-date {
     font-weight: 600;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 10px;
 }
 
@@ -351,7 +351,7 @@ body {
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
 }
 
 .news-title {
@@ -363,7 +363,7 @@ body {
 
 .news-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 /* 标签样式 */
@@ -376,7 +376,7 @@ body {
 
 .tag {
     background: rgba(247, 147, 26, 0.1);
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -449,7 +449,7 @@ body {
 
 .liq-date {
     font-weight: 600;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 .liq-title {
@@ -473,7 +473,7 @@ body {
 
 .liq-cause {
     line-height: 1.7;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 /* 中国视角 */
@@ -513,7 +513,7 @@ body {
 
 .china-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 .china-derived {
@@ -528,7 +528,7 @@ body {
     cursor: pointer;
     padding: 20px 25px;
     font-weight: 600;
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     user-select: none;
     list-style-position: inside;
 }
@@ -558,7 +558,7 @@ body {
 }
 
 .china-derived-date {
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     font-weight: 600;
     white-space: nowrap;
 }
@@ -588,18 +588,18 @@ body {
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    border-left: 4px solid #f7931a;
+    border-left: 4px solid var(--btc-orange, #f7931a);
 }
 
 .mining-content h4 {
-    color: #f7931a;
+    color: var(--btc-orange, #f7931a);
     margin-bottom: 10px;
     font-size: 1.15rem;
 }
 
 .mining-date {
     font-weight: 500;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 10px;
 }
 
@@ -649,7 +649,7 @@ body {
 }
 
 .policy-country {
-    background: #f7931a;
+    background: var(--btc-orange, #f7931a);
     color: white;
     padding: 4px 12px;
     border-radius: 20px;
@@ -661,7 +661,7 @@ body {
 .policy-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 .policy-title {
@@ -673,13 +673,13 @@ body {
 
 .policy-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 15px;
 }
 
 .policy-impact {
     background: rgba(247, 147, 26, 0.08);
-    border-left: 3px solid #f7931a;
+    border-left: 3px solid var(--btc-orange, #f7931a);
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -756,13 +756,13 @@ body {
 .security-date {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 12px;
 }
 
 .security-description {
     line-height: 1.6;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-bottom: 15px;
 }
 
@@ -778,7 +778,7 @@ body {
 
 .section-desc {
     text-align: center;
-    color: #666;
+    color: var(--btc-text-2, #666);
     margin-top: -25px;
     margin-bottom: 10px;
 }
@@ -855,7 +855,7 @@ body {
 .loading {
     text-align: center;
     padding: 40px;
-    color: #666;
+    color: var(--btc-text-2, #666);
 }
 
 .loading::after {
@@ -863,7 +863,7 @@ body {
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid #f7931a;
+    border: 2px solid var(--btc-orange, #f7931a);
     border-radius: 50%;
     border-top-color: transparent;
     animation: spin 1s linear infinite;

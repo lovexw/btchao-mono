@@ -432,7 +432,7 @@
         }
         
         .nav-list a:hover {
-            color: #f7931a;
+            color: var(--btc-orange, #f7931a);
             background-color: rgba(247, 147, 26, 0.1);
         }
     }

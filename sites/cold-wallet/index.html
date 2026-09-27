@@ -49,7 +49,7 @@
 
         .objective-box {
             background: white;
-            border-left: 4px solid #FF9900;
+            border-left: 4px solid var(--btc-orange, #ff9900);
             border-radius: 12px;
             padding: 30px;
             margin: 50px 0;
@@ -77,11 +77,11 @@
             color: #1A1A1A;
             margin-bottom: 30px;
             padding-bottom: 15px;
-            border-bottom: 2px solid #E0E0E0;
+            border-bottom: 2px solid var(--btc-border, #e0e0e0);
         }
 
         .section-number {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             margin-right: 12px;
         }
 
@@ -111,7 +111,7 @@
             padding: 15px 20px;
             margin: 12px 0;
             background: #FAFAFA;
-            border-left: 3px solid #FF9900;
+            border-left: 3px solid var(--btc-orange, #ff9900);
             border-radius: 8px;
             font-size: 1.05rem;
             line-height: 1.7;
@@ -138,7 +138,7 @@
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            background: #FF9900;
+            background: var(--btc-orange, #ff9900);
             color: white;
             width: 32px;
             height: 32px;
@@ -159,7 +159,7 @@
         }
 
         .warning-box strong {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             font-size: 1.15rem;
             display: block;
             margin-bottom: 15px;
@@ -185,7 +185,7 @@
 
         .comparison-card {
             background: #FAFAFA;
-            border: 1px solid #E0E0E0;
+            border: 1px solid var(--btc-border, #e0e0e0);
             border-radius: 12px;
             padding: 25px;
         }
@@ -213,27 +213,27 @@
             content: '•';
             position: absolute;
             left: 8px;
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             font-weight: bold;
         }
 
         .device-role {
             background: #F9F9F9;
-            border: 1px solid #E0E0E0;
+            border: 1px solid var(--btc-border, #e0e0e0);
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
         }
 
         .device-role h5 {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             font-size: 1.1rem;
             margin-bottom: 10px;
         }
 
         .flow-diagram {
             background: white;
-            border: 2px solid #E0E0E0;
+            border: 2px solid var(--btc-border, #e0e0e0);
             border-radius: 12px;
             padding: 25px;
             margin: 30px 0;
@@ -251,7 +251,7 @@
 
         .flow-step {
             background: #FAFAFA;
-            border: 1px solid #E0E0E0;
+            border: 1px solid var(--btc-border, #e0e0e0);
             border-radius: 8px;
             padding: 15px 20px;
             font-size: 0.95rem;
@@ -260,7 +260,7 @@
         }
 
         .flow-arrow {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             font-size: 1.5rem;
             font-weight: bold;
         }
@@ -276,7 +276,7 @@
             margin: 25px 0;
             padding: 20px;
             background: white;
-            border: 1px solid #E0E0E0;
+            border: 1px solid var(--btc-border, #e0e0e0);
             border-radius: 10px;
         }
 
@@ -288,7 +288,7 @@
 
         .software-item .label {
             display: inline-block;
-            background: #FF9900;
+            background: var(--btc-orange, #ff9900);
             color: white;
             padding: 4px 12px;
             border-radius: 20px;
@@ -297,7 +297,7 @@
         }
 
         .software-item a {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             text-decoration: none;
             font-weight: 600;
             word-break: break-all;
@@ -320,7 +320,7 @@
         }
 
         .link-section ul li a {
-            color: #FF9900;
+            color: var(--btc-orange, #ff9900);
             text-decoration: none;
             font-weight: 500;
             word-break: break-all;
@@ -332,7 +332,7 @@
 
         .divider {
             border: none;
-            border-top: 1px solid #E0E0E0;
+            border-top: 1px solid var(--btc-border, #e0e0e0);
             margin: 50px 0;
         }
 
@@ -398,10 +398,11 @@
             
             .section {
                 box-shadow: none;
-                border: 1px solid #E0E0E0;
+                border: 1px solid var(--btc-border, #e0e0e0);
             }
         }
     </style>
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css">
 </head>
 <body>
     <div class="container">
@@ -943,5 +944,7 @@
             <p style="margin-top: 10px; color: #999;">最后更新：2025年</p>
         </footer>
     </div>
+<div id="btc-footer"></div>
+<script src="btc-shared/footer.js" defer></script>
 </body>
 </html>

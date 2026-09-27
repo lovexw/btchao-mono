@@ -4,16 +4,16 @@
    ========================================================================== */
 
 :root {
-  --paper: #f7f4ee;
+  --paper: var(--btc-bg, #f7f4ee);
   --paper-deep: #efeae0;
   --card: #fffefb;
   --ink: #23211c;
   --ink-soft: #6b6558;
   --ink-faint: #9b9484;
   --line: #e6e0d3;
-  --accent: #e8862d;
+  --accent: var(--btc-orange, #e8862d);
   --accent-deep: #c26a12;
-  --accent-soft: #fdf1e3;
+  --accent-soft: var(--btc-orange-faint, #fdf1e3);
   --indigo: #1d3557;
   --indigo-soft: #eaf0f6;
   --green: #2e7d4f;

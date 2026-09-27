@@ -9,9 +9,9 @@
     <style>
         :root {
             --primary-color: #1A1A1A;
-            --accent-color: #FF9900;
-            --accent-hover: #E68A00;
-            --background: #FAFAFA;
+            --accent-color: var(--btc-orange, #FF9900);
+            --accent-hover: var(--btc-orange-hover, #E68A00);
+            --background: var(--btc-bg, #FAFAFA);
             --card-background: #ffffff;
             --text-primary: #222222;
             --text-secondary: #666666;
@@ -351,6 +351,7 @@
             }
         }
     </style>
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css">
 </head>
 <body>
     <div class="wrapper">
@@ -393,5 +394,7 @@
     <div id="toast" class="toast">✓ 密码已复制到剪贴板</div>
     
     <script src="script.js"></script>
+<div id="btc-footer"></div>
+<script src="btc-shared/footer.js" defer></script>
 </body>
 </html>
