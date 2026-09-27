@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect x="0" y="0" width="760" height="360" rx="14" fill="#f8f8f9"/>
+  <rect x="0.5" y="0.5" width="759" height="359" rx="13.5" fill="none" stroke="#e2e2e6"/>
+  <text x="380" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#24292f">热浪日的电网：方向相反的两条曲线</text>
+  <text x="380" y="58" text-anchor="middle" font-size="12.5" fill="#8a8a93">电网最吃紧的时刻，主动消失的负载是矿工（德州 ERCOT · 2023 年 8 月实测）</text>
+
+  <!-- 坐标 -->
+  <g>
+    <line x1="70" y1="290" x2="700" y2="290" stroke="#c9c9cf" stroke-width="1"/>
+    <text x="66" y="140" text-anchor="end" font-size="11" fill="#8a8a93">用电量</text>
+    <text x="70" y="306" text-anchor="middle" font-size="11" fill="#8a8a93">清晨</text>
+    <text x="385" y="306" text-anchor="middle" font-size="11" fill="#8a8a93">午后</text>
+    <text x="700" y="306" text-anchor="middle" font-size="11" fill="#8a8a93">夜间</text>
+  </g>
+
+  <!-- 电网总需求曲线（午后尖峰） -->
+  <path d="M70,240 C 150,235 210,220 280,180 C 330,150 360,120 400,112 C 440,120 470,155 540,200 C 600,238 660,248 700,250"
+        fill="none" stroke="#e05252" stroke-width="3" stroke-linecap="round"/>
+  <text x="160" y="216" font-size="12.5" font-weight="700" fill="#e05252">全城用电需求</text>
+  <text x="160" y="233" font-size="11" fill="#8a8a93">热浪 + 空调全开，午后冲上尖峰</text>
+
+  <!-- 矿工负荷曲线（平顶 + 尖峰处骤降） -->
+  <path d="M70,205 L340,205
+           C 375,205 380,262 400,262 C 420,262 425,205 460,205
+           L700,205"
+        fill="none" stroke="#f7931a" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="400" cy="262" r="4.5" fill="#f7931a"/>
+  <text x="415" y="283" font-size="12.5" font-weight="700" fill="#d97a10">矿工负荷 → 几秒内降为零</text>
+  <text x="415" y="300" font-size="11" fill="#8a8a93">把兆瓦级电力让给空调，还拿到电网补贴</text>
+
+  <!-- 网格容量线 -->
+  <line x1="70" y1="150" x2="700" y2="150" stroke="#b05252" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <text x="695" y="143" text-anchor="end" font-size="11" fill="#b05252">电网红色警戒线</text>
+
+  <!-- 结论 -->
+  <rect x="70" y="322" width="630" height="26" rx="8" fill="#f7931a" opacity="0.1"/>
+  <text x="385" y="340" text-anchor="middle" font-size="12" font-weight="600" fill="#55555e">矿工是电网史上第一个「按需消失」的工业负载：不是缺陷，是可调度的灵活性</text>
+</svg>

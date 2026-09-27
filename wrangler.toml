@@ -1,0 +1,8 @@
+# Cloudflare Pages 部署配置
+# 方式一（推荐）：Cloudflare Dashboard 连接 GitHub 仓库，
+#   构建命令: npm run build
+#   输出目录: docs/.vitepress/dist
+# 方式二：wrangler pages deploy（使用本文件）
+name = "btc-wiki"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = "docs/.vitepress/dist"

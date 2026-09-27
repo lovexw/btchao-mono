@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="PingFang SC, Microsoft YaHei, Noto Sans SC, sans-serif">
+  <rect x="0" y="0" width="760" height="330" rx="14" fill="#f8f8f9"/>
+  <rect x="0.5" y="0.5" width="759" height="329" rx="13.5" fill="none" stroke="#e2e2e6"/>
+  <text x="380" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#24292f">一笔交易：UTXO 整笔消耗，找零回到自己</text>
+
+  <!-- 输入 UTXO -->
+  <g>
+    <rect x="48" y="92" width="170" height="72" rx="10" fill="#ffffff" stroke="#f7931a" stroke-width="1.6"/>
+    <text x="133" y="118" text-anchor="middle" font-size="13" font-weight="700" fill="#d97a10">爱丽丝的 UTXO</text>
+    <text x="133" y="142" text-anchor="middle" font-size="15" font-weight="800" fill="#24292f">1.000 BTC</text>
+    <text x="133" y="186" text-anchor="middle" font-size="11.5" fill="#8a8a93">整笔消耗 · 不找零就花不了</text>
+  </g>
+
+  <!-- 交易框 -->
+  <g>
+    <line x1="222" y1="128" x2="288" y2="128" stroke="#c9c9cf" stroke-width="1.6" marker-end="url(#arr)"/>
+    <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c9c9cf"/></marker></defs>
+    <rect x="292" y="94" width="176" height="68" rx="10" fill="#24292f"/>
+    <text x="380" y="121" text-anchor="middle" font-size="13.5" font-weight="700" fill="#ffffff">交易 TX</text>
+    <text x="380" y="143" text-anchor="middle" font-size="10.5" fill="#b9b9c2">爱丽丝签名 · 广播全网 · 矿工打包</text>
+  </g>
+
+  <!-- 输出 -->
+  <g>
+    <line x1="472" y1="112" x2="538" y2="112" stroke="#c9c9cf" stroke-width="1.6" marker-end="url(#arr)"/>
+    <line x1="472" y1="146" x2="538" y2="146" stroke="#c9c9cf" stroke-width="1.6" marker-end="url(#arr)"/>
+    <line x1="472" y1="176" x2="538" y2="210" stroke="#e05252" stroke-width="1.6" stroke-dasharray="4 3" marker-end="url(#arr2)"/>
+
+    <rect x="542" y="86" width="172" height="52" rx="10" fill="#ffffff" stroke="#f7931a" stroke-width="1.6"/>
+    <text x="628" y="107" text-anchor="middle" font-size="12" font-weight="700" fill="#d97a10">给鲍勃的新 UTXO</text>
+    <text x="628" y="127" text-anchor="middle" font-size="13.5" font-weight="800" fill="#24292f">0.500 BTC</text>
+
+    <rect x="542" y="148" width="172" height="52" rx="10" fill="#ffffff" stroke="#f7931a" stroke-width="1.6"/>
+    <text x="628" y="169" text-anchor="middle" font-size="12" font-weight="700" fill="#d97a10">爱丽丝的找零（新地址）</text>
+    <text x="628" y="189" text-anchor="middle" font-size="13.5" font-weight="800" fill="#24292f">0.499 BTC</text>
+
+    <text x="640" y="232" font-size="12.5" font-weight="700" fill="#e05252">0.001 BTC 手续费</text>
+    <text x="640" y="250" font-size="11" fill="#8a8a93">输入 − 输出的差额 · 归矿工</text>
+  </g>
+
+  <text x="380" y="296" text-anchor="middle" font-size="12" fill="#55555e">找零去往钱包自动生成的新地址——这就是为什么地址不该复用</text>
+  <text x="380" y="314" text-anchor="middle" font-size="11" fill="#8a8a93">像现金：递出整张钞票，店家找你零钱，而不是从你的钞票上剪一块</text>
+</svg>
