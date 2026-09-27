@@ -1,0 +1,65 @@
+name: Update BTC Price and AHR999 Data (sites/ahr-dca)
+
+# 自 sites/ahr-dca（原 ahr-dca 仓库）迁移适配：
+# - 数据脚本在 sites/ahr-dca/ 下运行，产物提交回 sites/ahr-dca/
+# - 原仓库里的 GitHub Pages 部署段已删除：monorepo 中由
+#   Cloudflare Pages 的 watch paths（sites/ahr-dca/**）接管部署
+on:
+  schedule:
+    # 北京时间凌晨 1:00（UTC 17:00）
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-ahr-dca
+  cancel-in-progress: false
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Update Bitcoin price (with gap backfill)
+        working-directory: sites/ahr-dca
+        run: |
+          python update_btc_price.py
+
+      - name: Calculate AHR999 index and strategies
+        working-directory: sites/ahr-dca
+        run: |
+          python calculate_ahr999.py
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        run: |
+          git add "sites/ahr-dca/btc-price all.csv" sites/ahr-dca/ahr999_data.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🤖 Update BTC price and AHR999 data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+          fi

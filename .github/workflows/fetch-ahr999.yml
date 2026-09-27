@@ -1,0 +1,54 @@
+name: Fetch AHR999 Data (sites/ahr999)
+
+# 自 sites/ahr999（原 ahr999-free 仓库）迁移适配：
+# 数据文件 public/ahr999-data.json → sites/ahr999/public/ahr999-data.json
+# 提交只触碰 sites/ahr999/**，经 watch paths 只会触发 ahr999 分站重部署
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-ahr999
+  cancel-in-progress: false
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch AHR999 data
+        run: |
+          set -euo pipefail
+          tmp_file="$(mktemp)"
+          curl -fsSL https://9992100.xyz/api/ahr999 -o "$tmp_file"
+
+          python3 - "$tmp_file" <<'PY'
+          import json
+          import sys
+
+          path = sys.argv[1]
+          with open(path, 'r', encoding='utf-8') as f:
+              data = json.load(f)
+
+          required = ["ahr999", "price_usd", "gma200_usd", "coin_age_days", "index_growth_valuation_usd", "updated_at_unix"]
+          missing = [k for k in required if k not in data]
+          if missing:
+              raise SystemExit(f"Missing keys in API response: {missing}")
+          PY
+
+          mv "$tmp_file" sites/ahr999/public/ahr999-data.json
+          echo "Data fetched successfully"
+          cat sites/ahr999/public/ahr999-data.json
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add sites/ahr999/public/ahr999-data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update AHR999 data - $(date -u +"%Y-%m-%d %H:%M:%S UTC")" && git push)
