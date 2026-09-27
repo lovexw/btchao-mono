@@ -44,6 +44,9 @@ scripts/      迁移与运维脚本
 
 # 新增一个分站（详见 docs/NEW-SITE-SOP.md）
 cp -r sites/_template sites/mysite
+
+# 改统一风格后分发到全部站点（详见 docs/STYLE-GUIDE.md）
+./scripts/sync-shared.sh
 ```
 
 ## 本地预览某个站

@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>新分站 · btchao.com</title>
   <meta name="description" content="一句话说明这个分站是干什么的">
-  <!-- 统一风格接入（部署后走 assets.btchao.com；assets 站上线前本地预览可临时用相对路径） -->
-  <link rel="stylesheet" href="https://assets.btchao.com/styles/tokens.css?v=1">
+  <!-- 统一风格接入：btc-shared/ 由 scripts/sync-shared.sh 从 shared/ 同步而来（改风格只改 shared/ 再跑同步脚本） -->
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css">
   <style>
     /* 站内私有样式写这里；公共的颜色字体一律用 var(--btc-…) */
     .wrap { max-width: 860px; margin: 0 auto; padding: var(--btc-space-lg); }
@@ -32,7 +32,7 @@
 
     <!-- 统一页脚挂载点：免责声明 / 返回主站 / 赞助地址 都由 footer.js 注入 -->
     <div id="btc-footer"></div>
-    <script src="https://assets.btchao.com/footer.js?v=1" defer></script>
+    <script src="btc-shared/footer.js" defer></script>
   </div>
 </body>
 </html>

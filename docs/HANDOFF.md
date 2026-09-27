@@ -11,6 +11,7 @@
 | 资源 | 位置 | 状态 |
 |---|---|---|
 | monorepo 仓库 | https://github.com/lovexw/btchao-mono | ✅ 已建，main 分支，13 个分站代码全部就位 |
+| 统一风格 | shared/ → 各站 btc-shared/ | ✅ 全站归一完成并验证（见 STYLE-GUIDE §7） |
 | 试点测试站（直传型） | https://btchao-paper-test.pages.dev | ✅ 在线，内容与线上正式站逐字节一致 |
 | 4 个根级 workflow | `.github/workflows/` | ✅ 已建好（见下文"自动化双轨"） |
 | 统一风格资产 | `shared/`（tokens.css + footer.js） | ✅ 已完成，页脚用真实赞助地址 |
@@ -89,7 +90,7 @@ git revert HEAD && git push
 | btchao-ahr-dca | `sites/ahr-dca` | 留空 | `/` |
 | btchao-wiki | `sites/wiki` | `npm ci && npm run build` | `docs/.vitepress/dist` |
 | btchao-flash-buy | `sites/flash-buy` | `npm ci && npm run build` | `dist` |
-| btchao-assets | `shared` | 留空 | `/` |
+| btchao-assets（可选） | `shared` | 留空 | `/` |
 
 每站的 **Build watch paths 都是两行**：`sites/<目录名>/**` 和 `shared/**`（assets 项目只填 `shared/**`）。
 
@@ -97,7 +98,7 @@ git revert HEAD && git push
 
 ### 第 4 步 · 域名切换（低峰期做，逐站进行，全程分钟级）
 
-对每个站（含 assets 绑 assets.btchao.com）：
+对每个站进行域名切换（assets 站为可选项，统一风格已改用本地副本机制，可不建）：
 
 1. 旧 Pages 项目 → Custom domains → **Remove** 该子域名
 2. 新项目 → Custom domains → **Set up a custom domain** → 输入子域名 → Activate
@@ -132,7 +133,7 @@ git revert HEAD && git push
 4. **news.btchao.com**：btcnews 仓库**没有**任何 Actions 定时任务，"30 分钟刷新"大概率是前端定时拉 API——这对二期迁移是好消息，但切换前先在线上用 DevTools Network 确认数据源。
 5. **GitHub Actions 免费额度**：公共仓库无限制；3 个 cron 每天合计 8 次运行，无压力。
 6. **monorepo 体积**：当前 ~6MB（不含 node_modules），健康。onekey-help-zh（550MB）永不迁入。
-7. 各站接入统一风格（tokens.css / footer.js）**不要急**，等 assets 站（btchao-assets）上线后按 [STYLE-GUIDE.md](STYLE-GUIDE.md) §6 逐站接入，接一个验一个。
+7. ~~各站接入统一风格~~ **已完成（2026-09-27）**：13 站全部接入 btc-shared 并归一色调，验证记录见 [STYLE-GUIDE.md](STYLE-GUIDE.md) §7。后续改风格 = 改 `shared/` → `./scripts/sync-shared.sh` → push。
 
 ---
 
@@ -140,6 +141,7 @@ git revert HEAD && git push
 
 做完一步就在这里打个勾，方便下次接着看：
 
+- [x] 统一风格全站归一 + 全量验证（2026-09-27）
 - [ ] 第 0 步 登录 Cloudflare
 - [ ] 第 1 步 btchao-paper（Git 连接）建好
 - [ ] 第 2 步 自动部署验证通过

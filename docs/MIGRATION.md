@@ -210,23 +210,14 @@ jobs:
 
 ## 8. 统一风格方案（本次迁移的核心收益）
 
-**方案 A（推荐）：`shared/` 单独部署成一个静态站**
+**机制：`shared/` 唯一真相源 + 各站 `btc-shared/` 本地副本 + 同步脚本**
 
-1. `shared/` 目录本身建一个 Pages 项目（root directory = `shared/`），绑定 `assets.btchao.com`；
-2. 各分站用绝对地址引用（3 行接入）：
+1. `shared/` 存放 tokens.css（标准色板/组件）与 footer.js（统一页脚：免责声明 + 赞助 + 返回主站）；
+2. `./scripts/sync-shared.sh` 把它们分发到每个站的部署目录（构建型站进 public/）；
+3. 各站用相对路径引用 `btc-shared/…`，本地、pages.dev、正式域名全部零依赖；
+4. **改统一风格 = 改 `shared/` → 跑同步脚本 → push**，所有站一次更新、各自自动重部署。
 
-```html
-<link rel="stylesheet" href="https://assets.btchao.com/styles/tokens.css?v=1">
-<div id="btc-footer"></div>
-<script src="https://assets.btchao.com/footer.js?v=1" defer></script>
-```
-
-3. 以后改全局风格 = 只改 `shared/` → assets 项目自动重部署 → **全部接入过的分站立即生效，一次部署都不用跑**。CSS `<link>` 无跨域限制，纯静态站完美适用。
-4. 缓存控制：改了 tokens.css 后把所有引用的 `?v=1` 升到 `?v=2`（或直接 purge assets 域名的缓存）。
-
-**方案 B（备选）**：构建时把 `shared/` 复制进各站目录，各站 watch paths 加 `shared/**`。完全自包含、无外链依赖，但每改一次风格触发 N 次重部署。方案 A 失效时（比如将来要彻底离线）再切换。
-
-`_template/` 和 `sites/_template/index.html` 已按方案 A 写好接入示例。
+详细规范与全站实施记录见 [STYLE-GUIDE.md](STYLE-GUIDE.md) §6、§7。曾设计的 assets.btchao.com 外链方案降级为可选项（见 STYLE-GUIDE §6 说明）。`sites/_template/` 是已接入的标准脚手架。
 
 ## 9. 回滚方案
 
