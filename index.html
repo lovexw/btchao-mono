@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比特币冷钱包制作指南（长期通用版）</title>
+    <meta name="description" content="一份中性、去个人化、可长期公开使用的比特币冷钱包制作说明文档，适合用于网站页面、项目文档或知识库。">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.8;
+            color: #222222;
+            background-color: #FAFAFA;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .objective-box {
+            background: white;
+            border-left: 4px solid #FF9900;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 50px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .objective-box blockquote {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            line-height: 1.6;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-header {
+            font-size: 1.9rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+
+        .section-number {
+            color: #FF9900;
+            margin-right: 12px;
+        }
+
+        .subsection-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            margin: 35px 0 20px 0;
+        }
+
+        .content-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #222222;
+            margin-bottom: 20px;
+        }
+
+        .principle-list,
+        .step-list,
+        .requirement-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .principle-list li,
+        .requirement-list li {
+            padding: 15px 20px;
+            margin: 12px 0;
+            background: #FAFAFA;
+            border-left: 3px solid #FF9900;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .step-list {
+            counter-reset: step-counter;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            padding: 20px 25px 20px 65px;
+            margin: 18px 0;
+            background: #FAFAFA;
+            border-radius: 12px;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #FF9900;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .warning-box {
+            background: #FFF8F0;
+            border: 2px solid #FFE0B2;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .warning-box strong {
+            color: #FF9900;
+            font-size: 1.15rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #F5F5F5;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .comparison-section {
+            margin: 30px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+
+        .comparison-card {
+            background: #FAFAFA;
+            border: 1px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .comparison-card h4 {
+            font-size: 1.2rem;
+            color: #1A1A1A;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .comparison-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .comparison-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 8px;
+            color: #FF9900;
+            font-weight: bold;
+        }
+
+        .device-role {
+            background: #F9F9F9;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .device-role h5 {
+            color: #FF9900;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .flow-diagram {
+            background: white;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .flow-step {
+            background: #FAFAFA;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .flow-arrow {
+            color: #FF9900;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .software-section {
+            margin: 35px 0;
+            padding: 25px;
+            background: #FAFAFA;
+            border-radius: 12px;
+        }
+
+        .software-item {
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border: 1px solid #E0E0E0;
+            border-radius: 10px;
+        }
+
+        .software-item h4 {
+            font-size: 1.3rem;
+            color: #1A1A1A;
+            margin-bottom: 12px;
+        }
+
+        .software-item .label {
+            display: inline-block;
+            background: #FF9900;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 5px 5px 5px 0;
+        }
+
+        .software-item a {
+            color: #FF9900;
+            text-decoration: none;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .software-item a:hover {
+            text-decoration: underline;
+        }
+
+        .link-section {
+            margin: 25px 0;
+        }
+
+        .link-section ul {
+            list-style: none;
+        }
+
+        .link-section ul li {
+            padding: 12px 0;
+        }
+
+        .link-section ul li a {
+            color: #FF9900;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .link-section ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #E0E0E0;
+            margin: 50px 0;
+        }
+
+        .footnote {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 30px 25px;
+            }
+
+            .section-header {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .flow-steps {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .step-list li {
+                padding-left: 55px;
+            }
+
+            .step-list li::before {
+                width: 28px;
+                height: 28px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .section {
+                box-shadow: none;
+                border: 1px solid #E0E0E0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="hero-title">比特币冷钱包制作指南<br>（长期通用版）</h1>
+            <p class="hero-subtitle">
+                本文不涉及价格判断、不包含投资建议，也不推广任何商业产品，仅描述被广泛验证的冷存储方法。<br><br>
+                本文默认对象为：<strong>比特币（Bitcoin）</strong>。
+            </p>
+        </header>
+
+        <div class="objective-box">
+            <blockquote>
+                目标明确且唯一：在任何情况下，让比特币私钥始终保持离线状态。
+            </blockquote>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Section 1 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">一、</span>什么是冷钱包</h2>
+            
+            <p class="content-text">
+                冷钱包（Cold Wallet / Cold Storage）是一种<strong>私钥从生成到使用全过程不接触网络</strong>的钱包使用方式。
+            </p>
+
+            <p class="content-text">
+                冷钱包不是某个特定软件，也不是某种硬件，而是一套安全原则：
+            </p>
+
+            <ul class="principle-list">
+                <li>私钥在离线环境中生成</li>
+                <li>私钥只存在于离线设备或物理介质</li>
+                <li>联网设备仅用于查看余额和广播交易</li>
+            </ul>
+
+            <p class="content-text" style="margin-top: 25px;">
+                只要上述原则被破坏，冷钱包即不再成立。
+            </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">二、</span>使用冷钱包前的基本原则</h2>
+            
+            <p class="content-text">
+                在开始之前，应理解以下基本共识：
+            </p>
+
+            <ul class="principle-list">
+                <li>私钥即资产控制权</li>
+                <li>助记词等同于私钥</li>
+                <li>任何联网行为都会扩大攻击面</li>
+            </ul>
+
+            <p class="content-text" style="margin-top: 25px;">
+                冷钱包的安全性来源于流程约束，而非个人记忆或操作习惯。
+            </p>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">三、</span>手机冷钱包方案（离线设备）</h2>
+            
+            <p class="content-text">
+                本方案适用于使用<strong>不再联网的旧手机</strong>作为冷端设备。
+            </p>
+
+            <h3 class="subsection-title">3.1 设备要求</h3>
+            
+            <ul class="requirement-list">
+                <li>Android 或 iOS 旧手机一台</li>
+                <li>可彻底关闭网络功能</li>
+                <li>不再用于日常通信</li>
+            </ul>
+
+            <p class="content-text">
+                该设备在完成初始化后，应被视为<strong>永久离线设备</strong>。
+            </p>
+
+            <h3 class="subsection-title">3.2 初始化步骤（通用）</h3>
+            
+            <ol class="step-list">
+                <li>恢复出厂设置</li>
+                <li>不登录任何账号（Google / Apple ID）</li>
+                <li>不插入 SIM 卡</li>
+                <li>开启飞行模式</li>
+                <li>确认 Wi‑Fi、蓝牙、蜂窝网络均已关闭</li>
+            </ol>
+
+            <p class="content-text">
+                完成以上步骤后，设备应处于完全离线状态。
+            </p>
+
+            <h3 class="subsection-title">3.3 生成钱包与助记词</h3>
+            
+            <p class="content-text">在离线状态下：</p>
+
+            <ol class="step-list">
+                <li>打开已安装的钱包软件</li>
+                <li>创建新钱包</li>
+                <li>生成助记词（12 或 24 个英文单词）</li>
+            </ol>
+
+            <div class="warning-box">
+                <strong>助记词必须：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>手写记录</li>
+                    <li>至少备份两份</li>
+                    <li>不进行拍照、截图或电子存储</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">四、</span>电脑冷钱包方案（双设备模型）</h2>
+            
+            <p class="content-text">
+                该方案适用于希望获得更高可验证性的用户。
+            </p>
+
+            <h3 class="subsection-title">4.1 设备角色划分</h3>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>冷端电脑</h4>
+                    <ul>
+                        <li>永不联网</li>
+                        <li>保存私钥</li>
+                        <li>用于离线签名</li>
+                    </ul>
+                </div>
+                <div class="comparison-card">
+                    <h4>热端电脑</h4>
+                    <ul>
+                        <li>正常联网</li>
+                        <li>不保存私钥</li>
+                        <li>用于查看余额和广播交易</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">4.2 冷端电脑准备</h3>
+            
+            <ul class="requirement-list">
+                <li>全新或重装系统（Windows / macOS）</li>
+                <li>禁用网络硬件</li>
+                <li>通过 U 盘安装钱包软件</li>
+            </ul>
+
+            <p class="content-text">
+                冷端完成初始化后，不应再次连接网络。
+            </p>
+
+            <h3 class="subsection-title">4.3 创建观察钱包（Watch-only）</h3>
+            
+            <p class="content-text">在冷端生成钱包后：</p>
+
+            <ol class="step-list">
+                <li>导出主公钥（xpub）</li>
+                <li>在热端创建新钱包</li>
+                <li>使用 xpub 创建观察钱包</li>
+            </ol>
+
+            <div class="info-box">
+                <strong>观察钱包具备以下特性：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>可生成收款地址</li>
+                    <li>可查看余额</li>
+                    <li>无法签名交易</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">五、</span>离线签名与交易流程</h2>
+            
+            <p class="content-text">标准冷钱包交易流程如下：</p>
+
+            <div class="flow-diagram">
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <strong>1. 热端构建</strong><br>
+                        未签名交易
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>2. U盘传输</strong><br>
+                        至冷端
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>3. 冷端签名</strong><br>
+                        离线签名交易
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <strong>4. 传回热端</strong><br>
+                        广播至网络
+                    </div>
+                </div>
+            </div>
+
+            <p class="content-text" style="margin-top: 30px;">
+                整个过程中，私钥始终停留在离线环境。
+            </p>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">六、</span>助记词与私钥保存建议</h2>
+            
+            <div class="comparison-section">
+                <h3 class="subsection-title">推荐做法</h3>
+                <ul class="principle-list">
+                    <li>纸质备份</li>
+                    <li>分散存放</li>
+                    <li>防火、防水介质（如金属助记词板）</li>
+                </ul>
+
+                <h3 class="subsection-title">应避免的行为</h3>
+                <ul class="principle-list">
+                    <li>云端存储</li>
+                    <li>聊天工具传输</li>
+                    <li>输入至联网设备</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <strong>重要提醒</strong>
+                <p style="margin-top: 10px;">任何能被复制的电子形式，都不适合存放私钥。</p>
+            </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">七、</span>常见风险来源</h2>
+            
+            <p class="content-text">
+                冷钱包失效通常源于以下情况：
+            </p>
+
+            <ul class="principle-list">
+                <li>离线设备重新联网</li>
+                <li>私钥被拍照或数字化</li>
+                <li>冷端与热端混用</li>
+                <li>备份不足或集中存放</li>
+            </ul>
+
+            <p class="content-text" style="margin-top: 25px;">
+                冷钱包依赖流程一致性，而非个人经验。
+            </p>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="section">
+            <h2 class="section-header"><span class="section-number">八、</span>推荐软件与官方地址</h2>
+            
+            <p class="content-text">
+                以下工具均为开源项目，长期被比特币社区使用和审计。
+            </p>
+
+            <div class="software-section">
+                <div class="software-item">
+                    <h4>Electrum</h4>
+                    <div>
+                        <span class="label">冷钱包</span>
+                        <span class="label">观察钱包</span>
+                        <span class="label">离线签名</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>平台：</strong>Windows / macOS / Linux / Android
+                    </p>
+                    <p>
+                        <strong>官方下载地址：</strong><br>
+                        <a href="https://electrum.org" target="_blank" rel="noopener">https://electrum.org</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Bitcoin Core（进阶）</h4>
+                    <div>
+                        <span class="label">全节点</span>
+                        <span class="label">钱包功能</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>安全性最高，维护成本较高
+                    </p>
+                    <p>
+                        <strong>官方下载地址：</strong><br>
+                        <a href="https://bitcoincore.org" target="_blank" rel="noopener">https://bitcoincore.org</a>
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">手机端离线钱包推荐</h3>
+            
+            <p class="content-text">
+                以下手机端钱包应用支持在离线状态下生成助记词，适合作为冷钱包使用：
+            </p>
+
+            <div class="software-section">
+                <div class="software-item">
+                    <h4>BlueWallet</h4>
+                    <div>
+                        <span class="label">iOS</span>
+                        <span class="label">Android</span>
+                        <span class="label">离线生成</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>界面友好，支持离线生成助记词，开源
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://bluewallet.io" target="_blank" rel="noopener">https://bluewallet.io</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Samourai Wallet</h4>
+                    <div>
+                        <span class="label">Android</span>
+                        <span class="label">隐私增强</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>注重隐私保护，支持离线模式，开源
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://samouraiwallet.com" target="_blank" rel="noopener">https://samouraiwallet.com</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Blockstream Green</h4>
+                    <div>
+                        <span class="label">iOS</span>
+                        <span class="label">Android</span>
+                        <span class="label">多重签名</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>支持多重签名，可离线生成助记词，开源
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://blockstream.com/green" target="_blank" rel="noopener">https://blockstream.com/green</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>imToken</h4>
+                    <div>
+                        <span class="label">iOS</span>
+                        <span class="label">Android</span>
+                        <span class="label">离线生成</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>支持离线生成助记词，界面友好，支持中文
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://token.im" target="_blank" rel="noopener">https://token.im</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>比特派 (Bitpie)</h4>
+                    <div>
+                        <span class="label">iOS</span>
+                        <span class="label">Android</span>
+                        <span class="label">离线生成</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>支持离线生成助记词，支持中文，易于使用
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://bitpie.com" target="_blank" rel="noopener">https://bitpie.com</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Sparrow Wallet（桌面端）</h4>
+                    <div>
+                        <span class="label">Windows</span>
+                        <span class="label">macOS</span>
+                        <span class="label">Linux</span>
+                    </div>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>专业级比特币钱包，支持完整的冷钱包工作流程，开源
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://sparrowwallet.com" target="_blank" rel="noopener">https://sparrowwallet.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">硬件钱包推荐</h3>
+            
+            <p class="content-text">
+                对于大多数人而言，硬件钱包是一个不错的选择。硬件钱包将私钥存储在专用的安全芯片中，即使连接到被感染的电脑也能保持安全。以下是一些主流的硬件钱包选项（不分先后）：
+            </p>
+
+            <div class="software-section">
+                <div class="software-item">
+                    <h4>Ledger</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>系列：</strong>Ledger Nano S Plus、Ledger Nano X 等<br>
+                        <strong>特点：</strong>安全芯片认证，支持多种加密货币，配备安全显示屏
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://www.ledger.com" target="_blank" rel="noopener">https://www.ledger.com</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Trezor</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>系列：</strong>Trezor One、Trezor Model T 等<br>
+                        <strong>特点：</strong>开源固件，触摸屏操作，社区支持广泛
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://trezor.io" target="_blank" rel="noopener">https://trezor.io</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Coldcard</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>专注于比特币，完全离线操作，支持空气隔离（air-gapped），开源
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://coldcard.com" target="_blank" rel="noopener">https://coldcard.com</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>BitBox</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>系列：</strong>BitBox02<br>
+                        <strong>特点：</strong>瑞士设计，开源硬件和软件，简洁易用
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://shiftcrypto.ch" target="_blank" rel="noopener">https://shiftcrypto.ch</a>
+                    </p>
+                </div>
+
+                <div class="software-item">
+                    <h4>Foundation Passport</h4>
+                    <p style="margin: 15px 0; color: #666;">
+                        <strong>特点：</strong>开源设计，无需电脑连接，支持 QR 码离线签名
+                    </p>
+                    <p>
+                        <strong>官方网站：</strong><br>
+                        <a href="https://foundationdevices.com" target="_blank" rel="noopener">https://foundationdevices.com</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="warning-box">
+                <strong>硬件钱包使用注意事项：</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>务必从官方渠道购买，避免购买二手或来路不明的设备</li>
+                    <li>首次使用时自行生成助记词，切勿使用预装的助记词</li>
+                    <li>妥善保管助记词备份，硬件钱包损坏时可用于恢复</li>
+                    <li>定期检查官方固件更新，但需验证更新来源</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">官方参考资料</h3>
+            
+            <div class="link-section">
+                <ul>
+                    <li><a href="https://bitcoin.org/choose-your-wallet" target="_blank" rel="noopener">https://bitcoin.org/choose-your-wallet</a></li>
+                    <li><a href="https://bitcoin.org/secure-your-wallet" target="_blank" rel="noopener">https://bitcoin.org/secure-your-wallet</a></li>
+                    <li><a href="https://electrum.readthedocs.io/en/latest/coldstorage.html" target="_blank" rel="noopener">https://electrum.readthedocs.io/en/latest/coldstorage.html</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Disclaimer Section -->
+        <section class="section">
+            <h2 class="section-header">免责声明</h2>
+            
+            <div class="warning-box">
+                <strong>重要提示</strong>
+                <p style="margin-top: 15px; line-height: 1.8;">
+                    本文档仅供学习和参考之用，不构成任何投资建议或安全保证。使用冷钱包涉及技术操作和资产管理，<strong>所有风险由使用者自行承担</strong>。
+                </p>
+            </div>
+
+            <p class="content-text" style="margin-top: 25px;">
+                在使用冷钱包之前，您需要：
+            </p>
+
+            <ul class="principle-list">
+                <li><strong>深入理解比特币的基本概念：</strong>包括但不限于私钥、公钥、助记词、地址派生、交易签名等核心技术原理</li>
+                <li><strong>掌握冷钱包安全知识：</strong>了解冷热分离、离线签名、安全备份等操作流程和潜在风险点</li>
+                <li><strong>具备基本的计算机安全意识：</strong>能够识别钓鱼攻击、恶意软件、供应链攻击等常见威胁</li>
+                <li><strong>对自己的操作负责：</strong>私钥一旦丢失或泄露，资产将无法找回，没有任何机构可以帮您恢复</li>
+            </ul>
+
+            <p class="content-text" style="margin-top: 25px;">
+                本文档中提及的任何软件、硬件或服务仅作为技术参考，不代表推荐或背书。在选择和使用任何工具之前，请务必：
+            </p>
+
+            <ul class="principle-list">
+                <li>自行进行充分的调研和验证</li>
+                <li>从官方渠道获取软件和硬件</li>
+                <li>阅读官方文档和安全指南</li>
+                <li>在小额测试后再进行大额操作</li>
+                <li>定期关注安全公告和社区反馈</li>
+            </ul>
+
+            <div class="info-box" style="margin-top: 30px;">
+                <p style="font-weight: 600; color: #1A1A1A; margin-bottom: 10px;">
+                    加密货币资产管理是一项严肃的技术活动，需要持续学习和谨慎操作。
+                </p>
+                <p style="color: #666;">
+                    如果您对上述内容不够了解或缺乏信心，建议先进行系统学习，或咨询专业人士，切勿盲目操作。
+                </p>
+            </div>
+
+            <p class="footnote" style="margin-top: 25px; text-align: center; font-weight: 600;">
+                使用本文档所述方法产生的任何后果，均由使用者自行承担。
+            </p>
+        </section>
+
+        <footer>
+            <p>本文档遵循开放、中性、教育性原则，不构成任何投资建议。</p>
+            <p style="margin-top: 10px; color: #999;">最后更新：2025年</p>
+        </footer>
+    </div>
+</body>
+</html>
