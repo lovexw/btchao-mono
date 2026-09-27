@@ -1,0 +1,15 @@
+{
+  "id": 0,
+  "date": "YYYY-MM-DD",
+  "institution": "机构或公司名称",
+  "person": "预测者姓名（可选，没有则留空）",
+  "role": "职位或头衔（可选，没有则留空）",
+  "targetPrice": 0,
+  "targetDate": "预期达到的时间（如：2026、2026年Q1、2026年中等）",
+  "sentiment": "bullish 或 bearish 或 neutral",
+  "content": "预测的详细内容描述...",
+  "sourceUrl": "https://原文链接",
+  "change": 0,
+  "longTermPrice": 0,
+  "longTermDate": "长期目标时间（可选）"
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="比特币价格预测归档 — 收录 2025–2045 年全球金融机构与知名分析师对比特币价格的真实预测：原话言论、目标价、来源链接与年度目标价图谱。渣打银行、摩根大通、花旗、贝莱德、ARK、Galaxy、Tom Lee、Michael Saylor、Arthur Hayes 等。">
+    <meta name="keywords" content="比特币,BTC,价格预测,2026,2027,2028,Bitcoin,加密货币,机构预测,渣打银行,摩根大通,贝莱德,Saylor,Tom Lee">
+    <meta name="author" content="BTC Predictions Archive">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="比特币价格预测归档 | BTC Predictions Archive">
+    <meta property="og:description" content="收录全球机构与分析师对比特币价格的真实预测：言论、目标价与来源链接，覆盖 2026 / 2027 / 2028 / 2030+">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="比特币价格预测归档">
+    <meta name="twitter:description" content="收录全球机构与分析师对比特币价格的真实预测：言论、目标价与来源链接">
+
+    <title>比特币价格预测归档 | BTC Predictions Archive</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#top">
+                <span class="nav-logo-icon">₿</span>
+                <span class="nav-logo-text">比特币价格预测归档</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-price" id="navPrice" title="比特币实时价格">
+                    <span class="nav-price-dot"></span>
+                    <span id="navPriceValue">—</span>
+                </div>
+                <button class="icon-btn" id="themeToggle" aria-label="切换主题" title="切换主题">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="top">
+        <!-- 主视觉 -->
+        <header class="hero">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-orb hero-orb-1"></div>
+                <div class="hero-orb hero-orb-2"></div>
+                <div class="hero-grid"></div>
+            </div>
+            <div class="container hero-inner">
+                <p class="hero-eyebrow">BTC PREDICTIONS ARCHIVE · 2025 — 2045</p>
+                <h1 class="hero-title">比特币价格预测<span class="hero-title-accent">归档</span></h1>
+                <p class="hero-sub">
+                    收录全球主流机构与知名分析师的<b>真实预测</b>：原话言论、目标价、来源链接。<br class="br-desktop">
+                    从渣打、花旗、摩根大通到 Saylor 与 Tom Lee —— 多空观点，一目了然。
+                </p>
+
+                <!-- 实时价格面板 -->
+                <div class="live-panel">
+                    <div class="live-panel-main">
+                        <span class="live-panel-label">₿ 比特币实时价格</span>
+                        <span class="live-panel-value" id="livePrice">—</span>
+                        <span class="live-panel-time" id="priceUpdateTime">正在获取…</span>
+                    </div>
+                    <div class="live-panel-side">
+                        <div class="live-panel-progress-label"><span>距 $100,000</span><span id="distanceTo100k">—</span></div>
+                        <div class="live-panel-progress"><div class="live-panel-progress-bar" id="priceProgressBar"></div></div>
+                    </div>
+                </div>
+
+                <!-- 统计 chips -->
+                <div class="hero-stats" id="heroStats">
+                    <div class="hero-stat"><span class="hero-stat-value" id="statTotal">—</span><span class="hero-stat-label">预测记录</span></div>
+                    <div class="hero-stat"><span class="hero-stat-value" id="statInstitutions">—</span><span class="hero-stat-label">机构 / 分析师</span></div>
+                    <div class="hero-stat"><span class="hero-stat-value" id="statBullRatio">—</span><span class="hero-stat-label">看涨占比</span></div>
+                    <div class="hero-stat"><span class="hero-stat-value" id="statYear26">—</span><span class="hero-stat-label">2026 目标中位</span></div>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#chartSection">📊 查看年度目标价图谱</a>
+                    <a class="btn btn-ghost" href="#predictions">📜 浏览全部预测</a>
+                    <a class="btn btn-ghost" href="https://github.com/lovexw/btc-yuyan" target="_blank" rel="noopener noreferrer">⭐ GitHub 仓库</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- 年度目标价图谱 -->
+            <section class="section" id="chartSection">
+                <div class="section-head">
+                    <h2 class="section-title">年度目标价图谱</h2>
+                    <p class="section-desc">各年度机构目标价的最低 — 最高分布（对数坐标），点击年份可筛选下方列表。<span class="hint">菱形 = 均值，虚线 = 当前市价</span></p>
+                </div>
+                <div class="chart-card">
+                    <div id="yearChart"></div>
+                    <div class="year-chips" id="yearChips"></div>
+                </div>
+            </section>
+
+            <!-- 搜索和筛选 -->
+            <section class="section" id="predictions">
+                <div class="section-head">
+                    <h2 class="section-title">全部预测记录</h2>
+                    <p class="section-desc" id="resultCount">—</p>
+                </div>
+                <div class="controls">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="搜索机构、人名或预测内容…" />
+                        <span class="search-icon">🔍</span>
+                    </div>
+                    <div class="filter-row">
+                        <div class="chip-group" id="sentimentChips" role="group" aria-label="情绪筛选">
+                            <button class="chip active" data-sentiment="all">全部</button>
+                            <button class="chip chip-bull" data-sentiment="bullish">📈 看涨</button>
+                            <button class="chip chip-bear" data-sentiment="bearish">📉 看跌</button>
+                            <button class="chip chip-neutral" data-sentiment="neutral">➡️ 中性</button>
+                        </div>
+                        <select id="sortBy" class="filter-select" aria-label="排序方式">
+                            <option value="date-desc">日期 (新→旧)</option>
+                            <option value="date-asc">日期 (旧→新)</option>
+                            <option value="price-desc">价格 (高→低)</option>
+                            <option value="price-asc">价格 (低→高)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 预测卡片 -->
+                <section class="predictions" id="predictionsContainer"></section>
+            </section>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-cards">
+                    <a class="footer-card" href="https://github.com/lovexw/btc-yuyan" target="_blank" rel="noopener noreferrer">
+                        <span class="footer-card-icon">🐙</span>
+                        <span class="footer-card-title">GitHub 仓库</span>
+                        <span class="footer-card-desc">github.com/lovexw/btc-yuyan<br>欢迎 Star · 提交新预测</span>
+                    </a>
+                    <a class="footer-card" href="https://www.btchao.com" target="_blank" rel="noopener noreferrer">
+                        <span class="footer-card-icon">₿</span>
+                        <span class="footer-card-title">比特囤币</span>
+                        <span class="footer-card-desc">www.btchao.com<br>AHR999 指数 · 囤比特币</span>
+                    </a>
+                    <a class="footer-card" href="https://www.xiaowuleyi.com" target="_blank" rel="noopener noreferrer">
+                        <span class="footer-card-icon">🐋</span>
+                        <span class="footer-card-title">小吴乐意</span>
+                        <span class="footer-card-desc">www.xiaowuleyi.com<br>乐意见证比特币的每个周期</span>
+                    </a>
+                </div>
+                <div class="footer-meta">
+                    <p>数据来源于公开报道，仅供研究参考，不构成任何投资建议 · 投资有风险，入场需谨慎</p>
+                    <p class="footer-links">
+                        <a href="https://github.com/lovexw/btc-yuyan" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        <span>·</span>
+                        <a href="https://www.btchao.com" target="_blank" rel="noopener noreferrer">比特囤币</a>
+                        <span>·</span>
+                        <a href="https://www.xiaowuleyi.com" target="_blank" rel="noopener noreferrer">小吴乐意</a>
+                        <span>·</span>
+                        <span id="lastUpdated">最后更新: -</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
