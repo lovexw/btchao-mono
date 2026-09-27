@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bitcoin-orange: #F7931A;
+  --color-bitcoin-gray: #4D4D4D;
+  --color-bitcoin-dark: #1A1A1A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased font-medium;
+  }
+}
