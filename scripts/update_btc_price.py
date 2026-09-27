@@ -1,0 +1,169 @@
+import pandas as pd
+import requests
+from datetime import datetime, timedelta
+import pytz
+import sys
+import os
+import time
+
+CSV_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'public', 'btc-price.csv')
+
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+}
+
+
+def get_btc_price():
+    max_retries = 3
+    retry_delay = 5  # 秒
+    
+    for attempt in range(max_retries):
+        try:
+            # 使用实时价格 API 替代历史价格 API
+            url = "https://api.coingecko.com/api/v3/simple/price"
+            params = {
+                "ids": "bitcoin",
+                "vs_currencies": "usd"
+            }
+            # 添加 User-Agent 头，避免被封禁
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
+            }
+            response = requests.get(url, params=params, headers=headers, timeout=30)
+            response.raise_for_status()
+            
+            data = response.json()
+            if 'bitcoin' not in data:
+                raise ValueError("Invalid API response format")
+                
+            price = data['bitcoin']['usd']
+            
+            # 获取当前日期（上海时区）
+            tz = pytz.timezone('Asia/Shanghai')
+            current_date = datetime.now(tz).strftime('%Y-%m-%d')
+            
+            # 修改文件路径为相对路径
+            script_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            csv_path = os.path.join(script_dir, 'public', 'btc-price.csv')
+            
+            try:
+                # 读取现有的 CSV 文件
+                existing_df = pd.read_csv(csv_path)
+                
+                # 重命名列以匹配代码中的格式
+                existing_df = existing_df.rename(columns={
+                    'date': 'Date',
+                    'btc price': 'Price'
+                })
+                
+                # 确保日期格式统一
+                existing_df['Date'] = pd.to_datetime(existing_df['Date']).dt.strftime('%Y-%m-%d')
+            except FileNotFoundError:
+                # 如果文件不存在，创建新的 DataFrame
+                existing_df = pd.DataFrame(columns=['Date', 'Price'])
+            
+            # 检查是否已存在该日期的数据
+            if current_date in existing_df['Date'].values:
+                print(f"Data for {current_date} already exists")
+                return
+                
+            # 创建新的数据行
+            new_row = pd.DataFrame({
+                'Date': [current_date],
+                'Price': [price]
+            })
+            
+            # 添加新数据并按日期排序
+            df = pd.concat([existing_df, new_row], ignore_index=True)
+            df['Date'] = pd.to_datetime(df['Date'])
+            df = df.sort_values('Date', ascending=False)  # 按日期降序排序
+            
+            # 保存更新后的数据
+            # 保存时重命名回原始列名
+            df = df.rename(columns={
+                'Date': 'date',
+                'Price': 'btc price'
+            })
+            df.to_csv(csv_path, index=False, date_format='%Y-%m-%d')
+            print(f"Successfully updated BTC price for {current_date}: ${price}")
+            
+        except requests.exceptions.RequestException as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} failed. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+                continue
+            print(f"API request failed after {max_retries} attempts: {str(e)}")
+            sys.exit(1)
+        except Exception as e:
+            print(f"Error occurred: {str(e)}")
+            sys.exit(1)
+        break  # 如果成功就跳出重试循环
+
+def backfill_missing_dates():
+    """检测 CSV 中的日期缺口并从 CoinGecko 历史 API 回补，避免定时任务漏跑造成数据缺失。"""
+    max_retries = 3
+    retry_delay = 5
+
+    for attempt in range(max_retries):
+        try:
+            df = pd.read_csv(CSV_PATH)
+            dates = pd.to_datetime(df['date']).dt.strftime('%Y-%m-%d')
+            have = set(dates)
+            all_days = pd.date_range(dates.min(), dates.max(), freq='D').strftime('%Y-%m-%d')
+            missing = [d for d in all_days if d not in have]
+
+            if not missing:
+                print("No missing dates found")
+                return
+
+            print(f"Found {len(missing)} missing dates: {missing}")
+
+            new_rows = []
+            for missing_date in missing:
+                # CoinGecko 历史 API 日期格式为 DD-MM-YYYY，返回该日 00:00 UTC 价格
+                url = "https://api.coingecko.com/api/v3/coins/bitcoin/history"
+                params = {
+                    "date": datetime.strptime(missing_date, '%Y-%m-%d').strftime('%d-%m-%Y'),
+                    "localization": "false",
+                    "tickers": "false",
+                    "market_data": "true",
+                    "community_data": "false",
+                    "developer_data": "false"
+                }
+                response = requests.get(url, params=params, headers=HEADERS, timeout=30)
+                response.raise_for_status()
+
+                price = response.json().get('market_data', {}).get('current_price', {}).get('usd')
+                if price is None:
+                    print(f"No price data for {missing_date}, skipping")
+                    continue
+
+                new_rows.append({'Date': missing_date, 'Price': round(price)})
+                print(f"Backfilled {missing_date}: ${round(price)}")
+                time.sleep(2)  # 避免触发 API 限流
+
+            if not new_rows:
+                return
+
+            new_df = pd.DataFrame(new_rows)
+            df = pd.concat([df.rename(columns={'date': 'Date', 'btc price': 'Price'}), new_df], ignore_index=True)
+            df['Date'] = pd.to_datetime(df['Date'])
+            df = df.sort_values('Date', ascending=False)
+            df = df.rename(columns={'Date': 'date', 'Price': 'btc price'})
+            df.to_csv(CSV_PATH, index=False, date_format='%Y-%m-%d')
+            print(f"Successfully backfilled {len(new_rows)} missing dates")
+
+        except requests.exceptions.RequestException as e:
+            if attempt < max_retries - 1:
+                print(f"Attempt {attempt + 1} failed. Retrying in {retry_delay} seconds...")
+                time.sleep(retry_delay)
+                continue
+            print(f"Backfill request failed after {max_retries} attempts: {str(e)}")
+        except Exception as e:
+            print(f"Backfill error: {str(e)}")
+        break
+
+
+if __name__ == "__main__":
+    get_btc_price()
+    backfill_missing_dates()
