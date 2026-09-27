@@ -1,0 +1,91 @@
+/* ============================================================
+   btchao.com 全站统一设计令牌 v1.0 (design tokens)
+   色值来源：www.btchao.com 线上样式高频色统计 (2026-09-27)
+   标准橙锚点 #FF9900 —— 全站唯一品牌色
+   由 scripts/sync-shared.sh 分发为各站的 btc-shared/ 本地副本，
+   各分站以相对路径引用；改这里 = 改全站
+   ============================================================ */
+
+:root {
+  /* 品牌色 —— 比特币橙 */
+  --btc-orange: #FF9900;
+  --btc-orange-hover: #E68A00;
+  --btc-orange-soft: #FFB366;
+  --btc-orange-faint: #FFF5E6;
+
+  /* 背景层 */
+  --btc-bg: #FFFBF2;            /* 页面底色：暖白 */
+  --btc-bg-card: #FFFFFF;       /* 卡片 */
+  --btc-bg-deep: #FFFDF7;       /* 次级面板 */
+
+  /* 语义色 */
+  --btc-up: #00b578;            /* 涨 / 成功 */
+  --btc-down: #ff3b30;          /* 跌 / 错误 */
+  --btc-danger: #FF4444;        /* 警示 */
+  --btc-info: #00d4aa;          /* 信息 / LIVE 标签 */
+
+  /* 文字 */
+  --btc-text: #1a1a1a;
+  --btc-text-2: #666666;
+  --btc-text-muted: #999999;
+
+  /* 边框 */
+  --btc-border: #EEEEEE;
+  --btc-border-strong: #FFE0B2;
+
+  /* 字体 */
+  --btc-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --btc-font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+
+  /* 几何 */
+  --btc-radius: 12px;
+  --btc-radius-sm: 8px;
+  --btc-space: 16px;
+  --btc-space-lg: 24px;
+  --btc-shadow: 0 2px 12px rgba(255, 153, 0, 0.08);
+}
+
+/* ---- 基础统一：所有接入分站自动获得 ---- */
+body {
+  background: var(--btc-bg);
+  color: var(--btc-text);
+  font-family: var(--btc-font-sans);
+  line-height: 1.6;
+}
+
+code, pre, .btc-num {
+  font-family: var(--btc-font-mono);
+}
+
+a { color: var(--btc-orange); }
+
+/* ---- 可选公共组件（按需使用） ---- */
+.btc-card {
+  background: var(--btc-bg-card);
+  border: 1px solid var(--btc-border);
+  border-radius: var(--btc-radius);
+  box-shadow: var(--btc-shadow);
+  padding: var(--btc-space-lg);
+}
+
+.btc-btn {
+  display: inline-block;
+  background: var(--btc-orange);
+  color: #fff;
+  border: none;
+  border-radius: var(--btc-radius-sm);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btc-btn:hover { background: var(--btc-orange-hover); }
+
+.btc-tag {
+  display: inline-block;
+  background: var(--btc-orange-faint);
+  color: var(--btc-orange-hover);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+}

@@ -11,7 +11,9 @@ export default defineConfig({
   cleanUrls: true,
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
-    ['meta', { name: 'theme-color', content: '#f7931a' }],
+    ['meta', { name: 'theme-color', content: '#FF9900' }],
+    ['link', { rel: 'stylesheet', href: '/btc-shared/styles/tokens.css' }],
+    ['script', { src: '/btc-shared/footer.js' }],
     ['meta', { property: 'og:title', content: 'BTC Wiki · 诚实的比特币中文百科' }],
     ['meta', { property: 'og:description', content: '从"钱为什么坏了"到"运行自己的节点"，循序渐进、不忽悠的比特币学习路径。' }],
     ['meta', { property: 'og:type', content: 'website' }],
@@ -155,7 +157,7 @@ export default defineConfig({
       },
     },
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/lovexw/btc-wiki' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/lovexw/btchao-mono/tree/main/sites/wiki' }],
 
     footer: {
       message: '内容基于 <a href="https://learnbitcoin.com" target="_blank" rel="noopener">LearnBitcoin.com</a> 改编，遵循 CC-BY-SA-4.0 协议。',
