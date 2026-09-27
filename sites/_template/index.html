@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新分站 · btchao.com</title>
+  <meta name="description" content="一句话说明这个分站是干什么的">
+  <!-- 统一风格接入（部署后走 assets.btchao.com；assets 站上线前本地预览可临时用相对路径） -->
+  <link rel="stylesheet" href="https://assets.btchao.com/styles/tokens.css?v=1">
+  <style>
+    /* 站内私有样式写这里；公共的颜色字体一律用 var(--btc-…) */
+    .wrap { max-width: 860px; margin: 0 auto; padding: var(--btc-space-lg); }
+    header h1 { font-size: 28px; }
+    header p { color: var(--btc-text-2); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="btc-tag">btchao.com 家族</span>
+      <h1>新分站标题</h1>
+      <p>副标题 / 一句话价值主张</p>
+    </header>
+
+    <main>
+      <section class="btc-card" style="margin-top: 24px;">
+        <h2>第一块内容</h2>
+        <p>把 <code>sites/_template</code> 复制为你的目录后从这里开始写。</p>
+        <button class="btc-btn" onclick="alert('示例按钮')">示例按钮</button>
+      </section>
+    </main>
+
+    <!-- 统一页脚挂载点：免责声明 / 返回主站 / 赞助地址 都由 footer.js 注入 -->
+    <div id="btc-footer"></div>
+    <script src="https://assets.btchao.com/footer.js?v=1" defer></script>
+  </div>
+</body>
+</html>
