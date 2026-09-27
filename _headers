@@ -1,0 +1,21 @@
+/*
+  # 安全 headers
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+  # CSP：全站无外部依赖（系统字体、无 CDN、无追踪脚本）
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'self'
+
+  # HTML：短缓存
+  /*
+    Cache-Control: public, max-age=3600
+
+# 静态资源：HTML 中以 ?v=<hash> 引用，内容变更时 URL 也会变更，
+# 因此可以放心使用长期缓存
+/styles.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/script.js
+  Cache-Control: public, max-age=31536000, immutable

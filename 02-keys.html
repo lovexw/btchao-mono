@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 2 章：拆开比特币的两把锁——ECDSA 签名与 SHA-256 哈希，理解「数学上的难」到底是哪种难，这决定了量子计算机能打破什么、打不破什么。">
+  <title>第 2 章 · 钥匙、锁与单向门 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 2 / 10 章 · 打地基</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 2 章 · 打地基</div>
+      <h1>钥匙、锁与单向门</h1>
+      <p class="lead">第 1 章你见过了两把锁：签名锁（ECDSA）和哈希锁（SHA-256）。这一章把它们拆开看——重点不是学数学，而是搞清楚「难」到底是<strong>哪种难</strong>。是「锁匠拆开研究结构就能配钥匙」的难，还是「除了一个凿一个没有任何捷径」的难？答案将决定量子计算机能打破什么、打不破什么。</p>
+      <div class="chapter-meta">
+        <span>约 15 分钟</span>
+        <span>难度 <span class="stars">★★☆☆☆</span></span>
+        <span>前置：第 1 章</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、单向门：整套体系踩在一块石头上</h2>
+      <p>现代密码学几乎所有东西——你的银行卡、微信、HTTPS、比特币——都踩在同一块石头上：<strong>单向函数</strong>。</p>
+      <div class="callout c-define">
+        <span class="tag">定义</span>
+        <p><strong>单向函数</strong>：正向计算飞快（毫秒级），反向倒推在计算上不可行（千年、万年、宇宙年龄级）的数学运算。</p>
+      </div>
+      <div class="callout c-analogy">
+        <span class="tag">比喻</span>
+        <p>最直观的例子是<strong>颜料混合</strong>：把黄色和蓝色倒进桶里搅一搅，一秒钟变绿色——这是正向。给你一桶绿色，让你分离出当初那两桶黄的蓝的——现实里做不到。数字世界里，人们找到了一些<strong>带数学凭证的颜料桶</strong>，「搅和」和「分离」的难度差距可以达到 10<sup>30</sup> 倍以上。</p>
+      </div>
+      <p>「你的私钥」和「你的公钥」就是两桶颜料：私钥是原料，公钥是混合物。所有人都看得到混合物，但没人能还原出原料。而 signature（签名）的验证过程，则相当于一种「闻一闻就知道原料里确实有那味儿」的巧妙检测——验证不需要拿到原料。</p>
+      <p>接下来把两把锁分别拆开。</p>
+
+      <h2>二、签名锁：椭圆曲线上的台球游戏</h2>
+      <p>比特币的签名算法 ECDSA，用的是一条名叫 <strong>secp256k1</strong> 的「椭圆曲线」。名字吓人，玩法可以用台球来理解。</p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻：椭圆曲线 = 一张有魔法的台球桌</span>
+        <p>这张桌子上有一个固定的「母球起点」G。规则是：击一杆，球按固定几何规则弹到下一个点；<strong>连击 N 杆，球会停在某个终点</strong>。</p>
+        <p><strong>私钥</strong> = 你连击的杆数 N（保密）。<br>
+        <strong>公钥</strong> = 最后停住的终点位置（公开）。<br>
+        <strong>正向</strong>：从起点连打 N 杆到终点——计算机几毫秒完成。<br>
+        <strong>反向</strong>：只给你终点，让你猜打了几杆——这就是「离散对数问题」。</p>
+        <p>杆数可达 2<sup>256</sup> 量级，而台球桌上没有任何捷径可以「跳步」逐段丈量。这张桌子的全部安全性，就押在「从终点反推杆数没有捷径」这一件事上。</p>
+      </div>
+      <p>ECDSA 的签名与验证，本质上是在这张桌子上做的一场「不暴露杆数、却能证明杆数存在」的魔术。其安全性 = 离散对数问题之难。</p>
+
+      <div class="callout c-hard">
+        <span class="tag">硬核区 · 给想深一层的人</span>
+        <p>256 位的曲线，安全强度其实是 <strong>128 位</strong>而不是 256 位——因为存在一种「平方根加速」的经典算法（Pollard's rho，走迷宫走到一半就能撞见自己的脚印），把搜索空间开根号。128 位安全强度的含义：即便动用全球所有算力，耗尽太阳的寿命也走不完这条搜索路径的零头的零头。请记住「平方根加速」这个词——它马上会在 Grover 算法那里再次登场，且是同一种哲学。</p>
+        <p>secp256k1 的「256」指曲线参数规模；「k」是 Koblitz（数学家），「1」是编号。比特币用它纯属 2009 年的审慎选择，一用 17 年，至今经典意义上无人撼动。</p>
+      </div>
+
+      <h2>三、哈希锁：一台没有数学结构的搅拌机</h2>
+      <p>如果说 ECDSA 是一张设计精密、有内在几何规律的台球桌，那么 SHA-256 是刻意反着造的：<strong>一台把一切规律都搅碎的机器</strong>。</p>
+      <p>第 1 章讲过它的三条铁律（单向、雪崩、防撞）。这里补上关键的一层理解：<strong>哈希函数里没有「方程」</strong>。台球桌再难，好歹存在「桌子的几何规律」——有结构，就有被聪明算法利用的潜力（哪怕目前没有）。而 SHA-256 的输出被设计成与随机数无异：输入与输出之间<strong>不存在任何可推理、可利用的数学关系</strong>，想找指定指纹的原文，唯一的办法就是<strong>挨个试</strong>。像一面没有图案、没有纹路的高墙，连一个可以撬的锁孔都没有。</p>
+      <p>这就是为什么密码学里管哈希叫「原语中的原语」：它把安全性寄托在最不聪明的假设上——<strong>没有捷径，只能穷举</strong>。也正因如此，它将成为量子时代真正的钉子户。</p>
+
+      <div class="callout c-hard">
+        <span class="tag">硬核区 · 地址的三层套娃</span>
+        <p>老式比特币地址（1 开头）= Base58Check( RIPEMD-160( SHA-256( 公钥 ) ) )。公钥被<strong>两层不同的哈希</strong>套娃后才变成地址。即便哈希层被量子削弱，攻击者依然要先获得「公钥」这层原料——而公钥在花币之前并不在链上。这层套娃就是第 5 章一切「谁危险谁安全」分析的源头。</p>
+        <p>顺带一提：SHA-256 输出 256 位，RIPEMD-160 输出 160 位。找「指定哈希的原像」需要约 2<sup>160</sup> 次尝试（量子下 ÷√N，见第 4 章）；而利用「生日悖论」找任意一对碰撞约 2<sup>80</sup> 次。数字听起来比签名锁小，但请别急着担心——先问一个问题：<strong>攻击者要拿这些数字干什么？</strong>（第 5 章揭晓：答案会让你意外。）</p>
+      </div>
+
+      <h2>四、本章核心：两把锁，天生不平等</h2>
+      <p>把两把锁并排放，你会发现一个贯穿全书的结构性事实：</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th></th><th>签名锁（ECDSA）</th><th>哈希锁（SHA-256 等）</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>数学形态</strong></td>
+              <td>有精致的代数结构（台球桌有几何规律）</td>
+              <td>刻意无结构（搅拌机，无规律可循）</td>
+            </tr>
+            <tr>
+              <td><strong>「难」的性质</strong></td>
+              <td>结构之难：可能被针对结构的聪明算法整体击穿</td>
+              <td>蛮力之难：只有暴力穷举一条路</td>
+            </tr>
+            <tr>
+              <td><strong>历史仇家</strong></td>
+              <td>Shor 算法（1994）——专打有结构的题，<strong>有整把拆锁的理论方法</strong></td>
+              <td>Grover 算法（1996）——只是通用穷举加速，<strong>威力封顶为「平方根」</strong></td>
+            </tr>
+            <tr>
+              <td><strong>量子下的结局</strong></td>
+              <td class="risk-hi">锁被破解：公钥 → 反推私钥</td>
+              <td class="risk-lo">锁降级一半：换大号锁即可续命</td>
+            </tr>
+            <tr>
+              <td><strong>一句话</strong></td>
+              <td>钟表锁：拆开研究结构，就能配万能钥匙</td>
+              <td>无缝高墙：再先进的钻头，也只能一寸一寸凿</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>这句话值得再念一遍：<strong>量子威胁是不对称的。</strong>它不是「量子计算机来了，比特币完了」这种笼统的故事，而是「签名那一半有灭顶之灾，哈希那一半只是伤风感冒」。</p>
+      <p>为什么 Shor 能整把拆锁？因为椭圆曲线题和 RSA 的因数分解题、以及离散对数题，都属于同一族「<strong>有周期结构的数学题</strong>」，而量子计算机恰好有一种独门绝技——<strong>找周期</strong>。第 3 章讲量子计算机到底是什么，第 4 章看这把杀器如何出鞘。</p>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>比特币的一切安全都建立在「单向函数」上：正向快，反向难到宇宙级。</li>
+          <li>两把锁的「难」性质不同：签名锁（ECDSA）难在<strong>结构</strong>，哈希锁（SHA-256）难在<strong>蛮力</strong>。有结构，就可能被针对结构的算法一锅端；只有蛮力，最多被加速一个平方根。</li>
+          <li>量子威胁因此天然不对称：签名锁面对 Shor 算法是斩首级风险，哈希锁面对 Grover 算法只是「锁号升位」级麻烦。记住这个不对称，你能免疫 90% 的量子恐慌文章。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="01-bitcoin.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 1 章 · 从零开始：比特币到底是怎么运作的？</div>
+      </a>
+      <a class="next" href="03-quantum.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 3 章 · 量子计算机：另一种机器</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

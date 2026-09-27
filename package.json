@@ -1,0 +1,35 @@
+{
+  "name": "btc-quantum-notes",
+  "version": "2.0.0",
+  "description": "量子时代的比特币——从零到终局。写给所有人的量子威胁科普读物，纯静态多章节网站，部署于 Cloudflare Pages。",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "serve": "npx http-server -p 8000 -c-1",
+    "deploy": "wrangler pages deploy ."
+  },
+  "keywords": [
+    "quantum-computing",
+    "bitcoin",
+    "shor-algorithm",
+    "grover-algorithm",
+    "post-quantum-cryptography",
+    "bip-360",
+    "blockchain",
+    "science-communication"
+  ],
+  "author": "lovexw",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/wrangler": "^3.0.0",
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lovexw/btc-quantum-notes.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lovexw/btc-quantum-notes/issues"
+  },
+  "homepage": "https://github.com/lovexw/btc-quantum-notes#readme"
+}

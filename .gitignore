@@ -1,0 +1,50 @@
+# 依赖
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 构建输出
+dist/
+build/
+.next/
+out/
+
+# 日志
+*.log
+logs/
+npm-debug.log*
+yarn-error.log*
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env.local
+.env.*.local
+
+# Cloudflare相关
+.wrangler/
+wrangler.toml
+.env
+
+# 操作系统
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# 其他
+*.bak
+backup/

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 5 章：量子威胁对照比特币的逐项解剖——P2PK、P2PKH、Taproot、地址复用、挖矿、51%攻击。核心变量只有一个：你的公钥暴露了多久。">
+  <title>第 5 章 · 对号入座：比特币哪里疼，哪里不疼 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 5 / 10 章 · 正片</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 5 章 · 正片</div>
+      <h1>对号入座：比特币哪里疼，哪里不疼</h1>
+      <p class="lead">前四章埋的伏笔在这一章全部引爆。你会看到「量子威胁对比特币」根本不是一个笼统的判断，而是一张精确的靶图：有些币从出生起就在裸奔，有些只有 10 分钟的暴露窗口，有些几乎永远安全。<strong>整张图只围绕一个变量展开：你的公钥，暴露了多久？</strong></p>
+      <div class="chapter-meta">
+        <span>约 18 分钟</span>
+        <span>难度 <span class="stars">★★★☆☆</span></span>
+        <span>前置：第 2、4 章</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、唯一的变量：公钥暴露时间</h2>
+      <p>把前面的推理链并起来：</p>
+      <ul>
+        <li>Shor 算法可以从<strong>公钥</strong>反推私钥（第 4 章）——但需要<strong>已有公钥</strong>作为原料；</li>
+        <li>私钥在用户手里，从不示人；<strong>公钥</strong>则有时藏、有时露（第 1 章）；</li>
+        <li>所以危险程度不取决于「你有多少币」，而取决于：<strong>攻击者能拿到你的公钥吗？拿到了多久？</strong></li>
+      </ul>
+      <p>公钥暴露只有三种情形：</p>
+      <div class="figure"><span class="cap">公钥暴露的三种情形（危险递减）</span>
+ 情形 A：公钥直接写在链上（P2PK 时代 / Taproot 单签）
+           → 从币诞生起就永久暴露。攻击者可以慢慢算，最舒服。
+
+ 情形 B：你花过一次币（签名广播时公钥露面）
+           → 该地址此后永久暴露。攻击者依然可以慢慢算。
+
+ 情形 C：你的地址从未花过币（公钥还藏在哈希外衣里）
+           → 只有一个 10 分钟窗口：你广播花钱交易、
+             公钥首次露面、但交易尚未确认的间隙。
+             攻击者必须当场破解、抢发偷窃交易——最难。</div>
+      <p>注意情形 A 和 B 的可怕之处：<strong>攻击完全不存在时间压力</strong>。今天没有量子计算机？没关系，公钥已经躺在链上十几年了，攻击者可以先记下来，等十年后机器造好再慢慢算。这叫「现在收割，日后再花」（harvest now, spend later）。</p>
+
+      <h2>二、逐类盘点：你的币属于哪种情形</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>地址 / 输出类型</th><th>长什么样</th><th>量子视角</th><th>危险等级</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>P2PK</strong><br>（远古直付公钥）</td>
+              <td>2009–2010 年代的挖矿奖励、极早期转账</td>
+              <td>公钥<strong>裸奔在链上</strong>（情形 A）。全网都看得到，包括未来那台量子计算机的主人。</td>
+              <td class="risk-hi">🔴 最高<br>无解药（除非迁移）</td>
+            </tr>
+            <tr>
+              <td><strong>P2TR 单签</strong><br>（Taproot 主流用法）</td>
+              <td>bc1p 开头，2021 年后流行</td>
+              <td>很多人以为 Taproot 很安全——实际上它把一个「修饰过的公钥」<strong>直接写在链上</strong>，修饰参数是公开的，数学上可完整还原（情形 A 变体）。多签脚本路径的情况才类似情形 C。</td>
+              <td class="risk-hi">🔴 高<br>单签情形等同裸奔</td>
+            </tr>
+            <tr>
+              <td><strong>任何复用过的地址</strong></td>
+              <td>同一个 1 开头 / bc1q 开头地址收付过多次</td>
+              <td>第一次花钱的瞬间，公钥已永久暴露（情形 B）。此后地址里所有币（包括后来新收的）都在靶心上。</td>
+              <td class="risk-hi">🔴 高<br>「复用」是最常见的人祸</td>
+            </tr>
+            <tr>
+              <td><strong>P2PKH / P2WPKH</strong><br>（老式 & 隔离见证地址）</td>
+              <td>1 开头 / bc1q 开头，从未花过</td>
+              <td>链上只有哈希外衣，公钥从未露面（情形 C）。只有花币时才有 10 分钟窗口。</td>
+              <td class="risk-mid">🟡 中<br>行为决定风险</td>
+            </tr>
+            <tr>
+              <td><strong>多签 / 脚本型</strong></td>
+              <td>3 开头、组合脚本、Taproot 脚本路径</td>
+              <td>哈希护体（情形 C），花费前公钥不上链。</td>
+              <td class="risk-mid">🟡 中<br>依赖脚本设计</td>
+            </tr>
+            <tr>
+              <td><strong>挖矿（全网）</strong></td>
+              <td>SHA-256d 工作量证明</td>
+              <td>Grover 平方根加速 + 能效倒挂 + 无法并行（第 4 章），难度调节机制还会自动吸收算力波动。</td>
+              <td class="risk-lo">🟢 基本无恙</td>
+            </tr>
+            <tr>
+              <td><strong>历史账本完整性</strong></td>
+              <td>「重写过去的交易」</td>
+              <td>改历史需要哈希算力（不是签名），量子帮不上实质忙；且重写几千个区块的经济成本是天文数字。</td>
+              <td class="risk-lo">🟢 几乎不可能</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout c-myth">
+        <span class="tag">反直觉提醒</span>
+        <p>最容易被误判的是 Taproot。它是 2021 年的「最新技术」，直觉上「新 = 更安全」，但那是针对<strong>隐私和费用</strong>而言。在量子视角下，最普通的 Taproot 单签输出（bc1p）反而比老老实实「哈希护体」的 bc1q 更暴露——因为它的公钥就印在链上。技术进步解决的是上一个时代的问题，这本身也是终章的一个主题。</p>
+      </div>
+
+      <h2>三、靶心上到底有多少枚币</h2>
+      <p>把情形 A 和 B 加总（公钥已暴露的输出），各家估算不同，但都在同一个量级：</p>
+      <div class="meter">
+        <div class="row"><span>Deloitte（2017 估）</span><div><div class="bar"><div class="fill red" style="width:62%"></div></div><div class="num">≈ 400 万枚处于危险区（约占当时流通 25%）</div></div></div>
+        <div class="row"><span>近期研究（2025）</span><div><div class="bar"><div class="fill red" style="width:88%"></div></div><div class="num">≈ 550–650 万枚（含 Taproot、复用地址的更精细统计）</div></div></div>
+        <div class="row"><span>其中：P2PK 裸奔</span><div><div class="bar"><div class="fill" style="width:25%"></div></div><div class="num">≈ 140–180 万枚，几乎全是死币或远古矿工奖励</div></div></div>
+        <div class="row"><span>其中：中本聪钱包</span><div><div class="bar"><div class="fill" style="width:16%"></div></div><div class="num">≈ 100 万枚，P2PK，2009–2010 挖出，从未动过</div></div></div>
+      </div>
+      <p>几个必须说清的细节：</p>
+      <ul>
+        <li><strong>大部分「危险区」的币是死币。</strong>P2PK 时代的持有人多为早期矿工，大量私钥早已丢失。量子攻击者的战利品清单，一半以上是「无主宝藏」——这反而制造了第 7 章剧本三的治理炸弹（捡到的死币算谁的？）。</li>
+        <li><strong>中本聪的 100 万枚是全球最贵的报警器。</strong>它是最著名的 P2PK 靶子。一旦这 100 万枚中的任何一枚「被盗移动」，全世界将瞬间知道：那台机器造好了。它既是市场情绪的引爆器，也是量子军备竞赛的天然计时器（第 7 章剧本二的关键道具）。</li>
+        <li><strong>「从未花过的普通地址」暂时安全。</strong>你的 bc1q 冷钱包只要没花过币，链上就没有你的公钥，量子计算机再强也只是对着一面哈希墙。但每花一次，就永久走进情形 B——地址卫生的重要性（第 9 章）从这里来。</li>
+      </ul>
+
+      <h2>四、两场被高估的灾难</h2>
+      <h3>「量子矿机垄断挖矿」——大概率是伪命题</h3>
+      <p>很多人想象：有人造出量子矿机，一人通吃全网。算三笔账就知道为什么悬：</p>
+      <ol>
+        <li><strong>能效账</strong>：现代 ASIC 矿机每秒 10<sup>14</sup> 次哈希、功耗几十瓦；量子机完成一次哈希需要成千上万个逻辑门加纠错开销，单次算力成本高出十几个数量级。</li>
+        <li><strong>并行账</strong>：经典挖矿的堆矿机 = 算力线性增长；Grover 的干涉无法拆分到多台机器上并行（第 4 章）。</li>
+        <li><strong>难度账</strong>：就算真有量子算力涌入，难度每 2016 块自动上调（第 1 章），优势被系统动态没收。</li>
+      </ol>
+      <p>结论：挖矿威胁排位靠后，真正该失眠的是签名，不是哈希。</p>
+      <h3>「量子计算机重写比特币历史」——几乎不可能</h3>
+      <p>重写历史 = 用哈希算力重算几万个区块并追上全网——这是<strong>经典算力</strong>层面的 51% 攻击问题，量子计算机并不擅长哈希（见上）。而且盗币根本不需要重写历史：直接伪造一笔「合法签名」的交易就行。攻击者要的是钱，不是行为艺术。</p>
+
+      <h2>五、最贵的 10 分钟：在线攻击窗口</h2>
+      <p>最后讲讲最难但最惊悚的攻击（情形 C 的窗口期）：你把币从冷钱包转到交易所，广播交易的瞬间公钥首次亮相。攻击者的量子计算机如果能<strong>在几分钟内</strong>破解这把刚露面的锁，就可以立刻伪造一笔「把同样的币转给我自己」的交易，并付更高手续费抢先确认。</p>
+      <p>这是「慢刀子」与「闪电刀」的区别：破解已暴露公钥可以用最便宜的大机器慢慢磨（小时级）；要在 10 分钟窗口内动手，机器要大得多、贵得多。2026 年的估算下，在线攻击需要的资源比收割攻击高出一到两个数量级。<strong>只要迁移到后量子地址的通道还在，普通人永远不必走到这一步</strong>——这也是第 8、9 章全部应对策略的立足点。</p>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>唯一的危险变量是<strong>公钥暴露时间</strong>。P2PK（含中本聪的 100 万枚）与 Taproot 单签从出生就暴露；复用地址一次花币终身暴露；从未花过的哈希地址只有 10 分钟窗口。</li>
+          <li>危险区里约有 <strong>400–650 万枚</strong>币（占流通 20–30%），但大头是死币。挖矿与历史重写基本无恙——不要被标题党牵着走。</li>
+          <li>攻击分「慢刀」（收割已暴露公钥，便宜从容）和「快刀」（10 分钟窗口抢确认，昂贵巨大）。应对之道都一样：在 Q-Day 之前完成向量子安全地址的迁移。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="04-shor-grover.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 4 章 · 两把杀器：Shor 与 Grover</div>
+      </a>
+      <a class="next" href="06-timeline.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 6 章 · 进度条：我们还有多少年</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>
