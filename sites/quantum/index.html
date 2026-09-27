@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="量子时代的比特币：从零到终局的完整读物。不懂任何术语也能读懂量子计算机对比特币的真实威胁、极端推演与背后的真相。">
+  <meta name="keywords" content="量子计算, 比特币, Shor算法, Grover算法, 后量子密码学, BIP-360, 科普">
+  <title>量子时代的比特币 · 从零到终局</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">一本写给所有人的在线读物</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <!-- 封面 -->
+  <header class="hero">
+    <span class="hero-atom" aria-hidden="true">⚛️</span>
+    <h1>量子时代的比特币</h1>
+    <p class="hook">
+      如果有一天，一台机器能从你的比特币地址反推出你的私钥——<br>
+      会发生什么？那一天还有多远？<strong>而真正的问题，可能根本不是那台机器。</strong>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="01-bitcoin.html">从第 1 章开始读（零基础）</a>
+      <a class="btn btn-ghost" href="10-philosophy.html">直达终章：这不是量子威胁</a>
+    </div>
+    <p class="hero-note">全文约 3 小时读完 · 也可以只花 90 秒看下面的速览</p>
+  </header>
+
+  <!-- 90 秒版本 -->
+  <div class="wrap">
+    <section class="tldr">
+      <h2>⏱️ 90 秒版本：先把结论交出来</h2>
+      <ol>
+        <li>比特币的保险柜上了<strong>两把锁</strong>：一把「签名锁」（ECDSA 椭圆曲线签名），一把「哈希锁」（SHA-256）。</li>
+        <li>量子计算机的 <strong>Shor 算法</strong>会把签名锁<strong>整把拆掉</strong>——拿到公钥就能反推私钥。这是降维打击。</li>
+        <li>哈希锁只被 <strong>Grover 算法</strong>削去一半强度，换个更大的锁就能扛住。<strong>所以威胁是「不对称」的：签名危险，哈希基本无恙。</strong></li>
+        <li>但拆签名锁有个前提：<strong>公钥得先露面</strong>。链上几百万枚币（包括中本聪那约 100 万枚）公钥早已暴露，是最脆弱的靶子；而从未花过的哈希地址暂时安全。</li>
+        <li>干这事需要<strong>百万级物理量子比特</strong>，目前全球最强的机器只有千余个——差着四五个数量级。多数专家把「Q-Day」（密码学末日日）放在 2030 年代到 2050 年之间，<strong>没人知道确切答案。</strong></li>
+        <li>比特币社区已经在准备后量子升级：NIST 新签名标准 2024 年定稿，BIP-360 提案在路上。<strong>真正难的从来不是数学，而是让几亿个持有者同时换锁。</strong></li>
+        <li>最深一层：量子威胁像一面镜子——它照出的其实是<strong>遗忘、惰性与协调失灵</strong>。最后一章专门讲这个。</li>
+      </ol>
+      <p class="fine">以上每一条，后面的章节都会展开讲透，并且都会给出依据。带着怀疑来读，是对的。</p>
+    </section>
+  </div>
+
+  <!-- 阅读地图 -->
+  <section class="map-section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Reading Map</span>
+        <h2>阅读地图：从零到终局</h2>
+        <p>全书按「打地基 → 看懂量子 → 正片 → 推演与应对 → 终局思考」五阶递进。完全零基础请从头读；已经懂一些的读者可以按难度标签挑着读。★ 越多越硬核。</p>
+      </div>
+
+      <div class="phase"><h3>第一阶 · 打地基</h3><span class="desc">不预设任何知识，人人能懂</span></div>
+      <div class="map-grid">
+        <a class="map-card" href="01-bitcoin.html">
+          <span class="num">第 1 章</span>
+          <h4>从零开始：比特币到底是怎么运作的？</h4>
+          <p>账本、私钥、地址、签名、挖矿——全部用生活比喻讲清楚。读完你会发现比特币并不神秘。</p>
+          <div class="foot"><span>约 18 分钟</span><span class="stars">★☆☆☆☆</span></div>
+        </a>
+        <a class="map-card" href="02-keys.html">
+          <span class="num">第 2 章</span>
+          <h4>钥匙、锁与单向门：比特币的两块基石</h4>
+          <p>ECDSA 与 SHA-256 到底是什么。重点埋下一个贯穿全书的伏笔：两把锁的强度天生不平等。</p>
+          <div class="foot"><span>约 15 分钟</span><span class="stars">★★☆☆☆</span></div>
+        </a>
+      </div>
+
+      <div class="phase"><h3>第二阶 · 看懂量子</h3><span class="desc">拆掉科幻滤镜，看清真实能力</span></div>
+      <div class="map-grid">
+        <a class="map-card" href="03-quantum.html">
+          <span class="num">第 3 章</span>
+          <h4>量子计算机：不是更快的电脑，是另一种机器</h4>
+          <p>叠加、纠缠、测量、纠错——以及为什么「并行所有宇宙」是错的比喻。它擅长什么，更关键的是：它不擅长什么。</p>
+          <div class="foot"><span>约 16 分钟</span><span class="stars">★★☆☆☆</span></div>
+        </a>
+        <a class="map-card" href="04-shor-grover.html">
+          <span class="num">第 4 章</span>
+          <h4>两把杀器：Shor 与 Grover</h4>
+          <p>1994 与 1996 年的两个算法，一个斩首、一个减员。为什么它们恰好打中现代密码学的两个软肋。</p>
+          <div class="foot"><span>约 14 分钟</span><span class="stars">★★★☆☆</span></div>
+        </a>
+      </div>
+
+      <div class="phase"><h3>第三阶 · 正片</h3><span class="desc">真实威胁评估与时间线</span></div>
+      <div class="map-grid">
+        <a class="map-card" href="05-anatomy.html">
+          <span class="num">第 5 章</span>
+          <h4>对号入座：比特币哪里疼，哪里不疼</h4>
+          <p>逐个地址类型分析：哪些币在裸奔，哪些有哈希护体，哪些只有 10 分钟的暴露窗口。中本聪的一百万枚为什么最危险。</p>
+          <div class="foot"><span>约 18 分钟</span><span class="stars">★★★☆☆</span></div>
+        </a>
+        <a class="map-card" href="06-timeline.html">
+          <span class="num">第 6 章</span>
+          <h4>进度条：我们到底还有多少年</h4>
+          <p>2026 年量子计算的真实水位、纠错里程碑、算法进步，与 NIST / IBM / 专家调查给出的时间表。</p>
+          <div class="foot"><span>约 14 分钟</span><span class="stars">★★★☆☆</span></div>
+        </a>
+      </div>
+
+      <div class="phase"><h3>第四阶 · 推演与应对</h3><span class="desc">把可能性推到极限，再回来应对</span></div>
+      <div class="map-grid">
+        <a class="map-card p-highlight" href="07-extreme.html">
+          <span class="num">第 7 章</span>
+          <h4>极端推演：六个末日剧本</h4>
+          <p>量子银行挤兑、静默收割者、死者复活、量子矿工政变、金丝雀之死……每一个剧本都认真推演，也都给出真实概率。</p>
+          <div class="foot"><span>约 22 分钟</span><span class="stars">★★☆☆☆</span></div>
+        </a>
+        <a class="map-card" href="08-counterattack.html">
+          <span class="num">第 8 章</span>
+          <h4>反击战：比特币的自救</h4>
+          <p>NIST 新标准、签名膨胀难题、BIP-360 提案、冻结老币的争议、软分叉的治理困境——人类已经在动手。</p>
+          <div class="foot"><span>约 16 分钟</span><span class="stars">★★★☆☆</span></div>
+        </a>
+        <a class="map-card" href="09-guide.html">
+          <span class="num">第 9 章</span>
+          <h4>普通人行动指南</h4>
+          <p>你现在就能做的五件小事、大额持有者的进阶清单、值得盯的信号，以及最重要的：不要做什么。</p>
+          <div class="foot"><span>约 12 分钟</span><span class="stars">★☆☆☆☆</span></div>
+        </a>
+      </div>
+
+      <div class="phase"><h3>终局 · 思考</h3><span class="desc">技术讲完了，剩下的是人</span></div>
+      <div class="map-grid">
+        <a class="map-card p-highlight" href="10-philosophy.html">
+          <span class="num">终 章</span>
+          <h4>个人思考：这真的是量子威胁吗？</h4>
+          <p>表面上这是一场算力竞赛，实际上真正的威胁是三样别的东西。这是全书唯一的议论章节，也是作者的私人答案。</p>
+          <div class="foot"><span>约 14 分钟</span><span class="stars">★☆☆☆☆</span></div>
+        </a>
+        <a class="map-card" href="appendix.html">
+          <span class="num">附 录</span>
+          <h4>术语表 · 数据速查 · 延伸阅读</h4>
+          <p>随时回来查：关键术语、全书中出现过的所有数字及其出处、论文与一手资料链接。</p>
+          <div class="foot"><span>随手查阅</span><span class="stars">☆☆☆☆☆</span></div>
+        </a>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <h4>📖 这份读物是什么</h4>
+          一份纯静态、无广告、无追踪的科普长文。目标是让<strong>完全不懂技术的人</strong>也能完整理解「量子计算 × 比特币」这件事的来龙去脉、真实风险与应对之道——而不是被新闻标题吓得睡不着，或者被「量子即 threat」的口号带节奏。
+        </div>
+        <div class="about-card">
+          <h4>🔍 关于事实与数字</h4>
+          全书关键数字（资源估算、脆弱币量、时间表）均标注来源，集中于附录「数据速查」。量子计算领域进展极快，本书以 2026 年 9 月为快照。发现过时或错误，欢迎提 Issue / PR。
+        </div>
+        <div class="about-card">
+          <h4>⚖️ 免责声明</h4>
+          仅供教育与信息目的，不构成任何投资建议。涉及资产操作请自行研究并承担风险。「终章」为作者个人观点，欢迎不同意——不同意见恰恰是比特币最好的安全机制之一。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · 从零到终局 —— 开源在 <a href="https://github.com/lovexw/btc-quantum-notes">GitHub</a>，静态部署于 Cloudflare Pages</p>
+    <p>内容以 CC BY-SA 4.0 共享 · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

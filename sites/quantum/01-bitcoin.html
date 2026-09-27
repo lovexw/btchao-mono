@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 1 章：用最通俗的方式讲清楚比特币的运作原理——账本、私钥、地址、签名、哈希与挖矿，零基础也能读懂。">
+  <title>第 1 章 · 从零开始：比特币到底是怎么运作的？ | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 1 / 10 章 · 打地基</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 1 章 · 打地基</div>
+      <h1>从零开始：比特币到底是怎么运作的？</h1>
+      <p class="lead">要谈威胁，先得弄明白我们到底在保护什么。这一章不预设任何知识——你只要会用微信转账，就能读懂它。读完这一章，后面所有「量子威胁」的讨论对你来说都不再是黑话。</p>
+      <div class="chapter-meta">
+        <span>约 18 分钟</span>
+        <span>难度 <span class="stars">★☆☆☆☆</span></span>
+        <span>前置知识：无</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、钱存在哪？——不存在你手机里，也不存在银行里</h2>
+      <p>先问一个很少有人认真想过的问题：微信里的 100 块，存在哪？</p>
+      <p>不在你手机里。它存在于<strong>腾讯的服务器账本</strong>上的一行记录里：「该用户：余额 100」。你扫码付款，本质上是腾讯在自己的账本上改两行数字：你减 8，奶茶店加 8。银行的存款同理。你这一生用过的绝大多数钱，其实都是<strong>别人替你记的账</strong>。</p>
+      <p>比特币做的事情只有一件，但足够疯狂：<strong>把这本账，从「某家公司的服务器」搬到「所有参与者的电脑」上</strong>。没有腾讯，没有央行，没有总管理员。每个人手里都有完整的一本账，而且所有人的账必须一模一样。</p>
+
+      <div class="callout c-define">
+        <span class="tag">定义</span>
+        <p><strong>区块链</strong>：一本由成千上万台电脑共同维护、人人可查、按时间顺序装订、想偷偷改一页比登天还难的公共账本。比特币就是这本账上最著名的一个应用。</p>
+      </div>
+
+      <p>那「币」是什么？你手机钱包里那个比特币余额，同样不是一串存在你手机里的钱。它只是账本上一些<strong>指向你的记录</strong>的总和。你的钱包 App 更准确的名字应该叫「钥匙包」——后面马上讲到。</p>
+
+      <h3>账本上的记录长什么样：整张整张的钞票</h3>
+      <p>有个反直觉的细节：比特币的世界里<strong>没有「余额」这种东西</strong>，只有一张一张<strong>面值各不相同的「整钞」</strong>。技术上这叫 <strong>UTXO</strong>（未花费的交易输出）——名字唬人，意思很简单：</p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻</span>
+        <p>想象你的钱柜里装着一沓面值乱七八糟的钞票：一张 0.7 币的、一张 0.3 币的、一张 2 币的……你要买一杯 1 币的咖啡，不能「从余额里扣」，而是必须<strong>掏出某一张具体的整钞（比如那张 2 币的），付出去，然后让对方找零 1 币给你一张新钞</strong>。旧钞当场作废销毁，新钞归你。</p>
+      </div>
+      <p>为什么要这么设计？因为记账方式简单可靠：每一张「钞票」从哪来、到哪去，在账本上一目了然，无法凭空多出一张。记住这个细节，第 5 章分析量子威胁时它会非常重要——<strong>量子攻击的目标不是「你的余额」，而是账本上每一张具体的「钞票」，以及锁着它的那把锁。</strong></p>
+
+      <h2>二、钥匙与锁：地址和私钥</h2>
+      <p>账本人人可查，那凭什么别人不能往账本上写「小明付给黑客 1 万枚币」？靠的就是钥匙和锁。</p>
+
+      <div class="callout c-analogy">
+        <span class="tag">比喻</span>
+        <p>把比特币想象成一排<strong>透明的玻璃保险箱</strong>，摆在大街上，24 小时无监控也无保安——因为根本不需要。任何人都能看清每个箱子里有多少钱，任何人都能往箱子里投钱（往箱子里投钱不需要钥匙，知道箱子的投币口就行）。但箱子的门只能用对应的钥匙打开。</p>
+        <p>——投币口，就是你的<strong>地址</strong>；钥匙，就是你的<strong>私钥</strong>。</p>
+      </div>
+
+      <p><strong>私钥</strong>说穿了极其朴素：它就是一个 0 到 2<sup>256</sup> 之间的随机数。不是你设置的密码（人类的密码又短又蠢），而是你的钱包 App 用「真随机」方式生成的一大串数字，长到没有任何人类或机器猜得到。</p>
+      <p><strong>地址</strong>则是从这把钥匙用数学方法<strong>单向</strong>加工出来的一串字符（形如 <code>bc1q…</code>）。单向的意思是：从钥匙可以算出地址，但拿着地址<strong>绝对倒推不出</strong>钥匙。所以地址可以随便公开——贴在名片上、发在推特上都行。</p>
+
+      <div class="figure"><span class="cap">钥匙 → 地址：一条单行道</span>
+私钥（随机数，绝密）────单行道────▶ 公钥（可公开）────单行道────▶ 地址（可公开）
+
+◀──── 不存在「倒推」这条路 ────◀</div>
+
+      <div class="callout c-define">
+        <span class="tag">数字感受一下 2<sup>256</sup></span>
+        <p>2<sup>256</sup> ≈ 1.2 × 10<sup>77</sup>。宇宙中所有原子的总数大约是 10<sup>80</sup> 个。也就是说，让一台计算机去「猜」你的私钥，比把宇宙里每个原子都编号再随机猜中其中一个还难。这不是修辞，是算术——这也是为什么「量子计算机」这五个字才会显得吓人：它被宣传为能干这种事的东西。它到底能不能？第 3、4 章见分晓。</p>
+      </div>
+
+      <h2>三、签名：证明你有钥匙，但不用掏出来</h2>
+      <p>现在你要付钱给咖啡店。你把一张「整钞」（UTXO）指出来，声明：「这张归咖啡店」。账本是公开的，谁都可以声明——<strong>凭什么信你？</strong></p>
+      <p>凭<strong>签名</strong>。你用私钥对这笔交易生成一个数学签名，附在交易后面广播出去。全网任何一台电脑（不需要私钥）都能验证：这个签名确实由这张钞票的合法钥匙生成，别人伪造不出来。</p>
+      <p>这里有个精妙之处值得停一下：<strong>签名证明了你持有私钥，却自始至终没有暴露私钥。</strong></p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻</span>
+        <p>像手写签名：银行能对照笔迹确认是你签的，但看到签名并不能「还原」你的手。数字签名更进一步——它是用私钥和交易内容一起算出来的，<strong>和内容绑死</strong>：黑客把金额从 1 改成 1000，签名立刻作废，交易全网作废。真正的「一字一签」。</p>
+      </div>
+      <p>比特币用的签名算法叫 <strong>ECDSA</strong>，建在一门叫「椭圆曲线」的数学上。听起来高深，但此刻你只需要记住它的本质：<strong>一道「正向容易、反向不可能」的单向数学题</strong>——正向：用钥匙算签名，一眨眼；反向：用签名和公钥反推钥匙，经典计算机要算到天荒地老。</p>
+      <p>⛔ <strong>在这句话里埋下全书最重要的伏笔：</strong>「反向不可能」只对经典计算机成立。第 4 章会讲到，量子计算机恰好有办法把这类题反向做出来。而签名交易广播时，会伴随暴露「公钥」——公钥一旦暴露，反向计算就有了原料。这一伏笔将在第 5 章引爆。</p>
+
+      <h2>四、哈希：数字世界的榨汁机</h2>
+      <p>比特币还有第二块基石，叫<strong>哈希函数</strong>（Bitcoin 主要用 SHA-256）。</p>
+      <div class="callout c-define">
+        <span class="tag">定义</span>
+        <p><strong>哈希函数</strong>：把任何大小的输入——一个词、一部电影、整个互联网——搅碎，输出一串固定长度（256 位）的「指纹」。三个铁律：</p>
+        <p><strong>① 单向</strong>：榨成汁容易，从汁还原出水果，不可能。<br>
+        <strong>② 雪崩</strong>：输入改一个字母，输出指纹面目全非。<br>
+        <strong>③ 防撞</strong>：两份不同输入几乎不可能撞出同一条指纹。</p>
+      </div>
+      <div class="callout c-analogy">
+        <span class="tag">比喻</span>
+        <p>哈希值就像人的<strong>指纹</strong>：验「是不是同一个人」很快，但没人能从指纹长出一个活人来。或者像<strong>榨汁机</strong>：苹果进，苹果汁出；但全世界没有一台榨汁机能把果汁重新组装成苹果。</p>
+      </div>
+      <p>哈希在比特币里无处不在，其中两处直接决定量子威胁的版图：</p>
+      <ul>
+        <li><strong>地址是公钥的哈希</strong>。还记得单行道图吗？地址 = 哈希(公钥)。这相当于给公钥又穿了一层「榨汁机」做的外衣——你平时收币时，链上只能看到这层外衣（哈希），看不到里面的公钥。<strong>公钥只有在花币时才首次露面。</strong>伏笔 +1。</li>
+        <li><strong>挖矿用的是哈希</strong>。下一节讲。伏笔 +1。</li>
+      </ul>
+
+      <h2>五、挖矿：账由谁记，凭什么信</h2>
+      <p>没有腾讯，那谁来把交易写进账本？答案：所有人都有资格，靠<strong>抢答竞赛</strong>上岗，这个竞赛叫挖矿。</p>
+      <p>每约 10 分钟，全球的交易被打包成一「页」账（一个区块）。全网矿工同时玩一场哈希猜谜：给这页账加上一个随机数，算哈希，看指纹是否小于某个极小的目标值。指纹要求苛刻到没有取巧办法，<strong>只能靠蛮力试</strong>——试错几百亿亿次，第一个撞大运的矿工喊出答案，其他人一验证（验证只要一瞬间），这一页就装订上了账本，矿工领取系统奖励（这就是新比特币的诞生方式）。</p>
+      <p>这同时解决了「凭什么信」：想篡改历史，你得<strong>重新计算那一页以及之后所有页</strong>——相当于独自和全世界所有矿工赛跑，还得从头跑赢。所以账本越老越结实，这也叫「工作量证明」。</p>
+      <p>还有个聪明的细节：<strong>难度会自动调节</strong>。全网算力翻倍，谜题就自动加倍难度，永远维持约 10 分钟一页的节奏。记住这一点，第 5 章讨论「量子矿工」时它是关键配角。</p>
+
+      <h2>六、把一切串起来：一笔转账的完整旅程</h2>
+      <div class="figure"><span class="cap">一次转账的一生（注意第三步：伏笔引爆点）</span>
+ ① 选钞票     钱包挑出一张面值够用的「整钞」（UTXO）
+      │
+ ② 签名       用私钥对交易签名        ◀── 私钥永不示人
+      │
+ ③ 广播       交易发往全网            ◀── ⚠️ 此刻公钥首次公开露面！
+      │
+ ④ 打包       矿工把它装进下一页账本
+      │
+ ⑤ 确认       约十分钟后装订成页，之后每+1页可信度+1
+      │
+ ⑥ 销毁&找零  旧钞作废，找零的新钞锁在新的地址下</div>
+      <p>整条链路上，最敏感的东西是什么？不是地址（可以公开），而是<strong>私钥</strong>（泄露即破产）。公钥则处于中间态：平时藏在哈希外衣里，花钱那一刻必须亮出来。</p>
+      <p>量子威胁的全部戏码，就发生在「公钥亮出来」和「公钥藏得住」这两件事上。地基到此打完。</p>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事就够了</h3>
+        <ol>
+          <li>比特币是一本人人可查、无人独管的公共账本；「币」是账本上一张张具体的整钞（UTXO），每张钞票上锁着一把由数学做的锁。</li>
+          <li>私钥 = 猜不出来的随机数；地址 = 从私钥单向派生的公开投币口。<strong>单向</strong>是整套系统的命根子。</li>
+          <li>花币必签名，签名必亮公钥；而公钥平时藏在哈希外衣里。哪把锁护着哪部分、什么时候会暴露——第 5 章就靠这两条给所有币「对号入座」。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="next" href="02-keys.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 2 章 · 钥匙、锁与单向门</div>
+      </a>
+      <a class="home-link" href="index.html">回封面 · 查看阅读地图</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

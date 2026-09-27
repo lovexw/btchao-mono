@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 9 章：普通人行动指南——现在就该做的五件零成本小事、大额持有者的进阶清单、值得盯的信号，以及四个绝对不要做的事。">
+  <title>第 9 章 · 普通人行动指南 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 9 / 10 章 · 推演与应对</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 9 章 · 推演与应对</div>
+      <h1>普通人行动指南</h1>
+      <p class="lead">如果前面的八章你只记住了模糊的印象，这一章请读仔细——它把全部结论兑换成你现在就能做的动作。原则只有一条：<strong>做与不做的差距是巨大的，做早与做晚的差距是微小的。</strong>所以不用熬夜，但可以今天动手。</p>
+      <div class="chapter-meta">
+        <span>约 12 分钟</span>
+        <span>难度 <span class="stars">★☆☆☆☆</span></span>
+        <span>前置：无（可直接跳读本章）</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、先把你的处境说清楚</h2>
+      <ul>
+        <li><strong>你的币现在没有丢。</strong>截至 2026 年，世上不存在能破解比特币签名的机器（第 6 章），这是可验证的事实，不是安慰。</li>
+        <li><strong>但你的公钥可能已在别人的靶纸上。</strong>只要你花过币、或用了会暴露公钥的地址类型，链上就躺着你的公钥，等未来的机器慢慢算（第 5 章）。</li>
+        <li><strong>解药不是 panic-sell，而是 address hygiene。</strong>第 8 章说得很清楚：几年后会有量子安全的新地址类型，你的任务是在那之前，别把自己的暴露面越铺越大。</li>
+      </ul>
+
+      <h2>二、现在就做的五件小事（全部零成本）</h2>
+      <ol>
+        <li><strong>停止地址复用。</strong>每次收币都用钱包生成的新地址。现代钱包默认如此——你唯一要做的，是别手动回到旧地址收钱。记住规则：地址是一次性的脸盆，不是终身的姓名。每复用一次，等于把公钥永久钉在链上（情形 B）。</li>
+        <li><strong>检查你的币躺在什么类型的地址里。</strong>1 开头（P2PKH）、3 开头（脚本）、bc1q（隔离见证）、bc1p（Taproot）行为不同：从未花过的 bc1q 有哈希护体；bc1p 单签则公钥直接上链。不确定的话，第 5 章的表格是对照手册。</li>
+        <li><strong>大额上冷钱包。</strong>硬件钱包 + 种子词离线备份。这不解决量子问题，但解决 99% 更现实的问题（木马、钓鱼、误操作），而且它是未来一切迁移操作的安全底座。</li>
+        <li><strong>认真备份助记词（种子）。</strong>刻在钢板上、放两个物理地点。这不是量子焦虑，这是统计事实：链上因「忘记私钥」而死亡的币（几百万枚）比被一切黑客手段偷走的币加起来还多。<strong>人类自己就是史上最强的「量子计算机」——专攻遗忘。</strong>（这句话终章还要用。）</li>
+        <li><strong>让钱包保持最新。</strong>未来的量子安全地址（BIP-360 一类）会通过钱包更新推到用户面前。别停在三年前的固件版本上——你是想等到能迁移的时候，发现工具太旧迁不了。</li>
+      </ol>
+
+      <h2>三、大额 / 长期持有者的进阶清单</h2>
+      <ol>
+        <li><strong>做一次暴露面盘点。</strong>列出你所有的 UTXO 与地址，标注：公钥暴露过没有？什么时候？什么类型？可以直接判定：复用过的老地址 = 已暴露；从未花过的地址 = 未暴露。</li>
+        <li><strong>把「已暴露 + 大额」的组合排到迁移队列最前面。</strong>在未来几年分批把资金移到「从未花过的新地址」（甚至分散到多个），把单点暴露变成小目标集合。别一次全动——大额转账本身的手续费与操作风险，往往大于这点量子敞口。按年做，别按天做。</li>
+        <li><strong>用多签 / 脚本结构分散钥匙暴露面。</strong>2-of-3 多签等结构让攻击者需要破解多把钥匙（且多数脚本在花费前不暴露全部公钥），既防量子也防单点失误。</li>
+        <li><strong>订阅三个信息源</strong>（下节有清单），在「后量子地址全面可用」的那天执行最终迁移——那是真正的 deadline，其余的都只是练习。</li>
+      </ol>
+
+      <h2>四、盯什么信号（监测清单）</h2>
+      <ul>
+        <li><strong>M1 里程碑</strong>：任何「量子计算机用 Shor 破解真实椭圆曲线（哪怕玩具尺寸）」的可信新闻——出现的当天，市场会恐慌，但你已知道它只是象征性事件（第 6 章）。看看就好，别操作。</li>
+        <li><strong>BIP-360 / 后量子软分叉状态</strong>：从草案 → 测试网 → 激活。激活的那一天开始规划最终迁移。</li>
+        <li><strong>托管巨头动向</strong>：当 Coinbase、大型托管商、主流硬件钱包宣布支持后量子地址，意味着「逃生通道」就绪——这是普通人行动的准点发车信号。</li>
+        <li><strong>NIST / 各国政府时间表的执行情况</strong>（2030 弃用 RSA/ECC 等）：它们是全世界密码学健康度的心跳监测仪。</li>
+      </ul>
+
+      <h2>五、四件绝对不要做的事</h2>
+      <ol>
+        <li><strong>不要恐慌抛售。</strong>卖币不解决任何暴露问题（币换成法币照样放在银行系统里，而银行系统面对量子更脆弱），只是把你的资产以恐慌价送给更冷静的人。第 7 章剧本六说过：真正的结局大概率是「无事发生」。</li>
+        <li><strong>不要购买「量子安全币」。</strong>若干新项目以「生而抗量子」为卖点——它们多数既没有比特币的共识网络，其宣称的「抗量子」也常常未经同等强度的密码学检验。换船未必更安全，多数时候只是换了个更小的洞。</li>
+        <li><strong>不要相信「量子末日」爆文与恐吓营销。</strong>凡是结尾引导你「赶紧转移资产到 XXX / 购买 XXX 服务」的文章，动机优先。回忆第 5 章的靶图：你的真实风险敞口取决于具体的地址行为，而不是新闻的音量。</li>
+        <li><strong>不要使用任何来路不明的「量子检测/迁移工具」。</strong>今天你面对的真实风险清单里，量子计算机根本排不上号——钓鱼网站和恶意软件才是。任何让你「输入助记词」的页面，不管故事讲得多量子，都是老式小偷。</li>
+      </ol>
+
+      <h2>六、常见问题</h2>
+      <details class="qa">
+        <summary>我的比特币现在安全吗？</summary>
+        <div class="a"><p>安全。截至 2026 年不存在能破解 ECDSA 的机器。你唯一需要管理的是「未来风险」：公钥暴露面。按本章前两节做，你的敞口会小于 99% 的持币人。</p></div>
+      </details>
+      <details class="qa">
+        <summary>我该现在就把币全部转到新地址吗？</summary>
+        <div class="a"><p>不需要全部。「转新地址」只是把「已暴露」变成「未暴露」，收益是一次性的；而频繁搬家反而增加操作失误与链上暴露的次数。正确姿势：把已暴露的大额部分在未来几年从容分批整理，其余保持地址卫生即可。</p></div>
+      </details>
+      <details class="qa">
+        <summary>我用的 bc1p（Taproot）地址是不是很危险？</summary>
+        <div class="a"><p>在量子视角下它比 bc1q 更暴露（公钥上链，第 5 章），但这是一份「几十年尺度」的微小敞口，不是眼前的火警。理性的做法是知悉即可，等后量子地址就绪后一并迁移；不必恐慌性搬家。技术选择永远是在多个维度间权衡，Taproot 在隐私与费用上的收益没有作废。</p></div>
+      </details>
+      <details class="qa">
+        <summary>多签能防量子吗？</summary>
+        <div class="a"><p>部分能。多签迫使攻击者破解多把钥匙、且多数脚本结构在花费前不暴露全部公钥，是「时间换空间」的有效缓冲。但若攻击者有无限时间，多签只是提高成本不改变结局——真正的终局解是后量子签名。</p></div>
+      </details>
+      <details class="qa">
+        <summary>交易所里的币安全吗？</summary>
+        <div class="a"><p>交易所是中心化机构，其安全模型不同：你面对的是「交易所的偿付能力与安全实践」这个老问题，量子只是它的一个新章节。头部机构对量子风险的响应通常快于个人。老规则不变：长期持有的放自己冷钱包，交易用的放交易所——这条规则在量子时代依然成立。</p></div>
+      </details>
+      <details class="qa">
+        <summary>为什么不等钱包自动解决？</summary>
+        <div class="a"><p>钱包只能解决「工具」，解决不了「行为」。地址复用、助记词备份、暴露面盘点都是只有你能做的动作。工具会在未来某天自动升级，坏习惯不会。</p></div>
+      </details>
+      <details class="qa">
+        <summary>如果 Q-Day 比所有人预期都早呢？</summary>
+        <div class="a"><p>重读第 7 章剧本一和五。你会提前看到警报（M1 演示、市场恐慌、抢迁移潮），而不是一觉醒来世界清零。你的时间优势恰恰来自「知道剧本的人」在恐慌中有既定动作——而你现在就是知道剧本的人。</p></div>
+      </details>
+      <details class="qa">
+        <summary>一句话总结这整章？</summary>
+        <div class="a"><p>别复用地址，备份好种子，保持工具更新，盯住 BIP-360，然后去过你的生活。</p></div>
+      </details>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>现在没有币在丢；你要管理的是暴露面。<strong>地址卫生（不复用）+ 冷钱包 + 备份</strong>是零成本的三件套，今天就能做完。</li>
+          <li>真正的 deadline 是「后量子地址全面可用」的那一天，而不是任何新闻头条的日子。盯 BIP-360 和托管巨头的公告，别盯恐慌文章。</li>
+          <li>最危险的对手从来不是量子计算机，是钓鱼、木马和你自己的坏习惯。本章所有建议，一半防量子，一半防你自己。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="08-counterattack.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 8 章 · 反击战：比特币的自救</div>
+      </a>
+      <a class="next" href="10-philosophy.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">终章 · 个人思考：这真的是量子威胁吗</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

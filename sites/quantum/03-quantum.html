@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 3 章：量子计算机不是更快的电脑，而是另一种机器。叠加、干涉、纠缠与纠错——拆掉科幻滤镜，看清它真实的能与不能。">
+  <title>第 3 章 · 量子计算机：不是更快的电脑，是另一种机器 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 3 / 10 章 · 看懂量子</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 3 章 · 看懂量子</div>
+      <h1>量子计算机：不是更快的电脑，是另一种机器</h1>
+      <p class="lead">网上关于量子计算的说法，一半是神化，一半是误解。读完这一章，你不会学会造量子计算机，但你会获得一样更值钱的东西：<strong>分辨能力</strong>——哪些是真进展，哪些是吹牛，以及它到底为什么能威胁比特币。</p>
+      <div class="chapter-meta">
+        <span>约 16 分钟</span>
+        <span>难度 <span class="stars">★★☆☆☆</span></span>
+        <span>前置：第 2 章（知道「单向函数」即可）</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、先泼一盆冷水</h2>
+      <p>最常见的误解是这样的：「量子计算机把所有答案都并行算了一遍，所以它能破解一切、模拟一切、一夜之间取代电脑。」——错。而且错得很关键。</p>
+      <div class="callout c-myth">
+        <span class="tag">破除迷信</span>
+        <p><strong>误区一</strong>：「量子计算机同时算出所有答案。」——它确实能同时「承载」海量可能性，但你<strong>只能读出其中一个</strong>（原因见下文「测量」）。如果你只是瞎算一通然后读答案，效果和扔硬币猜答案差不多。</p>
+        <p><strong>误区二</strong>：「量子计算机是超级快的电脑。」——它在很多日常任务上（浏览网页、渲染游戏、跑数据库）不但不快，甚至不如你的手机。它是<strong>另一种机器</strong>，不是更强的机器。</p>
+        <p>正确的类比不是「跑车 vs 自行车」，而是<strong>「潜艇 vs 汽车」</strong>：潜艇在水面公路上寸步难行，但在另一个维度（水下）里，它能去汽车永远去不了的地方。</p>
+      </div>
+      <p>量子计算机的「水下」，是微观世界的一条特殊规则。下面用三步把它讲明白。</p>
+
+      <h2>二、第一步：会「旋转」的硬币（叠加）</h2>
+      <p>普通比特像一枚摆在桌上的硬币：要么正面（1），要么反面（0），非此即彼。</p>
+      <p>量子比特像一枚<strong>正在旋转的硬币</strong>：在它停稳之前，你没法说它是正还是反——它处于「正与反的混合状态」，术语叫<strong>叠加态</strong>。一枚量子比特同时带着「正」和「反」两份信息；两枚就是四种组合（正正、正反、反正、反反）的混合；300 枚量子比特，能同时承载的组合数就超过了宇宙中的原子总数。</p>
+      <p>这就是量子计算「海量并行」的真正含义：不是算得快，而是<strong>状态的容量大</strong>。</p>
+      <p>但马上有个残忍的但是——</p>
+      <h3>测量：硬币一停，只剩一面</h3>
+      <p>你要读出答案，就必须让硬币停稳，这叫<strong>测量</strong>。而量子力学的铁律是：<strong>一旦测量，所有叠加瞬间坍缩，你只能随机看到其中一种结果</strong>。</p>
+      <p>也就是说：300 个量子比特承载的 2<sup>300</sup> 种可能性里，你只采样到一个。如果可能性之间的地位平等，你抽到正确答案的概率约等于零。<strong>「并行所有可能」是真的，「能读出所有答案」是假的。</strong>量子算法的全部难度，就在于怎么在坍缩之前做手脚，让正确答案成为那个「大概率被抽中」的幸运儿。</p>
+
+      <h2>三、第二步：让错误答案自相残杀（干涉）</h2>
+      <p>这个「做手脚」，靠的是波的一种古老性质：<strong>干涉</strong>。</p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻：降噪耳机</span>
+        <p>降噪耳机的原理是：检测到环境噪音的波形，然后播放一个<strong>刚好相反</strong>的声波，两个波叠加，互相抵消——噪音消失了。这就是波的干涉：两个波既可能<strong>相互抵消</strong>（相消干涉），也可能<strong>相互增强</strong>（相长干涉）。</p>
+      </div>
+      <p>量子算法的设计艺术就在这里：把计算过程编排成一场波的舞蹈，让<strong>所有错误答案的「概率波」路径相互抵消，让正确答案的波不断同相叠加</strong>。等硬币停稳（测量）那一刻，正确答案的音响彻全场，错误答案已被踩得鸦雀无声。</p>
+      <p>所以请换掉脑中的这幅图景——量子计算不是「同时算所有答案再挑一个」，而是<strong>「设计一场舞蹈，让错误的舞步自相残杀」</strong>。</p>
+      <p>这个视角立刻回答了一个大问题：<strong>为什么量子计算机只对特定问题快？</strong>因为编排舞蹈需要素材——问题本身得有可利用的<strong>结构</strong>（周期、规律、对称性）。没有结构的问题，无舞可编，量子计算机和你家计算器差不多。第 2 章说过：哈希函数就是刻意「无结构」的。伏笔继续加深。</p>
+
+      <h2>四、第三步：纠缠（简单带过）</h2>
+      <p>媒体最爱渲染「量子纠缠」，其实你只需知道两点：</p>
+      <ul>
+        <li>它不是「超光速传信」。两个纠缠的量子比特像<strong>分装两个盒子的一副手套</strong>：打开一个盒子看到左手，立刻知道另一个是右手——但没有任何信息被「发送」，两盒手套只是出厂时就配好对了。</li>
+        <li>它是一种<strong>工程资源</strong>：纠缠让成百上千个量子比特作为一个整体协同起舞，是执行复杂量子算法的必需品。没有纠缠，叠加只是独舞，成不了气候。</li>
+      </ul>
+
+      <h2>五、最难的部分：为什么还造不出来</h2>
+      <p>理论算法 1994 年就有了，为什么 2026 年还没人破解比特币？因为<strong>造机器难到离谱</strong>。</p>
+      <p>旋转中的硬币极其怕打扰。一丝热量、一下震动、一缕杂散电磁场，都会让叠加态「泄密」而崩溃——这叫<strong>退相干</strong>。所以量子芯片要在接近绝对零度（约 -273 ℃）里运行，比外太空还冷；即使这样，比特仍在不断出错。</p>
+      <p>解决方案是<strong>纠错</strong>：用很多个娇气的物理量子比特，投票编码出一个稳定的「逻辑量子比特」。目前的表面码方案，大约需要 <strong>1,000 个物理比特换 1 个逻辑比特</strong>（视硬件质量浮动）。真正能跑 Shor 算法的，是逻辑比特。</p>
+      <div class="meter">
+        <div class="row"><span>破解 ECC 所需（逻辑）</span><div><div class="bar"><div class="fill red" style="width:100%"></div></div><div class="num">≈ 1,000–2,500 个逻辑比特（2022 年估 2,330；2025–26 年算法优化后最低报至 835）</div></div></div>
+        <div class="row"><span>所需物理比特</span><div><div class="bar"><div class="fill red" style="width:100%"></div></div><div class="num">≈ 数百万至数千万个（取决于速度要求：小时级 vs 分钟级）</div></div></div>
+        <div class="row"><span>2024 年最强机器</span><div><div class="bar"><div class="fill blue" style="width:1.5%"></div></div><div class="num">≈ 1,000 量级物理比特，0 纠错规模（Google Willow 105 / IBM Condor 1,121 / 中科大祖冲之三号 105）</div></div></div>
+        <div class="row"><span>2026 年纠错水位</span><div><div class="bar"><div class="fill blue" style="width:4%"></div></div><div class="num">逻辑比特刚进入「几十」量级（小型纠错演示成功，如 Harvard 中性原子阵列、Willow 表面码）</div></div></div>
+      </div>
+      <p>看清这个差距了吗？<strong>还差四到六个数量级</strong>。好比人类刚造出能离地一米的扑翼机，而目标是飞抵木星。差距巨大——但别忘了，1903 年人类刚学会离地 12 秒，66 年后就登上了月球。这就是为什么时间线的判断（第 6 章）如此众说纷纭。</p>
+
+      <h2>六、它到底擅长什么</h2>
+      <p>把本章收拢成一张能力表：</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>问题类型</th><th>量子计算机的表现</th><th>原因</th></tr></thead>
+          <tbody>
+            <tr><td>因数分解、离散对数（RSA / ECC）</td><td class="risk-hi">指数级碾压（Shor）</td><td>问题有周期结构，恰好能编出「错误答案自相残杀」的舞蹈</td></tr>
+            <tr><td>无结构搜索（翻数据库、反推哈希）</td><td class="risk-mid">平方根加速（Grover），封顶</td><td>没有结构可用，只能给蛮力「提效」而不能换引擎</td></tr>
+            <tr><td>模拟分子、材料（量子化学）</td><td class="risk-lo">天然擅长，最早落地的应用之一</td><td>用模拟量子系统的机器模拟量子系统，对口</td></tr>
+            <tr><td>日常计算（网页、游戏、视频）</td><td class="risk-mid">毫无优势甚至更差</td><td>这些任务早已被经典架构优化到极致</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>对照第 2 章的表格你会发现一个近乎戏剧性的巧合：<strong>量子计算机的最大杀招（周期查找），恰好命中签名锁（ECDSA）的结构软肋；而哈希锁的无结构设计，恰好顶住了量子加速的天花板。</strong>1994 年 Shor 发表算法时，比特币还要 15 年才诞生——这笔「天生的仇」，真是历史的黑色幽默。</p>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>量子计算机是<strong>另一种机器</strong>：状态容量巨大（叠加），但你只能读出一个答案（测量坍缩），所以它只在「能编排干涉」的特定问题上快。</li>
+          <li>它的速度来自<strong>让错误答案相互抵消</strong>（干涉），这需要问题本身有结构。无结构 = 无舞可编 = 只有平方根级的通用加速。</li>
+          <li>瓶颈在硬件：<strong>逻辑比特</strong>才是战力单位，1 个逻辑比特 ≈ 1,000 个物理比特。破解 ECC 需要千级逻辑比特，人类目前刚摸到几十个逻辑比特的门槛——差距四到六个数量级，但方向明确。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="02-keys.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 2 章 · 钥匙、锁与单向门</div>
+      </a>
+      <a class="next" href="04-shor-grover.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 4 章 · 两把杀器：Shor 与 Grover</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

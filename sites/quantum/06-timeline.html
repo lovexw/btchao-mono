@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 6 章：Q-Day 到底哪天来？看懂 2026 年量子计算的真实水位、纠错里程碑与权威时间表，学会用里程碑而不是年份来跟踪威胁进度。">
+  <title>第 6 章 · 进度条：我们到底还有多少年 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 6 / 10 章 · 正片</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 6 章 · 正片</div>
+      <h1>进度条：我们到底还有多少年</h1>
+      <p class="lead">「量子计算机哪年能破解比特币？」——这个问题问错了。正确的问法是：<strong>离破解还差哪几个台阶，每个台阶离现在多远。</strong>年份是舆论，台阶是工程。这一章盘点 2026 年的真实水位，并给你一份可以亲自核对的里程碑清单。</p>
+      <div class="chapter-meta">
+        <span>约 14 分钟</span>
+        <span>难度 <span class="stars">★★★☆☆</span></span>
+        <span>前置：第 3、5 章</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、2026 年的真实水位</h2>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="when">1994–1996</div>
+          <h4>理论先行：Shor 与 Grover 发布</h4>
+          <p>密码学的死刑判决书写好了，行刑机器还不存在——这个状态持续了三十年。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2019–2023 · 量子的「莱特兄弟期」</div>
+          <h4>谷歌 53 比特「量子优越性」、IBM 千比特芯片</h4>
+          <p>物理比特数冲到千级，但全是<strong>无纠错</strong>的物理比特，噪音大得连自己都信不过。媒体头条从此学会了一个危险的省略：报比特数，不报纠错。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2024 年 12 月</div>
+          <h4>真正的分水岭：谷歌 Willow 的纠错里程碑</h4>
+          <p>Willow（105 物理比特）首次演示「<strong>越扩容越稳定</strong>」的 below-threshold 纠错——此前三十年，加比特只会加错误；从这天起，加比特开始减错误。这是通向逻辑比特时代的真正开门声，业内称「量子计算的 Sputnik 时刻」。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2025–2026</div>
+          <h4>逻辑比特破百、算法持续瘦身</h4>
+          <p>中性原子阵列（哈佛系）把逻辑比特做到几十个量级并演示可扩展架构；IBM 公布 Starling 计划（2029 年建成 200 逻辑比特容错机）与 Blue Jay 远期目标（2033 年 2,000 逻辑比特）；算法侧把破解 ECC 的逻辑比特需求从 2,330 压到约 835。同时，微软拓扑比特等新路线也在排队。</p>
+        </div>
+      </div>
+      <p>一句话总结水位：<strong>方向已确认，距离还很远</strong>——破解一把真实 secp256k1 私钥需要千级逻辑比特，人类刚摸到几十级；按物理比特算是数百万级，现有机型是千级。差四到六个数量级。</p>
+
+      <h2>二、里程碑清单：比「年份」可靠的东西</h2>
+      <p>与其记住谁的预测，不如盯着这四个台阶。每上一个，威胁等级就跳一档：</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>里程碑</th><th>含义</th><th>2026 年距离</th><th>上台阶后的世界</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>M1</strong><br>Shor 破解玩具级 ECC</td>
+              <td>在真实硬件上用 Shor 打通「公钥→私钥」全流程（哪怕钥匙只有几十位）</td>
+              <td class="risk-mid">最近的一个里程碑</td>
+              <td>象征意义巨大：市场开始给「量子风险」定价，恐慌先于技术到来</td>
+            </tr>
+            <tr>
+              <td><strong>M2</strong><br>千级逻辑比特机器</td>
+              <td>能跑完整 ECC-Shor 的纠错机建成（IBM Blue Jay 2033 目标即此量级）</td>
+              <td class="risk-hi">1–2 个数量级的硬件 + 纠错工程</td>
+              <td>已暴露公钥全部进入「随时可收割」状态；迁移窗口正式关闭倒计时</td>
+            </tr>
+            <tr>
+              <td><strong>M3</strong><br>云端可租用</td>
+              <td>任何人按小时租到 M2 级机器</td>
+              <td class="risk-hi">在 M2 之后若干年</td>
+              <td>威胁从小国实验室扩散到个人黑客，链上裸奔币开始实际失窃</td>
+            </tr>
+            <tr>
+              <td><strong>M4</strong><br>首次在线攻击成功</td>
+              <td>在 10 分钟确认窗口内破解签名并完成双花</td>
+              <td class="risk-hi">比 M2 更靠后（快刀比慢刀贵）</td>
+              <td>未迁移地址连「花币」都不再安全——后量子迁移的最终期限</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>注意一个刺眼的逻辑：<strong>M1 就足以引发市场恐慌，但它离真实威胁还很远。</strong>价格会因为标题崩，也会因为标题涨回去——这正是第 7 章剧本要推演的东西。</p>
+
+      <h2>三、权威们怎么说（以及怎么读他们）</h2>
+      <ul>
+        <li><strong>NIST（美国标准机构）</strong>：2024 年定稿三大后量子标准，并明确要求 RSA/ECC <strong>2030 年起弃用、2035 年禁用</strong>。读法：一个以保守著称的机构，不会给系统预留不到十年的换锁时间——这等于官方盖章「Q-Day 大概率不晚于 2035 年代」。</li>
+        <li><strong>国家安全界</strong>：美国 NSA 的 CNSA 2.0 时间表要求敏感系统在 ~2033 年前完成后量子迁移；多国政府已发布类似强制令。读法：情报界的内部估计，通常比公开学术观点更紧迫。</li>
+        <li><strong>学术专家调查</strong>（Global Risk Institute 年度调查）：对「15 年内破解 RSA-2048」，专家给出的中位概率逐年上调，且分布极宽——从「几乎不可能」到「很快」都有人押。读法：这告诉我们的是<strong>不确定性本身</strong>，而非任何一个具体年份。</li>
+        <li><strong>产业路线图</strong>：IBM、谷歌等给出 2029–2033 年的容错机目标。读法：产业路线图有延期前科，但方向可信；它们的目标恰好是 M2 量级。</li>
+      </ul>
+
+      <h2>四、三条比时间表更重要的历史规律</h2>
+      <ol>
+        <li><strong>突破是非线性的。</strong>量子计算不太可能匀速逼近目标，更可能像 Willow 那样突然跨过某个阈值后指数加速。1939 年核裂变还是论文，1945 年就是广岛。留六年的安全余量，不是胆小。</li>
+        <li><strong>犯错的代价不对称。</strong>高估威胁 = 花钱迁移 = 顶多浪费些资源；低估威胁 = 裸奔币被洗劫 = 不可逆损失。理性策略永远偏向「宁可早三年」。</li>
+        <li><strong>伤害从 Q-Day 之前就开始了。</strong>第 5 章讲过：已暴露的公钥（数百万枚币）今天就可以被「收割」。等机器造好再行动的人，资产早在 Q-Day 多年前就上了别人的靶纸。<strong>这是本套笔记反复强调「现在就开始」的唯一天据。</strong></li>
+      </ol>
+
+      <h2>五、作者的主观概率（诚实版本）</h2>
+      <div class="callout c-sum">
+        <span class="tag">个人判断 · 仅供参考</span>
+        <p>综合工程差距、算法趋势与权威时间表，我的主观估计是：2035 年前出现能破解真实 ECC 的机器概率 <strong>&lt;5%</strong>；2040 年前约 <strong>10–25%</strong>；2050 年前约 <strong>50%+</strong>。这不是精确科学——1994 年以来每个「十年预测」都错过了——但它给出一个有用的姿态：<strong>威胁足够远，远到不必恐慌；又足够近，近到必须现在开始迁移。</strong>如果你采用不同的主观概率，请带着自己的推理来，而不是带着恐惧来。</p>
+      </div>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>盯里程碑（M1 玩具破解 → M2 千级逻辑比特 → M3 云端租用 → M4 在线攻击），别盯年份。M1 可能很早到来并造成恐慌，但真实威胁在 M2/M3。</li>
+          <li>NIST「2035 禁用 RSA/ECC」是全书最值得信赖的一根时间锚：保守机构的十一年迁移令，本身就是一份威胁评估报告。</li>
+          <li>伤害早于 Q-Day：已暴露公钥今天就在被收割清单上。时间线的正确结论不是「还有 20 年，躺平」，而是「未知多久，所以现在开始」。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="05-anatomy.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 5 章 · 对号入座：哪里疼，哪里不疼</div>
+      </a>
+      <a class="next" href="07-extreme.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 7 章 · 极端推演：六个末日剧本</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

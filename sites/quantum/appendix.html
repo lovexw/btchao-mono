@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="附录：全书关键术语速查、所有数字的出处汇总，以及论文与一手资料延伸阅读。">
+  <title>附录 · 术语表 · 数据速查 · 延伸阅读 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">附录 · 随手查阅</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">附 录</div>
+      <h1>术语表 · 数据速查 · 延伸阅读</h1>
+      <p class="lead">读书时忘了词、查数字时忘了出处、想继续深入时不知道去哪——都回这一页。全书内容以 <strong>2026 年 9 月</strong> 为快照；量子领域变化快，引用前请复核。</p>
+      <div class="chapter-meta"><span>随手查阅</span><span>难度 <span class="stars">☆☆☆☆☆</span></span></div>
+    </header>
+
+    <article>
+      <h2>一、术语表</h2>
+      <dl class="vocab">
+        <dt>账本 / 区块链 <span class="en">Blockchain</span></dt><dd>由全网节点共同维护、按时间分页装订、难以篡改的公共账本。比特币的全部家当。</dd>
+        <dt>UTXO <span class="en">Unspent Transaction Output</span></dt><dd>「未花费的输出」，即账本上一张张面值各异的「整钞」。比特币没有余额概念，只有 UTXO 的集合。</dd>
+        <dt>私钥 <span class="en">Private Key</span></dt><dd>一个 0 到 2²⁵⁶ 之间的随机数，是你对币的最终控制权。丢了 = 币没了；被别人知道 = 币是别人的了。</dd>
+        <dt>公钥 <span class="en">Public Key</span></dt><dd>由私钥单向派生，可公开。量子威胁的核心对象：Shor 算法可从公钥反推私钥。</dd>
+        <dt>地址 <span class="en">Address</span></dt><dd>公钥再经哈希后的「收款账号」，形如 1… / 3… / bc1q… / bc1p…。可无限生成，建议一次性使用。</dd>
+        <dt>签名 <span class="en">Signature</span></dt><dd>用私钥对交易生成的数学凭证，证明「你有钥匙」而不暴露钥匙本身。比特币用 ECDSA。</dd>
+        <dt>ECDSA</dt><dd>比特币当前使用的椭圆曲线签名算法。量子时代的第一号受害者。</dd>
+        <dt>secp256k1</dt><dd>比特币选用的那条椭圆曲线的编号。台球桌之喻中的「那张桌」。</dd>
+        <dt>椭圆曲线 / 离散对数问题 <span class="en">ECDLP</span></dt><dd>「知道起点、终点和规则，反推打了几杆」的数学难题。ECDSA 安全性的地基。</dd>
+        <dt>哈希函数 <span class="en">Hash Function</span></dt><dd>把任意输入搅成固定长度指纹的单向函数（单向、雪崩、防撞）。比特币用 SHA-256 与 RIPEMD-160。</dd>
+        <dt>单向函数 <span class="en">One-way Function</span></dt><dd>正向算得飞快、反向倒推在计算上不可行的函数。现代密码学的共同地基。</dd>
+        <dt>挖矿 / 工作量证明 <span class="en">Mining / PoW</span></dt><dd>全网竞猜哈希谜题争夺记账权的机制，同时是账本不可篡改的护甲。面对量子基本无恙。</dd>
+        <dt>难度调整 <span class="en">Difficulty Adjustment</span></dt><dd>每 2016 块按全网算力自动调节谜题难度，维持约 10 分钟一页。量子算力涌入也会被它「没收优势」。</dd>
+        <dt>双花 <span class="en">Double Spend</span></dt><dd>同一笔钱花两次。量子在线攻击的目标：破解刚广播交易的签名后抢发偷窃版。</dd>
+        <dt>全节点 <span class="en">Full Node</span></dt><dd>下载并验证整本账本的电脑（全球约两万余个）。协议升级的最终裁决者。</dd>
+        <dt>软分叉 / 硬分叉</dt><dd>收紧规则的向后兼容升级（软）与改变规则的不兼容分家（硬）。比特币换锁优先走软分叉。</dd>
+        <dt>BIP <span class="en">Bitcoin Improvement Proposal</span></dt><dd>比特币改进提案，协议变更的标准立项形式。量子相关的代表是 BIP-360（P2QRH）。</dd>
+        <dt>叠加态 <span class="en">Superposition</span></dt><dd>量子比特「旋转中的硬币」状态：测量前同时承载多种可能。量子并行性的来源（也是误读的源头）。</dd>
+        <dt>测量坍缩 <span class="en">Measurement</span></dt><dd>读取量子态的瞬间，叠加坍缩为单一结果。为什么量子计算机不能「一次读出所有答案」。</dd>
+        <dt>干涉 <span class="en">Interference</span></dt><dd>量子算法的魔法核心：让错误答案的概率波相互抵消、正确答案相长。降噪耳机的同款原理。</dd>
+        <dt>纠缠 <span class="en">Entanglement</span></dt><dd>多个量子比特之间的强关联（一副手套分装两盒）。是量子计算的资源，不是超光速传信。</dd>
+        <dt>退相干 <span class="en">Decoherence</span></dt><dd>环境扰动导致叠加态崩溃。量子芯片要在近绝对零度运行的原因。</dd>
+        <dt>量子纠错 / 逻辑量子比特 <span class="en">QEC / Logical Qubit</span></dt><dd>用约 1,000 个易错的物理比特编码 1 个稳定逻辑比特。衡量「真战力」的单位——媒体报道常偷换成物理比特。</dd>
+        <dt>表面码 <span class="en">Surface Code</span></dt><dd>当前主流的量子纠错编码方案。Willow 2024 年演示的「越扩容越稳」即基于它。</dd>
+        <dt>Shor 算法</dt><dd>1994 年提出的量子算法，多项式时间求解因数分解与离散对数。对 ECDSA 是斩首级威胁。</dd>
+        <dt>Grover 算法</dt><dd>1996 年提出的量子搜索算法，把 N 次穷举加速到 √N，且已证明无法更快。对哈希只是「降级一半」。</dd>
+        <dt>量子傅里叶变换 <span class="en">QFT</span></dt><dd>Shor 算法里的「量子耳朵」：从叠加的嘈杂中听出周期节拍。</dd>
+        <dt>后量子密码学 <span class="en">PQC</span></dt><dd>设计目标为「经典与量子计算机都难以攻破」的密码学。NIST 2024 年定稿三大标准。</dd>
+        <dt>ML-KEM / ML-DSA / SLH-DSA</dt><dd>NIST 三标准：加密（格）、签名（格）、签名（哈希）。比特币新锁的主要候选是后两个。</dd>
+        <dt>格密码 <span class="en">Lattice-based</span></dt><dd>基于高维格数学难题的新密码家族，Shor 的节拍术对它无效。</dd>
+        <dt>P2PK</dt><dd>「直接付给公钥」的远古输出类型，公钥裸奔链上。中本聪的约 100 万枚属于此类。</dd>
+        <dt>P2PKH / P2WPKH</dt><dd>「付给公钥哈希」及其隔离见证版本：公钥藏于哈希外衣，花费时才露面。量子视角下最体面的老设计。</dd>
+        <dt>P2TR / Taproot</dt><dd>2021 年激活的升级。单签情形把修饰公钥直接印在链上——量子视角下近似 P2PK，常被误解为「最新最安全」。</dd>
+        <dt>BIP-360 / P2QRH</dt><dd>2025 年公开草案：新增「付给抗量子哈希」的输出类型，配后量子签名。比特币换锁的主战装备。</dd>
+        <dt>Q-Day</dt><dd>「密码学末日日」：量子计算机首次能破解真实世界公钥密码的那天。伤害从它之前就已开始（收割）。</dd>
+        <dt>现在收割，日后再花 <span class="en">Harvest Now, Spend Later</span></dt><dd>对已暴露公钥先记录、等机器造好再破解的攻击模式。比特币版「先存后解密」。</dd>
+        <dt>51% 攻击</dt><dd>掌握过半算力以审查或重组区块。量子对挖矿帮助有限，且比特币还有「社会共识回滚」这层装甲。</dd>
+        <dt>助记词 / 种子 <span class="en">Seed Phrase</span></dt><dd>12–24 个单词，私钥的人类可备份形式。链上几百万枚死币提醒你：备份它比担心量子更紧迫。</dd>
+      </dl>
+
+      <h2>二、数据速查（全书的数字都出自这里）</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>数字</th><th>数值</th><th>出处 / 说明</th></tr></thead>
+          <tbody>
+            <tr><td>破解一把 secp256k1 私钥所需（2022 估）</td><td>≈ 2,330 逻辑比特；小时级速度需 ~3 亿物理比特，10 小时级约 1,300 万</td><td>Webber et al., <em>arXiv:2110.00002</em>（2022）</td></tr>
+            <tr><td>算法优化后的最新需求（2025–26）</td><td>最低报至 ≈ 835 逻辑比特（门数 +20 倍的折衷）</td><td>多团队电路优化研究；趋势：硬件门槛持续下降</td></tr>
+            <tr><td>2026 年最强量子硬件</td><td>千级物理比特（IBM Condor 1,121；Willow/祖冲之三号 105）；纠错逻辑比特「几十」量级</td><td>各厂商 2023–2026 公开信息</td></tr>
+            <tr><td>纠错里程碑</td><td>2024-12：Google Willow 首次实现 below-threshold 纠错</td><td>Google Research 官方博客</td></tr>
+            <tr><td>产业路线图</td><td>IBM Starling（2029，约 200 逻辑比特容错机）→ Blue Jay（2033，约 2,000 逻辑比特）</td><td>IBM Quantum 路线图（2025-06 发布）</td></tr>
+            <tr><td>NIST 换代时间表</td><td>RSA/ECC 2030 弃用、2035 禁用</td><td>NIST IR 8547（草案）</td></tr>
+            <tr><td>三大 PQC 标准</td><td>FIPS 203 (ML-KEM)、204 (ML-DSA)、205 (SLH-DSA)，2024-08 定稿</td><td>NIST</td></tr>
+            <tr><td>签名大小对比</td><td>ECDSA ≈ 64 B；ML-DSA-44 ≈ 2.4 KB；SLH-DSA ≈ 8–50 KB</td><td>标准文档；解释块空间难题</td></tr>
+            <tr><td>量子危险区币量</td><td>≈ 400–650 万枚（占流通 20–30%）；其中 P2PK ≈ 140–180 万枚</td><td>Deloitte（2017）至 BitMEX Research（2025）等估算，口径不同</td></tr>
+            <tr><td>中本聪钱包</td><td>≈ 100 万枚，P2PK，2009–2010 挖出，从未移动</td><td>链上公开可查（1A1zP 开头地址）</td></tr>
+            <tr><td>因遗忘而死亡的总币量</td><td>普遍估计 200–400 万枚</td><td>Chainalysis 等链上分析机构多年估算</td></tr>
+            <tr><td>Grover 对哈希/挖矿</td><td>2²⁵⁶ → 2¹²⁸（原像）；量子矿机单位能效远劣于 ASIC，且不可并行</td><td>第 4、5 章的推理依据</td></tr>
+            <tr><td>比特币确认窗口</td><td>约 10 分钟/块，交易普遍 10–60 分钟内确认</td><td>在线攻击（快刀）时间压力的来源</td></tr>
+            <tr><td>反击战节点</td><td>2025：BIP-360（P2QRH）草案；2025-07：BitMEX Research 测试网首笔后量子签名交易</td><td>BIPs 仓库与 BitMEX Research 博客</td></tr>
+            <tr><td>公开悬赏</td><td>Project Eleven「Q-Day Prize」：1 BTC 悬赏用量子机破解玩具级 ECC</td><td>2025 年启动；截至快照日无人成功</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>三、延伸阅读（一手优先）</h2>
+      <h3>论文与标准</h3>
+      <ul>
+        <li>Shor, P. (1994). <em>Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer</em> —— 一切的开始（<a href="https://arxiv.org/abs/quant-ph/9508027">arXiv:quant-ph/9508027</a>）。</li>
+        <li>Grover, L. (1996). <em>A fast quantum mechanical algorithm for database search</em>（<a href="https://arxiv.org/abs/quant-ph/9605043">arXiv:quant-ph/9605043</a>）。</li>
+        <li>Webber, M. et al. (2022). <em>So you think quantum computing is not a threat to Bitcoin?</em>（<a href="https://arxiv.org/abs/2110.00002">arXiv:2110.00002</a>）—— 第 6 章资源估算的主来源。</li>
+        <li>NIST 后量子密码学项目页与三大标准（<a href="https://csrc.nist.gov/projects/post-quantum-cryptography">csrc.nist.gov/projects/post-quantum-cryptography</a>）；换代时间表见 NIST IR 8547。</li>
+      </ul>
+      <h3>比特币侧</h3>
+      <ul>
+        <li>BIP 仓库（<a href="https://github.com/bitcoin/bips">github.com/bitcoin/bips</a>）—— 关注 BIP-360 (P2QRH) 及量子相关提案的讨论进展。</li>
+        <li>BitMEX Research 博客（<a href="https://www.bitmex.com/research">bitmex.com/research</a>）—— 危险区币量估算与 2025 年测试网后量子交易实验。</li>
+        <li>Bitcoin Optech（<a href="https://bitcoinops.org">bitcoinops.org</a>）—— 每周技术通讯，量子升级的讨论会在这里留档。</li>
+        <li>中本聪 2010 年关于 SHA-256 与丢失币的论坛原帖（<a href="https://bitcointalk.org/index.php?topic=195.msg1611#msg1611">bitcointalk.org</a>）—— 终章两段引文的出处，建议读原文。</li>
+      </ul>
+      <h3>量子侧</h3>
+      <ul>
+        <li>Google Willow 纠错里程碑（<a href="https://blog.google/technology/research/google-willow-quantum-chip/">blog.google/technology/research</a>）。</li>
+        <li>IBM Quantum 路线图（<a href="https://www.ibm.com/quantum/roadmap">ibm.com/quantum/roadmap</a>）。</li>
+        <li>Global Risk Institute《Quantum Threat Timeline》年度专家调查（<a href="https://globalriskinstitute.org/">globalriskinstitute.org</a>）。</li>
+        <li>IBM Quantum Learning 平台与 3Blue1Brown 的线性代数系列（<a href="https://quantum.cloud.ibm.com/learning">quantum.cloud.ibm.com</a>）—— 想真正学量子计算，从这里起步。</li>
+      </ul>
+      <p style="margin-top:1.5rem"><em>注：外部链接会随时间失效或更新，若链接失灵，用标题去搜索即可找到最新版本。</em></p>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="10-philosophy.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">终章 · 个人思考：这真的是量子威胁吗</div>
+      </a>
+      <a class="home-link" href="index.html">回封面 · 查看阅读地图</a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

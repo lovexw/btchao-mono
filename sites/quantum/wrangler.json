@@ -1,0 +1,23 @@
+{
+  "name": "quantum-threat-bitcoin-guide",
+  "type": "javascript",
+  "account_id": "",
+  "workers_dev": true,
+  "route": "",
+  "zone_id": "",
+  "env": {
+    "production": {
+      "vars": {
+        "environment": "production"
+      }
+    },
+    "staging": {
+      "vars": {
+        "environment": "staging"
+      }
+    }
+  },
+  "triggers": {
+    "crons": []
+  }
+}

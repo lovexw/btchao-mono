@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 8 章：反击战——NIST 后量子标准、签名膨胀难题、BIP-360 提案、冻结老币的争议与软分叉治理。比特币正在如何自救。">
+  <title>第 8 章 · 反击战：比特币的自救 | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 8 / 10 章 · 推演与应对</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 8 章 · 推演与应对</div>
+      <h1>反击战：比特币的自救</h1>
+      <p class="lead">好消息先说：<strong>新锁早就铸好了。</strong>抵抗量子攻击的签名算法已经过全球密码学家八年公开混战、被标准机构盖章定稿。坏消息也先说：<strong>给比特币换锁，比铸锁难十倍。</strong>这一章讲铸锁（人类的后量子工程）和换锁（比特币的治理难题），以及反击战目前推进到哪了。</p>
+      <div class="chapter-meta">
+        <span>约 16 分钟</span>
+        <span>难度 <span class="stars">★★★☆☆</span></span>
+        <span>前置：第 2、5 章</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、人类这边：新锁已铸好（2024 定稿）</h2>
+      <p>1994 年 Shor 发布后，美国标准机构 NIST 于 2016 年发起了一场全球公开竞赛：征集能扛住量子计算机的密码算法，让全世界最顶尖的密码学家——包括想破解它们的人——公开攻击了整整八年。2024 年 8 月，三大标准定稿：</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>标准</th><th>出身</th><th>用途</th><th>对比特币的意义</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>ML-KEM</strong>（FIPS 203）</td><td>格密码</td><td>加密通信（TLS 的换代件）</td><td>与链上关系不大——比特币不需要「保密」，需要「签名」</td>
+            </tr>
+            <tr>
+              <td><strong>ML-DSA</strong>（FIPS 204）</td><td>格密码（Dilithium）</td><td>通用数字签名，性能最好的主力</td><td>最可能的比特币新签名锁；签名约 <strong>2.4 KB</strong>（ECDSA 的 38 倍）</td>
+            </tr>
+            <tr>
+              <td><strong>SLH-DSA</strong>（FIPS 205）</td><td>哈希签名（SPHINCS+）</td><td>最保守的备胎：只依赖哈希函数本身</td><td>哲学上最「比特币」的选择——把信任完全押在比特币本来就信任的东西上；代价是签名约 <strong>8–50 KB</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>配套的是时间表：NIST 规定 RSA/ECC <strong>2030 年起弃用、2035 年禁用</strong>（第 6 章讲过这根时间锚）。注意一个细节：新算法的数学地基（格、哈希）与老算法（因数分解、离散对数）完全不同族——Shor 的节拍探测术对它们无效。这是密码学界第一次「提前换锁」，而不是「被破门后再换」。</p>
+
+      <h2>二、比特币这边：为什么换锁这么难</h2>
+      <h3>难题一：新签名巨大得离谱</h3>
+      <p>ECDSA 签名只有 64 字节，紧致得像便条；ML-DSA 签名 2.4 KB，SLH-DSA 更大。比特币每个区块只有约 1–4 MB 的空间，装几千笔交易。同样的空间，后量子签名只能装几百笔——要么区块里交易变少，要么每笔交易的手续费翻几倍。这是硬物理：格签名的「脂肪」是安全性的代价，短期甩不掉。社区的对策思路：新输出类型的<strong>哈希护体设计</strong>（链上平时只露哈希，签名只在花币时出现一次）可以把块空间压力压到可接受范围——反正第 5 章说过，暴露公钥本来就是危险源，能藏则藏。</p>
+      <h3>难题二：没有君主的换锁流程</h3>
+      <p>Visa 换加密算法，安全部门一纸令下，三个月完成——中心化的效率。比特币换锁需要：<strong>开发者写代码 → 全球两万多个全节点自愿升级 → 矿工激活 → 钱包、交易所、托管商跟进生态支持 → 亿级用户实际迁移资金</strong>。任何一环大规模拒绝，升级就失败。历史上比特币的软分叉（Taproot，2021）从提出到实际启用花了约三年，而且那还是一个人人同意、毫无争议的改进。换签名锁的争议性远超 Taproot——流程以十年计，不是夸张，是历史基数。</p>
+      <h3>难题三：鸡生蛋</h3>
+      <p>就算软分叉激活了，用户也得「有处可逃」才会迁移：钱包得支持新地址、交易所得支持充值提现、冷钱包厂商得固件升级。生态协同是个慢变量，而第 5 章说过——逃亡本身有暴露风险，迁移通道必须<strong>提前</strong>修好。这三个难题叠起来，就是那句话的完整含义：<strong>真正的瓶颈不是数学，是治理。</strong></p>
+
+      <h2>三、反击战实况（截至 2026 年）</h2>
+      <div class="tl">
+        <div class="tl-item">
+          <div class="when">2024.08</div>
+          <h4>NIST 三标准定稿</h4>
+          <p>比特币新锁的弹药库就位。ML-DSA 与 SLH-DSA 成为链上签名的主要候选。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2025</div>
+          <h4>BIP-360（P2QRH）草案公开</h4>
+          <p>开发者 Hunter Beast 起草的比特币改进提案：新增一种「付给抗量子哈希」的输出类型——平时链上只有哈希（护住公钥），花币时验证后量子签名。它就是比特币版的「新地址格式」，整套反击战的主战装备。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">2025.07</div>
+          <h4>测试网首笔后量子比特币交易</h4>
+          <p>BitMEX Research 团队在测试网使用 P2QRH 思路发出第一笔带后量子签名的比特币交易——一笔毫无价值的测试币，可能是比特币历史上最有价值的演练。</p>
+        </div>
+        <div class="tl-item">
+          <div class="when">进行中</div>
+          <h4>路线争论：混合签名 vs 纯 PQ vs 应急预案</h4>
+          <p>混合派主张新地址同时要求 ECDSA + 后量子双签名（即使新算法日后被破也有兜底）；纯 PQ 派主张简洁；应急派在起草「Q-Day 软分叉预案」（冻结暴露输出）。另有两家研究组织公开悬赏破解玩具级 ECC 密钥（Project Eleven 的 Q-Day Prize，奖金 1 BTC）——用真金白银给 M1 里程碑上闹钟。</p>
+        </div>
+      </div>
+      <p>作为对照，以太坊创始人 Vitalik 曾公开设想过另一条路：若量子危机突发，以太坊可以直接<strong>硬分叉</strong>——给全链做快照，只允许用户用新型抗量子证明提款。够快，够暴力，也够中心化。把这条路线摆在旁边，你就能看清比特币的选择：它宁可慢，也不走「少数人替所有人决定」的路。这是弱点还是特性，留给读者——也是终章要聊的东西。</p>
+
+      <h2>四、接下来的合理时间线（推演，非承诺）</h2>
+      <div class="figure"><span class="cap">一条可能的换锁进度线</span>
+ 2025–2027   BIP-360 等提案反复打磨、测试网演练、钱包原型
+ 2027–2030   软分叉激活（乐观情形）；生态支持逐步铺开
+ 2030–2040   大规模迁移窗口：大资金先行，钱包引导普通人
+ 之后任何时候  Q-Day（第 6 章：2040 年前 10–25%）
+ ⚠️ 红线      若 Q-Day 早于「迁移通道修好」，进入剧本一/五的困难模式</div>
+      <p>把这张图和第 6 章的里程碑对照，你会发现一件事的两种说法：<strong>比特币的换锁进度和量子机器的建成进度，是一场同向的赛跑</strong>——它们都快、都不确定、都在加速。这场赛跑的胜负概率，就是本书全部风险判断的地基。</p>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>新锁已铸好：NIST 2024 年定稿的 ML-DSA / SLH-DSA 是成熟、经过全球攻击检验的后量子签名；换锁的难点在比特币侧——签名膨胀、去中心化治理、生态协同，全是以年计的工程。</li>
+          <li>反击战已在进行：BIP-360 草案、测试网交易、应急预案、公开悬赏——比大多数媒体报道的「比特币危在旦夕」要从容得多。</li>
+          <li>记住那条红线：<strong>唯一真正的失败模式不是锁不够好，而是迁移没跑赢 Q-Day。</strong>这也是下一章——行动指南——存在的全部理由。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="07-extreme.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 7 章 · 极端推演：六个末日剧本</div>
+      </a>
+      <a class="next" href="09-guide.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 9 章 · 普通人行动指南</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>

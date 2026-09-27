@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="第 4 章：Shor 算法与 Grover 算法——一个斩首、一个减员。为什么它们恰好打中现代密码学的两个软肋，以及对比特币意味着什么。">
+  <title>第 4 章 · 两把杀器：Shor 与 Grover | 量子时代的比特币</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=b3e66733da">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+
+  <nav class="topbar">
+    <a class="brand" href="index.html"><span class="orb">⚛️</span>量子时代的比特币</a>
+    <div class="topbar-actions">
+      <span class="topbar-step">第 4 / 10 章 · 看懂量子</span>
+      <details class="toc-drop">
+        <summary>章节目录</summary>
+        <div class="toc-menu">
+          <a href="01-bitcoin.html"><span class="n">01</span>从零开始：比特币到底是怎么运作的</a>
+          <a href="02-keys.html"><span class="n">02</span>钥匙、锁与单向门</a>
+          <a href="03-quantum.html"><span class="n">03</span>量子计算机：另一种机器</a>
+          <a href="04-shor-grover.html"><span class="n">04</span>两把杀器：Shor 与 Grover</a>
+          <a href="05-anatomy.html"><span class="n">05</span>对号入座：哪里疼，哪里不疼</a>
+          <a href="06-timeline.html"><span class="n">06</span>进度条：我们还有多少年</a>
+          <a href="07-extreme.html"><span class="n">07</span>极端推演：六个末日剧本</a>
+          <a href="08-counterattack.html"><span class="n">08</span>反击战：比特币的自救</a>
+          <a href="09-guide.html"><span class="n">09</span>普通人行动指南</a>
+          <a href="10-philosophy.html"><span class="n">10</span>终章：这真的是量子威胁吗</a>
+          <a href="appendix.html"><span class="n">附录</span>术语表 · 数据速查 · 延伸阅读</a>
+        </div>
+      </details>
+    </div>
+  </nav>
+
+  <main class="chapter" id="main">
+    <header class="chapter-head">
+      <div class="kicker">第 4 章 · 看懂量子</div>
+      <h1>两把杀器：Shor 与 Grover</h1>
+      <p class="lead">1994 年，数学家 Peter Shor 发布了一个算法，让密码学界集体失眠；1996 年，Lov Grover 发布了另一个，让密码学界松了半口气。这两把杀器一个<strong>斩首</strong>、一个<strong>减员</strong>，奠定了量子威胁的全部版图。这一章讲清楚它们的直觉原理，以及为什么说比特币面临的从来不是「一种威胁」，而是「一半灭顶、一半可控」的<strong>不对称威胁</strong>。</p>
+      <div class="chapter-meta">
+        <span>约 14 分钟</span>
+        <span>难度 <span class="stars">★★★☆☆</span></span>
+        <span>前置：第 2、3 章</span>
+      </div>
+    </header>
+
+    <article>
+      <h2>一、Shor 算法：把「找钥匙」变成「听节拍」</h2>
+      <p>先回忆第 2 章的台球桌：私钥是杆数，公钥是终点，从终点反推杆数（离散对数）在经典计算机上没有捷径。这个「没有捷径」，在 1994 年之前被认为近乎数学定律。</p>
+      <p>Shor 的发现可以浓缩成一句话：<strong>这类难题背后都藏着一个「周期」——一种重复的节拍——而量子计算机恰好是宇宙中最好的节拍探测器。</strong></p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻：从杂音里听出主旋律</span>
+        <p>想象体育场里十万人同时说话，一片嘈杂——你根本听不清任何一句话（这是经典计算机的处境：只能在嘈杂里一把一把试钥匙）。</p>
+        <p>但如果你有一个「量子耳朵」，能把十万个声音<strong>全部同时收进一个声场</strong>里（这是第 3 章说的叠加），然后做一件事：<strong>让不同步的杂音相互抵消，让重复出现的节拍同相叠加</strong>（这是干涉）。几轮之后，嘈杂退去，剩下清晰的节拍声：「咚——咚——咚——」。</p>
+        <p>测出这个节拍（周期），再用小学水平的经典数学一换算——私钥就出来了。</p>
+      </div>
+      <p>那个「量子耳朵」的操作，学名叫<strong>量子傅里叶变换</strong>（就是把信号分解成节拍的数学工具的量子版）。不需要更多细节——你只需知道：<strong>凡是「找周期」的问题，量子计算机都是降维打击；而因数分解（RSA 的命门）和椭圆曲线离散对数（ECDSA 的命门），恰好全都是找周期问题。</strong></p>
+      <p>这就是为什么 Shor 一个算法能同时宣判 RSA、Diffie-Hellman、ECDSA 三大主流公钥体系的死刑：它们表面不同，内里同族——<strong>都把安全性押在「经典机器找不到周期」上。</strong></p>
+      <div class="compare">
+        <div class="good">
+          <h4>经典计算机找私钥</h4>
+          在 2<sup>256</sup> 根钥匙里一把一把试。即使全世界的算力加起来，跑到宇宙热寂也试不完零头的零头。<strong>锁是安全的。</strong>
+        </div>
+        <div class="bad">
+          <h4>量子计算机找私钥（Shor）</h4>
+          把所有可能性叠加成一场「声场」，用傅里叶变换听出周期节拍，节拍一换算——<strong>钥匙自己浮出水面</strong>。所需时间：小时级。所需机器：约 1,000–2,500 个逻辑量子比特。
+        </div>
+      </div>
+
+      <h2>二、Grover 算法：只能砍掉一半的男人</h2>
+      <p>第二把杀器对付的是哈希。但它的故事完全不同——不是神话，是天花板。</p>
+      <p>Grover 算法做的事很朴素：在没有任何结构的黑箱里找那个唯一的答案，它把经典需要的 N 次尝试，压缩到约 <strong>√N 次</strong>。原理用比喻说：</p>
+      <div class="callout c-analogy">
+        <span class="tag">比喻：舀水</span>
+        <p>想象一片巨大的水面，某个角落有一个属于正确答案的「小水洼」。经典搜索是一瓢一瓢舀整片海。Grover 的做法是每「转一圈」，就<strong>把正确答案的水位舀高一点、把其他地方的水舀低一点</strong>（每圈 = 一次函数调用 + 一次干涉）。转 √N 圈后，正确答案的水洼变成了一片池塘，一测量，大概率就命中。</p>
+      </div>
+      <p>听起来很猛，但有三个「但是」，每一个都致命：</p>
+      <ol>
+        <li><strong>平方根是数学天花板。</strong>已经从理论上证明：不可能比 √N 更快。2<sup>256</sup> 的搜索降到 2<sup>128</sup>——只是从「宇宙热寂也跑不完」降到「依然宇宙级」。128 位强度在密码学里仍是「安全」的及格线以上。</li>
+        <li><strong>量子比特之间没法像矿机一样横向堆叠。</strong>Grover 是一场必须一气呵成的连贯舞蹈：不能把它拆成一万台量子机各跑一小段再汇总——干涉需要所有水洼同步舀。这与经典算力的堆叠逻辑完全相反。</li>
+        <li><strong>量子机跑一次哈希本身贵得吓人。</strong>一台 ASIC 矿机一秒算 10<sup>14</sup> 次哈希，功耗几十瓦；量子机做一次同样哈希的电路规模与耗时（微秒级逻辑门 + 纠错开销）意味着「量子矿工」的单位算力成本高出十几个数量级。两个平方根的劣势相乘，Grover 在挖矿上很可能<strong>永远</strong>不划算（第 5 章细算这笔账）。</li>
+      </ol>
+      <div class="callout c-warn">
+        <span class="tag">顺带纠个错</span>
+        <p>很多旧文章写「量子计算机破解 SHA-256 只需 2<sup>64</sup> 次运算，所以比特币挖矿完了」。错在拿「碰撞攻击」的数字吓唬「原像攻击」的场景，且完全无视上面三个「但是」。挖矿需要的是<strong>原像</strong>（找到小于目标值的 nonce），2<sup>256</sup>→2<sup>128</sup>，依然遥不可及；而「量子矿机」的能效比被 ASIC 吊打。挖矿，是这场威胁剧里最安全的主角。</p>
+      </div>
+
+      <h2>三、双杀对照表：一眼看清威胁版图</h2>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th></th><th>Shor（1994）</th><th>Grover（1996）</th></tr></thead>
+          <tbody>
+            <tr><td><strong>打击对象</strong></td><td>有周期结构的难题：RSA、ECC（ECDSA）</td><td>一切「暴力搜索」：哈希原像、密钥穷举</td></tr>
+            <tr><td><strong>加速幅度</strong></td><td>指数级 → 多项式级（换引擎）</td><td>平方根（提效，封顶且已证明最优）</td></tr>
+            <tr><td><strong>对签名锁 ECDSA</strong></td><td class="risk-hi">死刑：公钥 → 私钥，小时级</td><td>—</td></tr>
+            <tr><td><strong>对哈希锁 SHA-256</strong></td><td>—</td><td class="risk-lo">降级：强度减半，可通过加大输出长度对冲</td></tr>
+            <tr><td><strong>对挖矿</strong></td><td>无关</td><td class="risk-lo">理论加速，实际成本倒挂，基本无效</td></tr>
+            <tr><td><strong>可并行性</strong></td><td>需整台大机器一气呵成</td><td>差（干涉无法拆机执行）</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>四、硬核区：威胁的量化快照（2026 视角）</h2>
+      <div class="callout c-hard">
+        <span class="tag">硬核区</span>
+        <p><strong>破解一把 secp256k1 私钥需要多少资源？</strong>引用最多的估计来自 Webber 等人 2022 年的论文（arXiv:2110.00002）：约 <strong>2,330 个逻辑量子比特</strong>、约 1.9×10<sup>9</sup> 个 Toffoli 门；换算成物理比特，与「想在 10 分钟到一个小时内完成破解」的速度要求强相关——10 小时级约 1,300 万物理比特，1 小时级约 3 亿。2025–2026 年，多个团队（包括一个中国团队）通过优化算术电路把逻辑比特需求<strong>压到 835–1,200 个</strong>，代价是门数增加约 20 倍——机器可以更小，但更慢。趋势明确：<strong>硬件要求随算法进步持续下降</strong>，这也是时间线判断必须动态更新（第 6 章）的原因。</p>
+        <p><strong>时间压力问题：</strong>比特币交易从广播到确认约 10–60 分钟。若攻击者想抢在确认前破解你刚广播的签名（然后用更高费率抢发一笔「偷窃版」交易），必须在几分钟内破解——这需要更快（更大）的机器。而对<strong>早已暴露的公钥</strong>（第 5 章），攻击者可以从容不迫，用最慢最便宜的配置慢慢算。<strong>「来得及」与「来不及」之间，是几个数量级的资源差。</strong></p>
+      </div>
+
+      <div class="takeaway">
+        <h3>✅ 记住三件事</h3>
+        <ol>
+          <li>Shor 的本质是把找钥匙变成<strong>听节拍</strong>——凡是押注「经典机器找不到周期」的密码（RSA、ECDSA 全部中招）都会被降维打击。比特币的签名锁死刑已判，只是「行刑时间」未定。</li>
+          <li>Grover 只是给穷举<strong>提效一个平方根</strong>，且难并行、单位成本高。哈希世界靠「锁号升位」即可续命；挖矿更是基本无虞。</li>
+          <li>所以真正的战场只有一个：<strong>签名</strong>。而签名只在「公钥暴露」后才能被攻击——下一章，我们去链上盘点哪些币的公钥已经暴露、暴露了多久。</li>
+        </ol>
+      </div>
+    </article>
+
+    <nav class="pager">
+      <a class="prev" href="03-quantum.html">
+        <div class="dir">← 上一章</div>
+        <div class="title">第 3 章 · 量子计算机：另一种机器</div>
+      </a>
+      <a class="next" href="05-anatomy.html">
+        <div class="dir">下一章 →</div>
+        <div class="title">第 5 章 · 对号入座：哪里疼，哪里不疼</div>
+      </a>
+    </nav>
+  </main>
+
+  <footer class="site-footer">
+    <p>⚛️ 量子时代的比特币 · <a href="https://github.com/lovexw/btc-quantum-notes">GitHub 开源</a> · 仅供教育目的，不构成投资建议</p>
+  </footer>
+
+  <script src="script.js?v=b3e66733da"></script>
+</body>
+</html>
