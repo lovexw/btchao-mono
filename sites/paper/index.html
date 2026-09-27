@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比特币白皮书（中文版）· 小吴乐意翻译版</title>
+<meta name="description" content="中本聪《比特币：一种点对点的电子现金系统》全新中文译文。先说人话再读原文：每节配大白话导读，附三分钟读懂、图解、互动演示、常见答疑与术语表。译自英文原版，可逐节对照。">
+<meta name="keywords" content="比特币白皮书, 中文翻译, 中本聪, 区块链, 工作量证明, 挖矿, 双重支付, Bitcoin Whitepaper, Satoshi Nakamoto">
+<meta name="author" content="小吴乐意 (xiaowuleyi)">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://paper.btchao.com/">
+<meta property="og:title" content="比特币白皮书（中文版）· 小吴乐意翻译版">
+<meta property="og:description" content="先说人话，再读原文：比特币白皮书全新中文译文，配导读、图解、互动演示与术语表。">
+<meta property="og:site_name" content="小吴乐意翻译版">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="比特币白皮书（中文版）· 小吴乐意翻译版">
+<meta name="twitter:description" content="先说人话，再读原文：比特币白皮书全新中文译文，配导读、图解、互动演示与术语表。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "比特币：一种点对点的电子现金系统（小吴乐意翻译版）",
+  "alternateName": "Bitcoin: A Peer-to-Peer Electronic Cash System",
+  "author": { "@type": "Person", "name": "Satoshi Nakamoto", "alternateName": "中本聪" },
+  "translator": { "@type": "Person", "name": "小吴乐意" },
+  "datePublished": "2008-10-31",
+  "inLanguage": "zh-CN",
+  "isAccessibleForFree": true,
+  "url": "https://paper.btchao.com/"
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>₿</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="brand-coin">₿</span><span class="brand-text">比特币白皮书<small>小吴乐意翻译版</small></span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#guide">导读</a>
+      <a href="#abstract">白皮书</a>
+      <a href="#demos">演示</a>
+      <a href="#faq">答疑</a>
+      <a href="#glossary">术语表</a>
+      <a href="#afterword">译后记</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅色模式">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <p class="hero-badge"><span class="badge-dot"></span>小吴乐意翻译版 · 2026 年全新重译</p>
+    <h1>比特币：一种点对点的电子现金系统</h1>
+    <p class="hero-en">Bitcoin: A Peer-to-Peer Electronic Cash System</p>
+    <p class="hero-meta">作者 中本聪（Satoshi Nakamoto） · 2008 年 10 月 31 日 · 英文原文 9 页</p>
+    <p class="hero-tagline">把记账这件事，交给数学和算力，而不是任何一家公司。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#guide">3 分钟读懂比特币</a>
+      <a class="btn btn-ghost" href="#abstract">直接阅读译文</a>
+      <a class="btn btn-ghost" href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener">英文原版 PDF ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="toc" id="toc" aria-label="本文目录">
+    <p class="toc-title">目录</p>
+    <nav class="toc-nav">
+      <a href="#guide" data-spy>导读 · 三分钟读懂</a>
+      <a href="#abstract" data-spy>摘要</a>
+      <a href="#s1" data-spy>1 · 简介</a>
+      <a href="#s2" data-spy>2 · 交易</a>
+      <a href="#s3" data-spy>3 · 时间戳服务器</a>
+      <a href="#s4" data-spy>4 · 工作量证明</a>
+      <a href="#s5" data-spy>5 · 网络</a>
+      <a href="#s6" data-spy>6 · 激励</a>
+      <a href="#s7" data-spy>7 · 回收磁盘空间</a>
+      <a href="#s8" data-spy>8 · 简化支付验证</a>
+      <a href="#s9" data-spy>9 · 价值的组合与分割</a>
+      <a href="#s10" data-spy>10 · 隐私</a>
+      <a href="#s11" data-spy>11 · 计算</a>
+      <a href="#s12" data-spy>12 · 结论</a>
+      <a href="#refs" data-spy>参考文献</a>
+      <a href="#demos" data-spy>互动演示</a>
+      <a href="#faq" data-spy>常见答疑</a>
+      <a href="#glossary" data-spy>术语表</a>
+      <a href="#afterword" data-spy>译后记</a>
+    </nav>
+  </aside>
+
+  <main>
+  <!-- ============ 导读 ============ -->
+  <section class="section guide" id="guide">
+    <div class="sec-head">
+      <span class="sec-chip">导读</span>
+      <h2>三分钟读懂比特币</h2>
+    </div>
+    <p>下面四段话不需要任何技术背景。读完再看白皮书，每一段都会有落点。</p>
+
+    <div class="guide-grid">
+      <div class="guide-card">
+        <h3>这是什么？</h3>
+        <p>2008 年 10 月 31 日，一个署名「中本聪」的人发布了这篇 9 页的论文，提出了一套<b>不需要银行、不需要任何公司背书</b>的电子现金系统。次年 1 月，这个系统上线运行，就是比特币。</p>
+        <p>它的野心只有一句话：<b>让网上的钱像当面递现金一样，从 A 直接到 B。</b></p>
+      </div>
+      <div class="guide-card">
+        <h3>难在哪？</h3>
+        <p>现金没法复制，但数字文件可以无限复制——把同一枚「电子币」同时付给两个人，就是<b>双重支付</b>，这是数字货币的死穴。</p>
+        <p>传统解法是请银行当裁判：所有转账都过它一道账。而这恰恰是中本聪想绕开的东西。</p>
+      </div>
+      <div class="guide-card">
+        <h3>怎么解？</h3>
+        <p>三步：</p>
+        <p><b>① 全网记同一本账。</b>所有交易公开广播，人人可以保存副本。</p>
+        <p><b>② 用算力给账本盖章。</b>每约 10 分钟，矿工们比赛解一道数学题，谁先解出谁打包新「区块」，区块首尾相连成链。</p>
+        <p><b>③ 想改历史，先跑赢全世界。</b>改动任何一个老区块，都得重算它之后的所有区块，还得比全网诚实算力更快——概率上被压到几乎为零。</p>
+      </div>
+      <div class="guide-card">
+        <h3>凭什么可信？</h3>
+        <p>不靠任何人的承诺，靠三样东西咬合：<b>密码学</b>（签名字迹无法伪造）、<b>算力竞争</b>（改账的成本高到不划算）、<b>经济激励</b>（守规矩比作弊更赚钱）。</p>
+        <p>没有客服、没有老板、没有总部。它当然不完美，但这个「组合创新」开创了此后整个行业。</p>
+      </div>
+    </div>
+
+    <div class="roadmap">
+      <h3>怎么读这篇论文？</h3>
+      <div class="roadmap-grid">
+        <div class="roadmap-item">
+          <span class="roadmap-time">10 分钟</span>
+          <p><b>赶时间</b>：摘要 → 第 4 节（工作量证明）→ 第 6 节（激励）→ 第 12 节（结论）。</p>
+        </div>
+        <div class="roadmap-item">
+          <span class="roadmap-time">1 小时</span>
+          <p><b>想真懂</b>：从头到尾通读，每节先看「先说人话」框，再看译文；中途玩一下互动演示。</p>
+        </div>
+        <div class="roadmap-item">
+          <span class="roadmap-time">技术控</span>
+          <p><b>抠细节</b>：第 2、4、5、11 节 + 每节展开英文原文逐句对照，最后跑一遍第 11 节的确认数计算器。</p>
+        </div>
+      </div>
+      <p class="roadmap-note">阅读约定：每节按「先说人话 → 译文 → 英文原文」三段式展开；文中方括号编号 [1] [2] 是原文的参考文献引用，见文末。小吴译注用 <span class="tnote">译注</span> 标出，不属于原文。</p>
+    </div>
+
+    <div class="context-box">
+      <h3>发布那一刻，世界在发生什么</h3>
+      <p>论文落款是 2008 年 10 月 31 日——雷曼兄弟倒闭后第六周，全球金融系统正在依靠各国央行「信任救援」勉强运转。2009 年 1 月 3 日，比特币创世区块挖出，区块里永久刻着当天《泰晤士报》的头条：<i>「财政大臣正处于第二次救助银行的边缘」</i>。白皮书没有一句情绪化的控诉，但这个系统的动机，都写在这两行日期里。</p>
+    </div>
+  </section>
+
+  <!-- ============ 摘要 ============ -->
+  <section class="section paper" id="abstract">
+    <div class="sec-head">
+      <span class="sec-chip">摘要</span>
+      <h2>Abstract</h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>中本聪要造一套不经过银行、直接点对点转账的电子现金。拦路虎是「同一笔钱花两次」的问题，他的答案：让全网共同记账，把每笔交易盖上时间戳、锁进一条由算力砌成的链条；谁想改账，就得跟全球算力赛跑。只要诚实的人占多数，账本就改不动。</p>
+    </aside>
+
+    <div class="translation">
+      <p>一种纯粹的点对点版电子现金，将允许在线支付从一方直接发送到另一方，而无需经过任何金融机构。数字签名提供了部分答案，但如果仍然需要一个受信任的第三方来防止双重支付（double-spending），那么这种系统的主要好处就不复存在。我们提出一种利用点对点网络解决双重支付问题的方案。网络把交易不断哈希进一条持续延伸的、基于哈希的工作量证明（proof-of-work）链，以此为交易盖上时间戳；由此形成的记录，除非重新完成全部工作量证明，否则无法更改。最长的链不仅是事件先后顺序的见证证明，也证明它出自最大的 CPU 算力池。只要大多数 CPU 算力掌握在不协同攻击网络的节点手中，它们就会生成最长的链，并领先于攻击者。网络本身只需要极简的结构：消息以尽力而为的方式广播，节点可以随时离开与重新加入，重新加入时只需接受最长的工作量证明链，作为它离开期间所发生之事的证明。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · Abstract</summary>
+      <p>A purely peer-to-peer version of electronic cash would allow online payments to be sent directly from one party to another without going through a financial institution. Digital signatures provide part of the solution, but the main benefits are lost if a trusted third party is still required to prevent double-spending. We propose a solution to the double-spending problem using a peer-to-peer network. The network timestamps transactions by hashing them into an ongoing chain of hash-based proof-of-work, forming a record that cannot be changed without redoing the proof-of-work. The longest chain not only serves as proof of the sequence of events witnessed, but proof that it came from the largest pool of CPU power. As long as a majority of CPU power is controlled by nodes that are not cooperating to attack the network, they'll generate the longest chain and outpace attackers. The network itself requires minimal structure. Messages are broadcast on a best effort basis, and nodes can leave and rejoin the network at will, accepting the longest proof-of-work chain as proof of what happened while they were gone.</p>
+    </details>
+  </section>
+  <!-- ============ 1. 简介 ============ -->
+  <section class="section paper" id="s1">
+    <div class="sec-head">
+      <span class="sec-chip">1</span>
+      <h2>简介 <small>Introduction</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>网上转账，我们离不开银行、支付平台这样的中间人。中间人带来三样东西：成本（手续费、纠纷处理）、门槛（小额交易不划算）、不安（账户可被冻结，商家要提防客户）。现金当面交易没有这些问题，但隔着网络就递不过去。中本聪的目标：用密码学证明取代信任，让网络支付像递现金一样直接。难点只有一个——数字文件可以无限复制，怎么防止同一笔钱花两次？</p>
+    </aside>
+
+    <div class="translation">
+      <p>互联网上的商业交易，几乎完全依赖金融机构充当可信任的第三方来处理电子支付。尽管这套系统对大多数交易而言运转良好，但它仍然摆脱不了基于信任的模型的固有缺陷。完全不可逆的交易实际上并不存在，因为金融机构无法回避调解纠纷。调解的成本会抬高交易成本，限制了最小可行交易规模，使小额、零星的交易失去可能；更广义的损失是：为不可逆的服务付出不可逆的支付，这种能力也随之丧失。而由于撤销的可能性始终存在，对信任的需求还会向外扩散——商家必须提防自己的顾客，向他们索要比本不需要更多的信息；一定比例的欺诈，则被当作不可避免的损耗接受下来。这些成本和支付的不确定性，在面对面使用实体货币时可以避免，但要在通信信道上完成支付、又不依赖一个受信任的第三方，此前并不存在这样的机制。</p>
+      <p>真正需要的，是一套基于<b>密码学证明</b>而非信任的电子支付系统，让任何两个愿意交易的双方直接交易，无需受信任的第三方插手。在计算上不可逆的交易可以保护卖家免于欺诈；而要保护买家也很容易——部署常规的托管（escrow）机制即可。本文提出一种解决双重支付问题的方案：使用点对点的分布式时间戳服务器，为交易的时间先后顺序生成计算上的证明。只要在整体上，诚实节点控制的 CPU 算力超过任何协同作恶的攻击者节点组合，这套系统就是安全的。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 1. Introduction</summary>
+      <p>Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments. While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model. Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes. The cost of mediation increases transaction costs, limiting the minimum practical transaction size and cutting off the possibility for small casual transactions, and there is a broader cost in the loss of ability to make non-reversible payments for non-reversible services. With the possibility of reversal, the need for trust spreads. Merchants must be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.</p>
+      <p>What is needed is an electronic payment system based on cryptographic proof instead of trust, allowing any two willing parties to transact directly with each other without the need for a trusted third party. Transactions that are computationally impractical to reverse would protect sellers from fraud, and routine escrow mechanisms could easily be implemented to protect buyers. In this paper, we propose a solution to the double-spending problem using a peer-to-peer distributed timestamp server to generate computational proof of the chronological order of transactions. The system is secure as long as honest nodes collectively control more CPU power than any cooperating group of attacker nodes.</p>
+    </details>
+  </section>
+
+  <!-- ============ 2. 交易 ============ -->
+  <section class="section paper" id="s2">
+    <div class="sec-head">
+      <span class="sec-chip">2</span>
+      <h2>交易 <small>Transactions</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>一枚电子币的本质，是「一串转让签名」。A 把币付给 B 时，A 用只有自己掌握的私钥签名，B 拿 A 的公钥一验就知真假——就像当面验笔迹。但验笔迹只能证明「转让是真的」，不能证明「这枚币没有在别处也转手过」。要确认这一点，必须看到全部交易历史，而且全网要对「哪一笔才算数」达成一致。所以交易必须公开广播，这正是下文一切设计的出发点。</p>
+    </aside>
+
+    <div class="translation">
+      <p>我们把一枚电子币定义为<b>一串数字签名</b>。每一位拥有者把币转给下一位的方式是：对「上一笔交易的哈希」与「下一位拥有者的公钥」拼接而成的数据进行数字签名，并把签名追加到这枚币的末尾。收款方验证这些签名，即可验证这条所有权链。</p>
+      <p>问题在于：收款方无法验证之前的拥有者们是否曾把同一枚币<b>双重支付</b>。常见的解决方案是引入一个受信任的中央权威（铸币厂，mint），逐笔检查是否存在双重支付；每笔交易完成后，币要退回铸币厂重新发行一枚新币，且只有铸币厂直接发行的币才被信任没有双重支付。这一方案的毛病在于：整个货币系统的命运，完全系于运营铸币厂的那家公司，每一笔交易都必须经过它——这跟银行没什么两样。</p>
+      <p>我们需要一种办法，让收款方知道：之前的拥有者并没有把这些币签给更早的其他交易。就我们的目的而言，<b>以最早的那笔交易为准</b>，此后的重复支付尝试都无关紧要。而要确认「某笔交易不存在」，唯一的办法是知晓全部交易。在铸币厂模型里，铸币厂知悉所有交易，并裁决哪一笔先到。要在没有受信任方的前提下做到这一点，交易必须<b>公开宣告</b> [1]，并且需要一套系统，让所有参与者就「交易被接收的先后顺序」的唯一历史达成一致。收款方需要这样的证明：在每一笔交易发生的时刻，多数节点都认同它是第一笔被接收的。</p>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 860 300" role="img" aria-label="交易链示意图：每次转手都附加一个数字签名">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="svg-arrow"/></marker>
+        </defs>
+        <!-- private keys top -->
+        <g class="svg-key">
+          <rect x="60" y="16" width="150" height="34" rx="17"/>
+          <text x="135" y="38" text-anchor="middle">持有人 0 的私钥</text>
+          <rect x="360" y="16" width="150" height="34" rx="17"/>
+          <text x="435" y="38" text-anchor="middle">持有人 1 的私钥</text>
+          <rect x="660" y="16" width="150" height="34" rx="17"/>
+          <text x="735" y="38" text-anchor="middle">持有人 2 的私钥</text>
+        </g>
+        <!-- sign arrows -->
+        <g class="svg-flow">
+          <line x1="135" y1="50" x2="135" y2="82" marker-end="url(#arrow)"/>
+          <text x="152" y="72">签名</text>
+          <line x1="435" y1="50" x2="435" y2="82" marker-end="url(#arrow)"/>
+          <text x="452" y="72">签名</text>
+          <line x1="735" y1="50" x2="735" y2="82" marker-end="url(#arrow)"/>
+          <text x="752" y="72">签名</text>
+        </g>
+        <!-- tx blocks -->
+        <g class="svg-tx">
+          <rect x="50" y="86" width="170" height="140" rx="10"/>
+          <text x="135" y="112" text-anchor="middle" class="svg-title">交易</text>
+          <text x="135" y="150" text-anchor="middle">持有人 1 的公钥</text>
+          <text x="135" y="180" text-anchor="middle">持有人 0 的签名</text>
+          <line x1="66" y1="196" x2="204" y2="196"/>
+          <text x="135" y="216" text-anchor="middle" class="svg-hash">哈希</text>
+          <rect x="350" y="86" width="170" height="140" rx="10"/>
+          <text x="435" y="112" text-anchor="middle" class="svg-title">交易</text>
+          <text x="435" y="150" text-anchor="middle">持有人 2 的公钥</text>
+          <text x="435" y="180" text-anchor="middle">持有人 1 的签名</text>
+          <line x1="366" y1="196" x2="504" y2="196"/>
+          <text x="435" y="216" text-anchor="middle" class="svg-hash">哈希</text>
+          <rect x="650" y="86" width="170" height="140" rx="10"/>
+          <text x="735" y="112" text-anchor="middle" class="svg-title">交易</text>
+          <text x="735" y="150" text-anchor="middle">持有人 3 的公钥</text>
+          <text x="735" y="180" text-anchor="middle">持有人 2 的签名</text>
+          <line x1="666" y1="196" x2="804" y2="196"/>
+          <text x="735" y="216" text-anchor="middle" class="svg-hash">哈希</text>
+        </g>
+        <!-- verify arrows -->
+        <g class="svg-flow">
+          <line x1="220" y1="156" x2="346" y2="156" marker-end="url(#arrow)"/>
+          <text x="283" y="146" text-anchor="middle">验证</text>
+          <line x1="520" y1="156" x2="646" y2="156" marker-end="url(#arrow)"/>
+          <text x="583" y="146" text-anchor="middle">验证</text>
+        </g>
+        <text x="430" y="268" text-anchor="middle" class="svg-note">一枚币 = 一串首尾相连的数字签名。收款方逐环验证签名，即可验证整条所有权链。</text>
+      </svg>
+      <figcaption>图 1（对应原文第 2 节）：电子币是一串数字签名，每转手一次就多一环</figcaption>
+    </figure>
+
+    <details class="orig">
+      <summary>英文原文 · 2. Transactions</summary>
+      <p>We define an electronic coin as a chain of digital signatures. Each owner transfers the coin to the next by digitally signing a hash of the previous transaction and the public key of the next owner and adding these to the end of the coin. A payee can verify the signatures to verify the chain of ownership.</p>
+      <p>The problem of course is the payee can't verify that one of the owners did not double-spend the coin. A common solution is to introduce a trusted central authority, or mint, that checks every transaction for double spending. After each transaction, the coin must be returned to the mint to issue a new coin, and only coins issued directly from the mint are trusted not to be double-spent. The problem with this solution is that the fate of the entire money system depends on the company running the mint, with every transaction having to go through them, just like a bank.</p>
+      <p>We need a way for the payee to know that the previous owners did not sign any earlier transactions. For our purposes, the earliest transaction is the one that counts, so we don't care about later attempts to double-spend. The only way to confirm the absence of a transaction is to be aware of all transactions. In the mint based model, the mint was aware of all transactions and decided which arrived first. To accomplish this without a trusted party, transactions must be publicly announced [1], and we need a system for participants to agree on a single history of the order in which they were received. The payee needs proof that at the time of each transaction, the majority of nodes agreed it was the first received.</p>
+    </details>
+  </section>
+
+  <!-- ============ 3. 时间戳服务器 ============ -->
+  <section class="section paper" id="s3">
+    <div class="sec-head">
+      <span class="sec-chip">3</span>
+      <h2>时间戳服务器 <small>Timestamp Server</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>怎么证明「这笔交易在那个时刻已经存在」？——盖章。把一批交易打包，算出指纹（哈希），公之于众（原文的例子是登报）。日后谁想否认，指纹一验就穿帮。更妙的是：每个章里都掺入了上一个章的内容，环环相扣成链——时间越往后，前面的记录就越难推翻。</p>
+    </aside>
+
+    <div class="translation">
+      <p>我们提出的方案从时间戳服务器开始。时间戳服务器的工作方式是：对待加盖时间戳的一区块数据取哈希，然后广泛发布这个哈希——比如刊登在报纸上，或发布到 Usenet [2-5]。一个数据显然必须在打戳的当时就已存在，才能进入这个哈希，时间戳由此证明了这一点。每个时间戳都会把前一个时间戳纳入自己的哈希，从而形成一条链：每一个新时间戳，都在加固它之前的所有时间戳。</p>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 860 240" role="img" aria-label="时间戳链示意图：每个区块的哈希公开发布，且包含上一个哈希">
+        <g class="svg-tx">
+          <rect x="40" y="40" width="220" height="110" rx="10"/>
+          <text x="150" y="66" text-anchor="middle" class="svg-title">区块</text>
+          <text x="80" y="96">交易  交易  …</text>
+          <text x="80" y="128">整体取哈希 →</text>
+          <rect x="330" y="70" width="180" height="46" rx="23" class="svg-pill"/>
+          <text x="420" y="98" text-anchor="middle" class="svg-hash">哈希 H1（公开发布）</text>
+          <rect x="600" y="40" width="220" height="110" rx="10"/>
+          <text x="710" y="66" text-anchor="middle" class="svg-title">区块</text>
+          <text x="640" y="96">交易  交易  … + H1</text>
+          <text x="640" y="128">整体取哈希 →</text>
+          <rect x="600" y="170" width="180" height="46" rx="23" class="svg-pill"/>
+          <text x="690" y="198" text-anchor="middle" class="svg-hash">哈希 H2（公开发布）</text>
+        </g>
+        <g class="svg-flow">
+          <line x1="260" y1="95" x2="326" y2="95" marker-end="url(#arrow)"/>
+          <line x1="510" y1="93" x2="596" y2="93" marker-end="url(#arrow)"/>
+          <text x="553" y="83" text-anchor="middle">H1 打进下一块</text>
+          <line x1="710" y1="150" x2="710" y2="166" marker-end="url(#arrow)"/>
+        </g>
+        <text x="300" y="228" class="svg-note">每个哈希都包含前一个哈希：一个新时间戳，加固它之前的所有时间戳。</text>
+      </svg>
+      <figcaption>图 2（对应原文第 3 节）：时间戳环环相扣，越往后越难推翻</figcaption>
+    </figure>
+
+    <details class="orig">
+      <summary>英文原文 · 3. Timestamp Server</summary>
+      <p>The solution we propose begins with a timestamp server. A timestamp server works by taking a hash of a block of items to be timestamped and widely publishing the hash, such as in a newspaper or Usenet post [2-5]. The timestamp proves that the data must have existed at the time, obviously, in order to get into the hash. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
+    </details>
+  </section>
+
+  <!-- ============ 4. 工作量证明 ============ -->
+  <section class="section paper" id="s4">
+    <div class="sec-head">
+      <span class="sec-chip">4</span>
+      <h2>工作量证明 <small>Proof-of-Work</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>「登报盖章」太慢，没法每 10 分钟来一次。中本聪的替换方案：全网比赛做一道只有暴力解的数学题——谁先找到一个数，让整个区块的哈希值以足够多个 0 开头，谁就赢得这一轮「盖章权」（出块）。出题难、验题易：找到答案要试亿万次，验证答案只需算一次哈希。想改历史？从那个区块起全部重算，还要跑赢全网。难度还会自动调节，保证全世界平均每 10 分钟出一个块。这一节是全文的心脏。</p>
+    </aside>
+
+    <div class="translation">
+      <p>要在点对点的基础上实现分布式时间戳服务器，我们需要采用类似 Adam Back 的 Hashcash [6] 的工作量证明系统，而不是报纸或 Usenet 帖子。工作量证明的机制是：寻找一个数值，使得将它（比如用 SHA-256）哈希后，得到的哈希值以若干个零比特开头。所需的平均工作量，随零比特个数的增加呈指数增长，而验证只需执行一次哈希。</p>
+      <p>对我们的时间戳网络而言，具体做法是：在区块中不断递增一个随机数（nonce），直到找到一个值，使区块哈希满足所需的零比特个数。一旦花费 CPU 算力使区块满足了工作量证明，除非重做这些工作，区块便无法更改；又因为后续的区块都链接在它之后，更改它还意味着重做其后所有区块的工作量。</p>
+      <p>工作量证明还解决了「多数决策中如何确定代表性」的问题。如果按「一个 IP 地址一票」来计多数，任何能搞到大量 IP 的人都能操纵结果。工作量证明本质上是一 CPU 一票，多数决策由最长的链代表——投入工作量证明最多的那条链。如果多数 CPU 算力由诚实节点控制，诚实链就会增长得最快，甩开任何竞争者。要修改过去的某个区块，攻击者必须重做该区块及其后所有区块的工作量证明，然后追上并反超诚实节点的进度。我们将在后文说明：更慢的攻击者想追上来，其概率会随着后续区块的增加而指数级下降。</p>
+      <p>为了补偿硬件速度的提升，以及节点参与意愿随时间的变化，工作量证明的难度由移动平均值决定，目标是维持平均每小时出块数大致恒定：如果出块太快，难度就调高。</p>
+    </div>
+
+    <div class="insight">
+      <p><b>为什么这一步是全文的枢纽？</b>它一次回答了三个问题：谁来记账？（谁先解出题）；账本为什么改不动？（改老区块 = 重算其后全部工作量）；「多数人」怎么认定？（不看人头不看 IP，看算力投入）。安全、不可篡改、共识，三件事在同一道数学题里同时解决。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 4. Proof-of-Work</summary>
+      <p>To implement a distributed timestamp server on a peer-to-peer basis, we will need to use a proof-of-work system similar to Adam Back's Hashcash [6], rather than newspaper or Usenet posts. The proof-of-work involves scanning for a value that when hashed, such as with SHA-256, the hash begins with a number of zero bits. The average work required is exponential in the number of zero bits required and can be verified by executing a single hash.</p>
+      <p>For our timestamp network, we implement the proof-of-work by incrementing a nonce in the block until a value is found that gives the block's hash the required zero bits. Once the CPU effort has been expended to make it satisfy the proof-of-work, the block cannot be changed without redoing the work. As later blocks are chained after it, the work to change the block would include redoing all the blocks after it.</p>
+      <p>The proof-of-work also solves the problem of determining representation in majority decision making. If the majority were based on one-IP-address-one-vote, it could be subverted by anyone able to allocate many IPs. Proof-of-work is essentially one-CPU-one-vote. The majority decision is represented by the longest chain, which has the greatest proof-of-work effort invested in it. If a majority of CPU power is controlled by honest nodes, the honest chain will grow the fastest and outpace any competing chains. To modify a past block, an attacker would have to redo the proof-of-work of the block and all blocks after it and then catch up with and surpass the work of the honest nodes. We will show later that the probability of a slower attacker catching up diminishes exponentially as subsequent blocks are added.</p>
+      <p>To compensate for increasing hardware speed and varying interest in running nodes over time, the proof-of-work difficulty is determined by a moving average targeting an average number of blocks per hour. If they're generated too fast, the difficulty increases.</p>
+    </details>
+  </section>
+  <!-- ============ 5. 网络 ============ -->
+  <section class="section paper" id="s5">
+    <div class="sec-head">
+      <span class="sec-chip">5</span>
+      <h2>网络 <small>Network</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>没有服务器机房，没有管理员，全网靠一个六步循环自发运转：广播交易 → 各自打包 → 各自挖矿 → 广播区块 → 验证通过才收下 → 在它基础上继续挖下一块。偶尔两个矿工同时出块怎么办？大家先在先听到的链上挖，另一个分支留着；一旦某条链先变长，全网立刻换到长链上。广播丢几条消息也不要紧，缺了会补。</p>
+    </aside>
+
+    <div class="translation">
+      <p>网络的运行步骤如下：</p>
+      <ol>
+        <li>新交易广播给所有节点。</li>
+        <li>每个节点将新交易收进一个区块。</li>
+        <li>每个节点为自己的区块寻找困难的工作量证明。</li>
+        <li>某个节点找到工作量证明后，将区块广播给所有节点。</li>
+        <li>仅当区块内所有交易都有效、且尚未被花费过，节点才接受该区块。</li>
+        <li>节点以「把被接受区块的哈希当作前哈希、在其上构造下一个区块」的方式，表达对该区块的接受。</li>
+      </ol>
+      <p>节点总是把最长的链视为正确的链，并在其上持续扩展。若两个节点同时广播了不同的下一区块，各节点可能先收到其中之一。此时节点会在先收到的分支上继续工作，同时保留另一个分支，以防它后来变长。当下一个工作量证明出现、某条分支率先变长时，僵局即告打破：原本在另一条分支上工作的节点，会切换到更长的那条链上。</p>
+      <p>新交易的广播不必抵达每一个节点——只要抵达足够多的节点，这些交易很快就会进入某个区块。区块广播同样容忍消息丢失：如果某个节点没有收到某个区块，等它收到下一个区块时，就会意识到自己缺了一个，随即发出请求补齐。</p>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 860 300" role="img" aria-label="区块结构示意图：前块哈希、随机数与交易列表首尾相连">
+        <g class="svg-tx">
+          <rect x="60" y="60" width="220" height="130" rx="10"/>
+          <text x="170" y="88" text-anchor="middle" class="svg-title">区块 #4127</text>
+          <text x="80" y="120">前块哈希：0000a3f…</text>
+          <text x="80" y="148">随机数（nonce）：918273</text>
+          <line x1="80" y1="160" x2="260" y2="160"/>
+          <text x="80" y="178">交易  交易  交易  …</text>
+          <rect x="420" y="60" width="220" height="130" rx="10"/>
+          <text x="530" y="88" text-anchor="middle" class="svg-title">区块 #4128</text>
+          <text x="440" y="120">前块哈希：00007c9…</text>
+          <text x="440" y="148">随机数（nonce）：331207</text>
+          <line x1="440" y1="160" x2="620" y2="160"/>
+          <text x="440" y="178">交易  交易  交易  …</text>
+        </g>
+        <g class="svg-flow">
+          <line x1="280" y1="125" x2="416" y2="125" marker-end="url(#arrow)"/>
+          <text x="348" y="115" text-anchor="middle">前块哈希</text>
+        </g>
+        <g class="svg-chain">
+          <circle cx="80" cy="240" r="9"/>
+          <circle cx="130" cy="240" r="9"/>
+          <circle cx="180" cy="240" r="9"/>
+          <circle cx="230" cy="240" r="9" class="svg-node-hot"/>
+          <circle cx="280" cy="240" r="9" class="svg-node-hot"/>
+          <circle cx="330" cy="240" r="9" class="svg-node-hollow"/>
+          <line x1="89" y1="240" x2="121" y2="240"/>
+          <line x1="139" y1="240" x2="171" y2="240"/>
+          <line x1="189" y1="240" x2="221" y2="240"/>
+          <line x1="239" y1="240" x2="271" y2="240"/>
+          <line x1="289" y1="240" x2="321" y2="240"/>
+          <text x="360" y="245">← 最长链 = 全网公认的历史</text>
+        </g>
+      </svg>
+      <figcaption>图 3（对应原文第 5 节）：区块首尾相连，前块哈希就是「上一页的页码」</figcaption>
+    </figure>
+
+    <details class="orig">
+      <summary>英文原文 · 5. Network</summary>
+      <p>The steps to run the network are as follows:</p>
+      <p>1) New transactions are broadcast to all nodes.<br>2) Each node collects new transactions into a block.<br>3) Each node works on finding a difficult proof-of-work for its block.<br>4) When a node finds a proof-of-work, it broadcasts the block to all nodes.<br>5) Nodes accept the block only if all transactions in it are valid and not already spent.<br>6) Nodes express their acceptance of the block by working on creating the next block in the chain, using the hash of the accepted block as the previous hash.</p>
+      <p>Nodes always consider the longest chain to be the correct one and will keep working on extending it. If two nodes broadcast different versions of the next block simultaneously, some nodes may receive one or the other first. In that case, they work on the first one they received, but save the other branch in case it becomes longer. The tie will be broken when the next proof-of-work is found and one branch becomes longer; the nodes that were working on the other branch will then switch to the longer one.</p>
+      <p>New transaction broadcasts do not necessarily need to reach all nodes. As long as they reach many nodes, they will get into a block before long. Block broadcasts are also tolerant of dropped messages. If a node does not receive a block, it will request it when it receives the next block and realizes it missed one.</p>
+    </details>
+  </section>
+
+  <!-- ============ 6. 激励 ============ -->
+  <section class="section paper" id="s6">
+    <div class="sec-head">
+      <span class="sec-chip">6</span>
+      <h2>激励 <small>Incentive</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>全网凭什么免费替你记账？靠工资：每个区块的第一笔交易是特殊的「造币交易」，谁出块谁领一笔新币（外加手续费）——这就是挖矿奖励。它一举两得：既是给护网者的报酬，也是新币唯一的发行通道，没有央行，币就这样进入流通。奖励大约每四年减半，最终趋零，此后由手续费接棒，系统彻底无通胀。而最精彩的是博弈设计：就算坏人算力过半，老实挖矿也比捣乱更赚钱——作弊等于亲手砸掉自己的金饭碗。</p>
+    </aside>
+
+    <div class="translation">
+      <p>按照约定，每个区块的第一笔交易是一笔特殊交易：它创造一枚归该区块创建者所有的新币。这为节点支持网络提供了激励，也提供了把新币初次投入流通的途径——因为不存在发行货币的中央权威。新币以恒定数量稳定增发，类似于金矿矿工耗费资源把黄金注入流通；在我们的场景里，被耗费的是 CPU 时间和电力。</p>
+      <p>激励同样可以由交易手续费提供。若一笔交易的输出值小于输入值，差额即为交易手续费，会被加进包含该交易的区块的激励值中。一旦预定数量的币全部进入流通，激励即可完全过渡到手续费，从此彻底免于通胀。</p>
+      <p>激励机制还有助于促使节点保持诚实。如果一个贪婪的攻击者能够集结起超过所有诚实节点的 CPU 算力，他将不得不做出选择：是用它来欺诈他人、偷回自己已付出的款项，还是用它诚实地生成新币。他理应发现，按规则出牌更有利可图——这套规则让他的新币收益比其他所有人加起来还多——而不是破坏这套系统、连带摧毁自己财富的有效性。</p>
+    </div>
+
+    <div class="insight">
+      <p><b>一个被无数次验证的设计直觉：</b>比特币的安全模型不假设人是善的，只假设人是趋利的。它不要求矿工诚实，只要求「诚实更有利可图」。把道德问题换成经济学问题，正是这篇论文最漂亮的一笔。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 6. Incentive</summary>
+      <p>By convention, the first transaction in a block is a special transaction that starts a new coin owned by the creator of the block. This adds an incentive for nodes to support the network, and provides a way to initially distribute coins into circulation, since there is no central authority to issue them. The steady addition of a constant of amount of new coins is analogous to gold miners expending resources to add gold to circulation. In our case, it is CPU time and electricity that is expended.</p>
+      <p>The incentive can also be funded with transaction fees. If the output value of a transaction is less than its input value, the difference is a transaction fee that is added to the incentive value of the block containing the transaction. Once a predetermined number of coins have entered circulation, the incentive can transition entirely to transaction fees and be completely inflation free.</p>
+      <p>The incentive may help encourage nodes to stay honest. If a greedy attacker is able to assemble more CPU power than all the honest nodes, he would have to choose between using it to defraud people by stealing back his payments, or using it to generate new coins. He ought to find it more profitable to play by the rules, such rules that favour him with more new coins than everyone else combined, than to undermine the system and the validity of his own wealth.</p>
+    </details>
+  </section>
+
+  <!-- ============ 7. 回收磁盘空间 ============ -->
+  <section class="section paper" id="s7">
+    <div class="sec-head">
+      <span class="sec-chip">7</span>
+      <h2>回收磁盘空间 <small>Reclaiming Disk Space</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>账本会不会无限膨胀？不会。一笔交易被足够多的新区块「压」在下面之后，它的明细就可以安全删除，只留一个校验用的指纹（默克尔树根）。这用到了一种叫默克尔树的二叉哈希结构。按论文的估算，区块头每年只增长约 4.2MB——以 2026 年的硬盘容量看，这个担心保守得近乎可爱，但方法本身至今仍在使用。</p>
+    </aside>
+
+    <div class="translation">
+      <p>一旦一枚币的最新交易被足够多的区块覆盖（深埋于区块之下），它之前那些已花费的交易便可以丢弃，以节省磁盘空间。为了在不破坏区块哈希的前提下做到这一点，交易按默克尔树 [7][2][5] 组织哈希，区块哈希中只包含树根。此后，旧区块便可以通过砍掉树杈来压缩，树的内部哈希无需保存。</p>
+      <p>一个不含交易的区块头大约 80 字节。假设每 10 分钟生成一个区块：80 字节 × 6 × 24 × 365 = 每年 4.2MB。以 2008 年计算机普遍配备 2GB 内存、且摩尔定律预言内存以每年 1.2GB 的速度增长来看，即便必须把全部区块头保存在内存中，存储也不成问题。</p>
+    </div>
+
+    <figure class="figure">
+      <svg viewBox="0 0 860 320" role="img" aria-label="默克尔树示意图：四笔交易层层哈希出树根，树根进入区块头">
+        <g class="svg-tx">
+          <rect x="60" y="230" width="120" height="40" rx="8"/><text x="120" y="255" text-anchor="middle">交易 Tx0</text>
+          <rect x="220" y="230" width="120" height="40" rx="8"/><text x="280" y="255" text-anchor="middle">交易 Tx1</text>
+          <rect x="380" y="230" width="120" height="40" rx="8"/><text x="440" y="255" text-anchor="middle">交易 Tx2</text>
+          <rect x="540" y="230" width="120" height="40" rx="8"/><text x="600" y="255" text-anchor="middle">交易 Tx3</text>
+          <rect x="140" y="150" width="120" height="40" rx="8" class="svg-hashnode"/><text x="200" y="175" text-anchor="middle">Hash0</text>
+          <rect x="460" y="150" width="120" height="40" rx="8" class="svg-hashnode"/><text x="520" y="175" text-anchor="middle">Hash1</text>
+          <rect x="300" y="70" width="120" height="40" rx="8" class="svg-hashnode"/><text x="360" y="95" text-anchor="middle">树根 Root</text>
+        </g>
+        <g class="svg-flow">
+          <line x1="120" y1="230" x2="185" y2="192" marker-end="url(#arrow)"/>
+          <line x1="280" y1="230" x2="218" y2="192" marker-end="url(#arrow)"/>
+          <line x1="440" y1="230" x2="505" y2="192" marker-end="url(#arrow)"/>
+          <line x1="600" y1="230" x2="538" y2="192" marker-end="url(#arrow)"/>
+          <line x1="200" y1="150" x2="340" y2="112" marker-end="url(#arrow)"/>
+          <line x1="520" y1="150" x2="382" y2="112" marker-end="url(#arrow)"/>
+          <line x1="420" y1="90" x2="700" y2="90" marker-end="url(#arrow)"/>
+          <rect x="700" y="66" width="140" height="48" rx="8" class="svg-tx"/>
+          <text x="770" y="88" text-anchor="middle">区块头</text>
+          <text x="770" y="106" text-anchor="middle" class="svg-hash">只存树根</text>
+        </g>
+        <text x="430" y="305" text-anchor="middle" class="svg-note">已花费交易的明细可删，只留哈希枝干——校验能力不减，磁盘占用大降。</text>
+      </svg>
+      <figcaption>图 4（对应原文第 7 节）：默克尔树——一个树根，担保全部交易</figcaption>
+    </figure>
+
+    <details class="orig">
+      <summary>英文原文 · 7. Reclaiming Disk Space</summary>
+      <p>Once the latest transaction in a coin is buried under enough blocks, the spent transactions before it can be discarded to save disk space. To facilitate this without breaking the block's hash, transactions are hashed in a Merkle Tree [7][2][5], with only the root included in the block's hash. Old blocks can then be compacted by stubbing off branches of the tree. The interior hashes do not need to be stored.</p>
+      <p>A block header with no transactions would be about 80 bytes. If we suppose blocks are generated every 10 minutes, 80 bytes * 6 * 24 * 365 = 4.2MB per year. With computer systems typically selling with 2GB of RAM as of 2008, and Moore's Law predicting current growth of 1.2GB per year, storage should not be a problem even if the block headers must be kept in memory.</p>
+    </details>
+  </section>
+
+  <!-- ============ 8. 简化支付验证 ============ -->
+  <section class="section paper" id="s8">
+    <div class="sec-head">
+      <span class="sec-chip">8</span>
+      <h2>简化支付验证 <small>Simplified Payment Verification</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>手机钱包不可能下载几百 GB 的完整账本。这一节给出轻量方案：只保存最长的链的区块头（很轻），收到一笔付款时，向全节点索要一条「默克尔分支」——一张能证明「这笔交易确实被收进了某个区块」的凭证。虽然不能亲自核验一切，但能看到网络已接受它、其后又叠加了多少个区块。日常支付足够可靠；但若网络正被攻击者压制，轻钱包可能被骗——所以大商家最好自己跑全节点。</p>
+    </aside>
+
+    <div class="translation">
+      <p>不运行完整网络节点，也可以验证支付。用户只需保存最长工作量证明链的区块头——通过持续询问网络节点，直到确信自己握有最长链——并获取一条把该交易链接到其所在时间戳区块的默克尔分支。他无法亲自检查这笔交易，但通过把它链接到链上的某个位置，他可以看到某个网络节点已接受了它；而其后叠加的区块，进一步确认了整个网络对它的接受。</p>
+      <p>因此，只要诚实节点控制着网络，这种验证就是可靠的；而一旦网络被攻击者压制，它就更为脆弱。尽管网络节点可以亲自验证交易，但简化方法可能在攻击者持续压制网络期间，被其伪造的交易所蒙骗。一种防御策略是：当网络节点侦测到无效区块时发出警报，用户的软件收到警报后，下载完整区块与被警告的交易，确认不一致之处。收款频繁的商家，多半仍会希望运行自己的节点，以获得更强的独立安全性与更快的验证速度。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 8. Simplified Payment Verification</summary>
+      <p>It is possible to verify payments without running a full network node. A user only needs to keep a copy of the block headers of the longest proof-of-work chain, which he can get by querying network nodes until he's convinced he has the longest chain, and obtain the Merkle branch linking the transaction to the block it's timestamped in. He can't check the transaction for himself, but by linking it to a place in the chain, he can see that a network node has accepted it, and blocks added after it further confirm the network has accepted it.</p>
+      <p>As such, the verification is reliable as long as honest nodes control the network, but is more vulnerable if the network is overpowered by an attacker. While network nodes can verify transactions for themselves, the simplified method can be fooled by an attacker's fabricated transactions for as long as the attacker can continue to overpower the network. One strategy to protect against this would be to accept alerts from network nodes when they detect an invalid block, prompting the user's software to download the full block and alerted transactions to confirm the inconsistency. Businesses that receive frequent payments will probably still want to run their own nodes for more independent security and quicker verification.</p>
+    </details>
+  </section>
+  <!-- ============ 9. 价值的组合与分割 ============ -->
+  <section class="section paper" id="s9">
+    <div class="sec-head">
+      <span class="sec-chip">9</span>
+      <h2>价值的组合与分割 <small>Combining and Splitting Value</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>比特币没有「一张张钞票」，账目可拆可拼：一笔交易可以合并多个来源（多输入），输出则通常是两笔——付款给对方、找零回自己。你钱包显示的「0.35 BTC」，真实形态是一堆「未花费的交易输出」（UTXO）之和。至于层层嵌套的交易依赖（扇出）也不怕，因为没人需要回溯提取某段交易的完整历史。</p>
+    </aside>
+
+    <div class="translation">
+      <p>虽然逐枚处理每一枚币是可行的，但如果一笔转账里的每一分钱都要单独立一笔交易，那就太笨重了。为了让价值可以分割与组合，交易支持多个输入与多个输出。通常的情形是：单笔大额的前序交易作为唯一输入，或者多笔小额合并为多个输入；输出则至多两个——一个付给收款方，一个把找零（如果有）退回付款方。</p>
+      <p>需要指出：扇出（fan-out）——一笔交易依赖若干笔交易，而那几笔又依赖更多交易——在这里并不构成问题。因为从不需要提取某笔交易历史的完整独立副本。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 9. Combining and Splitting Value</summary>
+      <p>Although it would be possible to handle coins individually, it would be unwieldy to make a separate transaction for every cent in a transfer. To allow value to be split and combined, transactions contain multiple inputs and outputs. Normally there will be either a single input from a larger previous transaction or multiple inputs combining smaller amounts, and at most two outputs: one for the payment, and one returning the change, if any, back to the sender.</p>
+      <p>It should be noted that fan-out, where a transaction depends on several transactions, and those transactions depend on many more, is not a problem here. There is never the need to extract a complete standalone copy of a transaction's history.</p>
+    </details>
+  </section>
+
+  <!-- ============ 10. 隐私 ============ -->
+  <section class="section paper" id="s10">
+    <div class="sec-head">
+      <span class="sec-chip">10</span>
+      <h2>隐私 <small>Privacy</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>传统银行靠「只给相关方看账」来保护隐私；比特币的账本人人可看，只能换一个地方切断信息流：不露真名。公钥就是化名，而且每笔交易都换新化名。公众看得到「有人给某人转了一笔钱」，却看不出那是谁——类似股市只公布成交流水，不公布买卖双方。但要清楚：这是<b>化名</b>，不是匿名；一旦某个化名对上了真人，顺藤摸瓜就能牵出其历史交易。</p>
+    </aside>
+
+    <div class="translation">
+      <p>传统银行模型通过限制信息的流向——只向交易相关方与受信任的第三方开放——来实现一定程度的隐私。公开宣告所有交易的必要性排除了这一方法，但隐私仍可保住：在另一个环节切断信息流，即<b>让公钥保持匿名</b>。公众可以看到某人向另一个人转账了某个金额，却没有任何信息将这笔交易关联到任何人。这类似于证券交易所公布的信息水平：逐笔成交的时间与数量（「行情带」）是公开的，但不公布交易双方是谁。</p>
+      <p>作为额外的防火墙，每笔交易都应使用一对新密钥，以免各笔交易被关联到同一个主人。不过有些关联仍无法避免：多输入交易必然暴露「这些输入属于同一个主人」。风险在于：一旦某个密钥的主人身分被揭露，关联分析就可能揪出属于同一主人的其他交易。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 10. Privacy</summary>
+      <p>The traditional banking model achieves a level of privacy by limiting access to information to the parties involved and the trusted third party. The necessity to announce all transactions publicly precludes this method, but privacy can still be maintained by breaking the flow of information in another place: by keeping public keys anonymous. The public can see that someone is sending an amount to someone else, but without information linking the transaction to anyone. This is similar to the level of information released by stock exchanges, where the time and size of individual trades, the "tape", is made public, but without telling who the parties were.</p>
+      <p>As an additional firewall, a new key pair should be used for each transaction to keep them from being linked to a common owner. Some linking is still unavoidable with multi-input transactions, which necessarily reveal that their inputs were owned by the same owner. The risk is that if the owner of a key is revealed, linking could reveal other transactions that belonged to the same owner.</p>
+    </details>
+  </section>
+
+  <!-- ============ 11. 计算 ============ -->
+  <section class="section paper" id="s11">
+    <div class="sec-head">
+      <span class="sec-chip">11</span>
+      <h2>计算 <small>Calculations</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>这一节用数学回答两个问题。其一，攻击者能干什么、不能干什么：即使他算力更强，也不能凭空造币、不能偷别人的钱，唯一能做的是撤销自己最近花掉的钱。其二，收款方该等几个「确认」才安心：攻击者追上 z 个区块差距的概率随 z 指数衰减——算力占比 10% 的对手，等 5 个确认就能把风险压到千分之一以下；占比 30%，就要等 24 个。安全不是开关，是可以算出来的概率。文末的计算器可以直接玩。</p>
+    </aside>
+
+    <div class="translation">
+      <p>我们来考察这样一个场景：攻击者试图以快于诚实链的速度生成一条替代链。即使他成功了，系统也不会因此对任意篡改敞开大门——比如凭空创造价值，或攫取本不属于攻击者的钱。节点不会把无效交易当作有效支付来接受，诚实节点也永远不会接受包含无效交易的区块。攻击者唯一能尝试的，是改写自己的一笔交易，把最近花出去的钱拿回来。</p>
+      <p>诚实链与攻击链之间的这场竞赛，可以刻画为一个二项随机游走（Binomial Random Walk）。成功事件是诚实链延长一个区块，领先优势 +1；失败事件是攻击链延长一个区块，差距 −1。</p>
+      <p>攻击者从落后 z 个区块处追上的概率，类似赌徒破产问题（Gambler's Ruin）：设想一个握有无限信用的赌徒，从落后的局面开始，可以无限次地尝试，直到达到盈亏平衡。他最终达到平衡的概率——即攻击者追上诚实链的概率——可以这样计算 [8]：</p>
+    </div>
+
+    <div class="formula-vars">
+      <p>p = 诚实节点找到下一个区块的概率</p>
+      <p>q = 攻击者找到下一个区块的概率</p>
+      <p>q<sub>z</sub> = 攻击者从落后 z 个区块处追上的概率</p>
+    </div>
+    <div class="formula">
+      q<sub>z</sub> = <span class="cases"><span class="case"><i>1，若 p ≤ q</i><i>(q/p)<sup>z</sup>，若 p &gt; q</i></span></span>
+    </div>
+
+    <div class="translation">
+      <p>给定 p &gt; q 的假设，攻击者需要追赶的区块数越多，成功概率就按指数级下降。胜算不利时，如果他无法在开局侥幸猛冲一把，随着落后越拉越大，他的机会将趋近于零。</p>
+      <p>现在考虑：一笔新交易的收款方需要等待多久，才能足够确信发送方无法再撤销这笔交易？我们假设发送方就是攻击者：他先让收款方相信自己已经付款，过一段时间后，再把同一笔钱转回给自己。那种情况一旦发生，收款方当然会警觉——但攻击者指望的正是「那时已经太迟」。</p>
+      <p>防范办法是：收款方在签名前一刻才生成一对新密钥，并把公钥交给发送方。这使发送方无法提前在一条平行链上偷偷挖矿、攒够足够领先后再执行交易。交易一经发出，不诚实的发送方才开始秘密地在一条包含另一版本交易的平行链上工作。</p>
+      <p>收款方一直等到交易被打进区块、其后又链接了 z 个区块。他并不知道攻击者确切前进了多少，但假设诚实区块的出块时间符合平均预期，则攻击者的潜在进度服从一个泊松分布（Poisson distribution），其期望值为：</p>
+    </div>
+
+    <div class="formula">
+      λ = z · <span class="frac"><span>q</span><span>p</span></span>
+    </div>
+
+    <div class="translation">
+      <p>要算出攻击者此刻仍能追上的概率，需把他可能取得的每一种进度所对应的泊松密度，乘以从该进度出发仍能追上的概率，然后求和：</p>
+    </div>
+
+    <div class="formula">
+      Σ<sub>k=0</sub><sup>∞</sup> <span class="frac"><span>λ<sup>k</sup> · e<sup>−λ</sup></span><span>k!</span></span> · <span class="cases"><span class="case"><i>(q/p)<sup>z−k</sup>，若 k ≤ z</i><i>1，若 k &gt; z</i></span></span>
+    </div>
+
+    <div class="translation">
+      <p>为避免对分布的无穷尾求和，可将其整理为：</p>
+    </div>
+
+    <div class="formula">
+      1 − Σ<sub>k=0</sub><sup>z</sup> <span class="frac"><span>λ<sup>k</sup> · e<sup>−λ</sup></span><span>k!</span></span> · ( 1 − (q/p)<sup>z−k</sup> )
+    </div>
+
+    <div class="translation">
+      <p>写成 C 代码：</p>
+    </div>
+
+<pre class="codeblock"><code>#include &lt;math.h&gt;
+double AttackerSuccessProbability(double q, int z)
+{
+    double p = 1.0 - q;
+    double lambda = z * (q / p);
+    double sum = 1.0;
+    int i, k;
+    for (k = 0; k &lt;= z; k++)
+    {
+        double poisson = exp(-lambda);
+        for (i = 1; i &lt;= k; i++)
+            poisson *= lambda / i;
+        sum -= poisson * (1 - pow(q / p, z - k));
+    }
+    return sum;
+}</code></pre>
+
+    <div class="translation">
+      <p>代入几组数值，可以看到概率随 z 呈指数下降：</p>
+    </div>
+
+    <div class="tables-row">
+      <table class="data-table">
+        <caption>q = 0.1（攻击者占 10% 算力）</caption>
+        <thead><tr><th>z（落后区块数）</th><th>P（追上概率）</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>1.0000000</td></tr>
+          <tr><td>1</td><td>0.2045873</td></tr>
+          <tr><td>2</td><td>0.0509779</td></tr>
+          <tr><td>3</td><td>0.0131722</td></tr>
+          <tr><td>4</td><td>0.0034552</td></tr>
+          <tr><td>5</td><td>0.0009137</td></tr>
+          <tr><td>6</td><td>0.0002428</td></tr>
+          <tr><td>7</td><td>0.0000647</td></tr>
+          <tr><td>8</td><td>0.0000173</td></tr>
+          <tr><td>9</td><td>0.0000046</td></tr>
+          <tr><td>10</td><td>0.0000012</td></tr>
+        </tbody>
+      </table>
+      <table class="data-table">
+        <caption>q = 0.3（攻击者占 30% 算力）</caption>
+        <thead><tr><th>z（落后区块数）</th><th>P（追上概率）</th></tr></thead>
+        <tbody>
+          <tr><td>0</td><td>1.0000000</td></tr>
+          <tr><td>5</td><td>0.1773523</td></tr>
+          <tr><td>10</td><td>0.0416605</td></tr>
+          <tr><td>15</td><td>0.0101008</td></tr>
+          <tr><td>20</td><td>0.0024804</td></tr>
+          <tr><td>25</td><td>0.0006132</td></tr>
+          <tr><td>30</td><td>0.0001522</td></tr>
+          <tr><td>35</td><td>0.0000379</td></tr>
+          <tr><td>40</td><td>0.0000095</td></tr>
+          <tr><td>45</td><td>0.0000024</td></tr>
+          <tr><td>50</td><td>0.0000006</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="translation">
+      <p>解出 P &lt; 0.1% 所需的确认数 z：</p>
+    </div>
+
+    <table class="data-table narrow">
+      <thead><tr><th>q（攻击者算力占比）</th><th>z（所需确认数）</th></tr></thead>
+      <tbody>
+        <tr><td>0.10</td><td>5</td></tr>
+        <tr><td>0.15</td><td>8</td></tr>
+        <tr><td>0.20</td><td>11</td></tr>
+        <tr><td>0.25</td><td>15</td></tr>
+        <tr><td>0.30</td><td>24</td></tr>
+        <tr><td>0.35</td><td>41</td></tr>
+        <tr><td>0.40</td><td>89</td></tr>
+        <tr><td>0.45</td><td>340</td></tr>
+      </tbody>
+    </table>
+
+    <details class="orig">
+      <summary>英文原文 · 11. Calculations</summary>
+      <p>We consider the scenario of an attacker trying to generate an alternate chain faster than the honest chain. Even if this is accomplished, it does not throw the system open to arbitrary changes, such as creating value out of thin air or taking money that never belonged to the attacker. Nodes are not going to accept an invalid transaction as payment, and honest nodes will never accept a block containing them. An attacker can only try to change one of his own transactions to take back money he recently spent.</p>
+      <p>The race between the honest chain and an attacker chain can be characterized as a Binomial Random Walk. The success event is the honest chain being extended by one block, increasing its lead by +1, and the failure event is the attacker's chain being extended by one block, reducing the gap by -1.</p>
+      <p>The probability of an attacker catching up from a given deficit is analogous to a Gambler's Ruin problem. Suppose a gambler with unlimited credit starts at a deficit and plays potentially an infinite number of trials to try to reach breakeven. We can calculate the probability he ever reaches breakeven, or that an attacker ever catches up with the honest chain, as follows [8]:</p>
+      <p>p = probability an honest node finds the next block<br>q = probability the attacker finds the next block<br>qz = probability the attacker will ever catch up from z blocks behind</p>
+      <p>qz = 1 if p ≤ q; (q/p)z if p &gt; q</p>
+      <p>Given our assumption that p &gt; q, the probability drops exponentially as the number of blocks the attacker has to catch up with increases. With the odds against him, if he doesn't make a lucky lunge forward early on, his chances become vanishingly small as he falls further behind.</p>
+      <p>We now consider how long the recipient of a new transaction needs to wait before being sufficiently certain the sender can't change the transaction. We assume the sender is an attacker who wants to make the recipient believe he paid him for a while, then switch it to pay back to himself after some time has passed. The receiver will be alerted when that happens, but the sender hopes it will be too late.</p>
+      <p>The receiver generates a new key pair and gives the public key to the sender shortly before signing. This prevents the sender from preparing a chain of blocks ahead of time by working on it continuously until he is lucky enough to get far enough ahead, then executing the transaction at that moment. Once the transaction is sent, the dishonest sender starts working in secret on a parallel chain containing an alternate version of his transaction.</p>
+      <p>The recipient waits until the transaction has been added to a block and z blocks have been linked after it. He doesn't know the exact amount of progress the attacker has made, but assuming the honest blocks took the average expected time per block, the attacker's potential progress will be a Poisson distribution with expected value:</p>
+      <p>lambda = z * (q/p)</p>
+      <p>To get the probability the attacker could still catch up now, we multiply the Poisson density for each amount of progress he could have made by the probability he could catch up from that point:</p>
+      <p>Sum over k=0..∞ of (lambda^k * e^-lambda / k!) * ((q/p)^(z-k) if k ≤ z, 1 if k &gt; z)</p>
+      <p>Rearranging to avoid summing the infinite tail of the distribution...</p>
+      <p>1 - Sum over k=0..z of (lambda^k * e^-lambda / k!) * (1 - (q/p)^(z-k))</p>
+      <p>Converting to C code... (see the code block above for the original listing)</p>
+      <p>Running some results, we can see the probability drop off exponentially with z. (see the data tables above for the original figures)</p>
+      <p>Solving for P less than 0.1%... (see the table above)</p>
+    </details>
+
+    <div class="insight">
+      <p><b>「六个确认」的行业惯例从何而来？</b>就是从这一节算出来的：对占 10% 算力的攻击者，等 6 个确认后翻盘概率约 0.024%，等 5 个即可低于 0.1%。惯例不是玄学，是这条指数曲线。下面的计算器把这张表变成了任意取值。</p>
+    </div>
+  </section>
+
+  <!-- ============ 12. 结论 ============ -->
+  <section class="section paper" id="s12">
+    <div class="sec-head">
+      <span class="sec-chip">12</span>
+      <h2>结论 <small>Conclusion</small></h2>
+    </div>
+
+    <aside class="plain">
+      <p class="plain-label">先说人话</p>
+      <p>一句话总结全文：把「信任」从人和机构手里拿走，交给数字签名（管所有权）、工作量证明（管防双花）、点对点网络（管账本公开）。节点彼此陌生、无需身份、无需协调，用算力投票——接受一个区块，就在它上面继续挖；拒绝一个区块，就不在它上面挖。论文最后一句耐人寻味：任何需要的规则与激励，都可以用这套共识机制来执行。后来的区块链世界，正是这句话的注脚。</p>
+    </aside>
+
+    <div class="translation">
+      <p>我们提出了一套不依赖信任的电子交易系统。我们从「由数字签名构成币」这一惯用框架出发——它为所有权提供了强有力的控制，但若缺少防止双重支付的手段，仍不完整。为解决这一问题，我们提出利用点对点网络与工作量证明，记录一份公开的交易历史：只要诚实节点控制着多数 CPU 算力，攻击者想改写它，很快就会在计算上变得不切实际。网络的健壮，源于其无结构的简洁。节点一拥而上地工作，几乎无需协调；它们无需表明身份，因为消息不路由向任何特定位置，只需尽力送达即可。节点可以随时离开与重新加入网络，重新加入时接受工作量证明链，作为它离开期间所发生之事的证明。它们以算力投票：在有效区块上继续延伸，即为接受；拒绝在无效区块上工作，即为否决。任何所需的规则与激励，都可以凭借这一共识机制来强制执行。</p>
+    </div>
+
+    <details class="orig">
+      <summary>英文原文 · 12. Conclusion</summary>
+      <p>We have proposed a system for electronic transactions without relying on trust. We started with the usual framework of coins made from digital signatures, which provides strong control of ownership, but is incomplete without a way to prevent double-spending. To solve this, we proposed a peer-to-peer network using proof-of-work to record a public history of transactions that quickly becomes computationally impractical for an attacker to change if honest nodes control a majority of CPU power. The network is robust in its unstructured simplicity. Nodes work all at once with little coordination. They do not need to be identified, since messages are not routed to any particular place and only need to be delivered on a best effort basis. Nodes can leave and rejoin the network at will, accepting the proof-of-work chain as proof of what happened while they were gone. They vote with their CPU power, expressing their acceptance of valid blocks by working on extending them and rejecting invalid blocks by refusing to work on them. Any needed rules and incentives can be enforced with this consensus mechanism.</p>
+    </details>
+  </section>
+
+  <!-- ============ 参考文献 ============ -->
+  <section class="section paper" id="refs">
+    <div class="sec-head">
+      <span class="sec-chip">文献</span>
+      <h2>参考文献 <small>References</small></h2>
+    </div>
+    <ol class="refs">
+      <li>W. Dai, "b-money," http://www.weidai.com/bmoney.txt, 1998.</li>
+      <li>H. Massias, X.S. Avila, and J.-J. Quisquater, "Design of a secure timestamping service with minimal trust requirements," In 20th Symposium on Information Theory in the Benelux, May 1999.</li>
+      <li>S. Haber, W.S. Stornetta, "How to time-stamp a digital document," In Journal of Cryptology, vol 3, no 2, pages 99-111, 1991.</li>
+      <li>D. Bayer, S. Haber, W.S. Stornetta, "Improving the efficiency and reliability of digital time-stamping," In Sequences II: Methods in Communication, Security and Computer Science, pages 329-334, 1993.</li>
+      <li>S. Haber, W.S. Stornetta, "Secure names for bit-strings," In Proceedings of the 4th ACM Conference on Computer and Communications Security, pages 28-35, April 1997.</li>
+      <li>A. Back, "Hashcash - a denial of service counter-measure," http://www.hashcash.org/papers/hashcash.pdf, 2002.</li>
+      <li>R.C. Merkle, "Protocols for public key cryptosystems," In Proc. 1980 Symposium on Security and Privacy, IEEE Computer Society, pages 122-133, April 1980.</li>
+      <li>W. Feller, "An introduction to probability theory and its applications," 1957.</li>
+    </ol>
+  </section>
+  <!-- ============ 互动演示 ============ -->
+  <section class="section" id="demos">
+    <div class="sec-head">
+      <span class="sec-chip">演示</span>
+      <h2>动手玩：白皮书里的概念，亲手试一遍</h2>
+    </div>
+    <p>以下演示全部在你的浏览器本地运行（SHA-256 由页面内置实现计算，无任何数据上传）。玩过再回读第 4、5、11 节，会顺利得多。</p>
+
+    <!-- 演示 1：哈希 -->
+    <div class="demo" id="demo-hash">
+      <h3>① 哈希指纹机 —— 「改一个字，面目全非」</h3>
+      <p class="demo-desc">哈希函数把任意长度的内容压成 64 位十六进制「指纹」：输入哪怕改动一个标点，指纹也会完全变样。这就是白皮书里一切「防伪」的基石。</p>
+      <div class="demo-body">
+        <label class="field"><span>输入任意内容（支持中文）</span>
+          <textarea id="hashInput" rows="3" spellcheck="false">比特币：一种点对点的电子现金系统</textarea>
+        </label>
+        <div class="hash-out"><span>SHA-256 指纹</span><code id="hashOutput" class="mono"></code></div>
+        <div class="demo-actions">
+          <button type="button" class="btn btn-small" id="hashAvalanche">加一个句号再算（雪崩测试）</button>
+          <button type="button" class="btn btn-small btn-ghost" id="hashReset">还原</button>
+        </div>
+        <p class="demo-note" id="hashNote"></p>
+      </div>
+    </div>
+
+    <!-- 演示 2：挖矿 -->
+    <div class="demo" id="demo-mine">
+      <h3>② 挖矿模拟器 —— 亲手找一次 nonce</h3>
+      <p class="demo-desc">工作量证明就是：不断递增 nonce，直到区块哈希以足够多的 0 开头。0 越多越难——每多一位，平均要多试 16 倍。点「开始挖矿」，看你的浏览器花多长时间「出块」。</p>
+      <div class="demo-body">
+        <div class="mine-controls">
+          <label class="field"><span>难度（哈希前导 0 的个数）</span>
+            <select id="mineDifficulty">
+              <option value="3">3 个零（容易，约 1 秒内）</option>
+              <option value="4" selected>4 个零（中等）</option>
+              <option value="5">5 个零（约 16 倍难度）</option>
+              <option value="6">6 个零（感受一下指数）</option>
+            </select>
+          </label>
+          <button type="button" class="btn btn-primary btn-small" id="mineToggle">开始挖矿</button>
+        </div>
+        <div class="mine-grid">
+          <div class="stat"><span>区块内容</span><code class="mono" id="mineBlock">「小吴乐意」的区块 #1 · 2026-09-18 · 交易若干</code></div>
+          <div class="stat"><span>当前尝试</span><code class="mono" id="mineTry">nonce = 0</code></div>
+          <div class="stat"><span>当前哈希</span><code class="mono" id="mineHash">—</code></div>
+          <div class="stat"><span>已计算</span><code class="mono" id="mineCount">0 次</code></div>
+        </div>
+        <p class="demo-note" id="mineNote">挖矿不是「解题的聪明办法」，而是纯粹的体力活——这正是设计意图：让「记账权」的获得必须付出真实、可验证、无法伪造的算力成本。</p>
+      </div>
+    </div>
+
+    <!-- 演示 3：篡改实验 -->
+    <div class="demo" id="demo-tamper">
+      <h3>③ 篡改实验室 —— 试试改动一块，会发生什么</h3>
+      <p class="demo-desc">下面是一条 3 个区块的迷你链。试着修改中间区块的记录，观察链条如何「报警」；再试试「重挖」，体会为什么说改历史要付出指数代价。</p>
+      <div class="demo-body">
+        <div class="chain" id="tamperChain"></div>
+        <div class="demo-actions">
+          <button type="button" class="btn btn-small" id="tamperRemine" disabled>重挖修复下一个坏块 →</button>
+          <button type="button" class="btn btn-small btn-ghost" id="tamperReset">恢复原链</button>
+        </div>
+        <p class="demo-note" id="tamperNote">先随便改一条记录试试。每个区块的哈希由「前块哈希 + 记录 + nonce」共同决定，一处改动，后面全乱。</p>
+      </div>
+    </div>
+
+    <!-- 演示 4：确认数计算器 -->
+    <div class="demo" id="demo-confirm">
+      <h3>④ 确认数计算器 —— 「等几个确认才安心？」</h3>
+      <p class="demo-desc">第 11 节的公式变成了可调参数：拖动滑块设定攻击者的算力占比，计算器按原文算法算出把攻击成功率压到目标以下所需的确认数 z。</p>
+      <div class="demo-body">
+        <label class="field"><span>攻击者算力占比 q = <b id="qLabel">10%</b></span>
+          <input type="range" id="qRange" min="2" max="48" value="10" step="1">
+        </label>
+        <label class="field"><span>目标安全线</span>
+          <select id="pTarget">
+            <option value="0.1" selected>攻击成功率 &lt; 0.1%（白皮书的表）</option>
+            <option value="1">攻击成功率 &lt; 1%</option>
+            <option value="0.01">攻击成功率 &lt; 0.01%（大额交易）</option>
+          </select>
+        </label>
+        <div class="confirm-result">
+          <div class="confirm-big"><span id="zResult">5</span><small>个确认</small></div>
+          <p class="demo-note" id="confirmNote">攻击者占 10% 算力时，等 5 个确认，其翻盘概率即低于 0.1%——与白皮书第 11 节的表完全一致。</p>
+        </div>
+        <p class="demo-note">注意曲线的形状：q 越接近 50%，所需确认数暴涨。这就是「51% 攻击」名字的由来——安全不是非黑即白，而是一条可以算出来的概率曲线。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 常见答疑 ============ -->
+  <section class="section" id="faq">
+    <div class="sec-head">
+      <span class="sec-chip">答疑</span>
+      <h2>常见答疑：读论文时，大家最常问的 10 个问题</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>比特币和支付宝、游戏币的本质区别是什么？</summary>
+        <p>支付宝里的余额，本质是「阿里巴巴数据库里的一行记录」，由这家公司负责记账、纠错和兑付——你必须信任它。游戏币也一样，且通常由发行方无限增发。比特币的账本由全球数万个节点各自持有一份，没有任何一方能单方篡改、冻结或增发。论文第 1、2 节讲的就是这个区别：把「信任一家公司」换成「信任数学与全网共识」。</p>
+      </details>
+      <details class="faq-item">
+        <summary>「总量 2100 万枚」写在哪？谁保证不会偷偷增发？</summary>
+        <p>写在每个节点都在运行的代码里（第 6 节的「造币交易」）：新币只能随区块产生，数量按每 21 万个区块（约四年）减半的等比数列递减，数学上收敛于 2100 万。任何想增发的节点，产出的区块会被所有其他节点直接拒绝（第 5 节第 5 步）——「增发版比特币」根本进不了公认的最长链。</p>
+      </details>
+      <details class="faq-item">
+        <summary>比特币是匿名的吗？</summary>
+        <p>不是匿名，是化名（第 10 节）。所有交易永久公开可查，只是记录的是公钥而非姓名，且建议每笔交易换新地址。这类似「每次出门换一个马甲」：正常使用难以对应到人，但一旦某个马甲被对上真人，同一主人的其他交易就可能被链上分析顺藤摸瓜。</p>
+      </details>
+      <details class="faq-item">
+        <summary>挖矿到底在「挖」什么？为什么这么耗电？</summary>
+        <p>矿工在暴力搜索一个能让区块哈希以足够多个 0 开头的 nonce（第 4 节）。耗电不是浪费，而是这套系统的「防伪成本」：它让伪造账本必须付出真实的物理代价。对应到传统金融，就是印钞、运钞、金库与武装押运的开支——只是比特币把这个成本变成了全球分布的算力竞争，并让「造假」在经济上得不偿失（第 6 节）。</p>
+      </details>
+      <details class="faq-item">
+        <summary>什么是 51% 攻击？能偷走我的比特币吗？</summary>
+        <p>不能偷走别人的币，也不能凭空造币（第 11 节开篇明确说了这一点）。攻击者算力过半时，唯一能做的是「撤销自己最近的交易」制造双重支付。而且这需要持续压制全网，代价极高，一旦发生还会重创币价——第 6 节解释了为什么攻击者往往「按规则出牌更划算」。51% 是概率与经济学问题，不是「黑客入侵」那种故事。</p>
+      </details>
+      <details class="faq-item">
+        <summary>挖矿奖励归零之后，谁来维护网络安全？</summary>
+        <p>手续费。第 6 节已经预设了这条路：奖励逐块减半，手续费逐渐补位，「激励可以完全过渡到交易手续费，彻底免于通胀」。这套过渡是否足以长期支撑安全预算，是业界至今仍在讨论的真问题——但机制本身论文里写得明明白白。</p>
+      </details>
+      <details class="faq-item">
+        <summary>私钥丢了、被盗了怎么办？</summary>
+        <p>没有客服，没有挂失，没有密码找回。私钥就是所有权的全部（第 2 节）：谁掌握私钥，谁就是主人。所以「自托管」的代价是自担全责——这也是为什么行业反复强调备份与冷存储。硬币的另一面是：没有任何机构能替你「冻结」或「没收」资产。</p>
+      </details>
+      <details class="faq-item">
+        <summary>论文写于 2008 年，里面的设计和今天的比特币一致吗？</summary>
+        <p>大骨架原样运行：SHA-256 工作量证明、约 10 分钟出块、难度自动调整、默克尔树、最长链规则、创币交易与减半。细节有多处演进：「一个 CPU 一票」演变为专业矿机与矿池时代的高度集中；轻钱包（第 8 节 SPV）的实际安全性比论文的乐观估计更弱；区块上限、脚本能力等属于工程社区的后续决策。论文给出的是骨架与原理，不是今天的全部。</p>
+      </details>
+      <details class="faq-item">
+        <summary>不是技术背景，应该重点读哪几节？</summary>
+        <p>摘要 → 第 1 节（为什么要做这件事）→ 第 4 节（工作量证明，先只读「先说人话」）→ 第 6 节（激励，比特币的灵魂）→ 第 10 节（隐私，纠正「匿名」误解）→ 第 12 节（结论）。技术细节遇到读不懂的，跳过正文、先看每节的「先说人话」框，完全没有问题。</p>
+      </details>
+      <details class="faq-item">
+        <summary>一篇 9 页的论文，为什么影响这么大？</summary>
+        <p>因为它第一次把一组早已存在的零件——数字签名（第 2 节）、哈希时间戳（第 3 节）、Hashcash 式工作量证明（第 4 节）、默克尔树（第 7 节）——组装成一个<b>无需信任第三方的双花解法</b>，并用概率论（第 11 节）与博弈论（第 6 节）把安全性论证闭环。单看每个零件都不新鲜，新鲜的是这台「永不出错的记账机器」本身。引用它的论文数以万计，它定义了此后整个行业。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ 术语表 ============ -->
+  <section class="section" id="glossary">
+    <div class="sec-head">
+      <span class="sec-chip">附录</span>
+      <h2>术语表：读论文必备的 20 个词</h2>
+    </div>
+    <div class="glossary-grid">
+      <div class="term"><dt>电子现金 <i>Electronic Cash</i></dt><dd>以数字形式存在的货币，核心难题是防止被复制花两次。</dd></div>
+      <div class="term"><dt>双重支付 <i>Double-Spending</i></dt><dd>同一笔电子货币被同时支付给两方。比特币要解决的头号问题。</dd></div>
+      <div class="term"><dt>哈希 / SHA-256 <i>Hash</i></dt><dd>把任意数据压成 256 位「指纹」的单向函数：改一字，全变样；无法从指纹反推原文。</dd></div>
+      <div class="term"><dt>数字签名 <i>Digital Signature</i></dt><dd>用私钥生成、任何人用对应公钥即可验证的凭证，证明「这笔转让确实出自本人」。</dd></div>
+      <div class="term"><dt>私钥 / 公钥 <i>Private / Public Key</i></dt><dd>成对出现。私钥＝签名权＝所有权本身；公钥（的哈希）＝收款地址＝化名。</dd></div>
+      <div class="term"><dt>区块 <i>Block</i></dt><dd>一批交易打包成的「账本页」，含前块哈希、时间戳、nonce 与交易默克尔树根。</dd></div>
+      <div class="term"><dt>区块链 <i>Blockchain</i></dt><dd>区块按哈希首尾相连而成的账本链，改动任何一页都会导致其后全部失效。</dd></div>
+      <div class="term"><dt>时间戳 <i>Timestamp</i></dt><dd>证明「数据在该时刻已存在」的凭证。哈希链让时间戳环环加固。</dd></div>
+      <div class="term"><dt>工作量证明 <i>Proof-of-Work</i></dt><dd>通过暴力搜索找到满足条件的 nonce，向全网证明「我烧掉了真实的算力」。</dd></div>
+      <div class="term"><dt>nonce</dt><dd>「Number used once」：矿工反复调整的那个数，直到哈希符合难度要求。本页挖矿演示就是在找它。</dd></div>
+      <div class="term"><dt>挖矿 <i>Mining</i></dt><dd>竞争出块的过程：打包交易 → 搜索 nonce → 广播区块，胜者获得新币与手续费。</dd></div>
+      <div class="term"><dt>矿工 <i>Miner</i></dt><dd>参与出块竞争的节点，用算力换取奖励。</dd></div>
+      <div class="term"><dt>节点 <i>Node</i></dt><dd>网络中的参与者。全节点独立验证一切并保存完整账本；轻节点依赖 SPV。</dd></div>
+      <div class="term"><dt>算力 <i>Hashrate</i></dt><dd>单位时间能算的哈希次数，是全网「投票权」的度量（一个 CPU 一票）。</dd></div>
+      <div class="term"><dt>最长链规则 <i>Longest Chain Rule</i></dt><dd>分叉时，全网以累计工作量最大的链为准；短链上的区块作废。</dd></div>
+      <div class="term"><dt>分叉 <i>Fork</i></dt><dd>两个矿工几乎同时出块造成的暂时多链局面，通常下一个出块即分出胜负。</dd></div>
+      <div class="term"><dt>默克尔树 <i>Merkle Tree</i></dt><dd>交易的二叉哈希树：一个树根担保全部交易，并让轻钱包可验证单笔交易。</dd></div>
+      <div class="term"><dt>确认 <i>Confirmation</i></dt><dd>交易被打进区块后，其后又叠加的区块数。越多越不可逆，见第 11 节计算。</dd></div>
+      <div class="term"><dt>SPV <i>简化支付验证</i></dt><dd>轻钱包只存区块头、用默克尔分支验证交易的机制（第 8 节）。</dd></div>
+      <div class="term"><dt>创币交易 <i>Coinbase</i></dt><dd>每个区块的第一笔特殊交易：凭空生成新币付给出块者，是唯一的新币发行通道。</dd></div>
+    </div>
+  </section>
+
+  <!-- ============ 译后记 ============ -->
+  <section class="section" id="afterword">
+    <div class="sec-head">
+      <span class="sec-chip">译后记</span>
+      <h2>关于这个译本</h2>
+    </div>
+    <div class="afterword-cols">
+      <div>
+        <h3>为什么重译？</h3>
+        <p>现有的中文译本大致两类：忠实的偏拗口，通顺的常删减。这个版本想两者兼得：<b>译文完整、逐句忠实</b>，一个段落都不删；同时在每节前面放一个「先说人话」框，把大白话和原文分开——想轻松就看框，想较真就读文，想核对就展开英文原文。</p>
+        <h3>翻译约定</h3>
+        <ul>
+          <li>段落划分与英文原文一一对应，方便逐句对照。</li>
+          <li>方括号引用编号 [1]–[8] 原样保留，对应文末参考文献。</li>
+          <li>第 11 节的公式、数据表与 C 代码原样保留，未做任何改写。</li>
+          <li>「先说人话」、图解、演示与答疑均为译者补充，用样式与原文区隔，绝不混入译文。</li>
+        </ul>
+      </div>
+      <div>
+        <h3>关键术语对照</h3>
+        <table class="data-table">
+          <thead><tr><th>英文原文</th><th>本译法</th></tr></thead>
+          <tbody>
+            <tr><td>electronic cash</td><td>电子现金</td></tr>
+            <tr><td>double-spending</td><td>双重支付（俗称「双花」）</td></tr>
+            <tr><td>proof-of-work</td><td>工作量证明</td></tr>
+            <tr><td>hash</td><td>哈希（指纹）</td></tr>
+            <tr><td>nonce</td><td>随机数（保留原文 nonce）</td></tr>
+            <tr><td>timestamp server</td><td>时间戳服务器</td></tr>
+            <tr><td>mint</td><td>铸币厂</td></tr>
+            <tr><td>escrow</td><td>托管</td></tr>
+            <tr><td>Merkle Tree</td><td>默克尔树</td></tr>
+            <tr><td>Simplified Payment Verification</td><td>简化支付验证（SPV）</td></tr>
+            <tr><td>fan-out</td><td>扇出</td></tr>
+            <tr><td>Binomial Random Walk</td><td>二项随机游走</td></tr>
+            <tr><td>Gambler's Ruin</td><td>赌徒破产问题</td></tr>
+            <tr><td>Poisson distribution</td><td>泊松分布</td></tr>
+            <tr><td>best effort basis</td><td>尽力而为</td></tr>
+          </tbody>
+        </table>
+        <h3>版权与转载</h3>
+        <p>英文原文由中本聪于 2008 年发布，比特币社区多年来自由传播，<a href="https://bitcoin.org/en/bitcoin-paper" target="_blank" rel="noopener">bitcoin.org</a> 亦长期公开展示。中文译文与本站全部补充内容（导读、图解、演示、答疑、术语表）由<b>小吴乐意</b>完成，欢迎非商业转载，请注明「小吴乐意翻译版」并附本站链接。本站不构成任何投资建议。</p>
+        <p class="afterword-sign">翻译这件小事，我是乐意的。—— 小吴</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+</div>
+
+<button class="backtop" id="backTop" type="button" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <p class="footer-brand">₿ 比特币白皮书 · 小吴乐意翻译版</p>
+      <p class="footer-sub">Bitcoin: A Peer-to-Peer Electronic Cash System<br>中本聪 著，2008 · 小吴乐意 译，2026</p>
+    </div>
+    <div class="footer-col">
+      <p class="footer-head">站内</p>
+      <a href="#guide">导读 · 三分钟读懂</a>
+      <a href="#demos">互动演示</a>
+      <a href="#faq">常见答疑</a>
+      <a href="#glossary">术语表</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-head">原文与延伸</p>
+      <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener">英文原版 PDF ↗</a>
+      <a href="https://bitcoin.org/en/" target="_blank" rel="noopener">Bitcoin.org ↗</a>
+      <a href="https://github.com/lovexw/btc-paper" target="_blank" rel="noopener">GitHub 仓库 ↗</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-head">声明</p>
+      <p class="footer-sub">本站内容仅供学习研究，不构成投资建议。<br>加密资产风险较高，请自行判断。</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
