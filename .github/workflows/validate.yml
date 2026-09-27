@@ -1,0 +1,86 @@
+name: Validate Data
+
+on:
+  push:
+    paths:
+      - 'data/predictions.json'
+  pull_request:
+    paths:
+      - 'data/predictions.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Validate JSON format
+        run: |
+          python3 -m json.tool data/predictions.json > /dev/null
+          echo "✅ JSON 格式验证通过"
+
+      - name: Validate data structure
+        run: |
+          python3 << 'EOF'
+          import json
+          import sys
+
+          with open('data/predictions.json', 'r', encoding='utf-8') as f:
+              data = json.load(f)
+
+          predictions = data.get('predictions', [])
+
+          if not predictions:
+              print("❌ 错误：预测数据为空")
+              sys.exit(1)
+
+          # 必填字段（targetPrice 可为 null —— “观点类”记录）
+          required_fields = ['id', 'date', 'institution', 'targetDate', 'sentiment', 'content']
+          valid_sentiments = ['bullish', 'bearish', 'neutral']
+          valid_years = {'2025', '2026', '2027', '2028', '2029', '2030+', '长期', '观点'}
+
+          for i, pred in enumerate(predictions):
+              for field in required_fields:
+                  if field not in pred or pred[field] in (None, ''):
+                      print(f"❌ 错误：第 {i+1} 条记录缺少必填字段: {field}")
+                      sys.exit(1)
+
+              if pred['sentiment'] not in valid_sentiments:
+                  print(f"❌ 错误：第 {i+1} 条记录的 sentiment 值无效: {pred['sentiment']}")
+                  sys.exit(1)
+
+              tp = pred.get('targetPrice')
+              pr = pred.get('priceRange')
+              if tp is not None and (not isinstance(tp, (int, float)) or tp <= 0):
+                  print(f"❌ 错误：第 {i+1} 条记录的 targetPrice 必须为正数或 null")
+                  sys.exit(1)
+              if pr is not None:
+                  if (not isinstance(pr, list) or len(pr) != 2
+                          or not all(isinstance(v, (int, float)) and v > 0 for v in pr)
+                          or pr[0] >= pr[1]):
+                      print(f"❌ 错误：第 {i+1} 条记录的 priceRange 必须为 [min, max] 且 min < max")
+                      sys.exit(1)
+
+              if 'targetYear' in pred and pred['targetYear'] not in valid_years:
+                  print(f"❌ 错误：第 {i+1} 条记录的 targetYear 无效: {pred['targetYear']}")
+                  sys.exit(1)
+
+              src = pred.get('sourceUrl', '')
+              if src and not src.startswith(('http://', 'https://')):
+                  print(f"❌ 错误：第 {i+1} 条记录的 sourceUrl 必须为有效链接或留空")
+                  sys.exit(1)
+
+          ids = [p['id'] for p in predictions]
+          if len(ids) != len(set(ids)):
+              print("❌ 错误：存在重复的 ID")
+              sys.exit(1)
+
+          print(f"✅ 数据验证通过！共 {len(predictions)} 条记录")
+          EOF
