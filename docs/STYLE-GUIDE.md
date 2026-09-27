@@ -101,5 +101,7 @@
 | ma | MUI 底色 #F6F7F9→#FFFBF2、分隔线→#EEEEEE（primary 本就是标准橙） |
 | wiki | VitePress 品牌三阶色 + soft 对齐标准橙；config head 注入 tokens + 页脚 |
 | flash-buy | index.css 橙归一；public/btc-shared + index.html 接入 |
+| bip39 | 仅接入 btc-shared + 页脚（金色品牌本就在暖色系，未动色调） |
+| log | 仅接入 btc-shared + 页脚（原为暖色 + 标准橙强调） |
 
-验证结论：567 个本地引用 0 死链；13 站本地渲染断言全过（tokens + 页脚挂载点）；7 个重点站浏览器截图目检通过；3 个构建型站重建成功。
+验证结论：565 个本地引用 0 死链；15 站线上内容断言全过（tokens + 页脚挂载点）；9 个站浏览器截图目检通过；3 个构建型站重建成功。

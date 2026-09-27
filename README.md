@@ -15,7 +15,8 @@
 | `sites/cold-wallet` | [cold-wallet.btchao.com](https://cold-wallet.btchao.com) | 冷钱包教程 |
 | `sites/buy` | [buy.btchao.com](https://buy.btchao.com) | 购买比特币教程 |
 | `sites/password` | [pd.btchao.com](https://pd.btchao.com) | 随机密码生成 |
-| `sites/bip39` | [bip39.btchao.com](https://bip39.btchao.com) | 助记词生成（迁移中） |
+| `sites/bip39` | [bip39.btchao.com](https://bip39.btchao.com) | 离线助记词生成 · Entropy Vault |
+| `sites/log` | [log.btchao.com](https://log.btchao.com) | 比特币投资日记（本地版） |
 | `sites/ma` | [ma.btchao.com](https://ma.btchao.com) | 均线面板 |
 | `sites/wiki` | [wiki.btchao.com](https://wiki.btchao.com) | 比特币百科（VitePress） |
 | `sites/ahr999` | [ahr.btchao.com](https://ahr.btchao.com) | AHR999 指数 |

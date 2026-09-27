@@ -19,7 +19,7 @@
 | 新站脚手架 | `sites/_template/` | ✅ |
 
 **已验证的结论（不用再怀疑）：**
-1. subtree 迁移机制正常，13 站内容完整。
+1. subtree 迁移机制正常，15 站内容完整。
 2. 测试站与 paper.btchao.com 正式站逐字节一致（唯一差异是 Cloudflare 给正式域名注入的安全脚本，绑域名后自动出现，无需处理）。
 3. 各站内部路径全部是相对引用，挂任何子域名根路径都不断链。
 4. 三个构建型站**本地构建全部通过**：wiki（VitePress，17s）、flash-buy（Vite+TS，1.8s）、ma（Vite+React，5.8s）。
@@ -181,7 +181,7 @@ git revert HEAD && git push
 4. **news.btchao.com**：btcnews 仓库**没有**任何 Actions 定时任务，"30 分钟刷新"大概率是前端定时拉 API——这对二期迁移是好消息，但切换前先在线上用 DevTools Network 确认数据源。
 5. **GitHub Actions 免费额度**：公共仓库无限制；3 个 cron 每天合计 8 次运行，无压力。
 6. **monorepo 体积**：当前 ~6MB（不含 node_modules），健康。onekey-help-zh（550MB）永不迁入。
-7. ~~各站接入统一风格~~ **已完成（2026-09-27）**：13 站全部接入 btc-shared 并归一色调，验证记录见 [STYLE-GUIDE.md](STYLE-GUIDE.md) §7。后续改风格 = 改 `shared/` → `./scripts/sync-shared.sh` → push。
+7. ~~各站接入统一风格~~ **已完成（2026-09-27）**：15 站全部接入 btc-shared 并归一色调，验证记录见 [STYLE-GUIDE.md](STYLE-GUIDE.md) §7。后续改风格 = 改 `shared/` → `./scripts/sync-shared.sh` → push。
 
 ---
 
