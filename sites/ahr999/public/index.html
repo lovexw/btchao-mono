@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHR999 囤比特币指标</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>₿</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background-color: #FAFAFA;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #222222;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: #1A1A1A;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: #555555;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-value {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FF9900 0%, #FF7700 100%);
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .main-value h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .main-value .ahr999-value {
+            font-size: 4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .main-value .status {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.25);
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .data-item {
+            background: #FFFFFF;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #E0E0E0;
+        }
+
+        .data-item .label {
+            font-size: 0.9em;
+            color: #666666;
+            margin-bottom: 10px;
+        }
+
+        .data-item .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #1A1A1A;
+        }
+
+        .advice-section {
+            margin-bottom: 30px;
+        }
+
+        .advice-section h3 {
+            font-size: 1.8em;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+            border-left: 5px solid #FF9900;
+            padding-left: 15px;
+        }
+
+        .advice-items {
+            display: grid;
+            gap: 15px;
+        }
+
+        .advice-item {
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+
+        .advice-item.green {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .advice-item.yellow {
+            background: #fff3cd;
+            border-color: #ffc107;
+        }
+
+        .advice-item.red {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .advice-item .range {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .advice-item .description {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .intro-section {
+            margin-bottom: 30px;
+        }
+
+        .intro-section h3 {
+            font-size: 1.8em;
+            color: #1A1A1A;
+            margin-bottom: 20px;
+            border-left: 5px solid #FF9900;
+            padding-left: 15px;
+        }
+
+        .intro-section p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            text-indent: 2em;
+        }
+
+        .intro-section ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .intro-section li {
+            color: #555;
+            line-height: 2;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .intro-section li:before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: #FF9900;
+        }
+
+        .update-time {
+            text-align: center;
+            color: #666666;
+            font-size: 0.9em;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .fear-greed-badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.05em;
+            line-height: 1.4;
+            color: #ffffff;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .error {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.2em;
+            color: #dc3545;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .main-value .ahr999-value {
+                font-size: 3em;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 AHR999 囤比特币指标</h1>
+            <p>科学定投，理性囤币</p>
+        </div>
+
+        <div id="loading" class="card loading">
+            加载数据中...
+        </div>
+
+        <div id="error" class="card error" style="display: none;">
+            数据加载失败，请稍后再试
+        </div>
+
+        <div id="content" style="display: none;">
+            <div class="card">
+                <div class="main-value">
+                    <h2>当前 AHR999 指数</h2>
+                    <div class="ahr999-value" id="ahr999Value">--</div>
+                    <div class="status" id="status">--</div>
+                </div>
+
+                <div class="data-grid">
+                    <div class="data-item">
+                        <div class="label">当前价格（USD）</div>
+                        <div class="value" id="currentPrice">--</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">200 日定投成本（GMA200）</div>
+                        <div class="value" id="dcaCost">--</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">指数增长估值（USD）</div>
+                        <div class="value" id="exponentialValue">--</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">币龄（天）</div>
+                        <div class="value" id="coinAge">--</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">恐惧 &amp; 贪婪指数</div>
+                        <div class="value" id="fearGreed">--</div>
+                    </div>
+                    <div class="data-item">
+                        <div class="label">BTC 市占率</div>
+                        <div class="value" id="btcDominance">--</div>
+                    </div>
+                </div>
+
+                <div class="update-time" id="updateTime">--</div>
+            </div>
+
+            <div class="card">
+                <div class="advice-section">
+                    <h3>💡 投资建议</h3>
+                    <div class="advice-items">
+                        <div class="advice-item green">
+                            <div class="range">🟢 AHR999 &lt; 0.45</div>
+                            <div class="description">
+                                <strong>抄底区间</strong> - 这是历史上的相对低位区域。如果您看好比特币的长期价值，这是一个非常适合定投或者加仓的时机。价格远低于定投成本线和200日定投成本线，属于难得的机会窗口。
+                            </div>
+                        </div>
+                        <div class="advice-item yellow">
+                            <div class="range">🟡 0.45 ≤ AHR999 ≤ 1.2</div>
+                            <div class="description">
+                                <strong>正常定投区间</strong> - 价格处于相对合理的范围内，适合坚持定期定额投资策略。不要因为短期波动而改变投资计划，保持纪律性的定投是长期获利的关键。
+                            </div>
+                        </div>
+                        <div class="advice-item red">
+                            <div class="range">🔴 AHR999 &gt; 1.2</div>
+                            <div class="description">
+                                <strong>谨慎区间</strong> - 价格已经相对较高，建议减少定投金额或暂停定投，观望为主。如果您是短期投资者，可以考虑分批止盈。长期投资者可以继续持有，但要做好回调的心理准备。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="intro-section">
+                    <h3>📖 什么是 AHR999 指数？</h3>
+                    <p>
+                        AHR999 指数是由微博用户 ahr999 创建的一个用于评估比特币价格的量化指标。该指数通过比较比特币的当前价格与其长期持有成本和估值水平，帮助投资者判断当前是否适合买入比特币。
+                    </p>
+                    <p>
+                        AHR999 指数的计算公式为：<strong>AHR999 = (比特币价格 / 200日定投成本) × (比特币价格 / 指数增长估值)</strong>
+                    </p>
+
+                    <h3 style="margin-top: 30px;">🎯 指标构成</h3>
+                    <ul>
+                        <li><strong>200日定投成本</strong>：假设在过去200天每天定投相同金额购买比特币，计算出的平均成本价格。代表了近期定投者的平均持仓成本。</li>
+                        <li><strong>指数增长估值</strong>：基于比特币的历史增长规律计算的理论价格。计算公式为：10^[5.84 × log(币龄) - 17.01]，其中币龄是指当前日期距离2009年1月3日（比特币创世区块诞生日）的天数。这个模型反映了比特币按照其历史指数增长趋势应有的价值。</li>
+                        <li><strong>币龄</strong>：当前日期距离2009年1月3日的天数，代表比特币网络运行的时间长度，是计算指数增长估值的重要参数。</li>
+                    </ul>
+
+                    <h3 style="margin-top: 30px;">💎 使用建议</h3>
+                    <ul>
+                        <li>AHR999 指数是一个辅助参考工具，不应作为唯一的投资决策依据</li>
+                        <li>结合自己的风险承受能力和投资目标制定投资策略</li>
+                        <li>定投是一种长期投资策略，需要耐心和纪律性</li>
+                        <li>不要试图预测市场的短期波动，关注长期价值</li>
+                        <li>只投资您能承受损失的资金，加密货币市场波动性较大</li>
+                    </ul>
+
+                    <h3 style="margin-top: 30px;">⚠️ 风险提示</h3>
+                    <p>
+                        比特币及其他加密货币投资存在较高风险，价格可能出现大幅波动。历史表现不代表未来收益。请在充分了解风险的前提下，谨慎做出投资决策。本页面提供的信息仅供参考，不构成任何投资建议。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const DATA_SOURCES = [
+            { name: '9992100.xyz API', url: 'https://9992100.xyz/api/ahr999' },
+            { name: '本站缓存（GitHub Actions 同步）', url: './ahr999-data.json' },
+        ];
+
+        let failureCount = 0;
+
+        function toNumber(value) {
+            const n = Number(value);
+            return Number.isFinite(n) ? n : null;
+        }
+
+        function formatUSD(value) {
+            if (value === null || value === undefined) return '--';
+            return "$" + Number(value).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        function formatPercent(value) {
+            if (value === null || value === undefined) return '--';
+            return Number(value).toFixed(2) + '%';
+        }
+
+        function formatBeijingTime(date) {
+            return date.toLocaleString('zh-CN', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZone: 'Asia/Shanghai'
+            });
+        }
+
+        function mapFearGreedClassification(classification) {
+            const map = {
+                'Extreme Fear': '极度恐惧',
+                'Fear': '恐惧',
+                'Neutral': '中性',
+                'Greed': '贪婪',
+                'Extreme Greed': '极度贪婪',
+            };
+            return map[classification] || classification || '--';
+        }
+
+        function getFearGreedBgColor(classification) {
+            const map = {
+                'Extreme Fear': '#dc3545',
+                'Fear': '#fd7e14',
+                'Neutral': '#6c757d',
+                'Greed': '#28a745',
+                'Extreme Greed': '#198754',
+            };
+            return map[classification] || '#6c757d';
+        }
+
+        async function fetchJson(url, timeoutMs = 8000) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                    },
+                    cache: 'no-store',
+                    signal: controller.signal,
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const text = await response.text();
+                const trimmed = text.trim();
+                if (!trimmed.startsWith('{') && !trimmed.startsWith('[')) {
+                    throw new Error('Non-JSON response');
+                }
+
+                return JSON.parse(trimmed);
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        }
+
+        function normalizeData(raw, fetchSourceName) {
+            const ahr999 = toNumber(raw?.ahr999);
+            if (ahr999 === null) throw new Error('Invalid ahr999');
+
+            const updatedAtUnix = toNumber(raw?.updated_at_unix) ?? toNumber(raw?.timestamp) ?? null;
+
+            return {
+                ahr999,
+                price_usd: toNumber(raw?.price_usd ?? raw?.currentPrice),
+                gma200_usd: toNumber(raw?.gma200_usd ?? raw?.dcaCost),
+                index_growth_valuation_usd: toNumber(raw?.index_growth_valuation_usd ?? raw?.exponentialValue),
+                coin_age_days: toNumber(raw?.coin_age_days ?? raw?.coinAge),
+                updated_at_unix: updatedAtUnix,
+                fear_greed: raw?.fear_greed ?? null,
+                btc_dominance_pct: toNumber(raw?.btc_dominance_pct ?? null),
+            };
+        }
+
+        function setStatusByAhr999(ahr999) {
+            let status = '';
+            let statusColor = '';
+            if (ahr999 < 0.45) {
+                status = '🟢 抄底区间';
+                statusColor = '#28a745';
+            } else if (ahr999 <= 1.2) {
+                status = '🟡 定投区间';
+                statusColor = '#ffc107';
+            } else {
+                status = '🔴 谨慎区间';
+                statusColor = '#dc3545';
+            }
+
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = status;
+            statusEl.style.backgroundColor = statusColor;
+        }
+
+        function displayData(data) {
+            document.getElementById('ahr999Value').textContent = data.ahr999.toFixed(4);
+            document.getElementById('currentPrice').textContent = formatUSD(data.price_usd);
+            document.getElementById('dcaCost').textContent = formatUSD(data.gma200_usd);
+            document.getElementById('exponentialValue').textContent = formatUSD(data.index_growth_valuation_usd);
+            document.getElementById('coinAge').textContent = data.coin_age_days !== null ? data.coin_age_days.toLocaleString() : '--';
+
+            const fearGreedValue = data.fear_greed?.value;
+            const fearGreedClassification = data.fear_greed?.classification;
+            const fearGreedClass = mapFearGreedClassification(fearGreedClassification);
+
+            const fearGreedEl = document.getElementById('fearGreed');
+            if (fearGreedValue !== undefined && fearGreedValue !== null) {
+                fearGreedEl.textContent = `${fearGreedValue}（${fearGreedClass}）`;
+                fearGreedEl.classList.add('fear-greed-badge');
+                fearGreedEl.style.backgroundColor = getFearGreedBgColor(fearGreedClassification);
+            } else {
+                fearGreedEl.textContent = '--';
+                fearGreedEl.classList.remove('fear-greed-badge');
+                fearGreedEl.style.backgroundColor = '';
+            }
+
+            document.getElementById('btcDominance').textContent = formatPercent(data.btc_dominance_pct);
+
+            setStatusByAhr999(data.ahr999);
+
+            const lines = [];
+            if (data.updated_at_unix) {
+                lines.push(`数据更新时间：${formatBeijingTime(new Date(data.updated_at_unix * 1000))} (北京时间)`);
+            }
+            if (data.fear_greed?.timestamp_unix) {
+                lines.push(`恐惧 & 贪婪更新时间：${formatBeijingTime(new Date(data.fear_greed.timestamp_unix * 1000))} (北京时间)`);
+            }
+            document.getElementById('updateTime').innerHTML = lines.length ? lines.join('<br/>') : '--';
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }
+
+        async function fetchData() {
+            let lastError = null;
+
+            for (const source of DATA_SOURCES) {
+                try {
+                    const raw = await fetchJson(source.url);
+                    const data = normalizeData(raw, source.name);
+                    displayData(data);
+                    failureCount = 0;
+                    return;
+                } catch (error) {
+                    lastError = error;
+                }
+            }
+
+            failureCount += 1;
+            console.error('Error fetching data:', lastError);
+
+            if (failureCount >= 2) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('content').style.display = 'none';
+            } else {
+                document.getElementById('loading').textContent = '正在连接数据源...';
+            }
+
+            setTimeout(fetchData, 10000);
+        }
+
+        fetchData();
+        setInterval(fetchData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>
