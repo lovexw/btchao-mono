@@ -28,6 +28,8 @@ TARGETS=(
   "sites/cold-wallet:sites/cold-wallet/btc-shared"
   "sites/buy:sites/buy/btc-shared"
   "sites/password:sites/password/btc-shared"
+  "sites/bip39:sites/bip39/btc-shared"
+  "sites/log:sites/log/btc-shared"
   "sites/ahr999:sites/ahr999/public/btc-shared"
   "sites/ahr-dca:sites/ahr-dca/btc-shared"
   "sites/ma:sites/ma/public/btc-shared"

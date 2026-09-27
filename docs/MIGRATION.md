@@ -28,7 +28,8 @@
 | `sites/cold-wallet` | cold-wallet.btchao.com | use-cold-wallet | 纯 HTML | 无 |
 | `sites/buy` | buy.btchao.com | buybtc | 纯 HTML | 无 |
 | `sites/password` | pd.btchao.com | random-password | 纯 HTML | 无 |
-| `sites/bip39` | bip39.btchao.com | HAB-BIP39 或 bip39-offline | JS | ⚠️ **映射待确认**：线上比对内容后定 |
+| `sites/bip39` | bip39.btchao.com | hab-bip39 → HAB-BIP39 | JS | ✅ 映射已确认（2026-09-27 线上项目清单） |
+| `sites/log` | log.btchao.com | 000-log-btchao-com → touziriji | 纯 HTML | ✅ 映射已确认，无自动化 cron |
 | `sites/ma` | ma.btchao.com | btc-ma-new | 前端 JS | 行情走客户端 API，无服务端 |
 | `sites/wiki` | wiki.btchao.com | btc-wiki | VitePress | 需配 build command（见 §5.3） |
 | `sites/ahr999` | ahr.btchao.com | ahr999-free | 纯 HTML | ⚠️ 确认"每日更新"是手动 push 还是旧仓库 Actions cron；后者需在 monorepo 重建 workflow |
@@ -39,8 +40,7 @@
 
 | 分站 | 源仓库 | 卡住的原因 |
 |---|---|---|
-| log.btchao.com | touziriji（待确认，也可能是 dca-update） | 映射未确认 |
-| news.btchao.com | btcnews | 每 30 分钟自动刷新，先查清管道跑在哪（旧仓库 Actions cron？Worker cron？），把管道和站点一起搬 |
+| news.btchao.com | btcnews | 每 30 分钟自动刷新；线上载体实为 Worker（btc-xinwen-2026），二期随 Workers 流程迁移 |
 
 ### 第三批：Cloudflare Workers（走 GitHub Actions + wrangler，见 §6）
 
