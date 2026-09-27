@@ -27,12 +27,12 @@
 
 ## 3. 页脚（每个分站必须有，且只有一种来源）
 
-由 `shared/footer.js` 运行时注入，包含四要素：
+由 `shared/footer.js`（v2）运行时注入，设计基准是 ahr-dca 页脚，深浅色主题自适应，自上而下四块：
 
-1. 返回主站 btchao.com
-2. 免责声明："本站内容仅供学习与研究，不构成任何投资建议；比特币有风险，决策需独立判断。"
-3. 赞助 BTC 地址（占位符，替换成真实地址后所有分站同步生效）
-4. 版权行 `© {年份} btchao.com · 小吴乐意`
+1. **品牌块**：官方标准比特币 Logo + 站名 + 一句话描述
+2. **三张关联卡片**：比特囤币主站（www.btchao.com）· GitHub 仓库 · 小吴乐意主页（www.xiaowuleyi.com）
+3. **meta 行**：站点自定义信息（数据口径、更新频率、许可协议等），缺省为免责声明"本站内容仅供学习与研究，不构成任何投资建议；比特币有风险，决策需独立判断。"
+4. **版权/赞助行**：`© {年份} btchao.com · 小吴乐意` + 赞助 BTC 地址（点击复制）+ 二维码
 
 分站自己的 HTML 里**不要再手写页脚**，统一走注入（改文案只改 footer.js 一处）。
 
@@ -64,10 +64,16 @@
 <body>
   <!-- 你的内容 -->
   <div id="btc-footer"></div>
-  <script src="btc-shared/footer.js" defer></script>
+  <script src="btc-shared/footer.js?v=2" defer
+          data-name="站名"
+          data-desc="一句话描述"
+          data-repo="lovexw/仓库名"
+          data-meta="可选：站点自定义 meta 行 HTML（缺省为免责声明）"></script>
 </body>
 ```
 
+- **页脚配置**：全部通过 `<script>` 标签的 `data-*` 属性传入（`data-name` / `data-desc` / `data-repo` / `data-meta`，另有 `data-addr` / `data-qr` 可覆盖赞助位）；`data-repo` 请先确认 `github.com/lovexw/<仓库名>` 真实存在。
+- **VitePress 站**：在 `config.mts` 的 `head` 里给 footer.js 的 `<script>` 加同样一组 `data-*` 属性即可（无需挂载点，自动追加到 body 末尾）。
 - **改统一风格**：改 `shared/` → `./scripts/sync-shared.sh` → commit + push（一条命令全站更新）。
 - **页面批量接入**：`python3 scripts/integrate-shared.py sites/<目录>`（幂等，可重复跑）。
 - **副本的存放位置**（构建型站点放进各自的 public/）：

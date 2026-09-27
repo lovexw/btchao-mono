@@ -13,7 +13,7 @@ cp -r sites/_template sites/<目录名>
 ## 2. 开发
 
 - `sites/<目录名>/index.html` 里把标题、内容改掉；
-- 确认 3 行统一风格接入代码还在（tokens.css / footer.js）；
+- 确认 3 行统一风格接入代码还在（tokens.css / footer.js）；页脚配置改 `footer.js` 标签上的 `data-name` / `data-desc` / `data-repo`（见 STYLE-GUIDE §6）；
 - 本地预览：`cd sites/<目录名> && python3 -m http.server 8080`。
 
 ## 3. 提交

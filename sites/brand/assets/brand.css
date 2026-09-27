@@ -1,0 +1,75 @@
+/* ─────────────────────────────────────────────────────────────────────
+   比特币品牌素材库 · 品牌 CSS · Bitcoin Brand Kit brand.css
+   色板 / 按钮 / 卡片三套规范的可直接使用版本，变量加 --btc- 前缀防止冲突。
+   规范文档：https://github.com/lovexw/bitcoin-brand-kit · MIT License
+   ───────────────────────────────────────────────────────────────────── */
+
+/* ── tokens · 设计变量 ─────────────────────────────────────────────── */
+:root {
+  --btc-bg:      #faf9f6;
+  --btc-surface: #ffffff;
+  --btc-fg:      #191714;
+  --btc-muted:   #6d6a63;
+  --btc-border:  #e7e4dc;
+  --btc-accent:  #F7931A;  /* Bitcoin Orange · 官方主色 */
+  --btc-radius:    10px;   /* 按钮 / 瓦片 */
+  --btc-radius-lg: 16px;   /* 卡片：比按钮大一级 */
+}
+
+/* ── buttons · 按钮 ──────────────────────────────────────────────────
+   规则：一屏只放一个主要按钮；橙底配近黑文字（对比约 7.8:1，AAA），
+   禁止白字（2.3:1）；无投影无渐变；焦点态 2px 橙色外描边永不移除。 */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--btc-radius);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--btc-accent); outline-offset: 2px; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary { background: var(--btc-accent); color: var(--btc-fg); border-color: var(--btc-accent); font-weight: 600; }
+.btn-primary:hover { background: color-mix(in oklch, var(--btc-accent) 86%, black); }
+
+.btn-secondary { background: transparent; color: var(--btc-fg); border-color: var(--btc-border); }
+.btn-secondary:hover { border-color: var(--btc-fg); }
+
+.btn-ghost { background: transparent; color: var(--btc-fg); border-color: transparent; padding-inline: 8px; }
+.btn-ghost:hover { color: var(--btc-accent); }
+
+/* 尺寸：大（首屏 CTA ≈56px）/ 小（卡片与工具栏 ≈40px）；默认中号 ≈48px */
+.btn-lg { padding: 14px 26px; font-size: 16px; }
+.btn-sm { padding: 8px 14px; font-size: 14px; }
+
+/* ── cards · 卡片 ────────────────────────────────────────────────────
+   规则：一卡一事；卡片不嵌套卡片；悬停只加深描边、无投影无位移；
+   反色卡一屏最多一个；圆角由外向内递减（卡片 16px > 卡内按钮 10px）。 */
+.card {
+  background: var(--btc-surface);
+  border: 1px solid var(--btc-border);
+  border-radius: var(--btc-radius-lg);
+  padding: 28px;
+  transition: border-color 0.15s ease;
+}
+.card:hover { border-color: color-mix(in oklch, var(--btc-fg) 22%, var(--btc-border)); }
+
+/* 反色卡：整卡近黑底，留给最重的信息 */
+.card-inverted { background: var(--btc-fg); color: var(--btc-bg); border-color: var(--btc-fg); }
+.card-inverted:hover { border-color: var(--btc-fg); }
+.card-inverted .btn-ghost { color: var(--btc-bg); }
+
+/* 描线卡：连续列表条目，只留顶部一条黑线 */
+.card-rule {
+  background: transparent; border: 0; border-top: 1px solid var(--btc-fg);
+  border-radius: 0; padding: 24px 0 0;
+}
+.card-rule:hover { border-color: var(--btc-fg); }
+
+/* 扁平卡：只借网格对齐，分组而非容器 */
+.card-flat { background: transparent; border: 0; padding: 0; }

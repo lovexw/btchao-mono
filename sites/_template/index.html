@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>新分站 · btchao.com</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta name="description" content="一句话说明这个分站是干什么的">
   <!-- 统一风格接入：btc-shared/ 由 scripts/sync-shared.sh 从 shared/ 同步而来（改风格只改 shared/ 再跑同步脚本） -->
   <link rel="stylesheet" href="btc-shared/styles/tokens.css">
@@ -32,7 +33,9 @@
 
     <!-- 统一页脚挂载点：免责声明 / 返回主站 / 赞助地址 都由 footer.js 注入 -->
     <div id="btc-footer"></div>
-    <script src="btc-shared/footer.js" defer></script>
-  </div>
+<script src="btc-shared/footer.js?v=2" defer
+  data-name="新分站标题"
+  data-desc="一句话价值主张"
+  data-repo="lovexw"></script>
 </body>
 </html>

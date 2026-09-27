@@ -13,7 +13,7 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'theme-color', content: '#FF9900' }],
     ['link', { rel: 'stylesheet', href: '/btc-shared/styles/tokens.css' }],
-    ['script', { src: '/btc-shared/footer.js' }],
+    ['script', { src: '/btc-shared/footer.js?v=2', 'data-name': 'BTC Wiki', 'data-desc': '诚实的比特币中文百科 · 从"钱为什么坏了"到"运行自己的节点"', 'data-repo': 'lovexw/btc-wiki' }],
     ['meta', { property: 'og:title', content: 'BTC Wiki · 诚实的比特币中文百科' }],
     ['meta', { property: 'og:description', content: '从"钱为什么坏了"到"运行自己的节点"，循序渐进、不忽悠的比特币学习路径。' }],
     ['meta', { property: 'og:type', content: 'website' }],

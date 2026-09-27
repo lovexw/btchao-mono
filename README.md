@@ -22,6 +22,7 @@
 | `sites/ahr999` | [ahr.btchao.com](https://ahr.btchao.com) | AHR999 指数 |
 | `sites/ahr-dca` | [ahr-dca.btchao.com](https://ahr-dca.btchao.com) | 定投回报对比 |
 | `sites/flash-buy` | [get.btchao.com](https://get.btchao.com) | 购买比特币快闪版 |
+| `sites/brand` | [brand.btchao.com](https://brand.btchao.com) | 比特币品牌素材库（Logo / 颜色 / 规范 / 语录，源仓库 bitcoin-brand-kit） |
 | `workers/orderflow` | [btcgo.btchao.com](https://btcgo.btchao.com) | BTC 实时订单流（Worker，二期） |
 | `shared/` | assets 站 | 全站统一风格资产（tokens.css / footer.js） |
 

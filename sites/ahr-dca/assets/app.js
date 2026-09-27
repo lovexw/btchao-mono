@@ -1110,7 +1110,8 @@ function initSimulator() {
    ============================================================ */
 function renderFooterMeta() {
   const gen = D.generatedAt ? ` · 生成于 ${D.generatedAt.replace('T', ' ').replace('Z', ' UTC')}` : '';
-  $('#footer-updated').textContent = `数据截至 ${D.lastUpdated}${gen}`;
+  const updated = $('#footer-updated');
+  if (updated) updated.textContent = `数据截至 ${D.lastUpdated}${gen}`;
 }
 
 function rebuildAllCharts() {

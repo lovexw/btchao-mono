@@ -2,9 +2,10 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'self'; style-src 'unsafe-inline'; img-src 'self' data:; font-src 'none';">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Entropy Vault · 离线 BIP39 助记词生成器</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 :root{--bg:#f5f3ef;--bg-soft:#edeae3;--surface:#fff;--surface-hover:#fdfcfa;--border:#e4dfd5;--border-strong:#cfc8b8;--text-1:#1a1a1a;--text-2:#5c5650;--text-3:#9a938a;--accent:#b8862d;--accent-light:#e8c867;--accent-bg:#fef9ef;--accent-glow:rgba(184,134,45,.12);--danger:#c44536;--danger-bg:#fdf2f0;--safe:#2d7a4f;--safe-bg:#eef7f0;--info:#2c6cb0;--info-bg:#eef4fb;--purple:#6b4c8a;--purple-bg:#f5f0fa;--shadow-sm:0 1px 3px rgba(0,0,0,.04),0 1px 2px rgba(0,0,0,.03);--shadow-md:0 4px 20px rgba(0,0,0,.06),0 2px 6px rgba(0,0,0,.04);--shadow-lg:0 12px 48px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.04);--radius:16px;--radius-lg:24px;--radius-xl:32px;--font-mono:'SF Mono','JetBrains Mono','Fira Code','Menlo','Consolas',monospace;--ease:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.56,.64,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -414,6 +415,9 @@ document.addEventListener('contextmenu',function(e){e.preventDefault();return fa
 })();
 </script>
 <div id="btc-footer"></div>
-<script src="btc-shared/footer.js" defer></script>
+<script src="btc-shared/footer.js?v=2" defer
+  data-name="Entropy Vault"
+  data-desc="离线 BIP39 助记词生成器"
+  data-repo="lovexw/HAB-BIP39"></script>
 </body>
 </html>
