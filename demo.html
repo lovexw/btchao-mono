@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比特币大事记 - 功能演示</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+        .demo-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .demo-button {
+            background: #f7931a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .demo-button:hover {
+            background: #e0830a;
+        }
+        .demo-result {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 4px solid #f7931a;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat-card {
+            background: #f7931a;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1><img src="bitcoin-logo.svg" alt="Bitcoin Logo" style="height: 1.2em; vertical-align: middle; margin-right: 0.3em;"> 比特币大事记 - 功能演示</h1>
+    <p>这个页面用于演示比特币大事记网站的各种功能和数据验证。</p>
+
+    <div class="demo-section">
+        <h2>📊 数据验证</h2>
+        <button class="demo-button" onclick="validateData()">验证数据完整性</button>
+        <button class="demo-button" onclick="showStatistics()">显示统计信息</button>
+        <div id="validation-result" class="demo-result" style="display: none;"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🔍 搜索功能测试</h2>
+        <input type="text" id="search-input" placeholder="输入搜索关键词..." style="width: 200px; padding: 8px; margin-right: 10px;">
+        <button class="demo-button" onclick="testSearch()">搜索</button>
+        <div id="search-result" class="demo-result" style="display: none;"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>📅 年份筛选测试</h2>
+        <select id="year-select" style="padding: 8px; margin-right: 10px;">
+            <option value="">选择年份</option>
+            <option value="2008">2008</option>
+            <option value="2009">2009</option>
+            <option value="2010">2010</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2014">2014</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+        </select>
+        <button class="demo-button" onclick="testYearFilter()">筛选</button>
+        <div id="year-result" class="demo-result" style="display: none;"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>💾 数据导出测试</h2>
+        <button class="demo-button" onclick="exportJSON()">导出JSON</button>
+        <button class="demo-button" onclick="exportCSV()">导出CSV</button>
+        <div id="export-result" class="demo-result" style="display: none;"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>📈 统计信息</h2>
+        <div id="statistics-container"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>🔗 快速链接</h2>
+        <button class="demo-button" onclick="window.open('index.html', '_blank')">打开主网站</button>
+        <button class="demo-button" onclick="window.open('README.md', '_blank')">查看README</button>
+    </div>
+
+    <!-- 加载必需的脚本 -->
+    <script src="data.js"></script>
+    <script src="utils.js"></script>
+    
+    <script>
+        // 数据验证功能
+        function validateData() {
+            const resultDiv = document.getElementById('validation-result');
+            resultDiv.style.display = 'block';
+            
+            try {
+                const errors = BitcoinTimelineUtils.validateData(bitcoinData);
+                
+                if (errors.length === 0) {
+                    resultDiv.innerHTML = '<span class="success">✅ 数据验证通过！所有数据结构完整。</span>';
+                } else {
+                    resultDiv.innerHTML = '<span class="error">❌ 发现数据问题：</span><ul>' + 
+                        errors.map(error => `<li>${error}</li>`).join('') + '</ul>';
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 验证过程中出错：${error.message}</span>`;
+            }
+        }
+
+        // 显示统计信息
+        function showStatistics() {
+            const resultDiv = document.getElementById('validation-result');
+            resultDiv.style.display = 'block';
+            
+            try {
+                const stats = BitcoinTimelineUtils.getStatistics(bitcoinData);
+                
+                let html = '<h3>📊 数据统计</h3>';
+                html += '<div class="stats-grid">';
+                html += `<div class="stat-card"><div class="stat-number">${stats.totalEvents}</div><div class="stat-label">总事件数</div></div>`;
+                html += `<div class="stat-card"><div class="stat-number">${stats.yearRange.start}-${stats.yearRange.end}</div><div class="stat-label">年份范围</div></div>`;
+                
+                const categoryCount = Object.keys(stats.categories).length;
+                html += `<div class="stat-card"><div class="stat-number">${categoryCount}</div><div class="stat-label">标签类别</div></div>`;
+                
+                if (stats.priceRange.min && stats.priceRange.max) {
+                    html += `<div class="stat-card"><div class="stat-number">$${stats.priceRange.min.toLocaleString()}</div><div class="stat-label">最低价格</div></div>`;
+                    html += `<div class="stat-card"><div class="stat-number">$${stats.priceRange.max.toLocaleString()}</div><div class="stat-label">最高价格</div></div>`;
+                }
+                
+                html += '</div>';
+                
+                if (Object.keys(stats.categories).length > 0) {
+                    html += '<h4>🏷️ 标签分布：</h4><ul>';
+                    Object.entries(stats.categories).forEach(([tag, count]) => {
+                        html += `<li>${tag}: ${count} 次</li>`;
+                    });
+                    html += '</ul>';
+                }
+                
+                resultDiv.innerHTML = html;
+                
+                // 同时更新统计信息区域
+                document.getElementById('statistics-container').innerHTML = html;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 统计过程中出错：${error.message}</span>`;
+            }
+        }
+
+        // 搜索功能测试
+        function testSearch() {
+            const searchTerm = document.getElementById('search-input').value;
+            const resultDiv = document.getElementById('search-result');
+            resultDiv.style.display = 'block';
+            
+            if (!searchTerm) {
+                resultDiv.innerHTML = '<span class="error">❌ 请输入搜索关键词</span>';
+                return;
+            }
+            
+            try {
+                const results = BitcoinTimelineUtils.searchEvents(bitcoinData, searchTerm);
+                
+                let html = `<h3>🔍 搜索结果："${searchTerm}"</h3>`;
+                
+                let totalResults = 0;
+                Object.entries(results).forEach(([section, items]) => {
+                    if (items.length > 0) {
+                        html += `<h4>${section} (${items.length})</h4><ul>`;
+                        items.forEach(item => {
+                            html += `<li><strong>${item.title || item.amount}</strong> - ${item.description || item.details}</li>`;
+                        });
+                        html += '</ul>';
+                        totalResults += items.length;
+                    }
+                });
+                
+                if (totalResults === 0) {
+                    html += '<p>没有找到相关结果。</p>';
+                } else {
+                    html += `<p><strong>总共找到 ${totalResults} 个结果</strong></p>`;
+                }
+                
+                resultDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 搜索过程中出错：${error.message}</span>`;
+            }
+        }
+
+        // 年份筛选测试
+        function testYearFilter() {
+            const year = document.getElementById('year-select').value;
+            const resultDiv = document.getElementById('year-result');
+            resultDiv.style.display = 'block';
+            
+            if (!year) {
+                resultDiv.innerHTML = '<span class="error">❌ 请选择年份</span>';
+                return;
+            }
+            
+            try {
+                const filteredData = BitcoinTimelineUtils.filterByYear(bitcoinData, year);
+                
+                let html = `<h3>📅 ${year}年事件筛选结果</h3>`;
+                
+                let totalEvents = 0;
+                Object.entries(filteredData).forEach(([section, items]) => {
+                    if (items.length > 0) {
+                        html += `<h4>${section} (${items.length})</h4><ul>`;
+                        items.forEach(item => {
+                            const title = item.title || item.amount || '未知';
+                            const description = item.description || item.details || '';
+                            html += `<li><strong>${title}</strong> - ${description}</li>`;
+                        });
+                        html += '</ul>';
+                        totalEvents += items.length;
+                    }
+                });
+                
+                if (totalEvents === 0) {
+                    html += '<p>该年份没有相关事件。</p>';
+                } else {
+                    html += `<p><strong>${year}年共有 ${totalEvents} 个事件</strong></p>`;
+                }
+                
+                resultDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 筛选过程中出错：${error.message}</span>`;
+            }
+        }
+
+        // 导出JSON功能
+        function exportJSON() {
+            const resultDiv = document.getElementById('export-result');
+            resultDiv.style.display = 'block';
+            
+            try {
+                BitcoinTimelineUtils.exportToJSON(bitcoinData, 'bitcoin-timeline-data.json');
+                resultDiv.innerHTML = '<span class="success">✅ JSON文件已成功导出！</span>';
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 导出JSON失败：${error.message}</span>`;
+            }
+        }
+
+        // 导出CSV功能
+        function exportCSV() {
+            const resultDiv = document.getElementById('export-result');
+            resultDiv.style.display = 'block';
+            
+            try {
+                BitcoinTimelineUtils.exportToCSV(bitcoinData, 'bitcoin-timeline-data.csv');
+                resultDiv.innerHTML = '<span class="success">✅ CSV文件已成功导出！</span>';
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">❌ 导出CSV失败：${error.message}</span>`;
+            }
+        }
+
+        // 页面加载时自动验证数据
+        window.addEventListener('load', function() {
+            validateData();
+        });
+    </script>
+</body>
+</html>
