@@ -1,0 +1,15 @@
+# Robots.txt 文件
+# 允许所有搜索引擎爬取网站
+
+User-agent: *
+Allow: /
+
+# 不爬取的文件/目录
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://example.com/sitemap.xml
+
+# 爬取延迟（可选）
+Crawl-delay: 1

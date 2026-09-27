@@ -1,0 +1,13 @@
+{
+  "name": "buy-btc-cn-tutorial",
+  "version": "1.0.0",
+  "description": "中国大陆用户购买比特币教程网站",
+  "main": "index.js",
+  "scripts": {
+    "start": "python3 -m http.server 3000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": ["bitcoin", "tutorial", "china", "btc"],
+  "author": "",
+  "license": "MIT"
+}
