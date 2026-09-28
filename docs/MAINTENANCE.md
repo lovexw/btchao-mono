@@ -72,11 +72,8 @@
 ## 5. 待办清单（断点记录 · 2026-09-28）
 
 ### 部署侧（上线必做）
-- [ ] **主站并入 mono 的最后一步（2026-09-28 代码侧已完成，等面板换绑）**：主站已 subtree 迁入 `sites/www` 并完成改版（去顶部标题、删 4 张死卡、三卡现代统一风 + 神秘暗号彩蛋）。剩余动作（只能面板操作，API 不支持改 Git 源）：
-  - ① `main-btchao` → Settings → Builds & deployments → **Disconnect**，再 Connect 选 `lovexw/btchao-mono`，production branch `main`，Root directory `sites/www`，Build command 留空，output `/`；
-  - ② 同页 Build watch paths 设为 `sites/www/**`（主站不用 shared，别照抄别的站）；
-  - ③ 部署成功后线上核对：无「比特币导航」大标题、工具行三张暗色卡、暗号彩蛋可解锁（卡内输入，答对抖动反馈/新窗跳转）、导航卡 14 张无死链；
-  - ④ 稳定后归档 `lovexw/www.btchao.com` 仓库（GitHub → Settings → Archive，保留历史）。
+- [x] **主站并入 mono（2026-09-28 全部完成）**：subtree 迁入 `sites/www` + 改版（去顶部标题、删 4 张死卡、三卡现代统一风 + 神秘暗号卡内输入彩蛋）；面板已换绑 `main-btchao` → `lovexw/btchao-mono`（Root directory `sites/www`，Build 留空，output `/`，watch paths `sites/www/**`），首部署 `9d1d9c0` 成功，线上核对通过（无大标题、新三卡、彩蛋可用、零死链）。注意：watch paths 在 Pages 项目 API 里不回显，属正常现象。
+  - ④ 剩余：稳定观察几天后归档 `lovexw/www.btchao.com` 仓库（GitHub → Settings → Archive，保留历史）。
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
   - ① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；
   - ② watch paths 设好后启用数据 cron：`gh api -X PUT /repos/lovexw/btchao-mono/actions/workflows/update-etf.yml/enable`（启用前站点数据停在迁移日，旧仓库 cron 仍在喂 btc-etf-dashboard.pages.dev）；
@@ -87,7 +84,7 @@
 - [ ] **下线站收尾（2026-09-28 删除 5 站后遗留）**：
   - ① btchao.com zone 里 5 条残留解析记录待删：`get` / `bip39` / `pd` / `buy` / `cold-wallet`（Pages 项目已删，记录还指向已不存在的 pages.dev，API token 无 DNS 权限未自动清）；
   - ② xiaowuleyi.com zone 里 `password` 一条残留记录待删（旧 000-pd 项目带过的域名）；
-  - ③ 主站死链（buy/bip39/cold-wallet/pd 的 4 张卡片 + 4 条 schema ListItem）**已在 mono 的 sites/www 版本中删除**（卡片连号重排 1-14，JSON-LD 同步），换绑部署后即从线上消失；主站快闪卡此前已删（www.btchao.com `07e694b`）。
+  - ③ 主站死链（buy/bip39/cold-wallet/pd 的 4 张卡片 + 4 条 schema ListItem）已随换绑部署从线上消失（已核验）；主站快闪卡此前已删（www.btchao.com `07e694b`）。
 
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html
@@ -104,7 +101,7 @@
 
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
-| btchao-mono | 本次 feat 提交 | 主站并入 + 改版：subtree 迁入 sites/www（自 www.btchao.com `07e694b`）；删顶部「比特币导航」标题块、删 4 张死卡（重排 1-14 + JSON-LD 同步）、工具行三卡改现代统一风（家族橙标准：白卡+图标徽章+丝滑悬停）、新增神秘暗号彩蛋卡（SECRET_CODE/SECRET_URL 在 script.js 尾部常量）；styles/script 版本号 20260928b。**线上生效待面板换绑 main-btchao → btchao-mono（见 §5）** | `02d2795` |
+| btchao-mono | 本次 feat 提交 | 主站并入 + 改版：subtree 迁入 sites/www（自 www.btchao.com `07e694b`）；删顶部「比特币导航」标题块、删 4 张死卡（重排 1-14 + JSON-LD 同步）、工具行三卡改现代统一风（家族橙标准：白卡+图标徽章+丝滑悬停）、新增神秘暗号彩蛋卡（SECRET_CODE/SECRET_URL 在 script.js 尾部常量）；styles/script 版本号 20260928d。**已上线：面板换绑完成，首部署 9d1d9c0，线上核对通过（2026-09-28）** | `02d2795` |
 | btchao-mono | 本次 chore 提交 | 下线 5 个分站：删 sites/flash-buy、sites/bip39、sites/password、sites/buy、sites/cold-wallet（69 文件）；Cloudflare 侧 10 个 Pages 项目（5 个 btchao-* 镜像 + 5 个旧项目）与 6 条自定义域名已删，btchao.com/xiaowuleyi.com 残留 DNS 待手动清（见 §5） | `a8458ad` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
