@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美国现货比特币 ETF · 数据全景</title>
+  <meta name="description" content="美国现货比特币 ETF 持仓、市值与资金流全景：每日自动更新，数据源自各 ETF 官网披露。含月度净流入热力图、历史极值、矿工产出对比等参考指标。" />
+  <meta property="og:title" content="美国现货比特币 ETF · 数据全景" />
+  <meta property="og:description" content="持仓、市值、资金流逐日全景：每日自动抓取各 ETF 官网披露数据，含完整历史、月度热力图与参考指标。" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Dataset","name":"美国现货比特币 ETF 每日持仓与资金流","description":"美国现货比特币 ETF 的逐日持仓、净流入（BTC/USD）与月度聚合数据，来源为各 ETF 官网披露（经 BitcoinTreasuries 汇总）。","license":"https://opensource.org/licenses/MIT","creator":{"@type":"Organization","name":"btchao.com"},"isAccessibleForFree":true}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <!-- 统一风格接入：btc-shared/ 由 scripts/sync-shared.sh 从 shared/ 同步而来（改风格只改 shared/ 再跑同步脚本） -->
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="./">
+        <span class="brand-logo" aria-hidden="true"><svg viewBox="12 8 40 48" width="22" height="26" fill="currentColor"><path d="m46.103,27.444c0.637-4.258-2.605-6.547-7.038-8.074l1.438-5.768-3.511-0.875-1.4,5.616c-0.923-0.23-1.871-0.447-2.813-0.662l1.41-5.653-3.509-0.875-1.439,5.766c-0.764-0.174-1.514-0.346-2.242-0.527l0.004-0.018-4.842-1.209-0.934,3.75s2.605,0.597,2.55,0.634c1.422,0.355,1.679,1.296,1.636,2.042l-1.638,6.571c0.098,0.025,0.225,0.061,0.365,0.117-0.117-0.029-0.242-0.061-0.371-0.092l-2.296,9.205c-0.174,0.432-0.615,1.08-1.609,0.834,0.035,0.051-2.552-0.637-2.552-0.637l-1.743,4.019,4.569,1.139c0.85,0.213,1.683,0.436,2.503,0.646l-1.453,5.834,3.507,0.875,1.439-5.772c0.958,0.26,1.888,0.5,2.798,0.726l-1.434,5.745,3.511,0.875,1.453-5.823c5.987,1.133,10.489,0.676,12.384-4.739,1.527-4.36-0.076-6.875-3.226-8.515,2.294-0.529,4.022-2.038,4.483-5.155zm-8.022,11.249c-1.085,4.36-8.426,2.003-10.806,1.412l1.928-7.729c2.38,0.594,10.012,1.77,8.878,6.317zm1.086-11.312c-0.99,3.966-7.1,1.951-9.082,1.457l1.748-7.01c1.982,0.494,8.365,1.416,7.334,5.553z"/></svg></span>
+        <span class="brand-text">
+          <strong>美国现货比特币 ETF</strong>
+          <em>数据全景 · 每日自动更新</em>
+        </span>
+      </a>
+      <div class="header-right">
+        <div class="status-pill" id="statusPill" title="数据生成时间与各数据源状态">
+          <span class="dot" id="statusDot"></span>
+          <span id="statusText">加载中…</span>
+        </div>
+        <a class="gh-link" href="https://github.com/lovexw/btc-etf-dashboard" target="_blank" rel="noopener" title="源代码（GitHub）">
+          <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero reveal">
+      <h1>一眼看清美国现货比特币 ETF</h1>
+      <p class="hero-sub">
+        持仓 · 市值 · 资金流 —— 数据取自各 ETF 官网披露与公开行情，每日自动更新。
+      </p>
+      <div class="kpi-grid" id="kpiGrid">
+        <!-- KPI 卡片由 JS 渲染 -->
+      </div>
+    </section>
+
+    <section class="card stats-strip-card reveal" id="statsStrip">
+      <!-- 统计概览条由 JS 渲染 -->
+    </section>
+
+    <section class="card chart-card reveal" id="holdingsSection">
+      <div class="card-head">
+        <div>
+          <h2>ETF 总持仓走势</h2>
+          <p class="card-cap">自 2024 年 1 月上市以来，全部美国现货比特币 ETF 合计持有的 BTC 数量（逐日）</p>
+          <p class="card-cap identity" id="holdingsIdentity"></p>
+        </div>
+      </div>
+      <div class="chart" id="chartHoldings"></div>
+    </section>
+
+    <section class="card chart-card reveal" id="flowSection">
+      <div class="card-head">
+        <div>
+          <h2>每日净流入与累计净流入</h2>
+          <p class="card-cap">绿=净流入，红=净流出；累计线按每日收盘价折算为美元</p>
+        </div>
+        <div class="range-pills" id="rangePills">
+          <button data-range="1m">1月</button>
+          <button data-range="3m">3月</button>
+          <button data-range="6m">6月</button>
+          <button data-range="1y" class="active">1年</button>
+          <button data-range="all">全部</button>
+        </div>
+      </div>
+      <div class="chart" id="chartFlow"></div>
+    </section>
+
+    <section class="card reveal" id="recordsSection">
+      <div class="card-head">
+        <div>
+          <h2>历史纪录与参照</h2>
+          <p class="card-cap">极值取自来源逐日持仓变化，可能包含基金申报调整</p>
+        </div>
+      </div>
+      <div class="record-grid" id="recordGrid"><!-- JS 渲染 --></div>
+    </section>
+
+    <section class="card reveal" id="monthlySection">
+      <div class="card-head">
+        <div>
+          <h2>月度净流入热力图</h2>
+          <p class="card-cap">单位：BTC · 绿=净流入 红=净流出 · 括号内为折算美元</p>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="month-table" id="monthTable"></table>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card reveal">
+        <div class="card-head">
+          <div>
+            <h2>持仓分布</h2>
+            <p class="card-cap" id="donutCap">按最新快照</p>
+          </div>
+        </div>
+        <div class="chart chart-donut" id="chartDonut"></div>
+      </div>
+      <div class="card reveal">
+        <div class="card-head">
+          <div>
+            <h2>各 ETF 持仓量</h2>
+            <p class="card-cap">单位：BTC · 按持仓量排序</p>
+          </div>
+        </div>
+        <div class="chart chart-bars" id="chartBars"></div>
+      </div>
+    </section>
+
+    <section class="card reveal" id="tableSection">
+      <div class="card-head">
+        <div>
+          <h2>各 ETF 持仓明细</h2>
+          <p class="card-cap" id="tableCap">数据截至最新快照</p>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="etf-table" id="etfTable">
+          <thead>
+            <tr>
+              <th class="t-left">基金</th>
+              <th class="t-right">持仓（BTC）</th>
+              <th class="t-right">市值</th>
+              <th class="t-share">占 21M 总量</th>
+              <th class="t-right">近7日（BTC）</th>
+              <th class="t-right">近10日（BTC）</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card reveal" id="heatSection">
+      <div class="card-head">
+        <div>
+          <h2>近 10 个交易日 · 各基金每日净流入</h2>
+          <p class="card-cap">单位：BTC，绿=流入 红=流出，颜色深浅表示力度</p>
+        </div>
+      </div>
+      <div class="table-scroll">
+        <table class="heat-table" id="heatTable"></table>
+      </div>
+    </section>
+
+    <section class="about reveal">
+      <div class="about-grid">
+        <div>
+          <h3>数据来源</h3>
+          <p>
+            持仓与流水：
+            <a href="https://bitbo.io/treasuries/us-etfs/" target="_blank" rel="noopener">BitcoinTreasuries (Bitbo)</a>，
+            其每日从各 ETF 官网同步披露数据；比特币价格：Coinbase / Kraken 公开行情。
+            原始数据文件可直接查看：
+            <a href="data/summary.json" target="_blank" rel="noopener">summary</a> ·
+            <a href="data/history.json" target="_blank" rel="noopener">history</a> ·
+            <a href="data/fundflows.json" target="_blank" rel="noopener">fundflows</a> ·
+            <a href="data/status.json" target="_blank" rel="noopener">status</a>
+          </p>
+          <p class="muted">
+            口径说明：「累计净流入（美元）」按每日收盘价将 BTC 流水折算，与部分媒体按实时价格换算的数字略有差异；
+            持仓快照的美元市值采用来源网站标注值。CoinGlass 等平台引用的「总净资产」常混入期货 / 混合策略 ETF，
+            本页仅统计现货 ETF。
+          </p>
+        </div>
+        <div>
+          <h3>数据字典</h3>
+          <p class="muted dictionary">
+            <b>总持仓</b>：各现货 ETF 托管地址中 BTC 数量之和；<br />
+            <b>净流入</b>：当日持仓变化（Bitbo 口径），正为申购净额；<br />
+            <b>累计净流入</b>：上市以来逐日净流入之和；<br />
+            <b>折算美元</b>：BTC 数量 × 当日收盘价；<br />
+            <b>矿工产出</b>：144 块/天 × 当期块奖励（减半日切换），估算值；<br />
+            <b>市 值</b>：持仓 × BTC 价格，非 ETF 股票市值。
+          </p>
+        </div>
+        <div>
+          <h3>更新机制</h3>
+          <p>
+            GitHub Actions 在每个美股交易日夜间（UTC 22:30 / 次日 12:30）自动抓取并提交数据，
+            Cloudflare Pages 随之自动发布，全程无人值守。
+          </p>
+          <p class="muted" id="dataFootnote"></p>
+        </div>
+        <div>
+          <h3>免责声明</h3>
+          <p class="muted">
+            本页面仅为公开数据聚合展示，不构成任何投资建议。数据可能存在延迟或口径差异，请以各基金官方披露为准。
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 统一页脚挂载点：免责声明 / 返回主站 / 赞助地址 都由 footer.js 注入 -->
+  <div id="btc-footer"></div>
+  <script src="btc-shared/footer.js?v=2" defer
+    data-name="美国现货比特币 ETF"
+    data-desc="持仓 · 市值 · 资金流 · 每日自动更新"
+    data-repo="lovexw/btc-etf-dashboard"
+    data-meta="<span>数据来源 Bitbo · 纯现货口径 · <span id='footBuild'></span></span>"
+  ></script>
+
+  <div class="skeleton-overlay" id="skeleton">
+    <div class="sk kpi-skeleton">
+      <div class="sk-box"></div><div class="sk-box"></div><div class="sk-box"></div>
+      <div class="sk-box"></div><div class="sk-box"></div><div class="sk-box"></div>
+    </div>
+    <div class="sk sk-chart"></div>
+    <div class="sk sk-chart"></div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 | 你动了什么 | 谁会重建 | 成本 |
 |---|---|---|
 | `sites/<某站>/**` 里任何文件 | 只有该站 | ~1 分钟 |
-| `shared/**`（footer.js、styles/tokens.css） | **全部 17 个站** | 2~3 分钟；设计如此——统一风格一处改全站生效 |
+| `shared/**`（footer.js、styles/tokens.css） | **全部 18 个站** | 2~3 分钟；设计如此——统一风格一处改全站生效 |
 | `docs/`、`scripts/`、根 `README.md`、`sites/_template/`、`.github/` | 谁也不重建 | 零 |
 | `sites/brand/**` | 暂无（btchao-brand Pages 项目建好后才开始） | 零 |
 
@@ -62,6 +62,7 @@
 | ahr-dca | AHR999 定投仪表盘 | 定投指数与回测工具 | lovexw/ahr-dca | 含 span#footer-updated 数据行（JS 填充，app.js 已加空值守卫） |
 | ma | 比特币均线面板 | 多周期均线可视化 | lovexw/btc-ma-new | 缺省免责 |
 | flash-buy | 购买比特币快闪版 | 快速上手购买指南 | lovexw/bitcoin-flash-buy | 缺省免责 |
+| etf | 美国现货比特币 ETF | 持仓·市值·资金流·每日自动更新 | lovexw/btc-etf-dashboard | 含 span#footBuild 数据行（JS 填充，app.js 已加空值守卫） |
 | wiki | BTC Wiki | 诚实的比特币中文百科 | lovexw/btc-wiki | 缺省免责（配置在 .vitepress/config.mts） |
 | brand | 比特币品牌素材库 | 官方与社区品牌符号合集 | lovexw/bitcoin-brand-kit | Don't trust, verify·无隶属关系·MIT |
 | _template | 新分站标题（示例） | 一句话价值主张 | lovexw（示例） | 缺省免责 |
@@ -75,6 +76,7 @@
 ## 5. 待办清单（断点记录 · 2026-09-27）
 
 ### 部署侧（上线必做）
+- [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`）、域名 `etf.btchao.com` 已绑。**剩余两步**：① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；② watch paths 设好后启用数据 cron：`gh api -X PUT /repos/lovexw/btchao-mono/actions/workflows/update-etf.yml/enable`（启用前站点数据停在迁移日，旧仓库 cron 仍在喂 btc-etf-dashboard.pages.dev，不影响线上）。
 - [ ] **Cloudflare 建 btchao-brand 项目**：Root directory `sites/brand`，Build command 留空，watch paths `sites/brand/**`，绑定 `brand.btchao.com`（流程见 NEW-SITE-SOP §4-6）。建好前主站新卡片点进去是空域名
 - [ ] push 部署完成后**线上逐站抽查**：favicon 是官方 Logo（无痕窗口）、页脚四块齐全、手机 375px 堆叠正常
 - [ ] www.btchao.com 部署后检查：新卡片、新 favicon/icon PNG、og-image（主站自检流程见其仓库 AGENTS.md）
@@ -95,6 +97,7 @@
 
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
+| btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron + btchao-etf 项目/域名已 API 建好） | `e77b04f` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md + AGENTS.md | `533f538` |
 | www.btchao.com | `b10b44a` | brand 卡片 + 主站 Logo/图标/og-image 标准化 | `c9fe87a` |

@@ -1,0 +1,125 @@
+{
+  "note": "bitbo.io/treasuries/us-etfs 每日快照留档（按数据日期去重）",
+  "snapshots": [
+    {
+      "asOf": "2026-09-25",
+      "fetchedAt": "2026-09-28T06:09:31.502Z",
+      "totalBtc": 1289507,
+      "totalUsd": 107261240686,
+      "funds": [
+        {
+          "ticker": "IBIT",
+          "btc": 798723.8
+        },
+        {
+          "ticker": "FBTC",
+          "btc": 184210.7
+        },
+        {
+          "ticker": "GBTC",
+          "btc": 127297.5
+        },
+        {
+          "ticker": "BTC",
+          "btc": 62965.1
+        },
+        {
+          "ticker": "BITB",
+          "btc": 38447
+        },
+        {
+          "ticker": "ARKB",
+          "btc": 34190.5
+        },
+        {
+          "ticker": "HODL",
+          "btc": 14723.9
+        },
+        {
+          "ticker": "MSBT",
+          "btc": 10436
+        },
+        {
+          "ticker": "BRRR",
+          "btc": 5704.6
+        },
+        {
+          "ticker": "EZBC",
+          "btc": 5603.6
+        },
+        {
+          "ticker": "BTCO",
+          "btc": 5102.3
+        },
+        {
+          "ticker": "BTCW",
+          "btc": 2102
+        },
+        {
+          "ticker": "DEFI",
+          "btc": 0
+        }
+      ]
+    },
+    {
+      "asOf": "2026-09-28",
+      "fetchedAt": "2026-09-28T00:10:48.471Z",
+      "totalBtc": 1289507,
+      "totalUsd": 108854129951,
+      "funds": [
+        {
+          "ticker": "IBIT",
+          "btc": 798723.8
+        },
+        {
+          "ticker": "FBTC",
+          "btc": 184210.7
+        },
+        {
+          "ticker": "GBTC",
+          "btc": 127297.5
+        },
+        {
+          "ticker": "BTC",
+          "btc": 62965.1
+        },
+        {
+          "ticker": "BITB",
+          "btc": 38447
+        },
+        {
+          "ticker": "ARKB",
+          "btc": 34190.5
+        },
+        {
+          "ticker": "HODL",
+          "btc": 14723.9
+        },
+        {
+          "ticker": "MSBT",
+          "btc": 10436
+        },
+        {
+          "ticker": "BRRR",
+          "btc": 5704.6
+        },
+        {
+          "ticker": "EZBC",
+          "btc": 5603.6
+        },
+        {
+          "ticker": "BTCO",
+          "btc": 5102.3
+        },
+        {
+          "ticker": "BTCW",
+          "btc": 2102
+        },
+        {
+          "ticker": "DEFI",
+          "btc": 0
+        }
+      ]
+    }
+  ]
+}

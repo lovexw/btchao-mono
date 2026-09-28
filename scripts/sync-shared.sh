@@ -36,6 +36,7 @@ TARGETS=(
   "sites/wiki:sites/wiki/docs/public/btc-shared"
   "sites/flash-buy:sites/flash-buy/public/btc-shared"
   "sites/brand:sites/brand/btc-shared"
+  "sites/etf:sites/etf/btc-shared"
 )
 
 for entry in "${TARGETS[@]}"; do

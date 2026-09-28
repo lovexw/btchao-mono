@@ -1,0 +1,51 @@
+name: Update ETF data (sites/etf)
+
+# 自 btc-etf-dashboard 仓库迁移适配（2026-09-28）：
+# - 抓取脚本在 sites/etf/scraper/ 下运行，产物提交回 sites/etf/data/
+# - 每个美股交易日晚间抓取两次（UTC）：22:30（收盘后披露陆续出炉）与次日 12:30（兜底补抓）
+# - 脚本按数据日期幂等更新，重复运行不会产生重复数据；数据无变化自动跳过提交
+on:
+  schedule:
+    - cron: "30 22 * * 1-5"
+    - cron: "30 12 * * 2-6"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-etf
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: sites/etf/scraper/package-lock.json
+
+      - name: Install dependencies
+        working-directory: sites/etf/scraper
+        run: npm ci
+
+      - name: Fetch latest ETF data
+        working-directory: sites/etf/scraper
+        run: node update.mjs
+
+      - name: Commit and push
+        run: |
+          git config user.name "etf-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sites/etf/data
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+            git commit -m "data: etf 自动更新 $(date -u +'%F %R UTC')"
+            git push
+          fi

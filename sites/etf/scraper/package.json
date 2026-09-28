@@ -1,0 +1,14 @@
+{
+  "name": "btc-etf-dashboard-scraper",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily scraper for US spot Bitcoin ETF holdings & flows (bitbo.io + price APIs)",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "update": "node update.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
