@@ -1,6 +1,8 @@
 # sites/etf — 美国现货比特币 ETF · 数据全景
 
-> btchao.com 家族分站：[etf.btchao.com](https://etf.btchao.com)（Pages 项目 `btchao-etf`）
+> btchao.com 家族分站，Pages 项目 `btchao-etf`，当前访问地址：
+> **https://btchao-etf.pages.dev**（正式域名 `etf.btchao.com` 待补 CNAME 后激活，见根目录 docs/MAINTENANCE.md §5）
+>
 > 迁自独立仓库 [lovexw/btc-etf-dashboard](https://github.com/lovexw/btc-etf-dashboard)，2026-09-28 并入 monorepo。
 
 一个**零成本、无人值守**的美国现货比特币 ETF 数据面板：每日自动抓取持仓与资金流，

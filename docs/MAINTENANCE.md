@@ -76,7 +76,10 @@
 ## 5. 待办清单（断点记录 · 2026-09-27）
 
 ### 部署侧（上线必做）
-- [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`）、域名 `etf.btchao.com` 已绑。**剩余两步**：① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；② watch paths 设好后启用数据 cron：`gh api -X PUT /repos/lovexw/btchao-mono/actions/workflows/update-etf.yml/enable`（启用前站点数据停在迁移日，旧仓库 cron 仍在喂 btc-etf-dashboard.pages.dev，不影响线上）。
+- [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
+  - ① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；
+  - ② watch paths 设好后启用数据 cron：`gh api -X PUT /repos/lovexw/btchao-mono/actions/workflows/update-etf.yml/enable`（启用前站点数据停在迁移日，旧仓库 cron 仍在喂 btc-etf-dashboard.pages.dev）；
+  - ③ 绑 `etf.btchao.com`：域名已加进项目（pending）。⚠️ 因 `*.btchao.com` 泛解析记录冲突，Pages 未能自动建记录，需手动补一条 **CNAME / etf / btchao-etf.pages.dev / 橙色云**，补完证书自动签发激活。
 - [ ] **Cloudflare 建 btchao-brand 项目**：Root directory `sites/brand`，Build command 留空，watch paths `sites/brand/**`，绑定 `brand.btchao.com`（流程见 NEW-SITE-SOP §4-6）。建好前主站新卡片点进去是空域名
 - [ ] push 部署完成后**线上逐站抽查**：favicon 是官方 Logo（无痕窗口）、页脚四块齐全、手机 375px 堆叠正常
 - [ ] www.btchao.com 部署后检查：新卡片、新 favicon/icon PNG、og-image（主站自检流程见其仓库 AGENTS.md）
@@ -97,7 +100,7 @@
 
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
-| btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron + btchao-etf 项目/域名已 API 建好） | `e77b04f` |
+| btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md + AGENTS.md | `533f538` |
 | www.btchao.com | `b10b44a` | brand 卡片 + 主站 Logo/图标/og-image 标准化 | `c9fe87a` |
