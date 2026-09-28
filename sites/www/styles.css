@@ -297,51 +297,6 @@ body::before {
     z-index: 1;
 }
 
-/* ===== 页面头部 ===== */
-.header {
-    text-align: center;
-    padding: 40px 20px 30px;
-    animation: fadeInDown 0.8s ease-out;
-}
-
-.header-content {
-    display: inline-block;
-    background: var(--card-bg);
-    padding: 24px 40px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 2px 8px var(--card-shadow);
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.btc-icon {
-    font-size: 40px;
-    color: var(--accent-color);
-    animation: float 3s ease-in-out infinite;
-}
-
-.header h1 {
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: 0.5px;
-}
-
-.subtitle {
-    font-size: 14px;
-    color: var(--text-secondary);
-    font-weight: 400;
-    letter-spacing: 0.3px;
-    margin-top: 8px;
-}
-
 /* ===== 工具区域三列并排布局 ===== */
 .tools-row {
     display: grid;
@@ -358,16 +313,17 @@ body::before {
 }
 
 .btc-search-container {
-    background: var(--card-bg);
+    background: linear-gradient(165deg, #1a2030 0%, #0d1119 60%, #0a0e15 100%);
     border-radius: 16px;
     padding: 28px 24px;
-    box-shadow: 0 4px 12px var(--card-shadow);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(247, 147, 26, 0.35);
     position: relative;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btc-search-container::before {
@@ -376,8 +332,8 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-light) 100%);
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #F7931A 50%, transparent 100%);
 }
 
 .btc-search-header {
@@ -618,11 +574,11 @@ body::before {
 }
 
 .sponsor-container-bottom {
-    background: var(--card-bg);
+    background: linear-gradient(165deg, #1a2030 0%, #0d1119 60%, #0a0e15 100%);
     border-radius: 16px;
     padding: 28px 24px;
-    box-shadow: 0 4px 12px var(--card-shadow);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(247, 147, 26, 0.35);
     position: relative;
     overflow: visible;
     height: 100%;
@@ -631,6 +587,7 @@ body::before {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sponsor-container-bottom::before {
@@ -639,8 +596,8 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #FF6B9D 0%, var(--accent-color) 100%);
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #F7931A 50%, transparent 100%);
 }
 
 .sponsor-header-bottom {
@@ -812,6 +769,144 @@ body::before {
 
 .sponsor-copy-toast.hidden {
     display: none;
+}
+
+/* ===== 工具行三卡 · 神秘暗夜风 ===== */
+.secret-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.secret-container {
+    background: linear-gradient(165deg, #1a2030 0%, #0d1119 60%, #0a0e15 100%);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(247, 147, 26, 0.35);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secret-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #F7931A 50%, transparent 100%);
+}
+
+.secret-container:hover,
+.btc-search-container:hover,
+.sponsor-container-bottom:hover {
+    border-color: rgba(247, 147, 26, 0.7);
+    box-shadow: 0 0 0 1px rgba(247, 147, 26, 0.2), 0 8px 36px rgba(247, 147, 26, 0.18);
+}
+
+.secret-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.secret-icon {
+    font-size: 28px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.secret-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #f5ead8;
+    margin: 0;
+}
+
+.secret-description {
+    text-align: center;
+    color: rgba(240, 228, 208, 0.6);
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.secret-btn {
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #B45309 0%, #F7931A 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(247, 147, 26, 0.3);
+}
+
+.secret-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(247, 147, 26, 0.45);
+}
+
+.secret-btn:active {
+    transform: translateY(-1px);
+}
+
+/* 三卡内部元素暗色适配 */
+.btc-search-container .btc-search-header h2,
+.sponsor-container-bottom .sponsor-header-bottom h2 {
+    color: #f5ead8;
+}
+
+.btc-search-container .btc-search-description,
+.sponsor-container-bottom .sponsor-description-bottom,
+.btc-search-container .btc-search-tips .tip-text {
+    color: rgba(240, 228, 208, 0.6);
+}
+
+.btc-search-container .btc-search-tips {
+    background: rgba(247, 147, 26, 0.06);
+    border-color: rgba(247, 147, 26, 0.18);
+}
+
+.btc-search-container .btc-address-input {
+    background: rgba(0, 0, 0, 0.35);
+    border-color: rgba(247, 147, 26, 0.25);
+    color: #f5ead8;
+}
+
+.btc-search-container .btc-address-input::placeholder {
+    color: rgba(240, 228, 208, 0.4);
+}
+
+.btc-search-container .btc-address-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.sponsor-container-bottom .sponsor-label-bottom {
+    color: rgba(240, 228, 208, 0.55);
+}
+
+.sponsor-container-bottom .sponsor-address-bottom {
+    background: rgba(247, 147, 26, 0.08);
+    border-color: rgba(247, 147, 26, 0.4);
+}
+
+.sponsor-container-bottom .sponsor-address-bottom:hover {
+    background: rgba(247, 147, 26, 0.15);
 }
 
 /* 响应式设计 - 移动端布局 */
@@ -1284,26 +1379,6 @@ body::before {
 }
 
 @media (max-width: 768px) {
-    .header {
-        padding: 32px 20px 24px;
-    }
-
-    .header-content {
-        padding: 20px 32px;
-    }
-
-    .header h1 {
-        font-size: 28px;
-    }
-
-    .btc-icon {
-        font-size: 32px;
-    }
-
-    .subtitle {
-        font-size: 13px;
-    }
-
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -1383,30 +1458,6 @@ body::before {
 @media (max-width: 480px) {
     .container {
         padding: 12px;
-    }
-
-    .header {
-        padding: 24px 16px 20px;
-    }
-
-    .header-content {
-        padding: 16px 24px;
-    }
-
-    .header h1 {
-        font-size: 24px;
-    }
-
-    .btc-icon {
-        font-size: 28px;
-    }
-
-    .logo {
-        gap: 8px;
-    }
-
-    .subtitle {
-        font-size: 12px;
     }
 
     .cards-grid {

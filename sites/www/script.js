@@ -1036,3 +1036,24 @@ if (document.readyState === 'loading') {
         initMarketIndicators();
     }, 100);
 }
+
+// ============================================================
+// 神秘暗号入口（彩蛋）
+// 暗号与答对后跳转的隐藏页都在这里改；SECRET_URL 留空则提示建设中
+// ============================================================
+const SECRET_CODE = 'satoshi';
+const SECRET_URL = 'https://1a1zp1ep5qgefi2dmptftl5slmv7divfna.com';
+
+function openSecretGate() {
+    const input = prompt('🗝️ 输入暗号，进入隐藏入口：');
+    if (input === null) return; // 用户取消
+    if (input.trim().toLowerCase() === SECRET_CODE.toLowerCase()) {
+        if (SECRET_URL) {
+            window.open(SECRET_URL, '_blank', 'noopener');
+        } else {
+            alert('暗号正确！但隐藏入口还在建设中…');
+        }
+    } else {
+        alert('❌ 暗号不对，再想想…');
+    }
+}

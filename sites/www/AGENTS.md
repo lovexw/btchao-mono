@@ -2,6 +2,8 @@
 
 > 本文件供 AI 助手与开发者阅读。**每次改动本站前，先完整读完这份文档再动手。**
 
+> **2026-09-28 起本站已并入 btchao-mono（`sites/www`）**：部署走 `main-btchao` Pages 项目（Git 连 btchao-mono，Root directory `sites/www`，watch paths 仅 `sites/www/**`）；本站**不参与** `sync-shared.sh`（自有样式，不用 btc-shared）；改动纪律仍以本文件为准，同时遵守仓库根目录 AGENTS.md。
+
 ## 项目概览
 
 - 纯静态站：`index.html` + `styles.css` + `script.js`，无框架、无构建工具，部署在 Cloudflare Pages
