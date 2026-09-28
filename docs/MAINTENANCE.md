@@ -72,11 +72,13 @@
 ## 5. 待办清单（断点记录 · 2026-09-28）
 
 ### 部署侧（上线必做）
+- [ ] **⚠️ 监视路径失效事件（2026-09-29 已修 4 站，其余 9 站待重连）**：迁移时代连接的 btchao-* 项目，GitHub push → 构建的链路已失效——**命中 watch paths 的提交也被判 skipped**（is_skipped: true），导致 ahr999/ahr-dca/ma/etf 四站域名切过去后数据一直停在迁移快照。面板上看不出任何异常，只有部署记录里 is_skipped 可见。**修复 = 每个项目 Disconnect → 重新 Connect（值不变）**，已修：main-btchao（09-28）、etf/ahr999/ahr-dca/ma（09-29，重连后首建即带上回补数据）。**待重连**：paper、wiki、yuyan、quantum、hold、log、brand、timeline（连同欠的 CNAME）、assets——下次改这些站内容之前必须先重连，否则改动永远不会上线。
+- [ ] **旧仓库 cron 下线**：ahr999-free / ahr-dca / btc-ma-new 等旧仓库的 Actions 还在每日白跑（喂的是已无域名的旧 Pages 项目），确认无他用后禁用或直接归档仓库。
 - [x] **主站并入 mono（2026-09-28 全部完成）**：subtree 迁入 `sites/www` + 改版（去顶部标题、删 4 张死卡、三卡现代统一风 + 神秘暗号卡内输入彩蛋）；面板已换绑 `main-btchao` → `lovexw/btchao-mono`（Root directory `sites/www`，Build 留空，output `/`，watch paths `sites/www/**`），首部署 `9d1d9c0` 成功，线上核对通过（无大标题、新三卡、彩蛋可用、零死链）。注意：watch paths 在 Pages 项目 API 里不回显，属正常现象。
   - ④ 剩余：稳定观察几天后归档 `lovexw/www.btchao.com` 仓库（GitHub → Settings → Archive，保留历史）。
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
   - ① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；
-  - ② watch paths 设好后启用数据 cron：`gh api -X PUT /repos/lovexw/btchao-mono/actions/workflows/update-etf.yml/enable`（启用前站点数据停在迁移日，旧仓库 cron 仍在喂 btc-etf-dashboard.pages.dev）；
+  - ② ~~启用数据 cron~~ ✅ 2026-09-29 已启用（同批启用 fetch-ahr999 / update-btc-price-ahr-dca / update-btc-price-ma，并手动触发回补；见下方"监视路径失效事件"）；
   - ③ 绑 `etf.btchao.com`：域名已加进项目（pending）。⚠️ 因 `*.btchao.com` 泛解析记录冲突，Pages 未能自动建记录，需手动补一条 **CNAME / etf / btchao-etf.pages.dev / 橙色云**，补完证书自动签发激活。
 - [ ] **Cloudflare 建 btchao-brand 项目**：Root directory `sites/brand`，Build command 留空，watch paths `sites/brand/**`，绑定 `brand.btchao.com`（流程见 NEW-SITE-SOP §4-6）。建好前主站新卡片点进去是空域名
 - [ ] push 部署完成后**线上逐站抽查**：favicon 是官方 Logo（无痕窗口）、页脚四块齐全、手机 375px 堆叠正常
@@ -102,6 +104,7 @@
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
 | btchao-mono | 本次 feat 提交 | 主站并入 + 改版：subtree 迁入 sites/www（自 www.btchao.com `07e694b`）；删顶部「比特币导航」标题块、删 4 张死卡（重排 1-14 + JSON-LD 同步）、工具行三卡改现代统一风（家族橙标准：白卡+图标徽章+丝滑悬停）、新增神秘暗号彩蛋卡（SECRET_CODE/SECRET_URL 在 script.js 尾部常量）；styles/script 版本号 20260928d。**已上线：面板换绑完成，首部署 9d1d9c0，线上核对通过（2026-09-28）** | `02d2795` |
+| btchao-mono | 本轮 ci 提交 | 数据管线修复：启用 4 个数据 cron（曾 disabled_manually）+ 推送竞态加固（rebase 模式）+ ahr-dca/ma 历史数据缺口回补至 09-28/29；配合面板重连 etf/ahr999/ahr-dca/ma 四项目，线上数据已恢复每日更新 | `0426258` |
 | btchao-mono | 本次 chore 提交 | 下线 5 个分站：删 sites/flash-buy、sites/bip39、sites/password、sites/buy、sites/cold-wallet（69 文件）；Cloudflare 侧 10 个 Pages 项目（5 个 btchao-* 镜像 + 5 个旧项目）与 6 条自定义域名已删，btchao.com/xiaowuleyi.com 残留 DNS 待手动清（见 §5） | `a8458ad` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
