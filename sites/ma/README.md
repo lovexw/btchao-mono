@@ -274,3 +274,5 @@ btc-ma-new/
 ---
 
 **注意**: 本工具仅供参考，不构成投资建议。加密货币投资有风险，请谨慎决策。
+
+> 数据由 GitHub Actions 每日自动更新（update-btc-price-ma.yml）。
