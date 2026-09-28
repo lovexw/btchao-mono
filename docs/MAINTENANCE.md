@@ -81,7 +81,7 @@
 - [ ] **下线站收尾（2026-09-28 删除 5 站后遗留）**：
   - ① btchao.com zone 里 5 条残留解析记录待删：`get` / `bip39` / `pd` / `buy` / `cold-wallet`（Pages 项目已删，记录还指向已不存在的 pages.dev，API token 无 DNS 权限未自动清）；
   - ② xiaowuleyi.com zone 里 `password` 一条残留记录待删（旧 000-pd 项目带过的域名）；
-  - ③ 主站 www.btchao.com 若有指向这 5 个子域名的卡片/链接，需要摘掉（在主站仓库改）。
+  - ③ 主站 www.btchao.com（lovexw/www.btchao.com 仓库）index.html 确认还有 9 处指向已下线域名的链接待摘：5 处 schema.org ListItem（约 L91-95）、quick-buy 按钮 → get.btchao.com（约 L214）、4 张卡片 → buy/bip39/cold-wallet/pd.btchao.com（约 L485/498/510/534）。
 
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html
