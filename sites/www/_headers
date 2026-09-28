@@ -1,0 +1,17 @@
+# 禁止缓存入口文件和 Service Worker
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS/JS 不能强缓存：强缓存会导致更新后老访客「新 HTML + 旧 CSS/JS」混搭、页面错位，需强制刷新才恢复。
+# 现在靠 index.html 引用处的 ?v= 版本号（styles.css?v=YYYYMMDD）+ 每次发布同步递增来保证更新即时生效，
+# 详见 AGENTS.md「每次更新必做清单」。
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 静态资源（带内容哈希或极少变动的文件）可以缓存久一点
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
