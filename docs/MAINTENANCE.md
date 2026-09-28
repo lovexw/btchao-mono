@@ -1,7 +1,7 @@
 # 维护手册：部署触发规则 · 提交纪律 · 统一页脚配置 · 待办清单
 
 > 写给站长本人与 AI 助手。**AI 在本仓库干活前，连本文件与根目录 AGENTS.md 一起读完再动手。**
-> 断点时间：2026-09-27 · 品牌统一 + 统一页脚已完成并提交（断点见 §6）。
+> 断点时间：2026-09-28 · 下线 5 个分站（flash-buy/bip39/password/buy/cold-wallet），仓库与 Cloudflare 侧已清理（断点见 §6）。
 
 ## 1. 什么改动会触发多少站重建（核心规则）
 
@@ -10,7 +10,7 @@
 | 你动了什么 | 谁会重建 | 成本 |
 |---|---|---|
 | `sites/<某站>/**` 里任何文件 | 只有该站 | ~1 分钟 |
-| `shared/**`（footer.js、styles/tokens.css） | **全部 18 个站** | 2~3 分钟；设计如此——统一风格一处改全站生效 |
+| `shared/**`（footer.js、styles/tokens.css） | **全部 13 个站** | 2~3 分钟；设计如此——统一风格一处改全站生效 |
 | `docs/`、`scripts/`、根 `README.md`、`sites/_template/`、`.github/` | 谁也不重建 | 零 |
 | `sites/brand/**` | 暂无（btchao-brand Pages 项目建好后才开始） | 零 |
 
@@ -23,7 +23,7 @@
 5. **改 `shared/**` 的完整流程**（确认这次值得全站部署再走）：
    ```
    改 shared/footer.js（或 styles/tokens.css）
-   → ./scripts/sync-shared.sh        # 必跑！各站部署的是自己的 btc-shared/ 副本，不同步=白重建17站还上线旧页脚
+   → ./scripts/sync-shared.sh        # 必跑！各站部署的是自己的 btc-shared/ 副本，不同步=白重建12站还上线旧页脚
    → git add -A && git commit && git push   # 这一步接受全站重建
    ```
 6. **改统一页脚的公共结构/样式时**，把 `footer.js` 引用处的 `?v=` 递增（当前 v=2），防 webview 缓存。
@@ -53,15 +53,10 @@
 | yuyan | 比特币预言收录 | 机构与分析师预测归档 | lovexw/btc-yuyan | 缺省免责 |
 | quantum | 量子时代的比特币 | 从零到终局 | lovexw/btc-quantum-notes | CC BY-SA 4.0·仅供教育 |
 | hold | 慢者生存 | 长期投资的第一性原理 | lovexw/hold.btchao.com | 缺省免责 |
-| cold-wallet | 比特币冷钱包制作指南 | 中性可长期自托管 | lovexw/use-cold-wallet | 开放中性教育性·2025年 |
-| buy | 如何购买比特币 | 大陆版教程·安全指南 | lovexw/buybtc | 仅供学习·2025年11月 |
-| password | 随机密码生成器 | 本地生成不上传 | lovexw/random-password | 缺省免责 |
-| bip39 | Entropy Vault | 离线 BIP39 助记词生成器 | lovexw/HAB-BIP39 | 缺省免责 |
 | log | 比特币投资日记 | 市场观察与复盘 | lovexw/touziriji | 数据仅存本地·风险提示 |
 | ahr999 | AHR999 指数 | 定投囤币指数·每日更新 | lovexw/ahr999-free | 缺省免责 |
 | ahr-dca | AHR999 定投仪表盘 | 定投指数与回测工具 | lovexw/ahr-dca | 含 span#footer-updated 数据行（JS 填充，app.js 已加空值守卫） |
 | ma | 比特币均线面板 | 多周期均线可视化 | lovexw/btc-ma-new | 缺省免责 |
-| flash-buy | 购买比特币快闪版 | 快速上手购买指南 | lovexw/bitcoin-flash-buy | 缺省免责 |
 | etf | 美国现货比特币 ETF | 持仓·市值·资金流·每日自动更新 | lovexw/btc-etf-dashboard | 含 span#footBuild 数据行（JS 填充，app.js 已加空值守卫） |
 | wiki | BTC Wiki | 诚实的比特币中文百科 | lovexw/btc-wiki | 缺省免责（配置在 .vitepress/config.mts） |
 | brand | 比特币品牌素材库 | 官方与社区品牌符号合集 | lovexw/bitcoin-brand-kit | Don't trust, verify·无隶属关系·MIT |
@@ -70,10 +65,10 @@
 ## 4. 品牌资产约定
 
 - **官方标准 Logo 唯一真相源**：`sites/brand/assets/logos/bitcoin.svg`（橙色圆 #F7931A + 白 ₿，Bitboy 公共领域版）。页脚内嵌的是它的副本，改 Logo 只改这里 + footer.js。
-- **favicon 模板**：`sites/_template/favicon.svg`；新站建站直接复制。各站根目录 favicon.svg 均为它的副本（wiki 在 `docs/public/`，ahr999/ma/flash-buy 在 `public/`，flash-buy 另有 `public/logo.svg`）。
+- **favicon 模板**：`sites/_template/favicon.svg`；新站建站直接复制。各站根目录 favicon.svg 均为它的副本（wiki 在 `docs/public/`，ahr999/ma 在 `public/`）。
 - 页面内嵌的白色 ₿ 字形（B glyph）取自官方 Logo 的 B 路径，`fill="currentColor"` 随容器着色。
 
-## 5. 待办清单（断点记录 · 2026-09-27）
+## 5. 待办清单（断点记录 · 2026-09-28）
 
 ### 部署侧（上线必做）
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
@@ -83,6 +78,10 @@
 - [ ] **Cloudflare 建 btchao-brand 项目**：Root directory `sites/brand`，Build command 留空，watch paths `sites/brand/**`，绑定 `brand.btchao.com`（流程见 NEW-SITE-SOP §4-6）。建好前主站新卡片点进去是空域名
 - [ ] push 部署完成后**线上逐站抽查**：favicon 是官方 Logo（无痕窗口）、页脚四块齐全、手机 375px 堆叠正常
 - [ ] www.btchao.com 部署后检查：新卡片、新 favicon/icon PNG、og-image（主站自检流程见其仓库 AGENTS.md）
+- [ ] **下线站收尾（2026-09-28 删除 5 站后遗留）**：
+  - ① btchao.com zone 里 5 条残留解析记录待删：`get` / `bip39` / `pd` / `buy` / `cold-wallet`（Pages 项目已删，记录还指向已不存在的 pages.dev，API token 无 DNS 权限未自动清）；
+  - ② xiaowuleyi.com zone 里 `password` 一条残留记录待删（旧 000-pd 项目带过的域名）；
+  - ③ 主站 www.btchao.com 若有指向这 5 个子域名的卡片/链接，需要摘掉（在主站仓库改）。
 
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html
@@ -90,7 +89,6 @@
 - [ ] brand 站自身 favicon 是 Jonas Schnelli 3D 金币（与家族扁平标准 Logo 不同），是否统一待定
 
 ### 可选优化（审阅后决定，都是小事）
-- [ ] `sites/flash-buy/public/vite.svg` 脚手架残留、无引用，可删
 - [ ] `sites/paper/index.html` 末尾 `</html>` 后残留 watch-paths 测试注释，可清
 - [ ] 各站旧版页脚的死 CSS（`.footer` 系列样式还在样式表里），下次大改时顺手清理
 - [ ] `docs/HANDOFF.md` 里「15 站」计数已过时（现 16 分站含 brand），下次更新
@@ -100,6 +98,7 @@
 
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
+| btchao-mono | 本次 chore 提交 | 下线 5 个分站：删 sites/flash-buy、sites/bip39、sites/password、sites/buy、sites/cold-wallet（69 文件）；Cloudflare 侧 10 个 Pages 项目（5 个 btchao-* 镜像 + 5 个旧项目）与 6 条自定义域名已删，btchao.com/xiaowuleyi.com 残留 DNS 待手动清（见 §5） | `a8458ad` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md + AGENTS.md | `533f538` |

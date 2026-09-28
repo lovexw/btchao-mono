@@ -12,16 +12,11 @@
 | `sites/yuyan` | [yy.btchao.com](https://yy.btchao.com) | 比特币预言收录 |
 | `sites/quantum` | [quantum.btchao.com](https://quantum.btchao.com) | 量子计算威胁 |
 | `sites/hold` | [hold.btchao.com](https://hold.btchao.com) | 慢者生存 |
-| `sites/cold-wallet` | [cold-wallet.btchao.com](https://cold-wallet.btchao.com) | 冷钱包教程 |
-| `sites/buy` | [buy.btchao.com](https://buy.btchao.com) | 购买比特币教程 |
-| `sites/password` | [pd.btchao.com](https://pd.btchao.com) | 随机密码生成 |
-| `sites/bip39` | [bip39.btchao.com](https://bip39.btchao.com) | 离线助记词生成 · Entropy Vault |
 | `sites/log` | [log.btchao.com](https://log.btchao.com) | 比特币投资日记（本地版） |
 | `sites/ma` | [ma.btchao.com](https://ma.btchao.com) | 均线面板 |
 | `sites/wiki` | [wiki.btchao.com](https://wiki.btchao.com) | 比特币百科（VitePress） |
 | `sites/ahr999` | [ahr.btchao.com](https://ahr.btchao.com) | AHR999 指数 |
 | `sites/ahr-dca` | [ahr-dca.btchao.com](https://ahr-dca.btchao.com) | 定投回报对比 |
-| `sites/flash-buy` | [get.btchao.com](https://get.btchao.com) | 购买比特币快闪版 |
 | `sites/etf` | [etf.btchao.com](https://etf.btchao.com) | 美国现货比特币 ETF 数据面板（迁自 btc-etf-dashboard 仓库） |
 | `sites/brand` | [brand.btchao.com](https://brand.btchao.com) | 比特币品牌素材库（Logo / 颜色 / 规范 / 语录，源仓库 bitcoin-brand-kit） |
 | `workers/orderflow` | [btcgo.btchao.com](https://btcgo.btchao.com) | BTC 实时订单流（Worker，二期） |
