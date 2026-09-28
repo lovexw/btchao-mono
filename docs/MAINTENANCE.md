@@ -73,7 +73,7 @@
 
 ### 部署侧（上线必做）
 - [ ] **⚠️ 监视路径失效事件（2026-09-29 已修 4 站，其余 9 站待重连）**：迁移时代连接的 btchao-* 项目，GitHub push → 构建的链路已失效——**命中 watch paths 的提交也被判 skipped**（is_skipped: true），导致 ahr999/ahr-dca/ma/etf 四站域名切过去后数据一直停在迁移快照。面板上看不出任何异常，只有部署记录里 is_skipped 可见。**修复 = 每个项目 Disconnect → 重新 Connect（值不变）**，已修：main-btchao（09-28）、etf/ahr999/ahr-dca/ma（09-29，重连后首建即带上回补数据）。**待重连**：paper、wiki、yuyan、quantum、hold、log、brand、timeline（连同欠的 CNAME）、assets——下次改这些站内容之前必须先重连，否则改动永远不会上线。
-- [ ] **旧仓库 cron 下线**：ahr999-free / ahr-dca / btc-ma-new 等旧仓库的 Actions 还在每日白跑（喂的是已无域名的旧 Pages 项目），确认无他用后禁用或直接归档仓库。
+- [x] **旧仓库 cron 下线 + 归档（2026-09-29 完成）**：禁用 ahr999-free / ahr-dca / btc-ma-new / btc-yuyan 四仓库的全部工作流；归档 15 个迁移来源旧仓库（btc-paper、btc-timeline、btc-yuyan、hold.btchao.com、use-cold-wallet、buybtc、random-password、HAB-BIP39、touziriji、ahr999-free、ahr-dca、btc-ma-new、btc-wiki、bitcoin-brand-kit、www.btchao.com）。注：btc-quantum-notes / btc-etf-dashboard 实际不存在（文档原名有误）。未动的独立项目：password-generator（仍在用）、btc-dashboard（主站数据源）。
 - [x] **主站并入 mono（2026-09-28 全部完成）**：subtree 迁入 `sites/www` + 改版（去顶部标题、删 4 张死卡、三卡现代统一风 + 神秘暗号卡内输入彩蛋）；面板已换绑 `main-btchao` → `lovexw/btchao-mono`（Root directory `sites/www`，Build 留空，output `/`，watch paths `sites/www/**`），首部署 `9d1d9c0` 成功，线上核对通过（无大标题、新三卡、彩蛋可用、零死链）。注意：watch paths 在 Pages 项目 API 里不回显，属正常现象。
   - ④ 剩余：稳定观察几天后归档 `lovexw/www.btchao.com` 仓库（GitHub → Settings → Archive，保留历史）。
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
