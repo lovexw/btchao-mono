@@ -7,6 +7,7 @@
 
 | 目录 | 子域名 | 说明 |
 |---|---|---|
+| `sites/www` | [www.btchao.com](https://www.btchao.com) | **主站**：比特币导航（迁自 www.btchao.com 仓库，watch paths 仅 `sites/www/**`，不参与 sync-shared） |
 | `sites/paper` | [paper.btchao.com](https://paper.btchao.com) | 比特币白皮书（小吴乐意翻译） |
 | `sites/timeline` | [timeline.btchao.com](https://timeline.btchao.com) | 比特币大事记 |
 | `sites/yuyan` | [yy.btchao.com](https://yy.btchao.com) | 比特币预言收录 |
