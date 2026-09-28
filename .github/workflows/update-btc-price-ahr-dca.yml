@@ -56,10 +56,12 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git add "sites/ahr-dca/btc-price all.csv" sites/ahr-dca/ahr999_data.json
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "🤖 Update BTC price and AHR999 data - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git push
           fi

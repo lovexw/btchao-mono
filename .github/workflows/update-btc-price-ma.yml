@@ -56,5 +56,12 @@ jobs:
         run: |
           git config --global user.name 'GitHub Actions Bot'
           git config --global user.email 'actions@github.com'
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git add sites/ma/public/btc-price.csv
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Update BTC price data" && git push)
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "🤖 Update BTC price data"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+            git push
+          fi

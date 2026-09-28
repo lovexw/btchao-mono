@@ -41,11 +41,12 @@ jobs:
         run: |
           git config user.name "etf-data-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git add sites/etf/data
           if git diff --cached --quiet; then
             echo "数据无变化，跳过提交"
           else
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git commit -m "data: etf 自动更新 $(date -u +'%F %R UTC')"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git push
           fi
