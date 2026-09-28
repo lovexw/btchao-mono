@@ -584,28 +584,38 @@ function updateFlowChart() {
       : new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
   const sliced = rows.filter((r) => r.date >= cut);
   const echarts = window.__echarts;
+  const isNarrow = window.innerWidth <= 640;
 
   charts.flow.setOption(
     {
       animationDurationUpdate: reducedMotion ? 0 : 700,
       animationEasingUpdate: "cubicOut",
-      grid: { left: 70, right: 76, top: 28, bottom: 46 },
+      grid: { left: 70, right: isNarrow ? 88 : 112, top: 28, bottom: 46 },
       legend: { top: 0, right: 0, itemWidth: 12, itemHeight: 12, textStyle: { color: "#5b6472", fontSize: 12 } },
       tooltip: {
         trigger: "axis", ...TOOLTIP_STYLE,
         formatter: (ps) => {
-          const d = ps[0].data?.[0] ?? ps[0].axisValue;
-          const r = sliced.find((x) => x.date === d) ||
-            sliced.find((x) => new Date(x.date).getTime() === new Date(d).getTime());
+          // 用 dataIndex 对位数据行（每日净流入/累计净流入的 data 都与 sliced 一一对应）。
+          // 不能按日期字符串匹配：axisValue 是本地时区时间戳，new Date("YYYY-MM-DD") 按 UTC
+          // 解析，UTC+8 等时区下永远错位导致 tooltip 空白；p.value 是 [日期, 数值] 对也不能直接用。
+          const idx = ps.find(
+            (p) => p.seriesName === "每日净流入" || p.seriesName === "累计净流入",
+          )?.dataIndex;
+          const r = idx != null ? sliced[idx] : null;
           if (!r) return "";
           const lines = [`<b>${dateCN(r.date)}</b>`];
           for (const p of ps) {
-            const color = p.seriesName === "每日净流入" ? (r.flowBtc >= 0 ? "#16a34a" : "#dc2626") : "#3b82f6";
-            lines.push(
-              `${p.marker} ${p.seriesName} <b style="color:${color}">${fmtUsdBig(p.value)}</b>`,
-            );
+            if (p.seriesName === "每日净流入") {
+              const color = r.flowUsd >= 0 ? "#16a34a" : "#dc2626";
+              lines.push(`${p.marker} ${p.seriesName} <b style="color:${color}">${fmtUsdBig(r.flowUsd)}</b>`);
+            } else if (p.seriesName === "累计净流入") {
+              lines.push(`${p.marker} ${p.seriesName} <b style="color:#3b82f6">${fmtUsdBig(r.cumFlowUsd)}</b>`);
+            } else if (p.seriesName === "BTC 价格" && r.price != null) {
+              lines.push(`${p.marker} ${p.seriesName} <b style="color:#FF9900">$${fmtInt(r.price)}</b>`);
+            }
           }
-          lines.push(`<span style="color:#98a1b0">${fmtSigned(r.flowBtc)} BTC · 收盘 $${fmtInt(r.price)}</span>`);
+          const close = r.price != null ? ` · 收盘 $${fmtInt(r.price)}` : "";
+          lines.push(`<span style="color:#98a1b0">${fmtSigned(r.flowBtc)} BTC${close}</span>`);
           return lines.join("<br/>");
         },
       },
@@ -619,7 +629,19 @@ function updateFlowChart() {
         {
           type: "value", ...AXIS_STYLE,
           splitLine: { show: false },
-          axisLabel: { ...AXIS_STYLE.axisLabel, formatter: (v) => fmtUsdBig(v).replace("$", "") },
+          axisLabel: {
+            ...AXIS_STYLE.axisLabel,
+            formatter: isNarrow
+              ? (v) => (v / 1e9).toFixed(0) + "B"
+              : (v) => fmtUsdBig(v).replace("$", ""),
+          },
+          scale: true,
+        },
+        {
+          // BTC 价格独立右轴（与累计净流入同为 USD 但量级差 500 倍，不能共用）
+          type: "value", ...AXIS_STYLE, position: "right", offset: isNarrow ? 44 : 52,
+          splitLine: { show: false },
+          axisLabel: { ...AXIS_STYLE.axisLabel, formatter: (v) => "$" + (v / 1000).toFixed(0) + "K" },
           scale: true,
         },
       ],
@@ -637,6 +659,12 @@ function updateFlowChart() {
           name: "累计净流入", type: "line", yAxisIndex: 1, smooth: 0.4, symbol: "none",
           lineStyle: { width: 2.2, color: "#3b82f6" },
           data: sliced.map((r) => [r.date, r.cumFlowUsd]),
+        },
+        {
+          name: "BTC 价格", type: "line", yAxisIndex: 2, smooth: 0.35, symbol: "none",
+          lineStyle: { width: 1.4, color: "#FF9900" },
+          itemStyle: { color: "#FF9900" },
+          data: sliced.filter((r) => r.price != null).map((r) => [r.date, r.price]),
         },
       ],
     },
