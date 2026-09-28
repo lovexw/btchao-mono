@@ -1,0 +1,50 @@
+# 操作系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# 编辑器和 IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# Node.js (如果未来需要)
+node_modules/
+package-lock.json
+yarn.lock
+
+# 构建输出 (如果未来需要)
+dist/
+build/
+out/
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 备份文件
+*.bak
+*.backup

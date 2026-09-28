@@ -1,0 +1,16 @@
+{
+    "name": "比特币导航 - 比特囤币",
+    "short_name": "比特币导航",
+    "description": "精选比特币工具与资源的导航站：白皮书、定投指数、行情换算、冷钱包教程与每日新闻。",
+    "lang": "zh-CN",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#FAFAFA",
+    "theme_color": "#FF9900",
+    "icons": [
+        { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+        { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    ]
+}
