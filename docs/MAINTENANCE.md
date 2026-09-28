@@ -75,7 +75,7 @@
 - [ ] **主站并入 mono 的最后一步（2026-09-28 代码侧已完成，等面板换绑）**：主站已 subtree 迁入 `sites/www` 并完成改版（去顶部标题、删 4 张死卡、三卡现代统一风 + 神秘暗号彩蛋）。剩余动作（只能面板操作，API 不支持改 Git 源）：
   - ① `main-btchao` → Settings → Builds & deployments → **Disconnect**，再 Connect 选 `lovexw/btchao-mono`，production branch `main`，Root directory `sites/www`，Build command 留空，output `/`；
   - ② 同页 Build watch paths 设为 `sites/www/**`（主站不用 shared，别照抄别的站）；
-  - ③ 部署成功后线上核对：无「比特币导航」大标题、工具行三张暗色卡、暗号彩蛋可弹窗、导航卡 14 张无死链；
+  - ③ 部署成功后线上核对：无「比特币导航」大标题、工具行三张暗色卡、暗号彩蛋可解锁（卡内输入，答对抖动反馈/新窗跳转）、导航卡 14 张无死链；
   - ④ 稳定后归档 `lovexw/www.btchao.com` 仓库（GitHub → Settings → Archive，保留历史）。
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
   - ① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；

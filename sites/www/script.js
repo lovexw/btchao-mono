@@ -1044,16 +1044,40 @@ if (document.readyState === 'loading') {
 const SECRET_CODE = 'satoshi';
 const SECRET_URL = 'https://1a1zp1ep5qgefi2dmptftl5slmv7divfna.com';
 
-function openSecretGate() {
-    const input = prompt('🗝️ 输入暗号，进入隐藏入口：');
-    if (input === null) return; // 用户取消
-    if (input.trim().toLowerCase() === SECRET_CODE.toLowerCase()) {
+function showSecretFeedback(msg, ok) {
+    const el = document.getElementById('secret-error');
+    const input = document.getElementById('secret-code-input');
+    if (el) {
+        el.textContent = msg;
+        el.classList.toggle('show', true);
+        el.classList.toggle('ok', !!ok);
+    }
+    if (input) {
+        input.classList.remove('secret-shake');
+        void input.offsetWidth; // 重新触发抖动动画
+        input.classList.add('secret-shake');
+        input.focus();
+        input.select();
+    }
+}
+
+function unlockSecret() {
+    const input = document.getElementById('secret-code-input');
+    if (!input) return;
+    const value = (input.value || '').trim();
+    if (!value) {
+        showSecretFeedback('先输入暗号，再解锁');
+        return;
+    }
+    if (value.toLowerCase() === SECRET_CODE.toLowerCase()) {
         if (SECRET_URL) {
+            const el = document.getElementById('secret-error');
+            if (el) el.classList.remove('show');
             window.open(SECRET_URL, '_blank', 'noopener');
         } else {
-            alert('暗号正确！但隐藏入口还在建设中…');
+            showSecretFeedback('暗号正确！但隐藏入口还在建设中…', true);
         }
     } else {
-        alert('❌ 暗号不对，再想想…');
+        showSecretFeedback('暗号不对，再想想…');
     }
 }

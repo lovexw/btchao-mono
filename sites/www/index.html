@@ -99,7 +99,7 @@
     </script>
 
     <!-- 版本号 ?v= 必须在每次修改 css/js 后同步更新，详见 AGENTS.md「每次更新必做清单」 -->
-    <link rel="stylesheet" href="styles.css?v=20260928c">
+    <link rel="stylesheet" href="styles.css?v=20260928d">
 </head>
 <body>
     <!-- 留言板入口按钮 -->
@@ -221,10 +221,26 @@
                         <h2>神秘暗号</h2>
                     </div>
                     <p class="secret-description">只有知道暗号的人，才能找到隐藏的入口</p>
-                    <button class="secret-btn" onclick="openSecretGate()">
-                        <span class="btn-icon">🔓</span>
-                        <span class="btn-text">输入暗号</span>
-                    </button>
+                    <div class="secret-box">
+                        <input
+                            type="text"
+                            id="secret-code-input"
+                            class="secret-code-input"
+                            placeholder="输入暗号"
+                            autocomplete="off"
+                            spellcheck="false"
+                            onkeydown="if(event.key==='Enter'){event.preventDefault();unlockSecret()}"
+                        />
+                        <button class="secret-btn" onclick="unlockSecret()">
+                            <span class="btn-icon">🔓</span>
+                            <span class="btn-text">解锁</span>
+                        </button>
+                    </div>
+                    <div class="secret-error" id="secret-error"></div>
+                    <div class="secret-tips">
+                        <span class="tip-icon">💡</span>
+                        <span class="tip-text">答对后将在新窗口打开隐藏入口 · 暗号不区分大小写</span>
+                    </div>
                 </div>
             </section>
         </div>
@@ -533,6 +549,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.umd.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.css">
     
-    <script src="script.js?v=20260928c"></script>
+    <script src="script.js?v=20260928d"></script>
 </body>
 </html>

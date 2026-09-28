@@ -428,7 +428,8 @@ body::before {
     font-size: 18px;
 }
 
-.btc-search-tips {
+.btc-search-tips,
+.secret-tips {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -439,11 +440,13 @@ body::before {
     border: 1px solid rgba(255, 153, 0, 0.1);
 }
 
-.btc-search-tips .tip-icon {
+.btc-search-tips .tip-icon,
+.secret-tips .tip-icon {
     font-size: 16px;
 }
 
-.btc-search-tips .tip-text {
+.btc-search-tips .tip-text,
+.secret-tips .tip-text {
     font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.5;
@@ -920,7 +923,8 @@ body::before {
 }
 
 /* 提示条 */
-.btc-search-tips {
+.btc-search-tips,
+.secret-tips {
     background: #FFF5E6;
     border: 1px solid #FFE0B2;
     border-radius: 10px;
@@ -959,14 +963,72 @@ body::before {
 }
 
 /* 神秘暗号卡 */
+.secret-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.secret-code-input {
+    flex: 1 1 100%;
+    min-width: 0;
+    padding: 14px 18px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    outline: none;
+    background: var(--bg-color);
+    color: var(--text-primary);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.secret-code-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.secret-code-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.12);
+    background: #ffffff;
+}
+
+.secret-code-input.secret-shake {
+    animation: secretShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes secretShake {
+    10%, 90% { transform: translateX(-1px); }
+    20%, 80% { transform: translateX(2px); }
+    30%, 50%, 70% { transform: translateX(-4px); }
+    40%, 60% { transform: translateX(4px); }
+}
+
+.secret-error {
+    display: none;
+    font-size: 12.5px;
+    color: #FF4444;
+    margin: -6px 0 12px;
+}
+
+.secret-error.show {
+    display: block;
+}
+
+.secret-error.ok {
+    color: #00b578;
+}
+
 .secret-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    width: 100%;
+    flex: 1 1 100%;
     padding: 12px 20px;
-    margin-top: auto;
     background: var(--warning-bg);
     color: #ffffff;
     border: none;
@@ -996,8 +1058,13 @@ body::before {
     .secret-btn,
     .sponsor-copy-btn,
     .btc-address-input,
+    .secret-code-input,
     .sponsor-address-bottom {
         transition: none;
+    }
+
+    .secret-code-input.secret-shake {
+        animation: none;
     }
 
     .btc-search-container:hover,
