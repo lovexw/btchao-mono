@@ -582,7 +582,41 @@ function updateFlowChart() {
     days === Infinity
       ? "0000-01-01"
       : new Date(Date.now() - days * 86400000).toISOString().slice(0, 10);
-  const sliced = rows.filter((r) => r.date >= cut);
+  // 按交易日聚合：来源序列含周末发布的修订快照（prevBusinessDay 都映射回周五等），
+  // 同一交易日会有多个分段行（各段流水=相邻快照差）。按日求和才是当日真实净流入，
+  // 累计/价格取段末值。聚合后每根柱=一个交易日，横轴无空隙、非交易日不占位。
+  const byDate = new Map();
+  for (const r of rows) {
+    if (r.date < cut) continue;
+    const cur = byDate.get(r.date);
+    if (!cur) {
+      byDate.set(r.date, {
+        date: r.date, flowBtc: r.flowBtc, flowUsdParts: r.flowUsd == null ? [] : [r.flowUsd],
+        price: r.price, cumFlowBtc: r.cumFlowBtc, cumFlowUsd: r.cumFlowUsd,
+      });
+    } else {
+      cur.flowBtc += r.flowBtc;
+      if (r.flowUsd != null) cur.flowUsdParts.push(r.flowUsd);
+      cur.price = r.price ?? cur.price;
+      cur.cumFlowBtc = r.cumFlowBtc;
+      cur.cumFlowUsd = r.cumFlowUsd;
+    }
+  }
+  const sliced = [...byDate.values()].map((d) => ({
+    date: d.date,
+    flowBtc: Math.round(d.flowBtc * 10) / 10,
+    flowUsd: d.flowUsdParts.length ? Math.round(d.flowUsdParts.reduce((s, v) => s + v, 0)) : null,
+    price: d.price,
+    cumFlowBtc: d.cumFlowBtc,
+    cumFlowUsd: d.cumFlowUsd,
+  }));
+  // 月份边界刻度：只在月份变化的首个交易日打标签，避免"11月 11月 11月"式重复
+  const monthTicks = new Set();
+  let prevMonth = "";
+  sliced.forEach((r, i) => {
+    const m = r.date.slice(0, 7);
+    if (m !== prevMonth) { monthTicks.add(i); prevMonth = m; }
+  });
   const echarts = window.__echarts;
   const isNarrow = window.innerWidth <= 640;
 
@@ -606,7 +640,7 @@ function updateFlowChart() {
           const lines = [`<b>${dateCN(r.date)}</b>`];
           for (const p of ps) {
             if (p.seriesName === "每日净流入") {
-              const color = r.flowUsd >= 0 ? "#16a34a" : "#dc2626";
+              const color = (r.flowUsd ?? 0) >= 0 ? "#16a34a" : "#dc2626";
               lines.push(`${p.marker} ${p.seriesName} <b style="color:${color}">${fmtUsdBig(r.flowUsd)}</b>`);
             } else if (p.seriesName === "累计净流入") {
               lines.push(`${p.marker} ${p.seriesName} <b style="color:#3b82f6">${fmtUsdBig(r.cumFlowUsd)}</b>`);
@@ -619,7 +653,19 @@ function updateFlowChart() {
           return lines.join("<br/>");
         },
       },
-      xAxis: { type: "time", ...AXIS_STYLE, axisLabel: { ...AXIS_STYLE.axisLabel, hideOverlap: true } },
+      xAxis: {
+        type: "category",
+        data: sliced.map((r) => r.date),
+        ...AXIS_STYLE,
+        axisLabel: {
+          ...AXIS_STYLE.axisLabel, hideOverlap: true,
+          interval: (i) => monthTicks.has(i),
+          formatter: (v) => {
+            const [y, m] = v.split("-");
+            return +m === 1 ? `${y}` : `${+m}月`;
+          },
+        },
+      },
       yAxis: [
         {
           type: "value", ...AXIS_STYLE,
@@ -651,20 +697,20 @@ function updateFlowChart() {
           itemStyle: { borderRadius: 2 },
           barMaxWidth: 14,
           data: sliced.map((r) => ({
-            value: [r.date, r.flowUsd],
-            itemStyle: { color: r.flowUsd >= 0 ? "rgba(22,163,74,0.75)" : "rgba(220,38,38,0.7)" },
+            value: r.flowUsd,
+            itemStyle: { color: (r.flowUsd ?? 0) >= 0 ? "rgba(22,163,74,0.75)" : "rgba(220,38,38,0.7)" },
           })),
         },
         {
           name: "累计净流入", type: "line", yAxisIndex: 1, smooth: 0.4, symbol: "none",
           lineStyle: { width: 2.2, color: "#3b82f6" },
-          data: sliced.map((r) => [r.date, r.cumFlowUsd]),
+          data: sliced.map((r) => r.cumFlowUsd),
         },
         {
           name: "BTC 价格", type: "line", yAxisIndex: 2, smooth: 0.35, symbol: "none",
           lineStyle: { width: 1.4, color: "#FF9900" },
           itemStyle: { color: "#FF9900" },
-          data: sliced.filter((r) => r.price != null).map((r) => [r.date, r.price]),
+          data: sliced.map((r) => r.price),
         },
       ],
     },
