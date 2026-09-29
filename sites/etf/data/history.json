@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-28T23:22:37.051Z",
+  "generatedAt": "2026-09-29T18:11:45.754Z",
   "source": "bitbo.io/treasuries/etf-flows（每日净流入=ETF持仓逐日变化）",
-  "priceSource": "coinbase 1002 天",
+  "priceSource": "coinbase 1003 天",
   "rows": [
     {
       "date": "2024-01-12",
