@@ -9,7 +9,7 @@
  *   <script src="btc-shared/footer.js?v=2"
  *           data-name="AHR999 定投仪表盘"
  *           data-desc="基于官方公式的比特币定投指数与回测工具"
- *           data-repo="lovexw/ahr-dca"
+ *           data-repo="lovexw/btchao-mono"
  *           data-meta="<span>自定义 meta 行 HTML（可含 span#footer-updated 等站点钩子）</span>"
  *   ></script>
  *
