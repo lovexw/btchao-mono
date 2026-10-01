@@ -1,0 +1,38 @@
+name: Pages Freshness Watchdog (线上数据新鲜度看门狗)
+
+# 防复发兜底：btchao-mono 的 push 自动构建链路在 Cloudflare 侧不生效（复盘见 docs/MAINTENANCE.md §1），
+# 数据分站的上线依赖各数据 workflow 里「推送后自触发 Pages 部署」一步。
+# 本任务每天核对 4 个数据分站「线上数据」是否落后于「仓库 HEAD」：
+#   - 落后 → 用 CLOUDFLARE_API_TOKEN 自动补部署并轮询确认（自愈）；
+#   - 补不回来 / 令牌未配置或失效 → 自动开 issue 告警（同站去重）。
+on:
+  schedule:
+    - cron: '40 1 * * *'  # 北京时间 09:40，在各数据 cron 完成之后
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: pages-freshness-watchdog
+  cancel-in-progress: false
+
+jobs:
+  check-and-heal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check freshness, heal, alert
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 scripts/check_pages_freshness.py
