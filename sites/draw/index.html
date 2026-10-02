@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO ===== -->
+  <title>BTC 开奖 — 比特币区块哈希每日开奖 | btchao.com</title>
+  <meta name="description" content="从比特币区块哈希末尾往前取 6 个数字（字母跳过）作为开奖号码，每天北京时间 12:00 以上一区块为准自动开奖。支持按区块高度查询开奖号码、按 10 分钟出块速度估算未来区块的开奖时间或高度，并生成开奖日历通知。号码由算力决定，无人可以操控。">
+  <meta name="keywords" content="比特币开奖,BTC开奖,区块哈希,区块高度查询,开奖号码,比特币区块,公平抽奖,btchao">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="btchao.com">
+  <meta name="theme-color" content="#FF9900">
+  <link rel="canonical" href="https://lottery.btchao.com/">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BTC 开奖">
+  <meta property="og:title" content="BTC 开奖 — 比特币区块哈希每日开奖">
+  <meta property="og:description" content="区块哈希末尾往前取 6 个数字开奖，每天北京时间 12:00 准时开奖，号码由算力决定，公平透明。">
+  <meta property="og:url" content="https://lottery.btchao.com/">
+  <meta property="og:locale" content="zh_CN">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="btc-shared/styles/tokens.css" />
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">
+      <img src="/favicon.svg" alt="₿" width="28" height="28">
+      <span>BTC<em>开奖</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#latest">今日开奖</a>
+      <a href="#history">开奖记录</a>
+      <a href="#tools">查询与估算</a>
+      <a href="#rules">开奖规则</a>
+      <a href="https://github.com/lovexw/btchao-mono/tree/main/sites/draw" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ===== 今日开奖 ===== -->
+  <section class="hero card" id="latest">
+    <div class="hero-head">
+      <span class="tag" id="latest-tag">正在获取最新开奖…</span>
+      <span class="countdown">距下期开奖 <b id="countdown">--:--:--</b></span>
+    </div>
+    <h1 class="hero-title">今日开奖号码</h1>
+    <div class="digits digits-lg" id="latest-digits" aria-label="开奖号码"></div>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">开奖区块</span><a id="latest-height" href="#" target="_blank" rel="noopener">—</a></div>
+      <div class="meta-item"><span class="meta-label">区块时间</span><span id="latest-time">—</span></div>
+    </div>
+    <div class="hero-hash">
+      <span class="meta-label">区块哈希</span>
+      <code id="latest-hash">—</code>
+    </div>
+    <p class="hero-derive">开奖号码 = 从区块哈希末尾往前收集 6 个数字，<b>字母跳过</b></p>
+  </section>
+
+  <!-- ===== 开奖记录 ===== -->
+  <section id="history">
+    <div class="section-head">
+      <h2>最近 15 期开奖记录</h2>
+      <span class="section-sub">每天北京时间 12:00 开奖，滚动保留最近 15 期</span>
+    </div>
+    <div class="grid" id="history-grid">
+      <div class="card loading-card">正在加载开奖记录…</div>
+    </div>
+  </section>
+
+  <!-- ===== 工具 ===== -->
+  <section id="tools">
+    <div class="section-head">
+      <h2>查询与估算</h2>
+      <span class="section-sub">实时调用链上数据，结果即时计算，不做任何存储</span>
+    </div>
+    <div class="tools-grid">
+
+      <!-- 区块查询 -->
+      <div class="card tool-card">
+        <span class="eyebrow">QUERY</span>
+        <h3>按区块高度查询</h3>
+        <p class="tool-desc">输入任意区块高度，立即得到该区块的开奖号码。</p>
+        <form id="query-form" class="tool-form">
+          <input type="number" id="query-height" min="0" step="1" inputmode="numeric" placeholder="例如 870000" required>
+          <button type="submit" class="btn btn-primary" id="query-btn">查询</button>
+        </form>
+        <div id="query-result" class="result-area" hidden></div>
+      </div>
+
+      <!-- 未来估算 -->
+      <div class="card tool-card">
+        <span class="eyebrow">ESTIMATE</span>
+        <h3>未来开奖估算</h3>
+        <p class="tool-desc">按出块速度（默认 10 分钟/块）双向估算，并可生成开奖日历通知。</p>
+
+        <div class="tabbar" role="tablist">
+          <button class="tab active" id="tab-by-height" role="tab">按区块高度 → 时间</button>
+          <button class="tab" id="tab-by-time" role="tab">按开奖时间 → 高度</button>
+        </div>
+
+        <form id="estimate-form" class="tool-form tool-form-col">
+          <div class="field" id="field-by-height">
+            <label for="est-height">目标区块高度</label>
+            <input type="number" id="est-height" min="0" step="1" inputmode="numeric" placeholder="例如 1000000">
+          </div>
+          <div class="field" id="field-by-time" hidden>
+            <label for="est-time">目标开奖时间（北京时间）</label>
+            <input type="datetime-local" id="est-time">
+          </div>
+          <div class="field field-inline">
+            <label for="est-interval">出块间隔</label>
+            <div class="interval-box">
+              <input type="number" id="est-interval" value="10" min="1" max="60" step="1">
+              <span>分钟 / 块</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="estimate-btn">开始估算</button>
+        </form>
+        <div id="estimate-result" class="result-area" hidden></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== 规则 ===== -->
+  <section class="card rules" id="rules">
+    <span class="eyebrow">RULES</span>
+    <h2>开奖规则</h2>
+    <ol>
+      <li><b>号码来源：</b>从区块哈希（64 位十六进制）的<b>末尾往前</b>逐位扫描，只要数字 0-9，遇到字母 a-f 跳过，凑满 <b>6 个数字</b>为止，扫描顺序即为开奖号码。例如哈希末尾为 <code>…1e70fbbc135a</code>，从末尾往前收集到的数字依次是 5、3、1、0、7、1，开奖号码为 <code>531071</code>。</li>
+      <li><b>开奖时间：</b>每天<b>北京时间 12:00 整</b>，取该时刻之前挖出的最新一个区块作为开奖区块，滚动保存最近 <b>15 天</b>的开奖号码。</li>
+      <li><b>公平性：</b>区块哈希由全网算力决定，12:00 前无人能预知开奖区块，任何人都无法操控结果。开奖数据与代码全部开源，可随时复核。</li>
+    </ol>
+    <p class="rules-note">数据源：mempool.space 公共节点 API · 数据存档：<a href="https://github.com/lovexw/btchao-mono/tree/main/sites/draw" target="_blank" rel="noopener">GitHub 仓库</a> · 部署：Cloudflare Pages</p>
+  </section>
+
+</main>
+
+<!-- 统一页脚挂载点：品牌块 / 关联卡片 / meta 行 / 版权赞助 都由 footer.js 注入 -->
+<div id="btc-footer"></div>
+<script src="btc-shared/footer.js?v=2" defer
+  data-name="BTC 开奖"
+  data-desc="比特币区块哈希 · 每天北京时间 12:00 开奖"
+  data-repo="lovexw/btc-draw"
+  data-meta="<span>号码由算力决定 · 仅供娱乐</span>"
+></script>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# 开奖数据随时更新（GitHub Actions 每天 12:00 提交后触发重新部署）
+/data/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 页面与静态资源
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

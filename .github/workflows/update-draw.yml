@@ -1,0 +1,57 @@
+name: Update draw data (sites/draw)
+
+# 自 btc-draw 仓库迁移适配（2026-10-02）：
+# - 开奖脚本在 sites/draw/scripts/ 下运行，开奖数据提交回 sites/draw/data/
+# - 每天北京时间 12:00（UTC 04:00）开奖；GitHub 定时任务可能有几分钟延迟，
+#   但开奖目标时刻固定为北京时间 12:00，不影响结果
+# - 数据提交 push 后，btchao-draw Pages 项目（watch paths: sites/draw/** + shared/**）自动重新部署
+on:
+  schedule:
+    - cron: "0 4 * * *" # 北京时间每天 12:00（UTC+8）
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "today = 开今天的奖；backfill N（如 backfill 15）= 补最近 N 天"
+        default: "today"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-draw
+  cancel-in-progress: false
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 执行开奖并更新数据
+        run: |
+          MODE="${{ github.event.inputs.mode }}"
+          if [ -n "$MODE" ] && [ "$MODE" != "today" ]; then
+            node sites/draw/scripts/draw.mjs --backfill "${MODE#backfill}"
+          else
+            node sites/draw/scripts/draw.mjs
+          fi
+
+      - name: 提交开奖数据
+        run: |
+          git config user.name "draw-data-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sites/draw/data
+          if git diff --cached --quiet; then
+            echo "开奖数据无变化，跳过提交"
+          else
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+            git commit -m "data: draw 开奖更新 $(TZ='Asia/Shanghai' date +'%F %H:%M')"
+            git push
+          fi

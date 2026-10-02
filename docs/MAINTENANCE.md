@@ -73,6 +73,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
 | etf | 美国现货比特币 ETF | 持仓·市值·资金流·每日自动更新 | lovexw/btchao-mono | 含 span#footBuild 数据行（JS 填充，app.js 已加空值守卫） |
 | wiki | BTC Wiki | 诚实的比特币中文百科 | lovexw/btchao-mono | 缺省免责（配置在 .vitepress/config.mts） |
 | brand | 比特币品牌素材库 | 官方与社区品牌符号合集 | lovexw/btchao-mono | Don't trust, verify·无隶属关系·MIT |
+| draw | BTC 开奖 | 比特币区块哈希 · 每天北京时间 12:00 开奖 | lovexw/btchao-mono | 号码由算力决定·仅供娱乐 |
 | _template | 新分站标题（示例） | 一句话价值主张 | lovexw/btchao-mono | 缺省免责 |
 
 > 2026-10-01 已把各站 HTML 里 `data-repo` 及页面上硬编码的旧仓库链接（btc-paper / btc-timeline / btc-yuyan / btc-quantum-notes / hold.btchao.com / touziriji / ahr999-free / ahr-dca / btc-ma-new / btc-etf-dashboard / btc-wiki / bitcoin-brand-kit）全部替换为 `lovexw/btchao-mono`；wiki 顶部 socialLinks 本就指向 `btchao-mono/tree/main/sites/wiki`，保留。
@@ -104,6 +105,9 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
   - ② xiaowuleyi.com zone 里 `password` 一条残留记录待删（旧 000-pd 项目带过的域名）；
   - ③ 主站死链（buy/bip39/cold-wallet/pd 的 4 张卡片 + 4 条 schema ListItem）已随换绑部署从线上消失（已核验）；主站快闪卡此前已删（www.btchao.com `07e694b`）。
 
+### 部署侧（上线必做）
+- [x] **draw 分站上线（2026-10-02 由 API 完成）**：`btchao-draw` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/draw`，watch paths `sites/draw/**` + `shared/**`），域名 `lottery.btchao.com` 已绑（同账号 zone 自动建 DNS），数据 cron `update-draw.yml` 每天北京时间 12:00 开奖并自动触发部署，迁自 lovexw/btc-draw（已归档）。
+
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html
 - [ ] hold 的「慢」/ quantum 的「⚛️」favicon 已统一为标准 Logo；想恢复主题图标从提交 `151a129` 取回旧版
@@ -126,6 +130,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
 | btchao-mono | 本轮 ci 提交 | 数据管线修复：启用 4 个数据 cron（曾 disabled_manually）+ 推送竞态加固（rebase 模式）+ ahr-dca/ma 历史数据缺口回补至 09-28/29；配合面板重连 etf/ahr999/ahr-dca/ma 四项目，线上数据已恢复每日更新 | `0426258` |
 | btchao-mono | 本次 chore 提交 | 下线 5 个分站：删 sites/flash-buy、sites/bip39、sites/password、sites/buy、sites/cold-wallet（69 文件）；Cloudflare 侧 10 个 Pages 项目（5 个 btchao-* 镜像 + 5 个旧项目）与 6 条自定义域名已删，btchao.com/xiaowuleyi.com 残留 DNS 待手动清（见 §5） | `a8458ad` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
+| btchao-mono | 本次 feat 提交 | 新增 sites/draw 分站（迁自 btc-draw：开奖平台 + update-draw.yml cron；btchao-draw 项目 API 建好，lottery.btchao.com 已绑，旧仓库已归档） | `a8458ad` |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md + AGENTS.md | `533f538` |
 | www.btchao.com | `b10b44a` | brand 卡片 + 主站 Logo/图标/og-image 标准化 | `c9fe87a` |

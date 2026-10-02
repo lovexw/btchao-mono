@@ -20,6 +20,7 @@
 | `sites/ahr-dca` | [ahr-dca.btchao.com](https://ahr-dca.btchao.com) | 定投回报对比 |
 | `sites/etf` | [etf.btchao.com](https://etf.btchao.com) | 美国现货比特币 ETF 数据面板（迁自 btc-etf-dashboard 仓库） |
 | `sites/brand` | [brand.btchao.com](https://brand.btchao.com) | 比特币品牌素材库（Logo / 颜色 / 规范 / 语录，源仓库 bitcoin-brand-kit） |
+| `sites/draw` | [lottery.btchao.com](https://lottery.btchao.com) | BTC 区块开奖平台（哈希末尾往前取 6 个数字，迁自 btc-draw 仓库；子域名 lottery 为登记例外） |
 | `workers/orderflow` | [btcgo.btchao.com](https://btcgo.btchao.com) | BTC 实时订单流（Worker，二期） |
 | `shared/` | assets 站 | 全站统一风格资产（tokens.css / footer.js） |
 
