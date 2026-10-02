@@ -990,48 +990,13 @@ function updateCycleLiveStats() {
     gapEl.innerText = gap > 0 ? `还差 $${Math.round(gap).toLocaleString()}` : '已重回顶点 ✓';
 }
 
-// ===== 留言板功能 =====
-function toggleCommentsPanel() {
-    const sidebar = document.getElementById('comments-sidebar');
-    if (sidebar) {
-        sidebar.classList.toggle('open');
-    }
-}
-
-function initializeWaline() {
-    const container = document.getElementById('waline-container');
-    if (!container) return;
-
-    if (window.Waline && window.Waline.init) {
-        try {
-            window.Waline.init({
-                el: '#waline-container',
-                serverURL: 'https://ly.btchao.com',
-                path: '/',
-                placeholder: '留下你的想法...',
-                avatar: 'gravatar',
-                dark: false,
-                meta: ['nick', 'mail'],
-                requiredMeta: [],
-                avatarCDN: 'https://www.gravatar.com/avatar/',
-                pageSize: 10,
-                pageview: false
-            });
-        } catch (error) {
-            console.error('Waline 初始化错误:', error);
-        }
-    }
-}
-
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
-        initializeWaline();
         initExchangeRate();
         initMarketIndicators();
     });
 } else {
     setTimeout(() => {
-        initializeWaline();
         initExchangeRate();
         initMarketIndicators();
     }, 100);
