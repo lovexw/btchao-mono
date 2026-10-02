@@ -9,7 +9,7 @@
 
 | 改动 | 怎么上线 |
 |---|---|
-| **数据分站**（ma / ahr999 / ahr-dca / etf） | 数据 workflow 提交推送后，最后一步自动调 Cloudflare API 触发该站部署（需要 Secret `CLOUDFLARE_API_TOKEN`，配置见下）。**看门狗**（`pages-freshness-watchdog.yml`，每天北京时间 09:40）核对线上 vs 仓库，落后会自动补部署，补不回来开 issue 告警 |
+| **数据分站**（ma / ahr999 / ahr-dca / etf / draw） | 数据 workflow 提交推送后，最后一步自动调 Cloudflare API 触发该站部署（需要 Secret `CLOUDFLARE_API_TOKEN`，配置见下）。**看门狗**（`pages-freshness-watchdog.yml`，每天北京时间 09:40）核对线上 vs 仓库，落后会自动补部署，补不回来开 issue 告警 |
 | **其他分站内容改动** | push 不会自动上线。手动触发：CF Dashboard → 对应 Pages 项目 → Create deployment；或用有 Pages 编辑权限的令牌 `curl -X POST -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: application/json" -d '{}' "https://api.cloudflare.com/client/v4/accounts/edbcf0ec7c3ee185334d13d9077ef6e9/pages/projects/<项目名>/deployments"`（按 main 最新提交构建） |
 | 配置了 `CLOUDFLARE_API_TOKEN` secret 后 | 上述手动步骤也可省——重跑 `Pages Freshness Watchdog` workflow，它发现落后会自愈 |
 
@@ -105,8 +105,8 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
   - ② xiaowuleyi.com zone 里 `password` 一条残留记录待删（旧 000-pd 项目带过的域名）；
   - ③ 主站死链（buy/bip39/cold-wallet/pd 的 4 张卡片 + 4 条 schema ListItem）已随换绑部署从线上消失（已核验）；主站快闪卡此前已删（www.btchao.com `07e694b`）。
 
-### 部署侧（上线必做）
-- [x] **draw 分站上线（2026-10-02 由 API 完成）**：`btchao-draw` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/draw`，watch paths `sites/draw/**` + `shared/**`），域名 `lottery.btchao.com` 已绑（同账号 zone 自动建 DNS），数据 cron `update-draw.yml` 每天北京时间 12:00 开奖并自动触发部署，迁自 lovexw/btc-draw（已归档）。
+- [x] **draw 分站上线（2026-10-02 由 API 完成）**：`btchao-draw` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/draw`，watch paths `sites/draw/**` + `shared/**`——同 API 批量建站，push 链路同样不生效，按 §1 机制走自触发），域名 `lottery.btchao.com` 已绑并 active（同账号 zone 自动建 DNS）。数据 cron `update-draw.yml` 每天北京时间 12:00 开奖 → 提交 `sites/draw/data` → ad_hoc 自触发部署；看门狗已登记为第 5 个数据站。迁自 lovexw/btc-draw（已归档）。
+- [ ] 主站加 draw 卡片（链接 https://lottery.btchao.com ，流程同 brand 卡）
 
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html

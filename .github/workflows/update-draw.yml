@@ -4,7 +4,8 @@ name: Update draw data (sites/draw)
 # - 开奖脚本在 sites/draw/scripts/ 下运行，开奖数据提交回 sites/draw/data/
 # - 每天北京时间 12:00（UTC 04:00）开奖；GitHub 定时任务可能有几分钟延迟，
 #   但开奖目标时刻固定为北京时间 12:00，不影响结果
-# - 数据提交 push 后，btchao-draw Pages 项目（watch paths: sites/draw/** + shared/**）自动重新部署
+# - 数据提交推送后自触发 btchao-draw Pages 部署（push 自动构建对本仓库不生效，
+#   见 docs/MAINTENANCE.md §1），看门狗 pages-freshness-watchdog 每日兜底自愈
 on:
   schedule:
     - cron: "0 4 * * *" # 北京时间每天 12:00（UTC+8）
@@ -43,15 +44,42 @@ jobs:
             node sites/draw/scripts/draw.mjs
           fi
 
-      - name: 提交开奖数据
+      - name: Commit and push
+        id: commit_push
         run: |
           git config user.name "draw-data-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
           git add sites/draw/data
           if git diff --cached --quiet; then
             echo "开奖数据无变化，跳过提交"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
           else
-            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git commit -m "data: draw 开奖更新 $(TZ='Asia/Shanghai' date +'%F %H:%M')"
+            git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git push
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # push 触发的 Pages 自动构建对本仓库不生效（见 docs/MAINTENANCE.md §1），
+      # 数据推上去后必须自己触发一次部署，线上才会更新。
+      - name: Trigger Cloudflare Pages deployment
+        if: steps.commit_push.outputs.pushed == 'true'
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$CF_API_TOKEN" ]; then
+            echo "⚠️ 未配置 CLOUDFLARE_API_TOKEN secret，跳过自动部署（配置方法见 docs/MAINTENANCE.md §1）"
+            exit 0
+          fi
+          sleep 5  # 等提交在 GitHub 侧可见
+          resp="$(mktemp)"
+          code="$(curl -sS -o "$resp" -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer $CF_API_TOKEN" \
+            -H "Content-Type: application/json" -d '{}' \
+            "https://api.cloudflare.com/client/v4/accounts/edbcf0ec7c3ee185334d13d9077ef6e9/pages/projects/btchao-draw/deployments")"
+          if [ "$(python3 -c "import json;print(json.load(open('$resp')).get('success'))" 2>/dev/null)" = "True" ]; then
+            echo "✅ 已触发 btchao-draw 部署: $(python3 -c "import json;print(json.load(open('$resp'))['result']['url'])")"
+          else
+            echo "❌ btchao-draw 部署触发失败（HTTP $code）:"; cat "$resp"; exit 1
           fi

@@ -17,7 +17,7 @@ functions/api/        Cloudflare Pages Functions：/api/tip、/api/block/:height
 
 ## 每日流程（全自动）
 
-北京时间 12:00 GitHub Actions（`.github/workflows/update-draw.yml`）开奖 → 数据提交本目录 → push 触发 `btchao-draw` Pages 项目（watch paths：`sites/draw/**` + `shared/**`）自动重新部署。前端另会并行从 GitHub raw / jsDelivr 拉最新数据兜底。
+北京时间 12:00 GitHub Actions（`.github/workflows/update-draw.yml`）开奖 → 数据提交本目录 → workflow 自触发 `btchao-draw` Pages 部署（push 自动构建链路对本仓库不生效，机制见根 `docs/MAINTENANCE.md` §1；watch paths：`sites/draw/**` + `shared/**`）。前端另会并行从 GitHub raw / jsDelivr 拉最新数据兜底。
 
 ## 手动操作
 

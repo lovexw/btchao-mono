@@ -2,7 +2,7 @@ name: Pages Freshness Watchdog (线上数据新鲜度看门狗)
 
 # 防复发兜底：btchao-mono 的 push 自动构建链路在 Cloudflare 侧不生效（复盘见 docs/MAINTENANCE.md §1），
 # 数据分站的上线依赖各数据 workflow 里「推送后自触发 Pages 部署」一步。
-# 本任务每天核对 4 个数据分站「线上数据」是否落后于「仓库 HEAD」：
+# 本任务每天核对 5 个数据分站「线上数据」是否落后于「仓库 HEAD」：
 #   - 落后 → 用 CLOUDFLARE_API_TOKEN 自动补部署并轮询确认（自愈）；
 #   - 补不回来 / 令牌未配置或失效 → 自动开 issue 告警（同站去重）。
 on:

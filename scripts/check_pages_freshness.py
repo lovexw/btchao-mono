@@ -3,7 +3,7 @@
 
 背景：btchao-mono 的 push 自动构建链路在 Cloudflare 侧不生效（复盘见 docs/MAINTENANCE.md §1），
 数据分站的上线依赖各数据 workflow 里「推送后自触发 Pages 部署」一步。
-本脚本每日核对 4 个数据分站「线上数据」是否落后于「仓库 HEAD」：
+本脚本每日核对 5 个数据分站「线上数据」是否落后于「仓库 HEAD」：
 
   1. 线上落后 → 若配置了 CLOUDFLARE_API_TOKEN，自动补触发对应 Pages 项目部署并轮询确认；
   2. 补不回来（或未配置令牌）→ 对每个仍落后的站开 issue 告警（同站已有未关 issue 则不重复开）。
@@ -25,6 +25,7 @@ SITES = [
     {"site": "ma",      "project": "btchao-ma",      "live": "https://ma.btchao.com/btc-price.csv",         "repo": "sites/ma/public/btc-price.csv",         "kind": "ma"},
     {"site": "ahr-dca", "project": "btchao-ahr-dca", "live": "https://ahr-dca.btchao.com/ahr999_data.json", "repo": "sites/ahr-dca/ahr999_data.json",        "kind": "ahrdca"},
     {"site": "etf",     "project": "btchao-etf",     "live": "https://etf.btchao.com/data/status.json",     "repo": "sites/etf/data/status.json",           "kind": "etf"},
+    {"site": "draw",    "project": "btchao-draw",    "live": "https://lottery.btchao.com/data/draws.json",  "repo": "sites/draw/data/draws.json",           "kind": "draw"},
 ]
 
 POLL_INTERVAL = 60   # 补部署后每 60s 复查一次
@@ -58,6 +59,8 @@ def freshness(kind: str, text: str):
         return json.loads(text)["last_updated"]            # "2026-09-30"
     if kind == "etf":
         return json.loads(text)["generatedAt"]             # ISO 8601
+    if kind == "draw":
+        return json.loads(text)["updatedAt"]               # ISO 8601
     raise ValueError(kind)
 
 
