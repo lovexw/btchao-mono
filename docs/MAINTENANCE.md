@@ -96,7 +96,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
 - [x] **etf 分站上线（2026-09-28 由 API 完成）**：`btchao-etf` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/etf`），首次部署成功，当前访问地址 **https://btchao-etf.pages.dev**。**剩余三步**：
   - ① 面板给 btchao-etf 补设 Build watch paths（`sites/etf/**` + `shared/**`，与 §一点五·B 同一批动作）；
   - ② ~~启用数据 cron~~ ✅ 2026-09-29 已启用（同批启用 fetch-ahr999 / update-btc-price-ahr-dca / update-btc-price-ma，并手动触发回补；见下方"监视路径失效事件"）；
-  - ③ 绑 `etf.btchao.com`：域名已加进项目（pending）。⚠️ 因 `*.btchao.com` 泛解析记录冲突，Pages 未能自动建记录，需手动补一条 **CNAME / etf / btchao-etf.pages.dev / 橙色云**，补完证书自动签发激活。
+  - ③ ~~绑 `etf.btchao.com`~~ ✅ 2026-10-02 已生效（DNS 记录补齐，线上 200；主站卡片同日补上，etf 图标 🏛️，另把 AHR999/均线面板两张卡的重复 📊 图标分别改为 🧭 与自绘 SVG 均线图）
 - [ ] **Cloudflare 建 btchao-brand 项目**：Root directory `sites/brand`，Build command 留空，watch paths `sites/brand/**`，绑定 `brand.btchao.com`（流程见 NEW-SITE-SOP §4-6）。建好前主站新卡片点进去是空域名
 - [ ] push 部署完成后**线上逐站抽查**：favicon 是官方 Logo（无痕窗口）、页脚四块齐全、手机 375px 堆叠正常
 - [ ] www.btchao.com 部署后检查：新卡片、新 favicon/icon PNG、og-image（主站自检流程见其仓库 AGENTS.md）
