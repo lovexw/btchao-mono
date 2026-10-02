@@ -8,7 +8,9 @@ name: Update draw data (sites/draw)
 #   见 docs/MAINTENANCE.md §1），看门狗 pages-freshness-watchdog 每日兜底自愈
 on:
   schedule:
-    - cron: "0 4 * * *" # 北京时间每天 12:00（UTC+8）
+    - cron: "0 4 * * *"   # 北京时间每天 12:00（UTC+8）
+    - cron: "30 4 * * *"  # 兜底：12:30 再试一次（脚本幂等，已开奖自动跳过；
+                          # 整点槽位是 GitHub 全网高峰，定时任务可能被延迟甚至丢弃——2026-10-02 首日即中招）
   workflow_dispatch:
     inputs:
       mode:

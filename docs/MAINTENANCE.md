@@ -131,6 +131,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
 | btchao-mono | 本次 chore 提交 | 下线 5 个分站：删 sites/flash-buy、sites/bip39、sites/password、sites/buy、sites/cold-wallet（69 文件）；Cloudflare 侧 10 个 Pages 项目（5 个 btchao-* 镜像 + 5 个旧项目）与 6 条自定义域名已删，btchao.com/xiaowuleyi.com 残留 DNS 待手动清（见 §5） | `a8458ad` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/etf 分站（迁自 btc-etf-dashboard：数据面板 + scraper + update-etf.yml cron；btchao-etf 项目已 API 建好并部署，域名 pending 待补 CNAME） | `e77b04f` |
 | btchao-mono | 本次 feat 提交 | 新增 sites/draw 分站（迁自 btc-draw：开奖平台 + update-draw.yml cron；btchao-draw 项目 API 建好，lottery.btchao.com 已绑，旧仓库已归档） | `a8458ad` |
+| btchao-mono | 本次 ci 提交 | update-draw.yml 增加兜底 cron（12:30 北京时间）：新 workflow 首日 12:00 整点的 schedule 被 GitHub 丢弃（高峰槽位），手动 workflow_dispatch 已补开 10-02 第 15 期 | 本轮 feat 提交 |
 | btchao-mono | `533f538` | 品牌统一：官方 Logo/favicon + sites/brand + 统一页脚 v2 + bip39 CSP 修复 | `151a129` |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md + AGENTS.md | `533f538` |
 | www.btchao.com | `b10b44a` | brand 卡片 + 主站 Logo/图标/og-image 标准化 | `c9fe87a` |
