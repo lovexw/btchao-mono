@@ -106,7 +106,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
   - ③ 主站死链（buy/bip39/cold-wallet/pd 的 4 张卡片 + 4 条 schema ListItem）已随换绑部署从线上消失（已核验）；主站快闪卡此前已删（www.btchao.com `07e694b`）。
 
 - [x] **draw 分站上线（2026-10-02 由 API 完成）**：`btchao-draw` 项目已建（Git 连接 lovexw/btchao-mono，root `sites/draw`，watch paths `sites/draw/**` + `shared/**`——同 API 批量建站，push 链路同样不生效，按 §1 机制走自触发），域名 `lottery.btchao.com` 已绑并 active（同账号 zone 自动建 DNS）。数据 cron `update-draw.yml` 每天北京时间 12:00 开奖 → 提交 `sites/draw/data` → ad_hoc 自触发部署；看门狗已登记为第 5 个数据站。迁自 lovexw/btc-draw（已归档）。
-- [ ] 主站加 draw 卡片（链接 https://lottery.btchao.com ，流程同 brand 卡）
+- [x] 主站已加 draw 卡片（2026-10-02，card 15 + JSON-LD position 15；「新分站必须同步登记主站卡片」已固化进根 AGENTS.md 硬规则 10）
 
 ### 内容侧（逐站微调，改哪只 add 哪）
 - [ ] **过目 §3 配置总表**：各站 data-name / data-desc / data-meta 目前是初稿代拟，按自己口径逐站修订，只动各站 index.html

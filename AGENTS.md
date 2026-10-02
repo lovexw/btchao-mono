@@ -13,3 +13,4 @@
 7. **构建型站**：wiki（VitePress，统一页脚在 `config.mts` head 里）、ma（Vite，页脚在根 index.html，btc-shared 副本在 public/）、ahr999（public/）。改完跑对应构建验证。
 8. **commit 风格**沿用仓库历史：中文 + `feat:` / `fix:` / `docs:` 前缀，正文分条列出。
 9. **收尾更新断点**：阶段性工作完成后，更新 [docs/MAINTENANCE.md](docs/MAINTENANCE.md) §5 待办清单与 §6 git 断点，保证下次（人或 AI）能无缝续接。
+10. **新分站/新功能 = 主站同步登记（站长明确要求，2026-10-02）**：任何新增分站或功能上线时，必须同步在主站 `sites/www/index.html` 的卡片区加对应卡片（按其 AGENTS.md「导航卡片改动需同步三处」：注释编号 + JSON-LD position 递增 + 描述与实际内容一致），否则用户在主站找不到入口。每次这类收尾时**主动向站长提醒核对主站卡片**。
