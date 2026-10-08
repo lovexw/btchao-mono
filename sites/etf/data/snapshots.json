@@ -480,6 +480,66 @@
           "btc": 0
         }
       ]
+    },
+    {
+      "asOf": "2026-10-08",
+      "fetchedAt": "2026-10-08T18:57:00.590Z",
+      "totalBtc": 1288650,
+      "totalUsd": 104898663987,
+      "funds": [
+        {
+          "ticker": "IBIT",
+          "btc": 804821.6
+        },
+        {
+          "ticker": "FBTC",
+          "btc": 180629.5
+        },
+        {
+          "ticker": "GBTC",
+          "btc": 126580.6
+        },
+        {
+          "ticker": "BTC",
+          "btc": 63129.7
+        },
+        {
+          "ticker": "BITB",
+          "btc": 37507.8
+        },
+        {
+          "ticker": "ARKB",
+          "btc": 32273
+        },
+        {
+          "ticker": "HODL",
+          "btc": 14680.4
+        },
+        {
+          "ticker": "MSBT",
+          "btc": 10639.4
+        },
+        {
+          "ticker": "BRRR",
+          "btc": 5678.8
+        },
+        {
+          "ticker": "EZBC",
+          "btc": 5603.6
+        },
+        {
+          "ticker": "BTCO",
+          "btc": 5051.6
+        },
+        {
+          "ticker": "BTCW",
+          "btc": 2054
+        },
+        {
+          "ticker": "DEFI",
+          "btc": 0
+        }
+      ]
     }
   ]
 }
