@@ -543,9 +543,9 @@
     },
     {
       "asOf": "2026-10-09",
-      "fetchedAt": "2026-10-10T01:52:49.319Z",
+      "fetchedAt": "2026-10-10T17:25:07.826Z",
       "totalBtc": 1287655,
-      "totalUsd": 106433562802,
+      "totalUsd": 106868545559,
       "funds": [
         {
           "ticker": "IBIT",
