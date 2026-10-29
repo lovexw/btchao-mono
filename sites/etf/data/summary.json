@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-10-28T18:25:29.334Z",
+  "generatedAt": "2026-10-29T01:55:13.198Z",
   "btcPrice": {
-    "usd": 80753.99,
-    "snapshotUsd": 80753.99,
+    "usd": 80160.48,
+    "snapshotUsd": 80160.48,
     "source": "coinbase"
   },
   "holdings": {
     "asOf": "2026-10-28",
     "stale": false,
     "totalBtc": 1290007,
-    "totalUsdSnapshot": 104161989399,
-    "totalUsdLive": 104173212378,
+    "totalUsdSnapshot": 103284591029,
+    "totalUsdLive": 103407580323,
     "pctOf21m": 6.143,
     "fundCount": 13,
     "funds": [
@@ -19,7 +19,7 @@
         "name": "iShares Bitcoin Trust (Blackrock)",
         "exchange": "NASDAQ",
         "btc": 813039.8,
-        "usd": 65649126302,
+        "usd": 65096137282,
         "pctOf21m": 3.872
       },
       {
@@ -27,7 +27,7 @@
         "name": "Fidelity Wise Origin Bitcoin Fund",
         "exchange": "CBOE",
         "btc": 175889.8,
-        "usd": 14202271150,
+        "usd": 14082639702,
         "pctOf21m": 0.838
       },
       {
@@ -35,7 +35,7 @@
         "name": "Grayscale Bitcoin Trust",
         "exchange": "NYSE",
         "btc": 125257.2,
-        "usd": 10113927686,
+        "usd": 10028734001,
         "pctOf21m": 0.596
       },
       {
@@ -43,7 +43,7 @@
         "name": "Grayscale Bitcoin Mini Trust",
         "exchange": "NYSE",
         "btc": 63129,
-        "usd": 5097368781,
+        "usd": 5054431591,
         "pctOf21m": 0.301
       },
       {
@@ -51,7 +51,7 @@
         "name": "Bitwise Bitcoin ETF",
         "exchange": "NYSE",
         "btc": 37084.6,
-        "usd": 2994406410,
+        "usd": 2969183319,
         "pctOf21m": 0.177
       },
       {
@@ -59,7 +59,7 @@
         "name": "ARK 21Shares Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 30794.7,
-        "usd": 2486526674,
+        "usd": 2465581658,
         "pctOf21m": 0.147
       },
       {
@@ -67,7 +67,7 @@
         "name": "Vaneck Bitcoin Trust",
         "exchange": "CBOE",
         "btc": 14664.6,
-        "usd": 1184097233,
+        "usd": 1174123105,
         "pctOf21m": 0.07
       },
       {
@@ -75,7 +75,7 @@
         "name": "Morgan Stanley (MSBT) Bitcoin Trust ETP",
         "exchange": "NYSE",
         "btc": 10798.9,
-        "usd": 871960204,
+        "usd": 864615332,
         "pctOf21m": 0.051
       },
       {
@@ -83,7 +83,7 @@
         "name": "Franklin Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 5747.1,
-        "usd": 464051198,
+        "usd": 460142308,
         "pctOf21m": 0.027
       },
       {
@@ -91,7 +91,7 @@
         "name": "Valkyrie Bitcoin Fund",
         "exchange": "NASDAQ",
         "btc": 5720.2,
-        "usd": 461879150,
+        "usd": 457988556,
         "pctOf21m": 0.027
       },
       {
@@ -99,7 +99,7 @@
         "name": "Invesco Galaxy Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 5001.9,
-        "usd": 403879816,
+        "usd": 400477773,
         "pctOf21m": 0.024
       },
       {
@@ -107,7 +107,7 @@
         "name": "WisdomTree Bitcoin Fund",
         "exchange": "CBOE",
         "btc": 2054,
-        "usd": 165850805,
+        "usd": 164453777,
         "pctOf21m": 0.01
       },
       {
@@ -128,8 +128,8 @@
   "recent": [
     {
       "date": "2026-10-14",
-      "IBIT": -109.7,
-      "FBTC": -151,
+      "IBIT": -108.8,
+      "FBTC": -149.7,
       "GBTC": -0.4,
       "BTC": 0,
       "BITB": 0,
@@ -144,7 +144,7 @@
     },
     {
       "date": "2026-10-15",
-      "IBIT": 16.5,
+      "IBIT": 16.3,
       "FBTC": 0,
       "GBTC": -0.4,
       "BTC": 0,
@@ -161,9 +161,9 @@
     {
       "date": "2026-10-16",
       "IBIT": 0,
-      "FBTC": -10.5,
+      "FBTC": -10.4,
       "GBTC": -1.7,
-      "BTC": -7.6,
+      "BTC": -7.5,
       "BITB": 0,
       "ARKB": 0,
       "HODL": 0,
@@ -176,11 +176,11 @@
     },
     {
       "date": "2026-10-19",
-      "IBIT": 585,
-      "FBTC": -82.5,
-      "GBTC": -54.7,
+      "IBIT": 580.1,
+      "FBTC": -81.8,
+      "GBTC": -54.2,
       "BTC": 0,
-      "BITB": -10.1,
+      "BITB": -10,
       "ARKB": 0,
       "HODL": 0,
       "MSBT": 0,
@@ -192,7 +192,7 @@
     },
     {
       "date": "2026-10-20",
-      "IBIT": 29.3,
+      "IBIT": 29,
       "FBTC": 0,
       "GBTC": 0,
       "BTC": 0,
@@ -209,7 +209,7 @@
     {
       "date": "2026-10-21",
       "IBIT": 0,
-      "FBTC": -8.8,
+      "FBTC": -8.7,
       "GBTC": 0,
       "BTC": 0,
       "BITB": -8.7,
@@ -224,16 +224,16 @@
     },
     {
       "date": "2026-10-22",
-      "IBIT": -137.1,
+      "IBIT": -135.9,
       "FBTC": 0,
       "GBTC": 0.6,
-      "BTC": 7.8,
+      "BTC": 7.7,
       "BITB": 0,
       "ARKB": 0,
       "HODL": 0,
-      "MSBT": 6.5,
+      "MSBT": 6.4,
       "EZBC": 0,
-      "BRRR": 3.4,
+      "BRRR": 3.3,
       "BTCO": 0,
       "BTCW": 0,
       "DEFI": 0
@@ -241,7 +241,7 @@
     {
       "date": "2026-10-23",
       "IBIT": 0,
-      "FBTC": -31.6,
+      "FBTC": -31.3,
       "GBTC": -1.3,
       "BTC": -0.1,
       "BITB": 0,
@@ -256,7 +256,7 @@
     },
     {
       "date": "2026-10-26",
-      "IBIT": 111.5,
+      "IBIT": 110.6,
       "FBTC": 0,
       "GBTC": 0,
       "BTC": 0,
@@ -272,7 +272,7 @@
     },
     {
       "date": "2026-10-27",
-      "IBIT": 151.7,
+      "IBIT": 150.5,
       "FBTC": 0,
       "GBTC": -0.4,
       "BTC": 0,
@@ -292,27 +292,27 @@
       "d7": {
         "days": 7,
         "btc": 5787,
-        "usd": 479638153
+        "usd": 480566383
       },
       "d30": {
         "days": 30,
         "btc": 24165,
-        "usd": 2150178027
+        "usd": 2151106257
       },
       "d90": {
         "days": 90,
         "btc": 38281,
-        "usd": 3739394853
+        "usd": 3740323083
       },
       "ytd": {
         "days": 197,
         "btc": -9978,
-        "usd": 518235248
+        "usd": 519163478
       },
       "inception": {
         "days": 702,
         "btc": 622936,
-        "usd": 53985918178
+        "usd": 53986846408
       }
     },
     "streak": {
@@ -504,7 +504,7 @@
       {
         "month": "2026-10",
         "btc": -2957,
-        "usd": -231860404
+        "usd": -230932174
       }
     ],
     "issuance": {
