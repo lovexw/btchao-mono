@@ -2,7 +2,7 @@
    Pages Functions 适配层：把静态资源里的开奖数据喂给共用 API
    数据来源是站内静态文件（随部署更新），不依赖任何外部服务。
    ============================================================ */
-import { ApiError, createDrawApi } from './draw-api.js';
+import { API_VERSION, ApiError, createDrawApi } from './draw-api.js';
 
 const CACHE_OK = 'public, max-age=60, stale-while-revalidate=300';
 const CACHE_ERR = 'no-store';
@@ -61,13 +61,33 @@ export async function handleApi(context, route) {
   } catch (err) {
     if (err instanceof ApiError) {
       return jsonResponse(
-        { ok: false, api_version: '1.0.0', error: { code: err.code, message: err.message } },
+        { ok: false, api_version: API_VERSION, error: { code: err.code, message: err.message } },
         err.status,
       );
     }
     return jsonResponse(
-      { ok: false, api_version: '1.0.0', error: { code: 'internal', message: '服务内部错误' } },
+      { ok: false, api_version: API_VERSION, error: { code: 'internal', message: '服务内部错误' } },
       500,
     );
   }
+}
+
+/**
+ * 路由入口：只放行 GET / HEAD。
+ * 直接导出 onRequest 而不是 onRequestGet，是因为后者不匹配 HEAD，
+ * 会让 HEAD /api/draws 落到静态资源、返回首页 HTML。
+ */
+export async function handleRoute(context, route) {
+  const method = context.request.method;
+  if (method !== 'GET' && method !== 'HEAD') {
+    return jsonResponse(
+      {
+        ok: false,
+        api_version: API_VERSION,
+        error: { code: 'method_not_allowed', message: '只支持 GET' },
+      },
+      405,
+    );
+  }
+  return handleApi(context, route);
 }

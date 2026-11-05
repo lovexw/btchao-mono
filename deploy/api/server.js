@@ -79,7 +79,8 @@ async function fetchWithTimeout(url, ms) {
 
 function send(res, status, body, headers) {
   res.writeHead(status, Object.assign({ 'access-control-allow-origin': '*' }, headers));
-  res.end(body);
+  // HEAD 只回头，不回包体
+  res.end(res.req && res.req.method === 'HEAD' ? undefined : body);
 }
 
 function sendJson(res, obj, status = 200, cacheControl) {

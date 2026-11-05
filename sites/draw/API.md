@@ -40,7 +40,9 @@
 { "ok": false, "api_version": "1.0.0", "error": { "code": "bad_request", "message": "number 必须是 6 位数字（保留前导 0）" } }
 ```
 
-`code` 取值：`bad_request`(400) / `unauthorized`(401) / `not_found`(404) / `internal`(500)。
+`code` 取值：`bad_request`(400) / `unauthorized`(401) / `not_found`(404) / `method_not_allowed`(405) / `internal`(500)。
+
+只支持 `GET`（`HEAD` 也行，只回头不回包）。不认识的 `/api/*` 路径同样是上面的 JSON 404，不会掉到站点首页去。
 
 ### 单期对象
 
