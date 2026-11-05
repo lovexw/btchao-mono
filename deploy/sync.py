@@ -355,8 +355,11 @@ def main():
     if nginx_changed and not args.dry_run:
         reload_nginx(os.path.join(NGINX_CONF_DIR, NGINX_CONF_NAME))
 
+    # API 镜像里打包了 deploy/api 与 sites/draw/functions/_lib 的共用查询层，
+    # 这两处有改动才需要重建；开奖数据是挂载进容器实时读的，不用重启。
+    api_sources = ("deploy/api/", "sites/draw/functions/_lib/")
     if any(s.get("api") for s in targets) and not args.dry_run:
-        if changed is None or any(p.startswith("deploy/api/") for p in (changed or [])):
+        if changed is None or any(p.startswith(api_sources) for p in (changed or [])):
             restart_api(args.dry_run)
 
     if not args.dry_run:

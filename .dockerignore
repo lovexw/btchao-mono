@@ -1,0 +1,7 @@
+# 只保留构建 API 镜像需要的两个文件，避免把各站的 node_modules
+# （在服务器上用容器 npm ci 装出来，体积很大）算进构建上下文
+.git
+**/node_modules
+**/.vitepress/cache
+**/dist
+**/__pycache__

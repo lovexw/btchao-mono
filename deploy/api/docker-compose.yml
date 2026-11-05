@@ -2,13 +2,22 @@
 # 只监听本机，由 1Panel OpenResty 反代（见 conf.d/btchao-sites.conf）
 services:
   lottery-api:
-    build: .
+    build:
+      # 上下文是仓库根：镜像里要带上 sites/draw/functions/_lib 的查询层
+      context: ../..
+      dockerfile: deploy/api/Dockerfile
     container_name: btchao-lottery-api
     restart: unless-stopped
     ports:
       - "127.0.0.1:8801:8801"
     environment:
       - TZ=Asia/Shanghai
+      - DRAW_DATA_DIR=/srv/draw/data
+      # 留空 = 公开只读；需要防盗刷时填随机串，调用方带 X-API-Key 请求头
+      - DRAW_API_KEY=${DRAW_API_KEY:-}
+    volumes:
+      # 开奖数据由 sync.py 发布到宿主机，容器只读挂载，改数据不用重启
+      - ../../sites/draw/data:/srv/draw/data:ro
     logging:
       driver: json-file
       options:

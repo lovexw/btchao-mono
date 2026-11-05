@@ -36,7 +36,7 @@ GitHub main ──(systemd timer, 每 2 分钟)──▶ /opt/btchao-app        
 | `/opt/1panel/apps/openresty/openresty/www/btchao/<站>` | 发布目录，nginx 的 root |
 | `/opt/btchao-state` | `last-sha`（已发布的提交）、`last-sync.json` |
 | `/opt/1panel/apps/openresty/openresty/conf/conf.d/btchao-sites.conf` | nginx 配置，**由 sync.py 生成，别手改** |
-| `127.0.0.1:8801` | `btchao-lottery-api` 容器，顶替 lottery 原来的 Pages Functions |
+| `127.0.0.1:8801` | `btchao-lottery-api` 容器，顶替 lottery 原来的 Pages Functions（含 `/api/draws*` 查询接口） |
 
 ## 3. 一次性初始化
 
@@ -88,7 +88,12 @@ systemctl list-timers btchao-sites-sync.timer              # 看下次触发
 
 1. **`_headers` / `_redirects` 在 nginx 上不生效**。现在是统一策略：HTML 与 CSS/JS `max-age=0, must-revalidate`、图片字体 30 天、全站补 `nosniff / SAMEORIGIN / Referrer-Policy`。
    比 Pages 的逐站规则粗一点，但**只会更保守，不会把新内容缓存住**。要逐站精调时改 `sync.py` 的 `render_nginx()`。
-2. **Pages Functions 没了**。`sites/draw/functions/` 的两个接口由 `deploy/api/` 顶替，逻辑与返回格式一致（含哈希末尾取 6 位数字的规则）。
+2. **Pages Functions 没了**。`sites/draw/functions/` 的接口由 `deploy/api/` 顶替，**两者共用同一份查询实现**
+   `sites/draw/functions/_lib/draw-api.js`（Dockerfile 会把它打进镜像），所以 `lottery.btchao.com` 切过来之后
+   `/api/draws*`、`/api/meta`、`/api/tip`、`/api/block/:height` 的返回完全不变。接口文档见
+   [../sites/draw/API.md](../sites/draw/API.md)。
+   开奖数据是**只读挂载**进容器的（`../../sites/draw/data → /srv/draw/data`），每天 12:00 数据提交后，
+   定时器 2 分钟内拉下来，Node 侧按 mtime 自动重新读，不用重启容器。
 3. **`_headers` 等文件不再发布**（rsync 已排除），站点根目录也不会泄露 `README.md` / `AGENTS.md`。
 4. **没有 404.html**：所有站都没写自定义 404，nginx 走默认页。
 
