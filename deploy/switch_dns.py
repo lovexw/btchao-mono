@@ -107,6 +107,15 @@ def records(fqdn):
     return resp.get("result") or []
 
 
+# 只有 A/AAAA/CNAME 跟站点有关。裸域上还挂着 MX（Cloudflare 邮件路由）和 TXT，
+# 它们不能参与「有几条记录」的判断，否则切裸域会被误判成多条而拒绝执行。
+HOST_TYPES = ("A", "AAAA", "CNAME")
+
+
+def host_records(fqdn):
+    return [r for r in records(fqdn) if r["type"] in HOST_TYPES]
+
+
 def backup_add(fqdn, rec):
     data = {}
     if os.path.exists(BACKUP):
@@ -141,9 +150,9 @@ def main():
 
     for name in names:
         fqdn = ZONE_NAME if name in ("@", ZONE_NAME) else "%s.%s" % (name, ZONE_NAME)
-        cur = records(fqdn)
 
         if mode == "--check":
+            cur = records(fqdn)  # 检查时把 MX/TXT 也列出来，便于确认邮件记录还在
             if not cur:
                 say("%-24s 没有记录" % fqdn)
             for r in cur:
@@ -153,9 +162,11 @@ def main():
                 )
             continue
 
+        cur = host_records(fqdn)  # 切换只看 A/AAAA/CNAME
+
         if mode == "--to-oracle":
             if len(cur) != 1:
-                die("%s 有 %d 条记录，先手动收敛到 1 条" % (fqdn, len(cur)))
+                die("%s 有 %d 条站点记录，先手动收敛到 1 条" % (fqdn, len(cur)))
             rec = cur[0]
             if rec["type"] == "A" and rec["content"] == ORACLE_IP:
                 say("%-24s 已经是 %s，跳过" % (fqdn, ORACLE_IP))
@@ -199,8 +210,12 @@ def main():
         say("%-24s 已回滚到 %s %s" % (fqdn, saved["type"], saved["content"]))
 
     if mode != "--check":
-        say("验证：curl -sI https://%s/ 看 cf-ray；源站日志见 openresty/log/access.log"
-            % (names[0] if names[0] not in ("@", ZONE_NAME) else ZONE_NAME))
+        first = names[0]
+        host = ZONE_NAME if first in ("@", ZONE_NAME) else "%s.%s" % (first, ZONE_NAME)
+        say(
+            "等 10 秒后验证：curl -sI https://%s/ 看状态码与 cf-ray；"
+            "源站日志见 openresty/log/access.log" % host
+        )
     return 0
 
 
