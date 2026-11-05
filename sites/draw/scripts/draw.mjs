@@ -191,6 +191,16 @@ function mergeArchive(archive, draw) {
   return true;
 }
 
+/** 归档写失败不能连累首页那 15 期：降级成警告，开奖照常提交 */
+function safeMerge(archive, draw) {
+  try {
+    return mergeArchive(archive, draw);
+  } catch (e) {
+    console.warn(`! 归档写入失败（${e.message}），本次只更新 draws.json`);
+    return false;
+  }
+}
+
 /* ---------------- 执行某天的开奖 ---------------- */
 async function drawFor(dateStr, { force = false, hint = null } = {}) {
   const archive = loadArchive();
@@ -201,7 +211,7 @@ async function drawFor(dateStr, { force = false, hint = null } = {}) {
   if (existing && !force) {
     // 已有记录：顺手补进归档（老数据只在 draws.json 里，第一次回填时补齐）
     if (!archive.draws.some((d) => d.date === dateStr)) {
-      mergeArchive(archive, existing);
+      safeMerge(archive, existing);
       console.log(`+ ${dateStr} 已补进归档（区块 #${existing.height}，号码 ${existing.number}）`);
     } else {
       console.log(`= ${dateStr} 已有开奖记录（区块 #${existing.height}，号码 ${existing.number}），跳过`);
@@ -226,11 +236,10 @@ async function drawFor(dateStr, { force = false, hint = null } = {}) {
   data.updatedAt = new Date().toISOString();
   saveData(data);
 
-  mergeArchive(archive, draw);
+  safeMerge(archive, draw);
   console.log(`✓ ${dateStr} 开奖：区块 #${draw.height}  哈希 ${draw.hash}  号码 ${draw.number}`);
   return draw;
 }
-
 /* ---------------- CLI ---------------- */
 const args = process.argv.slice(2);
 
