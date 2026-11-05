@@ -1,0 +1,11 @@
+[Unit]
+Description=每 2 分钟检查 btchao-mono 是否有新提交
+
+[Timer]
+OnBootSec=90
+OnUnitActiveSec=2min
+AccuracySec=30s
+Unit=btchao-sites-sync.service
+
+[Install]
+WantedBy=timers.target

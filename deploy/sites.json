@@ -1,0 +1,24 @@
+{
+  "_comment": "btchao.com 各分站的发布真相源。sync.py 与 nginx 配置都由本文件生成，改站点只改这里。",
+  "version": 1,
+  "publish_root": "/opt/1panel/www/btchao",
+  "default_site": "www",
+  "api_port": 8801,
+  "node_image": "node:20-alpine",
+  "sites": [
+    { "id": "www",      "domain": "www.btchao.com",      "src": "sites/www",      "out": "sites/www" },
+    { "id": "paper",    "domain": "paper.btchao.com",    "src": "sites/paper",    "out": "sites/paper" },
+    { "id": "timeline", "domain": "timeline.btchao.com", "src": "sites/timeline", "out": "sites/timeline" },
+    { "id": "yuyan",    "domain": "yy.btchao.com",       "src": "sites/yuyan",    "out": "sites/yuyan" },
+    { "id": "quantum",  "domain": "quantum.btchao.com",  "src": "sites/quantum",  "out": "sites/quantum" },
+    { "id": "hold",     "domain": "hold.btchao.com",     "src": "sites/hold",     "out": "sites/hold" },
+    { "id": "log",      "domain": "log.btchao.com",      "src": "sites/log",      "out": "sites/log" },
+    { "id": "brand",    "domain": "brand.btchao.com",    "src": "sites/brand",    "out": "sites/brand" },
+    { "id": "etf",      "domain": "etf.btchao.com",      "src": "sites/etf",      "out": "sites/etf" },
+    { "id": "ahr-dca",  "domain": "ahr-dca.btchao.com",  "src": "sites/ahr-dca",  "out": "sites/ahr-dca" },
+    { "id": "ahr999",   "domain": "ahr.btchao.com",      "src": "sites/ahr999",   "out": "sites/ahr999/public" },
+    { "id": "ma",       "domain": "ma.btchao.com",       "src": "sites/ma",       "out": "sites/ma/dist",  "build": "npm" },
+    { "id": "wiki",     "domain": "wiki.btchao.com",     "src": "sites/wiki",     "out": "sites/wiki/docs/.vitepress/dist", "build": "npm" },
+    { "id": "draw",     "domain": "lottery.btchao.com",  "src": "sites/draw",     "out": "sites/draw",     "api": true }
+  ]
+}

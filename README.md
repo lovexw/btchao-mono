@@ -26,6 +26,10 @@
 
 完整迁移背景、分批计划与操作步骤见 [docs/MIGRATION.md](docs/MIGRATION.md)。
 
+> **2026-11-05 起：分站正在迁往甲骨文自托管。** 部署方式、目录约定、切 DNS 与回滚步骤见
+> [deploy/README.md](deploy/README.md)；站点清单的真相源是 [deploy/sites.json](deploy/sites.json)。
+> Cloudflare Pages 项目暂留作备份，切换稳定前不删。
+
 ## 目录结构
 
 ```

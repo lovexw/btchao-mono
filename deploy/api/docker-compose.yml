@@ -1,0 +1,16 @@
+# lottery.btchao.com 的 /api：替代原来的 Cloudflare Pages Functions
+# 只监听本机，由 1Panel OpenResty 反代（见 conf.d/btchao-sites.conf）
+services:
+  lottery-api:
+    build: .
+    container_name: btchao-lottery-api
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8801:8801"
+    environment:
+      - TZ=Asia/Shanghai
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"

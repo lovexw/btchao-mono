@@ -1,0 +1,17 @@
+[Unit]
+Description=btchao.com 分站同步（拉代码 → 构建 → 发布到 /opt/1panel/www/btchao）
+Documentation=https://github.com/lovexw/btchao-mono/blob/main/deploy/README.md
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/btchao-app
+ExecStart=/usr/bin/python3 /opt/btchao-app/deploy/sync.py
+# 单次最多跑 20 分钟：wiki 的 VitePress 构建在 ARM 上偶尔要 3~5 分钟
+TimeoutStartSec=1200
+Nice=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=btchao-sync
