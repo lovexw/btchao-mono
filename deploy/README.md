@@ -120,11 +120,22 @@ Cloudflare Dashboard → DNS → 把对应的 CNAME（指向 `*.pages.dev`）改
 也可以一条命令切（可回滚）：
 
 ```bash
-export CF_API_TOKEN=xxx                        # 权限只要 Zone.DNS:Edit
+# token 写进文件，不进 shell 历史
+echo 'cf-xxxxx' > ~/.cf-token && chmod 600 ~/.cf-token
+
 ./deploy/switch-dns.sh --check www paper       # 先看现状，不动
 ./deploy/switch-dns.sh --to-oracle paper       # 切一个站试水
 ./deploy/switch-dns.sh --rollback paper        # 出问题立刻切回原 CNAME
 ```
+
+**Token 权限**（Dashboard → My Profile → API Tokens → Create Token）：
+
+| 权限 | 用途 | 必需 |
+|---|---|---|
+| `Zone → DNS → Edit`（范围限 `btchao.com`） | 改 A 记录 | ✅ |
+| `Zone → Zone → Read` | 脚本自己查 Zone ID | 可选，不给就 `export CF_ZONE_ID=...` |
+
+脚本纯标准库（不需要 `jq`），服务器上也能直接跑回滚。
 
 切之前会把原记录存进 `deploy/.dns-backup.json`（已 gitignore），回滚不依赖你还记得旧值。
 
