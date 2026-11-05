@@ -5,3 +5,4 @@ dist/
 *.local
 __pycache__/
 .dns-backup.json
+deploy/api/.env

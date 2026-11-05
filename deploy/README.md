@@ -94,6 +94,9 @@ systemctl list-timers btchao-sites-sync.timer              # 看下次触发
    [../sites/draw/API.md](../sites/draw/API.md)。
    开奖数据是**只读挂载**进容器的（`../../sites/draw/data → /srv/draw/data`），每天 12:00 数据提交后，
    定时器 2 分钟内拉下来，Node 侧按 mtime 自动重新读，不用重启容器。
+
+   > 想给查询 API 开鉴权：在 `deploy/api/.env` 里写 `DRAW_API_KEY=<随机串>`（这个文件不受 `git reset --hard` 影响），
+   > 下一次重建容器生效；之后 `/api/draws*` 与 `/api/meta` 要带 `X-API-Key`，`/api/tip`、`/api/block/:height` 不受影响。
 3. **`_headers` 等文件不再发布**（rsync 已排除），站点根目录也不会泄露 `README.md` / `AGENTS.md`。
 4. **没有 404.html**：所有站都没写自定义 404，nginx 走默认页。
 
