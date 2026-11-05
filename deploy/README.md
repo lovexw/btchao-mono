@@ -98,7 +98,8 @@ systemctl list-timers btchao-sites-sync.timer              # 看下次触发
    > 想给查询 API 开鉴权：在 `deploy/api/.env` 里写 `DRAW_API_KEY=<随机串>`（这个文件不受 `git reset --hard` 影响），
    > 下一次重建容器生效；之后 `/api/draws*` 与 `/api/meta` 要带 `X-API-Key`，`/api/tip`、`/api/block/:height` 不受影响。
 3. **`_headers` 等文件不再发布**（rsync 已排除），站点根目录也不会泄露 `README.md` / `AGENTS.md`。
-4. **没有 404.html**：所有站都没写自定义 404，nginx 走默认页。
+4. **404 页统一注入**：Pages 对未知路径回首页 `200`，nginx 是 `404`（状态码更正确）。
+   `deploy/nginx/404.html` 会在发布时补进没有 `404.html` 的站；站点自带的（如 `wiki`）优先。
 
 ## 7. 切 DNS（真正生效的那一步）
 
@@ -107,7 +108,12 @@ nginx 配好、`curl -H 'Host: xxx'` 验证通过**之后**再动 DNS。每个�
 ```
 www / paper / timeline / yy / quantum / hold / log / brand / etf /
 ahr-dca / ahr / ma / wiki / lottery  .btchao.com  →  167.234.216.40  (橙云，保持代理)
+
+btchao.com（裸域）  →  167.234.216.40  (橙云，保持代理)   # 与 www 同一个 server 块
 ```
+
+> 裸域在 `sites.json` 里是 `www` 站的 `aliases`，两者共用一份发布产物。
+> 漏掉裸域会导致「`www` 已到甲骨文、裸域还在 Pages」的双版本状态。
 
 Cloudflare Dashboard → DNS → 把对应的 CNAME（指向 `*.pages.dev`）改成 A 记录。橙云保持开启。
 
@@ -135,6 +141,7 @@ export CF_API_TOKEN=xxx                        # 权限只要 Zone.DNS:Edit
 | 数据站不更新 | `journalctl -u btchao-sites-sync`；再确认 Actions 那边提交成功 |
 | lottery `/api/*` 502 | `sudo docker ps \| grep lottery`；`curl 127.0.0.1:8801/api/health` |
 | 改了 nginx 配置模板没生效 | `sync.py --all` 会重生成；只改模板不触发的话手动跑一次 |
+| `nginx -t` 报 `conflicting server name` | 1Panel 里又建了同名站点。`ma.btchao.com` 的旧配置已移到 `/opt/btchao-state/nginx-backup/`，**不要在 1Panel 面板里重建这个站** |
 
 ## 9. 还没做的
 
