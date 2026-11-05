@@ -114,14 +114,19 @@ def site_affected(site, changed):
 
 
 def npm_build(site, cfg):
-    """在有 node 的容器里构建，宿主不装 node。"""
+    """在有 node 的容器里构建，宿主不装 node。
+
+    node:alpine 里没有 git，而 VitePress 会 spawn git 取 lastUpdated，
+    所以进容器先补一下（只在缺的时候装，秒级）。
+    """
     workdir = "/app/" + site["src"]
     lock = os.path.join(APP_DIR, site["src"], "package-lock.json")
     modules = os.path.join(APP_DIR, site["src"], "node_modules", ".package-lock.json")
     need_install = True
     if os.path.exists(lock) and os.path.exists(modules):
         need_install = os.path.getmtime(lock) > os.path.getmtime(modules)
-    script = "npm ci --no-audit --no-fund && " if need_install else ""
+    script = "command -v git >/dev/null || apk add --no-cache git >/dev/null 2>&1; "
+    script += "npm ci --no-audit --no-fund && " if need_install else ""
     script += "npm run build"
     run(
         [
