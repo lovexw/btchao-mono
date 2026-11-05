@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T19:56:56.468Z",
+  "generatedAt": "2026-11-05T02:42:18.467Z",
   "sources": {
     "bitboFlows": {
       "ok": true,
@@ -11,7 +11,7 @@
     },
     "priceHistory": {
       "ok": true,
-      "detail": "coinbase 1039 天"
+      "detail": "coinbase 1040 天"
     },
     "priceSpot": {
       "ok": true,
