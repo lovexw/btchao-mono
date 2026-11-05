@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "today = 开今天的奖；backfill N（如 backfill 15）= 补最近 N 天"
+        description: "today = 开今天的奖；backfill N（如 backfill 90）= 补最近 N 天；deploy = 不开奖，只重新部署 Pages"
         default: "today"
         required: false
 
@@ -38,6 +38,7 @@ jobs:
           node-version: 22
 
       - name: 执行开奖并更新数据
+        if: github.event.inputs.mode != 'deploy'
         run: |
           MODE="${{ github.event.inputs.mode }}"
           if [ -n "$MODE" ] && [ "$MODE" != "today" ]; then
@@ -48,6 +49,7 @@ jobs:
 
       - name: Commit and push
         id: commit_push
+        if: github.event.inputs.mode != 'deploy'
         run: |
           git config user.name "draw-data-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -66,7 +68,7 @@ jobs:
       # push 触发的 Pages 自动构建对本仓库不生效（见 docs/MAINTENANCE.md §1），
       # 数据推上去后必须自己触发一次部署，线上才会更新。
       - name: Trigger Cloudflare Pages deployment
-        if: steps.commit_push.outputs.pushed == 'true'
+        if: steps.commit_push.outputs.pushed == 'true' || github.event.inputs.mode == 'deploy'
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
