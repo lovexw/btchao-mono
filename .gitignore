@@ -4,3 +4,4 @@ dist/
 .wrangler/
 *.local
 __pycache__/
+.dns-backup.json

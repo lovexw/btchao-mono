@@ -103,6 +103,17 @@ ahr-dca / ahr / ma / wiki / lottery  .btchao.com  →  167.234.216.40  (橙云�
 
 Cloudflare Dashboard → DNS → 把对应的 CNAME（指向 `*.pages.dev`）改成 A 记录。橙云保持开启。
 
+也可以一条命令切（可回滚）：
+
+```bash
+export CF_API_TOKEN=xxx                        # 权限只要 Zone.DNS:Edit
+./deploy/switch-dns.sh --check www paper       # 先看现状，不动
+./deploy/switch-dns.sh --to-oracle paper       # 切一个站试水
+./deploy/switch-dns.sh --rollback paper        # 出问题立刻切回原 CNAME
+```
+
+切之前会把原记录存进 `deploy/.dns-backup.json`（已 gitignore），回滚不依赖你还记得旧值。
+
 **建议先切一个站试水**（推荐 `paper`：纯静态、无数据、不涉及 API），观察一天再批量切。
 
 回滚：把 A 记录改回原来的 CNAME 即可，服务器侧不用动；Pages 项目**先别删**，留作备份。
