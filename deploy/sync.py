@@ -7,7 +7,7 @@
     GitHub main ──(每 2 分钟 git fetch)──▶ /opt/btchao-app      （代码，只读）
                                               │ 需要构建的站跑 npm build
                                               ▼
-                                          /opt/1panel/www/btchao/<站>   （发布目录，nginx root）
+                                          /opt/1panel/apps/openresty/openresty/www/btchao/<站>   （发布目录，nginx root）
                                               │
                                     1Panel OpenResty :80  ◀── Cloudflare
 
@@ -184,7 +184,7 @@ def render_nginx(cfg):
     ]
 
     def server_block(site):
-        root = "/www/btchao/" + site["id"]
+        root = cfg.get("container_root", "/www/btchao").rstrip("/") + "/" + site["id"]
         b = []
         b.append("# %s → %s" % (site["domain"], root))
         b.append("server {")

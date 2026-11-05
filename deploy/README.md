@@ -10,7 +10,7 @@
 | 现实 | 影响 |
 |---|---|
 | `443` 被 `xray` 占着（x-ui 节点） | 源站没法自己终结 TLS，**保持 Cloudflare 橙云**，源站只听 `80` |
-| 1Panel 的 OpenResty 只挂了 `conf.d` 和 `www` 两个目录 | 发布目录必须落在 `/opt/1panel/www/` 下，否则容器里读不到 |
+| 1Panel 的 OpenResty 只挂了 `conf.d` 和 `www` 两个目录 | 发布目录必须落在 `/opt/1panel/apps/openresty/openresty/www/btchao` 下，否则容器里读不到 |
 | 宿主没装 node | `ma`（Vite）和 `wiki`（VitePress）的构建放在 `node:20-alpine` 容器里跑 |
 
 所以迁移后的链路是：
@@ -19,7 +19,7 @@
 GitHub main ──(systemd timer, 每 2 分钟)──▶ /opt/btchao-app        代码（只读）
                                                 │ 需要构建的站跑 npm build（node 容器）
                                                 ▼
-                                    /opt/1panel/www/btchao/<站>   发布目录
+                                    /opt/1panel/apps/openresty/openresty/www/btchao/<站>   发布目录
                                                 │
                           1Panel OpenResty :80（按 Host 分站）◀── Cloudflare（TLS/CDN）
 ```
@@ -33,7 +33,7 @@ GitHub main ──(systemd timer, 每 2 分钟)──▶ /opt/btchao-app        
 | 路径 | 用途 |
 |---|---|
 | `/opt/btchao-app` | 代码（`git reset --hard`，视为只读，可随时重建） |
-| `/opt/1panel/www/btchao/<站>` | 发布目录，nginx 的 root |
+| `/opt/1panel/apps/openresty/openresty/www/btchao/<站>` | 发布目录，nginx 的 root |
 | `/opt/btchao-state` | `last-sha`（已发布的提交）、`last-sync.json` |
 | `/opt/1panel/apps/openresty/openresty/conf/conf.d/btchao-sites.conf` | nginx 配置，**由 sync.py 生成，别手改** |
 | `127.0.0.1:8801` | `btchao-lottery-api` 容器，顶替 lottery 原来的 Pages Functions |
@@ -112,7 +112,7 @@ Cloudflare Dashboard → DNS → 把对应的 CNAME（指向 `*.pages.dev`）改
 | 现象 | 先看 |
 |---|---|
 | 站点 502 / 默认站点内容 | `sudo docker exec 1Panel-openresty-fokI nginx -t`，再看 `conf.d/btchao-sites.conf` 是否生成 |
-| 站点 404 但文件在 | 发布目录对不对：`ls /opt/1panel/www/btchao/<站>/index.html` |
+| 站点 404 但文件在 | 发布目录对不对：`ls /opt/1panel/apps/openresty/openresty/www/btchao/<站>/index.html` |
 | 数据站不更新 | `journalctl -u btchao-sites-sync`；再确认 Actions 那边提交成功 |
 | lottery `/api/*` 502 | `sudo docker ps \| grep lottery`；`curl 127.0.0.1:8801/api/health` |
 | 改了 nginx 配置模板没生效 | `sync.py --all` 会重生成；只改模板不触发的话手动跑一次 |

@@ -1,5 +1,5 @@
 [Unit]
-Description=btchao.com 分站同步（拉代码 → 构建 → 发布到 /opt/1panel/www/btchao）
+Description=btchao.com 分站同步（拉代码 → 构建 → 发布到 /opt/1panel/apps/openresty/openresty/www/btchao）
 Documentation=https://github.com/lovexw/btchao-mono/blob/main/deploy/README.md
 After=network-online.target docker.service
 Wants=network-online.target

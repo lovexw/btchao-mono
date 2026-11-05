@@ -6,7 +6,7 @@ set -euo pipefail
 REPO="${BTCHAO_REPO:-https://github.com/lovexw/btchao-mono.git}"
 APP="${BTCHAO_APP_DIR:-/opt/btchao-app}"
 STATE="/opt/btchao-state"
-PUB="/opt/1panel/www/btchao"
+PUB="/opt/1panel/apps/openresty/openresty/www/btchao"
 UNIT_DIR="/etc/systemd/system"
 
 say() { printf '\033[36m[install]\033[0m %s\n' "$*"; }

@@ -1,7 +1,9 @@
 {
   "_comment": "btchao.com 各分站的发布真相源。sync.py 与 nginx 配置都由本文件生成，改站点只改这里。",
   "version": 1,
-  "publish_root": "/opt/1panel/www/btchao",
+  "_publish_note": "publish_root 是宿主路径；container_root 是它在 OpenResty 容器里的挂载点（1panel 把 openresty/www 挂成 /www）",
+  "publish_root": "/opt/1panel/apps/openresty/openresty/www/btchao",
+  "container_root": "/www/btchao",
   "default_site": "www",
   "api_port": 8801,
   "node_image": "node:20-alpine",
