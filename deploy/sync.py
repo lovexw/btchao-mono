@@ -36,6 +36,8 @@ NGINX_CONF_DIR = os.environ.get(
 )
 OPENRESTY_CONTAINER = os.environ.get("BTCHAO_OPENRESTY", "1Panel-openresty-fokI")
 API_COMPOSE = os.path.join(APP_DIR, "deploy", "api", "docker-compose.yml")
+# 统一 404 模板：站点自己没有 404.html 时注入，避免露出 openresty 默认错误页
+NOT_FOUND_TPL = os.path.join(APP_DIR, "deploy", "nginx", "404.html")
 
 
 def log(msg):
@@ -108,7 +110,7 @@ def site_affected(site, changed):
         if p.startswith("shared/"):
             return True
         # 发布清单变化 = 所有站都可能要动
-        if p in ("deploy/sites.json", "deploy/nginx/btchao-sites.conf"):
+        if p in ("deploy/sites.json", "deploy/nginx/btchao-sites.conf", "deploy/nginx/404.html"):
             return True
     return False
 
@@ -167,6 +169,10 @@ def publish(site, cfg, dry):
         dst.rstrip("/") + "/",
     ]
     run(cmd, quiet=True)
+    # 站点自带 404.html 就尊重它；没有就用统一模板补一个
+    tpl_404 = os.path.join(dst, "404.html")
+    if not os.path.exists(tpl_404) and os.path.exists(NOT_FOUND_TPL):
+        shutil.copyfile(NOT_FOUND_TPL, tpl_404)
     log("  发布 %-9s → %s" % (site["id"], dst))
 
 
@@ -185,11 +191,12 @@ def render_nginx(cfg):
 
     def server_block(site):
         root = cfg.get("container_root", "/www/btchao").rstrip("/") + "/" + site["id"]
+        names = [site["domain"]] + list(site.get("aliases") or [])
         b = []
-        b.append("# %s → %s" % (site["domain"], root))
+        b.append("# %s → %s" % (" / ".join(names), root))
         b.append("server {")
         b.append("    listen 80;")
-        b.append("    server_name %s;" % site["domain"])
+        b.append("    server_name %s;" % " ".join(names))
         b.append('    root "%s";' % root)
         b.append("    index index.html;")
         b.append("    server_tokens off;")
@@ -228,6 +235,10 @@ def render_nginx(cfg):
         b.append("    location / {")
         b.append("        try_files $uri $uri/ $uri/index.html =404;")
         b.append("    }")
+        b.append("")
+        b.append("    # 不存在的路径给统一 404 页，不露 openresty 默认错误页")
+        b.append("    error_page 404 /404.html;")
+        b.append("    location = /404.html { internal; }")
         if site.get("api"):
             b.append("")
             b.append("    # 顶替原来的 Cloudflare Pages Functions（deploy/api）")

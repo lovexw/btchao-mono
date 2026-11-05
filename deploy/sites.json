@@ -8,7 +8,7 @@
   "api_port": 8801,
   "node_image": "node:20-alpine",
   "sites": [
-    { "id": "www",      "domain": "www.btchao.com",      "src": "sites/www",      "out": "sites/www" },
+    { "id": "www",      "domain": "www.btchao.com",      "aliases": ["btchao.com"], "src": "sites/www", "out": "sites/www" },
     { "id": "paper",    "domain": "paper.btchao.com",    "src": "sites/paper",    "out": "sites/paper" },
     { "id": "timeline", "domain": "timeline.btchao.com", "src": "sites/timeline", "out": "sites/timeline" },
     { "id": "yuyan",    "domain": "yy.btchao.com",       "src": "sites/yuyan",    "out": "sites/yuyan" },
