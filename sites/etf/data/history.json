@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-05T20:10:53.322Z",
+  "generatedAt": "2026-11-06T02:45:25.909Z",
   "source": "bitbo.io/treasuries/etf-flows（每日净流入=ETF持仓逐日变化）",
-  "priceSource": "coinbase 1040 天",
+  "priceSource": "coinbase 1041 天",
   "rows": [
     {
       "date": "2024-01-12",
@@ -7066,12 +7066,12 @@
     {
       "date": "2026-11-05",
       "flowBtc": 287,
-      "flowUsd": 21796327,
-      "price": 75945.39,
+      "flowUsd": 21803120,
+      "price": 75969.06,
       "holdingsBtc": 1277921,
-      "holdingsUsd": 97052208734,
+      "holdingsUsd": 97082457124,
       "cumFlowBtc": 610849,
-      "cumFlowUsd": 53057624664
+      "cumFlowUsd": 53057631457
     }
   ]
 }
