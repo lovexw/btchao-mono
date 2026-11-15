@@ -4,8 +4,8 @@ name: Update draw data (sites/draw)
 # - 开奖脚本在 sites/draw/scripts/ 下运行，开奖数据提交回 sites/draw/data/
 # - 每天北京时间 12:00（UTC 04:00）开奖；GitHub 定时任务可能有几分钟延迟，
 #   但开奖目标时刻固定为北京时间 12:00，不影响结果
-# - 数据提交推送后自触发 btchao-draw Pages 部署（push 自动构建对本仓库不生效，
-#   见 docs/MAINTENANCE.md §1），看门狗 pages-freshness-watchdog 每日兜底自愈
+# - 数据提交推送后由甲骨文自托管（lottery.btchao.com）的 btchao-sites-sync 定时器
+#   在 2 分钟内拉取上线，本工作流不再需要触发任何外部部署（2026-11-15 移除 Pages 部署段）
 on:
   schedule:
     - cron: "0 4 * * *"   # 北京时间每天 12:00（UTC+8）
@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "today = 开今天的奖；backfill N（如 backfill 90）= 补最近 N 天；deploy = 不开奖，只重新部署 Pages"
+        description: "today = 开今天的奖；backfill N（如 backfill 90）= 补最近 N 天"
         default: "today"
         required: false
 
@@ -38,7 +38,6 @@ jobs:
           node-version: 22
 
       - name: 执行开奖并更新数据
-        if: github.event.inputs.mode != 'deploy'
         run: |
           MODE="${{ github.event.inputs.mode }}"
           if [ -n "$MODE" ] && [ "$MODE" != "today" ]; then
@@ -49,7 +48,6 @@ jobs:
 
       - name: Commit and push
         id: commit_push
-        if: github.event.inputs.mode != 'deploy'
         run: |
           git config user.name "draw-data-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -63,27 +61,4 @@ jobs:
             git pull --rebase --autostash origin "$GITHUB_REF_NAME"
             git push
             echo "pushed=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      # push 触发的 Pages 自动构建对本仓库不生效（见 docs/MAINTENANCE.md §1），
-      # 数据推上去后必须自己触发一次部署，线上才会更新。
-      - name: Trigger Cloudflare Pages deployment
-        if: steps.commit_push.outputs.pushed == 'true' || github.event.inputs.mode == 'deploy'
-        env:
-          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        run: |
-          if [ -z "$CF_API_TOKEN" ]; then
-            echo "⚠️ 未配置 CLOUDFLARE_API_TOKEN secret，跳过自动部署（配置方法见 docs/MAINTENANCE.md §1）"
-            exit 0
-          fi
-          sleep 5  # 等提交在 GitHub 侧可见
-          resp="$(mktemp)"
-          code="$(curl -sS -o "$resp" -w '%{http_code}' -X POST \
-            -H "Authorization: Bearer $CF_API_TOKEN" \
-            -H "Content-Type: application/json" -d '{}' \
-            "https://api.cloudflare.com/client/v4/accounts/edbcf0ec7c3ee185334d13d9077ef6e9/pages/projects/btchao-draw/deployments")"
-          if [ "$(python3 -c "import json;print(json.load(open('$resp')).get('success'))" 2>/dev/null)" = "True" ]; then
-            echo "✅ 已触发 btchao-draw 部署: $(python3 -c "import json;print(json.load(open('$resp'))['result']['url'])")"
-          else
-            echo "❌ btchao-draw 部署触发失败（HTTP $code）:"; cat "$resp"; exit 1
           fi

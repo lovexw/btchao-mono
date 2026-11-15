@@ -1,31 +1,36 @@
 # 维护手册：部署触发规则 · 提交纪律 · 统一页脚配置 · 待办清单
 
 > 写给站长本人与 AI 助手。**AI 在本仓库干活前，连本文件与根目录 AGENTS.md 一起读完再动手。**
-> 断点时间：2026-10-01 · 数据同步断链复盘 + 全站页脚仓库地址统一（断点见 §6）。
+> 断点时间：2026-11-15 · 下线 Pages 遗留（删 14 个项目 + 清理 CI 依赖），自托管链路成为唯一上线通道（断点见 §6）。
 
-## 1. 什么改动会上线（核心规则 · 2026-10-01 修订）
+## 1. 什么改动会上线（核心规则 · 2026-11-15 修订）
 
-**⚠️ 先说结论：本仓库的「push 自动触发 Pages 构建」链路在 Cloudflare 侧从未生效过**（自 2026-09-28 接入起，所有 `github:push` 触发的部署记录一律 `is_skipped: true`，从未真正构建；详见 §5 事件复盘）。所以现行上线机制是：
+**⚠️ 先说结论：13 个分站已从 Cloudflare Pages 迁到甲骨文自托管（2026-11-05），Pages 项目只剩 `*.pages.dev` 副本，2026-11-15 已全部删除。现行上线机制只有一条链路：**
+
+```
+GitHub main ──(systemd timer, 每 2 分钟)──▶ /opt/btchao-app ──▶ OpenResty :80
+```
 
 | 改动 | 怎么上线 |
 |---|---|
-| **数据分站**（ma / ahr999 / ahr-dca / etf / draw） | 数据 workflow 提交推送后，最后一步自动调 Cloudflare API 触发该站部署（需要 Secret `CLOUDFLARE_API_TOKEN`，配置见下）。**看门狗**（`pages-freshness-watchdog.yml`，每天北京时间 09:40）核对线上 vs 仓库，落后会自动补部署，补不回来开 issue 告警 |
-| **其他分站内容改动** | push 不会自动上线。手动触发：CF Dashboard → 对应 Pages 项目 → Create deployment；或用有 Pages 编辑权限的令牌 `curl -X POST -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: application/json" -d '{}' "https://api.cloudflare.com/client/v4/accounts/edbcf0ec7c3ee185334d13d9077ef6e9/pages/projects/<项目名>/deployments"`（按 main 最新提交构建） |
-| 配置了 `CLOUDFLARE_API_TOKEN` secret 后 | 上述手动步骤也可省——重跑 `Pages Freshness Watchdog` workflow，它发现落后会自愈 |
+| **任何分站**（13 个，含 www 主站） | **push 到 `main` 就行，2 分钟内自动上线**。服务器上的 `btchao-sites-sync.timer` 拉代码 → 需要构建的站跑 npm build → 发布到 `www/btchao/<站>` → nginx reload |
+| **数据分站**（ma / ahr999 / ahr-dca / etf / draw） | 数据 workflow 只负责提交数据（不再触发外部部署），服务器同样 2 分钟内拉到并上线 |
+| **`deploy/sites.json`** | 增删站点/改域名别名只改这里，`sync.py` 会自动重生成 nginx 配置并 reload，**不要手改 `conf.d/btchao-sites.conf`** |
 
-**Secret 配置（一次性，唯一手动步骤）**：CF Dashboard → My Profile → API Tokens → Create Token（权限：Account · Cloudflare Pages · Edit），然后 `gh secret set CLOUDFLARE_API_TOKEN -R lovexw/btchao-mono`（粘贴令牌回车）。数据 workflow 与看门狗都会自动用起来；不配也不报错，只是自动上线那步会跳过并留日志警告。
+**手动干预（服务器上执行）**：
 
-watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动恢复双保险），2026-10-01 已用 API 把 14 个项目全部重设为正确值：`sites/<自己>/**` + `shared/**`（例外：main-btchao 仅 `sites/www/**`；btchao-assets 仅 `shared/**`），查询命令 `GET /accounts/<acc>/pages/projects/<名>` 看 `source.config.path_includes`（此前文档说"不回显"有误，能查到）。
+```bash
+sudo python3 /opt/btchao-app/deploy/sync.py --all          # 全量重发
+sudo python3 /opt/btchao-app/deploy/sync.py --site ahr999  # 只发一个站
+sudo python3 /opt/btchao-app/deploy/sync.py --dry-run      # 只看计划
+journalctl -u btchao-sites-sync -n 50 --no-pager           # 看最近一次同步
+systemctl list-timers btchao-sites-sync.timer              # 看下次触发
+```
 
-理想规则（push 链路恢复后自动生效）：**push 后，Cloudflare 看这次提交改了哪些文件路径，命中某个 Pages 项目的 Build watch paths 就重建**。
+**看门狗**（`freshness-watchdog.yml`，每天北京时间 09:40）核对 5 个数据分站的**外网真实域名**数据是否落后于仓库 HEAD，落后就开 issue 告警。它**不自愈**——服务器侧的问题（拉取/构建/nginx）CI 够不着，修复入口写在 issue 正文的排查顺序里。
 
-| 你动了什么 | 谁会重建 | 成本 |
-|---|---|---|
-| `sites/<某站>/**` 里任何文件 | 只有该站 | ~1 分钟 |
-| `shared/**`（footer.js、styles/tokens.css） | **全部 13 个站** | 2~3 分钟；设计如此——统一风格一处改全站生效 |
-| `docs/`、`scripts/`、根 `README.md`、`sites/_template/`、`.github/` | 谁也不重建 | 零 |
-| `sites/brand/**` | btchao-brand | ~1 分钟 |
-| `sites/www/**` | 只有主站（main-btchao，watch paths 仅此一条，**不含 shared/\*\***） | ~1 分钟 |
+> 历史：Pages 时代的「push 自动构建在 Cloudflare 侧从未生效」复盘保留在 §5，仅作存档；`CLOUDFLARE_API_TOKEN` secret 与 watch paths 已与线上无关，可忽略。
+
 
 ## 2. 提交纪律（防止"一不小心全站重建"）
 
@@ -123,6 +128,7 @@ watch paths 语义照旧有效（未来 Cloudflare 修好 push 链路即自动�
 
 | 仓库 | 提交 | 内容 | 前基线 |
 |---|---|---|---|
+| btchao-mono | 本次 chore 提交 | **下线 Cloudflare Pages 遗留**（迁甲骨文后已无人访问）：删除 14 个 Pages 项目（13 个 `btchao-*` 副站 + `main-btchao`），`btc.habfut.com` / `btc.xiaowuleyi.com` 改由甲骨文承接（并入 `sites.json` www 的 aliases）；清理 CI 依赖——5 个数据 workflow（fetch-ahr999 / update-btc-price-ahr-dca / update-btc-price-ma / update-draw / update-etf）删掉「Trigger Cloudflare Pages deployment」步骤，`pages-freshness-watchdog.yml` → `freshness-watchdog.yml`（脚本同步改名 `scripts/check_site_freshness.py`），改为只核对真实域名 + 开 issue，不再调 CF API / 不再自愈；§1 按自托管现实重写 | 上述 ci 提交 |
 | btchao-mono | 本次 ci 提交 | **数据同步断链修复**：4 个数据 workflow（ma/ahr999/etf/ahr-dca）增加「推送后自触发 Cloudflare Pages 部署」步骤（Secret `CLOUDFLARE_API_TOKEN`，未配置时优雅跳过）；新增 `pages-freshness-watchdog.yml` + `scripts/check_pages_freshness.py`（每日 09:40 核对 4 站线上 vs 仓库，落后自动补部署，补不回来自动开 issue）。Cloudflare 侧：14 个 Pages 项目 watch paths 经 API 重设为正确值；4 个数据站已 ad_hoc 补部署，线上数据恢复 | 86fcdd6 |
 | btchao-mono | 本次 feat 提交 | **全站页脚仓库地址统一**：13 个分站 + _template 的 `data-repo` 及页面上硬编码旧仓库链接全部替换为 `lovexw/btchao-mono`（35 处 data-repo + ahr-dca/brand/yuyan/etf 页内链接），shared/footer.js 示例注释同步（sync-shared.sh 已跑，?v= 不变——纯注释无渲染影响）；MAINTENANCE §3 配置总表同步改 | 本轮 ci 提交 |
 | btchao-mono | 本次 docs 提交 | MAINTENANCE.md：§1 部署规则按 2026-10-01 复盘重写（push 链路不可用 + 现行上线机制 + Secret 配置步骤）、§5 断链事件定案与 09-29 旧结论修正、§3 页脚表、本表 | 本次 feat 提交 |
