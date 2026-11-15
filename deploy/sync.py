@@ -317,7 +317,6 @@ def main():
     args = ap.parse_args()
 
     os.chdir(APP_DIR)
-    cfg = load_config()
 
     old_sha = read_state()
     run(["git", "fetch", "--prune", "origin", "main"], quiet=True)
@@ -332,6 +331,10 @@ def main():
         log("本次提交涉及 %d 个文件" % len(changed))
     run(["git", "reset", "--hard", new_sha], quiet=True)
     log("代码已更新到 %s" % new_sha[:7])
+
+    # 必须在 git reset 之后读：sites.json 本身也可能被本次提交改（增删站点/改域名别名），
+    # 早读会拿上一次 checkout 的旧配置渲染 nginx，而「无新提交就退出」又让改动永远等不到下一轮。
+    cfg = load_config()
 
     targets = []
     for s in cfg["sites"]:
