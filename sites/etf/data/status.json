@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-11-19T03:46:48.585Z",
+  "generatedAt": "2026-11-19T20:52:27.192Z",
   "sources": {
     "bitboFlows": {
       "ok": true,
-      "detail": "716 个交易日, 至 2026-11-18"
+      "detail": "717 个交易日, 至 2026-11-19"
     },
     "bitboHoldings": {
       "ok": true,
-      "detail": "13 只基金, asOf 2026-11-18"
+      "detail": "13 只基金, asOf 2026-11-19"
     },
     "priceHistory": {
       "ok": true,
