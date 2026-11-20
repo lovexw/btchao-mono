@@ -1,89 +1,89 @@
 {
-  "generatedAt": "2026-11-19T20:52:27.192Z",
+  "generatedAt": "2026-11-20T03:40:20.318Z",
   "btcPrice": {
-    "usd": 62200.04,
-    "snapshotUsd": 62200.04,
+    "usd": 61968.77,
+    "snapshotUsd": 61968.77,
     "source": "coinbase"
   },
   "holdings": {
-    "asOf": "2026-11-19",
+    "asOf": "2026-11-20",
     "stale": false,
-    "totalBtc": 1248336,
-    "totalUsdSnapshot": 77493149810,
-    "totalUsdLive": 77646549133,
-    "pctOf21m": 5.944,
+    "totalBtc": 1244309,
+    "totalUsdSnapshot": 77122071420,
+    "totalUsdLive": 77108298230,
+    "pctOf21m": 5.925,
     "fundCount": 13,
     "funds": [
       {
         "ticker": "IBIT",
         "name": "iShares Bitcoin Trust (Blackrock)",
         "exchange": "NASDAQ",
-        "btc": 781343.2,
-        "usd": 48503559027,
-        "pctOf21m": 3.721
+        "btc": 778966.5,
+        "usd": 48280234614,
+        "pctOf21m": 3.709
       },
       {
         "ticker": "FBTC",
         "name": "Fidelity Wise Origin Bitcoin Fund",
         "exchange": "CBOE",
-        "btc": 172983.1,
-        "usd": 10738297846,
-        "pctOf21m": 0.824
+        "btc": 171874.6,
+        "usd": 10652763645,
+        "pctOf21m": 0.818
       },
       {
         "ticker": "GBTC",
         "name": "Grayscale Bitcoin Trust",
         "exchange": "NYSE",
-        "btc": 122313.9,
-        "usd": 7592898317,
-        "pctOf21m": 0.582
+        "btc": 121985.1,
+        "usd": 7560619420,
+        "pctOf21m": 0.581
       },
       {
         "ticker": "BTC",
         "name": "Grayscale Bitcoin Mini Trust",
         "exchange": "NYSE",
-        "btc": 62173.1,
-        "usd": 3859528854,
-        "pctOf21m": 0.296
+        "btc": 62004.9,
+        "usd": 3843055021,
+        "pctOf21m": 0.295
       },
       {
         "ticker": "BITB",
         "name": "Bitwise Bitcoin ETF",
         "exchange": "NYSE",
-        "btc": 36698.1,
-        "usd": 2278113458,
-        "pctOf21m": 0.175
+        "btc": 36112.3,
+        "usd": 2238235298,
+        "pctOf21m": 0.172
       },
       {
         "ticker": "ARKB",
         "name": "ARK 21Shares Bitcoin ETF",
         "exchange": "CBOE",
-        "btc": 28168.2,
-        "usd": 1748601576,
-        "pctOf21m": 0.134
+        "btc": 27860,
+        "usd": 1726758899,
+        "pctOf21m": 0.133
       },
       {
         "ticker": "HODL",
         "name": "Vaneck Bitcoin Trust",
         "exchange": "CBOE",
-        "btc": 14266.9,
-        "usd": 885648491,
+        "btc": 14266.8,
+        "usd": 884254266,
         "pctOf21m": 0.068
       },
       {
         "ticker": "MSBT",
         "name": "Morgan Stanley (MSBT) Bitcoin Trust ETP",
         "exchange": "NYSE",
-        "btc": 11648.3,
-        "usd": 723093266,
-        "pctOf21m": 0.055
+        "btc": 12447.5,
+        "usd": 771494307,
+        "pctOf21m": 0.059
       },
       {
         "ticker": "BRRR",
         "name": "Valkyrie Bitcoin Fund",
         "exchange": "NASDAQ",
         "btc": 5663.1,
-        "usd": 351549108,
+        "usd": 350998145,
         "pctOf21m": 0.027
       },
       {
@@ -91,7 +91,7 @@
         "name": "Franklin Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 5256.3,
-        "usd": 326296123,
+        "usd": 325784738,
         "pctOf21m": 0.025
       },
       {
@@ -99,7 +99,7 @@
         "name": "Invesco Galaxy Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 4951.1,
-        "usd": 307350177,
+        "usd": 306868484,
         "pctOf21m": 0.024
       },
       {
@@ -107,7 +107,7 @@
         "name": "WisdomTree Bitcoin Fund",
         "exchange": "CBOE",
         "btc": 2006,
-        "usd": 124526762,
+        "usd": 124331599,
         "pctOf21m": 0.01
       },
       {
@@ -121,31 +121,15 @@
     ]
   },
   "netFlow": {
-    "cumulativeBtc": 581263,
-    "latestDate": "2026-11-19",
-    "latestBtc": 0
+    "cumulativeBtc": 579614,
+    "latestDate": "2026-11-20",
+    "latestBtc": -283
   },
   "recent": [
     {
-      "date": "2026-11-05",
-      "IBIT": -97.2,
-      "FBTC": -163.3,
-      "GBTC": -41.3,
-      "BTC": 0,
-      "BITB": -16.8,
-      "ARKB": -31.9,
-      "HODL": -19.3,
-      "MSBT": 0,
-      "BRRR": 0,
-      "EZBC": 0,
-      "BTCO": 0,
-      "BTCW": 0,
-      "DEFI": 0
-    },
-    {
       "date": "2026-11-06",
-      "IBIT": -330.3,
-      "FBTC": 35.1,
+      "IBIT": -329.7,
+      "FBTC": 35,
       "GBTC": -10,
       "BTC": -0.1,
       "BITB": 0,
@@ -160,12 +144,12 @@
     },
     {
       "date": "2026-11-09",
-      "IBIT": -177.1,
+      "IBIT": -176.8,
       "FBTC": 0,
       "GBTC": 0,
       "BTC": 0,
       "BITB": 0,
-      "ARKB": -8.3,
+      "ARKB": -8.2,
       "HODL": 0,
       "MSBT": 0,
       "BRRR": 0,
@@ -176,7 +160,7 @@
     },
     {
       "date": "2026-11-10",
-      "IBIT": -290.9,
+      "IBIT": -290.4,
       "FBTC": -31,
       "GBTC": -0.6,
       "BTC": 0,
@@ -199,7 +183,7 @@
       "BITB": 0,
       "ARKB": -0.3,
       "HODL": 0,
-      "MSBT": 24.4,
+      "MSBT": 24.3,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
@@ -224,9 +208,9 @@
     },
     {
       "date": "2026-11-13",
-      "IBIT": -73.1,
-      "FBTC": -48.6,
-      "GBTC": -33.2,
+      "IBIT": -73,
+      "FBTC": -48.5,
+      "GBTC": -33.1,
       "BTC": -0.1,
       "BITB": 0,
       "ARKB": -16,
@@ -242,8 +226,8 @@
       "date": "2026-11-16",
       "IBIT": 0,
       "FBTC": 0,
-      "GBTC": -34.3,
-      "BTC": -6.4,
+      "GBTC": -34.2,
+      "BTC": -6.3,
       "BITB": 0,
       "ARKB": -16.9,
       "HODL": 0,
@@ -256,7 +240,7 @@
     },
     {
       "date": "2026-11-17",
-      "IBIT": -130.7,
+      "IBIT": -130.5,
       "FBTC": 0,
       "GBTC": -17.5,
       "BTC": 1.1,
@@ -272,14 +256,30 @@
     },
     {
       "date": "2026-11-18",
-      "IBIT": 0,
-      "FBTC": 0,
+      "IBIT": 147.3,
+      "FBTC": -68.7,
       "GBTC": 0,
       "BTC": 0,
       "BITB": 0,
-      "ARKB": 0,
+      "ARKB": -19.1,
       "HODL": 0,
       "MSBT": 0,
+      "BRRR": 0,
+      "EZBC": 0,
+      "BTCO": 0,
+      "BTCW": 0,
+      "DEFI": 3.1
+    },
+    {
+      "date": "2026-11-19",
+      "IBIT": 0,
+      "FBTC": 0,
+      "GBTC": -20.4,
+      "BTC": -10.4,
+      "BITB": -36.3,
+      "ARKB": 0,
+      "HODL": 0,
+      "MSBT": 49.6,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
@@ -291,33 +291,33 @@
     "stats": {
       "d7": {
         "days": 7,
-        "btc": -15635,
-        "usd": -1056298309
+        "btc": -12088,
+        "usd": -774279724
       },
       "d30": {
         "days": 30,
-        "btc": -45288,
-        "usd": -3325009855
+        "btc": -42751,
+        "usd": -3085153216
       },
       "d90": {
         "days": 90,
-        "btc": 38445,
-        "usd": 3215423966
+        "btc": 32587,
+        "usd": 2846786943
       },
       "ytd": {
-        "days": 212,
-        "btc": -51651,
-        "usd": -2514467208
+        "days": 213,
+        "btc": -53300,
+        "usd": -2616576588
       },
       "inception": {
-        "days": 717,
-        "btc": 581263,
-        "usd": 50966437128
+        "days": 718,
+        "btc": 579614,
+        "usd": 50863695291
       }
     },
     "streak": {
-      "direction": 0,
-      "days": 1
+      "direction": -1,
+      "days": 6
     },
     "records": {
       "maxInflow": {
@@ -354,12 +354,12 @@
       {
         "month": "2024-04",
         "btc": -2507,
-        "usd": -109221328
+        "usd": -110223698
       },
       {
         "month": "2024-05",
         "btc": 27713,
-        "usd": 1946963147
+        "usd": 1947427575
       },
       {
         "month": "2024-06",
@@ -374,12 +374,12 @@
       {
         "month": "2024-08",
         "btc": -720,
-        "usd": 37971835
+        "usd": 40136376
       },
       {
         "month": "2024-09",
         "btc": 15738,
-        "usd": 1080362395
+        "usd": 1078103339
       },
       {
         "month": "2024-10",
@@ -508,12 +508,12 @@
       },
       {
         "month": "2026-11",
-        "btc": -44105,
-        "usd": -3222527289
+        "btc": -45754,
+        "usd": -3324636669
       }
     ],
     "issuance": {
-      "estimated": 513900,
+      "estimated": 514350,
       "note": "按 144 块/天、2024-04-20 减半后 3.125 BTC/块估算，仅作参照"
     }
   },
