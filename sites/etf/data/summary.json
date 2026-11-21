@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-11-21T03:23:43.051Z",
+  "generatedAt": "2026-11-21T19:36:53.009Z",
   "btcPrice": {
-    "usd": 58231.05,
-    "snapshotUsd": 58231.05,
+    "usd": 60226.25,
+    "snapshotUsd": 60226.25,
     "source": "coinbase"
   },
   "holdings": {
     "asOf": "2026-11-20",
     "stale": false,
     "totalBtc": 1244309,
-    "totalUsdSnapshot": 72443844462,
-    "totalUsdLive": 72457419594,
+    "totalUsdSnapshot": 74971669780,
+    "totalUsdLive": 74940064911,
     "pctOf21m": 5.925,
     "fundCount": 13,
     "funds": [
@@ -19,7 +19,7 @@
         "name": "iShares Bitcoin Trust (Blackrock)",
         "exchange": "NASDAQ",
         "btc": 778966.5,
-        "usd": 45351554264,
+        "usd": 46934032499,
         "pctOf21m": 3.709
       },
       {
@@ -27,7 +27,7 @@
         "name": "Fidelity Wise Origin Bitcoin Fund",
         "exchange": "CBOE",
         "btc": 171874.6,
-        "usd": 10006566711,
+        "usd": 10355731680,
         "pctOf21m": 0.818
       },
       {
@@ -35,7 +35,7 @@
         "name": "Grayscale Bitcoin Trust",
         "exchange": "NYSE",
         "btc": 121985.1,
-        "usd": 7101992039,
+        "usd": 7349805990,
         "pctOf21m": 0.581
       },
       {
@@ -43,7 +43,7 @@
         "name": "Grayscale Bitcoin Mini Trust",
         "exchange": "NYSE",
         "btc": 62004.9,
-        "usd": 3609935198,
+        "usd": 3735898773,
         "pctOf21m": 0.295
       },
       {
@@ -51,7 +51,7 @@
         "name": "Bitwise Bitcoin ETF",
         "exchange": "NYSE",
         "btc": 36112.3,
-        "usd": 2102463883,
+        "usd": 2175826382,
         "pctOf21m": 0.172
       },
       {
@@ -59,7 +59,7 @@
         "name": "ARK 21Shares Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 27860,
-        "usd": 1622013657,
+        "usd": 1678611526,
         "pctOf21m": 0.133
       },
       {
@@ -67,7 +67,7 @@
         "name": "Vaneck Bitcoin Trust",
         "exchange": "CBOE",
         "btc": 14266.8,
-        "usd": 830615378,
+        "usd": 859598525,
         "pctOf21m": 0.068
       },
       {
@@ -75,7 +75,7 @@
         "name": "Morgan Stanley (MSBT) Bitcoin Trust ETP",
         "exchange": "NYSE",
         "btc": 12447.5,
-        "usd": 724695441,
+        "usd": 749982662,
         "pctOf21m": 0.059
       },
       {
@@ -83,7 +83,7 @@
         "name": "Valkyrie Bitcoin Fund",
         "exchange": "NASDAQ",
         "btc": 5663.1,
-        "usd": 329706588,
+        "usd": 341211232,
         "pctOf21m": 0.027
       },
       {
@@ -91,7 +91,7 @@
         "name": "Franklin Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 5256.3,
-        "usd": 306022627,
+        "usd": 316700853,
         "pctOf21m": 0.025
       },
       {
@@ -99,7 +99,7 @@
         "name": "Invesco Galaxy Bitcoin ETF",
         "exchange": "CBOE",
         "btc": 4951.1,
-        "usd": 288253834,
+        "usd": 298312043,
         "pctOf21m": 0.024
       },
       {
@@ -107,7 +107,7 @@
         "name": "WisdomTree Bitcoin Fund",
         "exchange": "CBOE",
         "btc": 2006,
-        "usd": 116789640,
+        "usd": 120864850,
         "pctOf21m": 0.01
       },
       {
@@ -128,10 +128,10 @@
   "recent": [
     {
       "date": "2026-11-06",
-      "IBIT": -309.7,
-      "FBTC": 32.9,
-      "GBTC": -9.4,
-      "BTC": -0.1,
+      "IBIT": 0,
+      "FBTC": 0,
+      "GBTC": 0,
+      "BTC": 0,
       "BITB": 0,
       "ARKB": 0,
       "HODL": 0,
@@ -144,12 +144,12 @@
     },
     {
       "date": "2026-11-09",
-      "IBIT": -166.1,
+      "IBIT": -171.9,
       "FBTC": 0,
       "GBTC": 0,
       "BTC": 0,
       "BITB": 0,
-      "ARKB": -7.7,
+      "ARKB": 0,
       "HODL": 0,
       "MSBT": 0,
       "BRRR": 0,
@@ -160,8 +160,8 @@
     },
     {
       "date": "2026-11-10",
-      "IBIT": -272.8,
-      "FBTC": -29.1,
+      "IBIT": -282.3,
+      "FBTC": -30.1,
       "GBTC": -0.6,
       "BTC": 0,
       "BITB": 0,
@@ -183,7 +183,7 @@
       "BITB": 0,
       "ARKB": -0.3,
       "HODL": 0,
-      "MSBT": 22.9,
+      "MSBT": 23.6,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
@@ -193,10 +193,10 @@
     {
       "date": "2026-11-12",
       "IBIT": 0,
-      "FBTC": -26.6,
+      "FBTC": -27.5,
       "GBTC": 0,
       "BTC": 0,
-      "BITB": -21.5,
+      "BITB": 0,
       "ARKB": 0,
       "HODL": 0,
       "MSBT": 0,
@@ -208,14 +208,14 @@
     },
     {
       "date": "2026-11-13",
-      "IBIT": -68.5,
-      "FBTC": -45.6,
-      "GBTC": -31.1,
+      "IBIT": -70.9,
+      "FBTC": -47.2,
+      "GBTC": -32.2,
       "BTC": 0,
       "BITB": 0,
-      "ARKB": -15,
-      "HODL": -5,
-      "MSBT": 2.6,
+      "ARKB": -15.6,
+      "HODL": -5.1,
+      "MSBT": 2.7,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
@@ -226,23 +226,23 @@
       "date": "2026-11-16",
       "IBIT": 0,
       "FBTC": 0,
-      "GBTC": -32.1,
-      "BTC": -6,
+      "GBTC": -33.3,
+      "BTC": -6.2,
       "BITB": 0,
-      "ARKB": -15.8,
+      "ARKB": -16.4,
       "HODL": 0,
-      "MSBT": 1.3,
-      "BRRR": -3.3,
-      "EZBC": -3.4,
+      "MSBT": 1.4,
+      "BRRR": -3.4,
+      "EZBC": 0,
       "BTCO": 0,
       "BTCW": 0,
       "DEFI": 0
     },
     {
       "date": "2026-11-17",
-      "IBIT": -122.6,
+      "IBIT": -126.8,
       "FBTC": 0,
-      "GBTC": -16.5,
+      "GBTC": -17,
       "BTC": 1,
       "BITB": 0,
       "ARKB": 0,
@@ -250,36 +250,36 @@
       "MSBT": 0,
       "BRRR": 0,
       "EZBC": 0,
-      "BTCO": -5.8,
+      "BTCO": 0,
       "BTCW": 0,
       "DEFI": 0
     },
     {
       "date": "2026-11-18",
-      "IBIT": 138.4,
-      "FBTC": -64.5,
+      "IBIT": 143.2,
+      "FBTC": -66.8,
       "GBTC": 0,
       "BTC": 0,
       "BITB": 0,
-      "ARKB": -17.9,
+      "ARKB": -18.6,
       "HODL": 0,
       "MSBT": 0,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
       "BTCW": 0,
-      "DEFI": 2.9
+      "DEFI": 3
     },
     {
       "date": "2026-11-19",
       "IBIT": 0,
       "FBTC": 0,
-      "GBTC": -19.2,
-      "BTC": -9.8,
-      "BITB": -34.1,
+      "GBTC": -19.8,
+      "BTC": -10.1,
+      "BITB": -35.3,
       "ARKB": 0,
       "HODL": 0,
-      "MSBT": 46.6,
+      "MSBT": 48.2,
       "BRRR": 0,
       "EZBC": 0,
       "BTCO": 0,
