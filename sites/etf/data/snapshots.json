@@ -1983,9 +1983,9 @@
     },
     {
       "asOf": "2026-11-25",
-      "fetchedAt": "2026-11-25T21:53:19.450Z",
-      "totalBtc": 1210386,
-      "totalUsd": 72968037115,
+      "fetchedAt": "2026-11-26T04:17:50.063Z",
+      "totalBtc": 1209708,
+      "totalUsd": 73613930724,
       "funds": [
         {
           "ticker": "IBIT",
@@ -1993,15 +1993,15 @@
         },
         {
           "ticker": "FBTC",
-          "btc": 170113.9
+          "btc": 169374.9
         },
         {
           "ticker": "GBTC",
-          "btc": 121173.6
+          "btc": 121168.6
         },
         {
           "ticker": "BTC",
-          "btc": 60783.9
+          "btc": 60849.9
         },
         {
           "ticker": "BITB",

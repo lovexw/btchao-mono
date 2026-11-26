@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-25T21:53:19.450Z",
+  "generatedAt": "2026-11-26T04:17:50.063Z",
   "source": "bitbo.io/treasuries/etf-flows（每日净流入=ETF持仓逐日变化）",
-  "priceSource": "coinbase 1060 天",
+  "priceSource": "coinbase 1061 天",
   "rows": [
     {
       "date": "2024-01-12",
@@ -455,23 +455,23 @@
     },
     {
       "date": "2024-03-05",
-      "flowBtc": -3539,
-      "flowUsd": -225790960,
+      "flowBtc": 2451,
+      "flowUsd": 156375712,
       "price": 63800.78,
-      "holdingsBtc": 792081,
-      "holdingsUsd": 50535385623,
-      "cumFlowBtc": 125009,
-      "cumFlowUsd": 6284316520
+      "holdingsBtc": 798071,
+      "holdingsUsd": 50917552295,
+      "cumFlowBtc": 130999,
+      "cumFlowUsd": 6666483192
     },
     {
       "date": "2024-03-06",
-      "flowBtc": 28379,
-      "flowUsd": 1876484184,
+      "flowBtc": 22389,
+      "flowUsd": 1480411727,
       "price": 66122.28,
       "holdingsBtc": 820460,
       "holdingsUsd": 54250685849,
       "cumFlowBtc": 153388,
-      "cumFlowUsd": 8160800704
+      "cumFlowUsd": 8146894919
     },
     {
       "date": "2024-03-07",
@@ -481,7 +481,7 @@
       "holdingsBtc": 820186,
       "holdingsUsd": 54901782707,
       "cumFlowBtc": 153114,
-      "cumFlowUsd": 8142459634
+      "cumFlowUsd": 8128553849
     },
     {
       "date": "2024-03-08",
@@ -491,7 +491,7 @@
       "holdingsBtc": 832034,
       "holdingsUsd": 56818902951,
       "cumFlowBtc": 164962,
-      "cumFlowUsd": 8951549602
+      "cumFlowUsd": 8937643817
     },
     {
       "date": "2024-03-08",
@@ -501,7 +501,7 @@
       "holdingsBtc": 831721,
       "holdingsUsd": 56797528444,
       "cumFlowBtc": 164649,
-      "cumFlowUsd": 8930175095
+      "cumFlowUsd": 8916269310
     },
     {
       "date": "2024-03-11",
@@ -511,7 +511,7 @@
       "holdingsBtc": 829868,
       "holdingsUsd": 59842594751,
       "cumFlowBtc": 162796,
-      "cumFlowUsd": 8796553449
+      "cumFlowUsd": 8782647664
     },
     {
       "date": "2024-03-12",
@@ -521,7 +521,7 @@
       "holdingsBtc": 835076,
       "holdingsUsd": 59687833721,
       "cumFlowBtc": 168004,
-      "cumFlowUsd": 9168800092
+      "cumFlowUsd": 9154894307
     },
     {
       "date": "2024-03-13",
@@ -531,7 +531,7 @@
       "holdingsBtc": 850084,
       "holdingsUsd": 62170927343,
       "cumFlowBtc": 183012,
-      "cumFlowUsd": 10266410773
+      "cumFlowUsd": 10252504988
     },
     {
       "date": "2024-03-14",
@@ -541,7 +541,7 @@
       "holdingsBtc": 860314,
       "holdingsUsd": 61395947278,
       "cumFlowBtc": 193242,
-      "cumFlowUsd": 10996470426
+      "cumFlowUsd": 10982564641
     },
     {
       "date": "2024-03-15",
@@ -551,7 +551,7 @@
       "holdingsBtc": 865642,
       "holdingsUsd": 60168074617,
       "cumFlowBtc": 198570,
-      "cumFlowUsd": 11366803083
+      "cumFlowUsd": 11352897298
     },
     {
       "date": "2024-03-15",
@@ -561,7 +561,7 @@
       "holdingsBtc": 862503,
       "holdingsUsd": 59949892521,
       "cumFlowBtc": 195431,
-      "cumFlowUsd": 11148620986
+      "cumFlowUsd": 11134715201
     },
     {
       "date": "2024-03-18",
@@ -571,7 +571,7 @@
       "holdingsBtc": 860996,
       "holdingsUsd": 58214556988,
       "cumFlowBtc": 193924,
-      "cumFlowUsd": 11046728135
+      "cumFlowUsd": 11032822350
     },
     {
       "date": "2024-03-19",
@@ -581,7 +581,7 @@
       "holdingsBtc": 862765,
       "holdingsUsd": 53410563037,
       "cumFlowBtc": 195693,
-      "cumFlowUsd": 11156240327
+      "cumFlowUsd": 11142334542
     },
     {
       "date": "2024-03-20",
@@ -591,7 +591,7 @@
       "holdingsBtc": 857764,
       "holdingsUsd": 58206835723,
       "cumFlowBtc": 190692,
-      "cumFlowUsd": 10816878468
+      "cumFlowUsd": 10802972683
     },
     {
       "date": "2024-03-21",
@@ -601,7 +601,7 @@
       "holdingsBtc": 853040,
       "holdingsUsd": 55861068488,
       "cumFlowBtc": 185968,
-      "cumFlowUsd": 10507528745
+      "cumFlowUsd": 10493622960
     },
     {
       "date": "2024-03-22",
@@ -611,7 +611,7 @@
       "holdingsBtc": 853646,
       "holdingsUsd": 54475043886,
       "cumFlowBtc": 186574,
-      "cumFlowUsd": 10546200368
+      "cumFlowUsd": 10532294583
     },
     {
       "date": "2024-03-25",
@@ -621,7 +621,7 @@
       "holdingsBtc": 853897,
       "holdingsUsd": 59679100421,
       "cumFlowBtc": 186825,
-      "cumFlowUsd": 10563742829
+      "cumFlowUsd": 10549837044
     },
     {
       "date": "2024-03-26",
@@ -631,7 +631,7 @@
       "holdingsBtc": 851309,
       "holdingsUsd": 59585160052,
       "cumFlowBtc": 184237,
-      "cumFlowUsd": 10382602497
+      "cumFlowUsd": 10368696712
     },
     {
       "date": "2024-03-27",
@@ -641,7 +641,7 @@
       "holdingsBtc": 859174,
       "holdingsUsd": 59657571497,
       "cumFlowBtc": 192102,
-      "cumFlowUsd": 10928716323
+      "cumFlowUsd": 10914810538
     },
     {
       "date": "2024-03-28",
@@ -651,7 +651,7 @@
       "holdingsBtc": 856463,
       "holdingsUsd": 60638591026,
       "cumFlowBtc": 189391,
-      "cumFlowUsd": 10736774324
+      "cumFlowUsd": 10722868539
     },
     {
       "date": "2024-03-29",
@@ -661,7 +661,7 @@
       "holdingsBtc": 862124,
       "holdingsUsd": 60265700565,
       "cumFlowBtc": 195052,
-      "cumFlowUsd": 11132499453
+      "cumFlowUsd": 11118593668
     },
     {
       "date": "2024-03-29",
@@ -671,7 +671,7 @@
       "holdingsBtc": 863044,
       "holdingsUsd": 60330012015,
       "cumFlowBtc": 195972,
-      "cumFlowUsd": 11196810903
+      "cumFlowUsd": 11182905118
     },
     {
       "date": "2024-04-01",
@@ -681,7 +681,7 @@
       "holdingsBtc": 864440,
       "holdingsUsd": 60235752481,
       "cumFlowBtc": 197368,
-      "cumFlowUsd": 11294086723
+      "cumFlowUsd": 11280180938
     },
     {
       "date": "2024-04-02",
@@ -691,7 +691,7 @@
       "holdingsBtc": 866228,
       "holdingsUsd": 56706871064,
       "cumFlowBtc": 199156,
-      "cumFlowUsd": 11411136606
+      "cumFlowUsd": 11397230821
     },
     {
       "date": "2024-04-03",
@@ -701,7 +701,7 @@
       "holdingsBtc": 864979,
       "holdingsUsd": 57078165054,
       "cumFlowBtc": 197907,
-      "cumFlowUsd": 11328717694
+      "cumFlowUsd": 11314811909
     },
     {
       "date": "2024-04-04",
@@ -711,7 +711,7 @@
       "holdingsBtc": 865288,
       "holdingsUsd": 59294059216,
       "cumFlowBtc": 198216,
-      "cumFlowUsd": 11349891990
+      "cumFlowUsd": 11335986205
     },
     {
       "date": "2024-04-05",
@@ -721,7 +721,7 @@
       "holdingsBtc": 868018,
       "holdingsUsd": 58900672097,
       "cumFlowBtc": 200946,
-      "cumFlowUsd": 11535140262
+      "cumFlowUsd": 11521234477
     },
     {
       "date": "2024-04-08",
@@ -731,7 +731,7 @@
       "holdingsBtc": 872742,
       "holdingsUsd": 62507990077,
       "cumFlowBtc": 205670,
-      "cumFlowUsd": 11873485094
+      "cumFlowUsd": 11859579309
     },
     {
       "date": "2024-04-09",
@@ -741,7 +741,7 @@
       "holdingsBtc": 871130,
       "holdingsUsd": 60209900921,
       "cumFlowBtc": 204058,
-      "cumFlowUsd": 11762068474
+      "cumFlowUsd": 11748162689
     },
     {
       "date": "2024-04-10",
@@ -751,7 +751,7 @@
       "holdingsBtc": 869140,
       "holdingsUsd": 61390869526,
       "cumFlowBtc": 202068,
-      "cumFlowUsd": 11621506734
+      "cumFlowUsd": 11607600949
     },
     {
       "date": "2024-04-11",
@@ -761,7 +761,7 @@
       "holdingsBtc": 868557,
       "holdingsUsd": 60816995187,
       "cumFlowBtc": 201485,
-      "cumFlowUsd": 11580684648
+      "cumFlowUsd": 11566778863
     },
     {
       "date": "2024-04-12",
@@ -771,7 +771,7 @@
       "holdingsBtc": 871708,
       "holdingsUsd": 58533980526,
       "cumFlowBtc": 204636,
-      "cumFlowUsd": 11792269919
+      "cumFlowUsd": 11778364134
     },
     {
       "date": "2024-04-15",
@@ -781,7 +781,7 @@
       "holdingsBtc": 871585,
       "holdingsUsd": 55303968305,
       "cumFlowBtc": 204513,
-      "cumFlowUsd": 11784465300
+      "cumFlowUsd": 11770559515
     },
     {
       "date": "2024-04-16",
@@ -791,7 +791,7 @@
       "holdingsBtc": 870223,
       "holdingsUsd": 55533228532,
       "cumFlowBtc": 203151,
-      "cumFlowUsd": 11697549352
+      "cumFlowUsd": 11683643567
     },
     {
       "date": "2024-04-17",
@@ -801,7 +801,7 @@
       "holdingsBtc": 868756,
       "holdingsUsd": 53236811676,
       "cumFlowBtc": 201684,
-      "cumFlowUsd": 11607652531
+      "cumFlowUsd": 11593746746
     },
     {
       "date": "2024-04-18",
@@ -811,7 +811,7 @@
       "holdingsBtc": 867012,
       "holdingsUsd": 55067270116,
       "cumFlowBtc": 199940,
-      "cumFlowUsd": 11496884377
+      "cumFlowUsd": 11482978592
     },
     {
       "date": "2024-04-19",
@@ -821,7 +821,7 @@
       "holdingsBtc": 866055,
       "holdingsUsd": 55296200080,
       "cumFlowBtc": 198983,
-      "cumFlowUsd": 11435781486
+      "cumFlowUsd": 11421875701
     },
     {
       "date": "2024-04-22",
@@ -831,7 +831,7 @@
       "holdingsBtc": 865493,
       "holdingsUsd": 57866143621,
       "cumFlowBtc": 198421,
-      "cumFlowUsd": 11398206633
+      "cumFlowUsd": 11384300848
     },
     {
       "date": "2024-04-24",
@@ -841,7 +841,7 @@
       "holdingsBtc": 867509,
       "holdingsUsd": 55742467452,
       "cumFlowBtc": 200437,
-      "cumFlowUsd": 11527746285
+      "cumFlowUsd": 11513840500
     },
     {
       "date": "2024-04-25",
@@ -851,7 +851,7 @@
       "holdingsBtc": 867050,
       "holdingsUsd": 55911233702,
       "cumFlowBtc": 199978,
-      "cumFlowUsd": 11498147927
+      "cumFlowUsd": 11484242142
     },
     {
       "date": "2024-04-26",
@@ -861,7 +861,7 @@
       "holdingsBtc": 864965,
       "holdingsUsd": 55134936366,
       "cumFlowBtc": 197893,
-      "cumFlowUsd": 11365245044
+      "cumFlowUsd": 11351339259
     },
     {
       "date": "2024-04-29",
@@ -871,7 +871,7 @@
       "holdingsBtc": 861792,
       "holdingsUsd": 55020980971,
       "cumFlowBtc": 194720,
-      "cumFlowUsd": 11162665335
+      "cumFlowUsd": 11148759550
     },
     {
       "date": "2024-04-30",
@@ -881,27 +881,27 @@
       "holdingsBtc": 860537,
       "holdingsUsd": 52167560068,
       "cumFlowBtc": 193465,
-      "cumFlowUsd": 11086584600
+      "cumFlowUsd": 11072678815
     },
     {
       "date": "2024-05-01",
-      "flowBtc": -2070,
-      "flowUsd": -120609771,
+      "flowBtc": -1666,
+      "flowUsd": -97070473,
       "price": 58265.59,
-      "holdingsBtc": 858467,
-      "holdingsUsd": 50019086251,
-      "cumFlowBtc": 191395,
-      "cumFlowUsd": 10965974828
+      "holdingsBtc": 858871,
+      "holdingsUsd": 50042625549,
+      "cumFlowBtc": 191799,
+      "cumFlowUsd": 10975608342
     },
     {
       "date": "2024-05-02",
-      "flowBtc": -6474,
-      "flowUsd": -382431416,
+      "flowBtc": -6878,
+      "flowUsd": -406296459,
       "price": 59071.89,
       "holdingsBtc": 851993,
       "holdingsUsd": 50328836777,
       "cumFlowBtc": 184921,
-      "cumFlowUsd": 10583543413
+      "cumFlowUsd": 10569311882
     },
     {
       "date": "2024-05-03",
@@ -911,7 +911,7 @@
       "holdingsBtc": 847333,
       "holdingsUsd": 53308286449,
       "cumFlowBtc": 180261,
-      "cumFlowUsd": 10290368693
+      "cumFlowUsd": 10276137163
     },
     {
       "date": "2024-05-03",
@@ -921,7 +921,7 @@
       "holdingsBtc": 849661,
       "holdingsUsd": 53454747983,
       "cumFlowBtc": 182589,
-      "cumFlowUsd": 10436830227
+      "cumFlowUsd": 10422598696
     },
     {
       "date": "2024-05-06",
@@ -931,7 +931,7 @@
       "holdingsBtc": 851527,
       "holdingsUsd": 53784352740,
       "cumFlowBtc": 184455,
-      "cumFlowUsd": 10554690966
+      "cumFlowUsd": 10540459436
     },
     {
       "date": "2024-05-07",
@@ -941,7 +941,7 @@
       "holdingsBtc": 855310,
       "holdingsUsd": 53299292686,
       "cumFlowBtc": 188238,
-      "cumFlowUsd": 10790431487
+      "cumFlowUsd": 10776199956
     },
     {
       "date": "2024-05-08",
@@ -951,7 +951,7 @@
       "holdingsBtc": 855404,
       "holdingsUsd": 52324660640,
       "cumFlowBtc": 188332,
-      "cumFlowUsd": 10796181422
+      "cumFlowUsd": 10781949892
     },
     {
       "date": "2024-05-09",
@@ -961,7 +961,7 @@
       "holdingsBtc": 855202,
       "holdingsUsd": 53940643211,
       "cumFlowBtc": 188130,
-      "cumFlowUsd": 10783440561
+      "cumFlowUsd": 10769209031
     },
     {
       "date": "2024-05-10",
@@ -971,7 +971,7 @@
       "holdingsBtc": 855600,
       "holdingsUsd": 52009759332,
       "cumFlowBtc": 188528,
-      "cumFlowUsd": 10807633974
+      "cumFlowUsd": 10793402444
     },
     {
       "date": "2024-05-13",
@@ -981,7 +981,7 @@
       "holdingsBtc": 855109,
       "holdingsUsd": 53814035978,
       "cumFlowBtc": 188037,
-      "cumFlowUsd": 10776734181
+      "cumFlowUsd": 10762502650
     },
     {
       "date": "2024-05-14",
@@ -991,7 +991,7 @@
       "holdingsBtc": 855199,
       "holdingsUsd": 52628809628,
       "cumFlowBtc": 188127,
-      "cumFlowUsd": 10782272766
+      "cumFlowUsd": 10768041236
     },
     {
       "date": "2024-05-15",
@@ -1001,7 +1001,7 @@
       "holdingsBtc": 858203,
       "holdingsUsd": 56851391692,
       "cumFlowBtc": 191131,
-      "cumFlowUsd": 10981271815
+      "cumFlowUsd": 10967040285
     },
     {
       "date": "2024-05-16",
@@ -1011,7 +1011,7 @@
       "holdingsBtc": 864131,
       "holdingsUsd": 56386431556,
       "cumFlowBtc": 197059,
-      "cumFlowUsd": 11368086738
+      "cumFlowUsd": 11353855208
     },
     {
       "date": "2024-05-17",
@@ -1021,7 +1021,7 @@
       "holdingsBtc": 865547,
       "holdingsUsd": 58031749793,
       "cumFlowBtc": 198475,
-      "cumFlowUsd": 11463024341
+      "cumFlowUsd": 11448792811
     },
     {
       "date": "2024-05-17",
@@ -1031,7 +1031,7 @@
       "holdingsBtc": 867603,
       "holdingsUsd": 58169597047,
       "cumFlowBtc": 200531,
-      "cumFlowUsd": 11600871596
+      "cumFlowUsd": 11586640066
     },
     {
       "date": "2024-05-20",
@@ -1041,7 +1041,7 @@
       "holdingsBtc": 870682,
       "holdingsUsd": 62194704640,
       "cumFlowBtc": 203610,
-      "cumFlowUsd": 11820811247
+      "cumFlowUsd": 11806579717
     },
     {
       "date": "2024-05-21",
@@ -1051,7 +1051,7 @@
       "holdingsBtc": 876654,
       "holdingsUsd": 61491001257,
       "cumFlowBtc": 209582,
-      "cumFlowUsd": 12239704288
+      "cumFlowUsd": 12225472757
     },
     {
       "date": "2024-05-22",
@@ -1061,7 +1061,7 @@
       "holdingsBtc": 878889,
       "holdingsUsd": 60739957268,
       "cumFlowBtc": 211817,
-      "cumFlowUsd": 12394164981
+      "cumFlowUsd": 12379933451
     },
     {
       "date": "2024-05-23",
@@ -1071,7 +1071,7 @@
       "holdingsBtc": 880301,
       "holdingsUsd": 59808046075,
       "cumFlowBtc": 213229,
-      "cumFlowUsd": 12490096897
+      "cumFlowUsd": 12475865366
     },
     {
       "date": "2024-05-24",
@@ -1081,7 +1081,7 @@
       "holdingsBtc": 882992,
       "holdingsUsd": 60527159018,
       "cumFlowBtc": 215920,
-      "cumFlowUsd": 12674559026
+      "cumFlowUsd": 12660327496
     },
     {
       "date": "2024-05-24",
@@ -1091,7 +1091,7 @@
       "holdingsBtc": 882992,
       "holdingsUsd": 60527159018,
       "cumFlowBtc": 215920,
-      "cumFlowUsd": 12674559026
+      "cumFlowUsd": 12660327496
     },
     {
       "date": "2024-05-27",
@@ -1101,7 +1101,7 @@
       "holdingsBtc": 883686,
       "holdingsUsd": 61300166702,
       "cumFlowBtc": 216614,
-      "cumFlowUsd": 12722700918
+      "cumFlowUsd": 12708469388
     },
     {
       "date": "2024-05-28",
@@ -1111,7 +1111,7 @@
       "holdingsBtc": 886154,
       "holdingsUsd": 60543795865,
       "cumFlowBtc": 219082,
-      "cumFlowUsd": 12891319565
+      "cumFlowUsd": 12877088035
     },
     {
       "date": "2024-05-29",
@@ -1121,7 +1121,7 @@
       "holdingsBtc": 885470,
       "holdingsUsd": 59830720892,
       "cumFlowBtc": 218398,
-      "cumFlowUsd": 12845102061
+      "cumFlowUsd": 12830870531
     },
     {
       "date": "2024-05-30",
@@ -1131,7 +1131,7 @@
       "holdingsBtc": 887122,
       "holdingsUsd": 60624657767,
       "cumFlowBtc": 220050,
-      "cumFlowUsd": 12957997395
+      "cumFlowUsd": 12943765865
     },
     {
       "date": "2024-05-31",
@@ -1141,7 +1141,7 @@
       "holdingsBtc": 885657,
       "holdingsUsd": 59757412223,
       "cumFlowBtc": 218585,
-      "cumFlowUsd": 12859150314
+      "cumFlowUsd": 12844918784
     },
     {
       "date": "2024-05-31",
@@ -1151,7 +1151,7 @@
       "holdingsBtc": 888250,
       "holdingsUsd": 59932368183,
       "cumFlowBtc": 221178,
-      "cumFlowUsd": 13034106274
+      "cumFlowUsd": 13019874743
     },
     {
       "date": "2024-06-03",
@@ -1161,7 +1161,7 @@
       "holdingsBtc": 886695,
       "holdingsUsd": 60996635745,
       "cumFlowBtc": 219623,
-      "cumFlowUsd": 12927136269
+      "cumFlowUsd": 12912904738
     },
     {
       "date": "2024-06-04",
@@ -1171,7 +1171,7 @@
       "holdingsBtc": 899955,
       "holdingsUsd": 63484913596,
       "cumFlowBtc": 232883,
-      "cumFlowUsd": 13862527432
+      "cumFlowUsd": 13848295902
     },
     {
       "date": "2024-06-05",
@@ -1181,7 +1181,7 @@
       "holdingsBtc": 902848,
       "holdingsUsd": 64211551921,
       "cumFlowBtc": 235776,
-      "cumFlowUsd": 14068280803
+      "cumFlowUsd": 14054049273
     },
     {
       "date": "2024-06-06",
@@ -1191,7 +1191,7 @@
       "holdingsBtc": 910739,
       "holdingsUsd": 64456314120,
       "cumFlowBtc": 243667,
-      "cumFlowUsd": 14626755596
+      "cumFlowUsd": 14612524066
     },
     {
       "date": "2024-06-07",
@@ -1201,7 +1201,7 @@
       "holdingsBtc": 910108,
       "holdingsUsd": 63092809349,
       "cumFlowBtc": 243036,
-      "cumFlowUsd": 14583011818
+      "cumFlowUsd": 14568780288
     },
     {
       "date": "2024-06-07",
@@ -1211,7 +1211,7 @@
       "holdingsBtc": 912645,
       "holdingsUsd": 63268685682,
       "cumFlowBtc": 245573,
-      "cumFlowUsd": 14758888150
+      "cumFlowUsd": 14744656620
     },
     {
       "date": "2024-06-10",
@@ -1221,7 +1221,7 @@
       "holdingsBtc": 912014,
       "holdingsUsd": 63382902728,
       "cumFlowBtc": 244942,
-      "cumFlowUsd": 14715035083
+      "cumFlowUsd": 14700803553
     },
     {
       "date": "2024-06-11",
@@ -1231,7 +1231,7 @@
       "holdingsBtc": 907655,
       "holdingsUsd": 61100185037,
       "cumFlowBtc": 240583,
-      "cumFlowUsd": 14421602329
+      "cumFlowUsd": 14407370798
     },
     {
       "date": "2024-06-14",
@@ -1241,7 +1241,7 @@
       "holdingsBtc": 906441,
       "holdingsUsd": 59829085276,
       "cumFlowBtc": 239369,
-      "cumFlowUsd": 14341472999
+      "cumFlowUsd": 14327241469
     },
     {
       "date": "2024-06-14",
@@ -1251,7 +1251,7 @@
       "holdingsBtc": 904490,
       "holdingsUsd": 59700310711,
       "cumFlowBtc": 237418,
-      "cumFlowUsd": 14212698434
+      "cumFlowUsd": 14198466904
     },
     {
       "date": "2024-06-17",
@@ -1261,7 +1261,7 @@
       "holdingsBtc": 902323,
       "holdingsUsd": 59988066245,
       "cumFlowBtc": 235251,
-      "cumFlowUsd": 14068632352
+      "cumFlowUsd": 14054400822
     },
     {
       "date": "2024-06-18",
@@ -1271,7 +1271,7 @@
       "holdingsBtc": 902157,
       "holdingsUsd": 58778054590,
       "cumFlowBtc": 235085,
-      "cumFlowUsd": 14057816987
+      "cumFlowUsd": 14043585457
     },
     {
       "date": "2024-06-19",
@@ -1281,7 +1281,7 @@
       "holdingsBtc": 900061,
       "holdingsUsd": 58453372571,
       "cumFlowBtc": 232989,
-      "cumFlowUsd": 13921694803
+      "cumFlowUsd": 13907463273
     },
     {
       "date": "2024-06-20",
@@ -1291,7 +1291,7 @@
       "holdingsBtc": 897818,
       "holdingsUsd": 58215309200,
       "cumFlowBtc": 230746,
-      "cumFlowUsd": 13776256709
+      "cumFlowUsd": 13762025179
     },
     {
       "date": "2024-06-21",
@@ -1301,27 +1301,27 @@
       "holdingsBtc": 896961,
       "holdingsUsd": 57513390469,
       "cumFlowBtc": 229889,
-      "cumFlowUsd": 13721305629
+      "cumFlowUsd": 13707074099
     },
     {
       "date": "2024-06-24",
-      "flowBtc": -2321,
-      "flowUsd": -139870423,
+      "flowBtc": -2933,
+      "flowUsd": -176751379,
       "price": 60263,
-      "holdingsBtc": 894640,
-      "holdingsUsd": 53913690320,
-      "cumFlowBtc": 227568,
-      "cumFlowUsd": 13581435206
+      "holdingsBtc": 894028,
+      "holdingsUsd": 53876809364,
+      "cumFlowBtc": 226956,
+      "cumFlowUsd": 13530322720
     },
     {
       "date": "2024-06-25",
-      "flowBtc": -1412,
-      "flowUsd": -87247071,
+      "flowBtc": -800,
+      "flowUsd": -49431768,
       "price": 61789.71,
       "holdingsBtc": 893228,
       "holdingsUsd": 55192299084,
       "cumFlowBtc": 226156,
-      "cumFlowUsd": 13494188136
+      "cumFlowUsd": 13480890952
     },
     {
       "date": "2024-06-26",
@@ -1331,7 +1331,7 @@
       "holdingsBtc": 892968,
       "holdingsUsd": 54307349106,
       "cumFlowBtc": 225896,
-      "cumFlowUsd": 13478375799
+      "cumFlowUsd": 13465078615
     },
     {
       "date": "2024-06-27",
@@ -1341,7 +1341,7 @@
       "holdingsBtc": 893382,
       "holdingsUsd": 55046080349,
       "cumFlowBtc": 226310,
-      "cumFlowUsd": 13503884571
+      "cumFlowUsd": 13490587387
     },
     {
       "date": "2024-06-28",
@@ -1351,7 +1351,7 @@
       "holdingsBtc": 894578,
       "holdingsUsd": 53954996016,
       "cumFlowBtc": 227506,
-      "cumFlowUsd": 13576019337
+      "cumFlowUsd": 13562722154
     },
     {
       "date": "2024-06-28",
@@ -1361,7 +1361,7 @@
       "holdingsBtc": 894514,
       "holdingsUsd": 53951135962,
       "cumFlowBtc": 227442,
-      "cumFlowUsd": 13572159283
+      "cumFlowUsd": 13558862099
     },
     {
       "date": "2024-07-01",
@@ -1371,7 +1371,7 @@
       "holdingsBtc": 895737,
       "holdingsUsd": 56279272156,
       "cumFlowBtc": 228665,
-      "cumFlowUsd": 13649000532
+      "cumFlowUsd": 13635703348
     },
     {
       "date": "2024-07-03",
@@ -1381,7 +1381,7 @@
       "holdingsBtc": 896273,
       "holdingsUsd": 53906348548,
       "cumFlowBtc": 229201,
-      "cumFlowUsd": 13681238257
+      "cumFlowUsd": 13667941074
     },
     {
       "date": "2024-07-04",
@@ -1391,7 +1391,7 @@
       "holdingsBtc": 896273,
       "holdingsUsd": 51125329944,
       "cumFlowBtc": 229201,
-      "cumFlowUsd": 13681238257
+      "cumFlowUsd": 13667941074
     },
     {
       "date": "2024-07-05",
@@ -1401,7 +1401,7 @@
       "holdingsBtc": 896273,
       "holdingsUsd": 50764391844,
       "cumFlowBtc": 229201,
-      "cumFlowUsd": 13681238257
+      "cumFlowUsd": 13667941074
     },
     {
       "date": "2024-07-05",
@@ -1411,27 +1411,27 @@
       "holdingsBtc": 896083,
       "holdingsUsd": 50753630353,
       "cumFlowBtc": 229011,
-      "cumFlowUsd": 13670476765
+      "cumFlowUsd": 13657179582
     },
     {
       "date": "2024-07-08",
-      "flowBtc": 6528,
-      "flowUsd": 370133879,
+      "flowBtc": 5435,
+      "flowUsd": 308161402,
       "price": 56699.43,
-      "holdingsBtc": 902611,
-      "holdingsUsd": 51177529212,
-      "cumFlowBtc": 235539,
-      "cumFlowUsd": 14040610645
+      "holdingsBtc": 901518,
+      "holdingsUsd": 51115556735,
+      "cumFlowBtc": 234446,
+      "cumFlowUsd": 13965340984
     },
     {
       "date": "2024-07-09",
-      "flowBtc": -1414,
-      "flowUsd": -82079674,
+      "flowBtc": -321,
+      "flowUsd": -18633363,
       "price": 58047.86,
       "holdingsBtc": 901197,
       "holdingsUsd": 52312557288,
       "cumFlowBtc": 234125,
-      "cumFlowUsd": 13958530970
+      "cumFlowUsd": 13946707621
     },
     {
       "date": "2024-07-10",
@@ -1441,7 +1441,7 @@
       "holdingsBtc": 909293,
       "holdingsUsd": 52477654099,
       "cumFlowBtc": 242221,
-      "cumFlowUsd": 14425772099
+      "cumFlowUsd": 14413948749
     },
     {
       "date": "2024-07-11",
@@ -1451,7 +1451,7 @@
       "holdingsBtc": 911145,
       "holdingsUsd": 52245755882,
       "cumFlowBtc": 244073,
-      "cumFlowUsd": 14531967205
+      "cumFlowUsd": 14520143855
     },
     {
       "date": "2024-07-12",
@@ -1461,7 +1461,7 @@
       "holdingsBtc": 913115,
       "holdingsUsd": 52877603928,
       "cumFlowBtc": 246043,
-      "cumFlowUsd": 14646047994
+      "cumFlowUsd": 14634224645
     },
     {
       "date": "2024-07-12",
@@ -1471,7 +1471,7 @@
       "holdingsBtc": 915329,
       "holdingsUsd": 53005814521,
       "cumFlowBtc": 248257,
-      "cumFlowUsd": 14774258587
+      "cumFlowUsd": 14762435237
     },
     {
       "date": "2024-07-15",
@@ -1481,7 +1481,7 @@
       "holdingsBtc": 920362,
       "holdingsUsd": 59600029292,
       "cumFlowBtc": 253290,
-      "cumFlowUsd": 15100181373
+      "cumFlowUsd": 15088358023
     },
     {
       "date": "2024-07-16",
@@ -1491,7 +1491,7 @@
       "holdingsBtc": 925318,
       "holdingsUsd": 60228014049,
       "cumFlowBtc": 258246,
-      "cumFlowUsd": 15422762407
+      "cumFlowUsd": 15410939058
     },
     {
       "date": "2024-07-17",
@@ -1501,7 +1501,7 @@
       "holdingsBtc": 928245,
       "holdingsUsd": 59487332703,
       "cumFlowBtc": 261173,
-      "cumFlowUsd": 15610341573
+      "cumFlowUsd": 15598518224
     },
     {
       "date": "2024-07-19",
@@ -1511,7 +1511,7 @@
       "holdingsBtc": 928144,
       "holdingsUsd": 61914267976,
       "cumFlowBtc": 261072,
-      "cumFlowUsd": 15603604105
+      "cumFlowUsd": 15591780755
     },
     {
       "date": "2024-07-19",
@@ -1521,7 +1521,7 @@
       "holdingsBtc": 891041,
       "holdingsUsd": 59439215522,
       "cumFlowBtc": 223969,
-      "cumFlowUsd": 13128551651
+      "cumFlowUsd": 13116728301
     },
     {
       "date": "2024-07-22",
@@ -1531,7 +1531,7 @@
       "holdingsBtc": 909382,
       "holdingsUsd": 61436229220,
       "cumFlowBtc": 242310,
-      "cumFlowUsd": 14367636964
+      "cumFlowUsd": 14355813614
     },
     {
       "date": "2024-07-23",
@@ -1541,7 +1541,7 @@
       "holdingsBtc": 940722,
       "holdingsUsd": 62030493731,
       "cumFlowBtc": 273650,
-      "cumFlowUsd": 16434172745
+      "cumFlowUsd": 16422349396
     },
     {
       "date": "2024-07-24",
@@ -1551,7 +1551,7 @@
       "holdingsBtc": 941366,
       "holdingsUsd": 61533706502,
       "cumFlowBtc": 274294,
-      "cumFlowUsd": 16476268707
+      "cumFlowUsd": 16464445357
     },
     {
       "date": "2024-07-25",
@@ -1561,7 +1561,7 @@
       "holdingsBtc": 942048,
       "holdingsUsd": 61982443820,
       "cumFlowBtc": 274976,
-      "cumFlowUsd": 16521141184
+      "cumFlowUsd": 16509317834
     },
     {
       "date": "2024-07-26",
@@ -1571,7 +1571,7 @@
       "holdingsBtc": 942228,
       "holdingsUsd": 63999970050,
       "cumFlowBtc": 275156,
-      "cumFlowUsd": 16533367518
+      "cumFlowUsd": 16521544168
     },
     {
       "date": "2024-07-26",
@@ -1581,7 +1581,7 @@
       "holdingsBtc": 942294,
       "holdingsUsd": 64004453040,
       "cumFlowBtc": 275222,
-      "cumFlowUsd": 16537850507
+      "cumFlowUsd": 16526027157
     },
     {
       "date": "2024-07-29",
@@ -1591,7 +1591,7 @@
       "holdingsBtc": 944801,
       "holdingsUsd": 63085732731,
       "cumFlowBtc": 277729,
-      "cumFlowUsd": 16705246532
+      "cumFlowUsd": 16693423183
     },
     {
       "date": "2024-07-30",
@@ -1601,7 +1601,7 @@
       "holdingsBtc": 917973,
       "holdingsUsd": 60741979659,
       "cumFlowBtc": 250901,
-      "cumFlowUsd": 14930046357
+      "cumFlowUsd": 14918223008
     },
     {
       "date": "2024-07-31",
@@ -1611,7 +1611,7 @@
       "holdingsBtc": 916484,
       "holdingsUsd": 59213682976,
       "cumFlowBtc": 249412,
-      "cumFlowUsd": 14833842633
+      "cumFlowUsd": 14822019283
     },
     {
       "date": "2024-08-01",
@@ -1621,7 +1621,7 @@
       "holdingsBtc": 915437,
       "holdingsUsd": 59767215635,
       "cumFlowBtc": 248365,
-      "cumFlowUsd": 14765485909
+      "cumFlowUsd": 14753662559
     },
     {
       "date": "2024-08-02",
@@ -1631,7 +1631,7 @@
       "holdingsBtc": 917751,
       "holdingsUsd": 56366485983,
       "cumFlowBtc": 250679,
-      "cumFlowUsd": 14907607299
+      "cumFlowUsd": 14895783950
     },
     {
       "date": "2024-08-05",
@@ -1641,7 +1641,7 @@
       "holdingsBtc": 912521,
       "holdingsUsd": 49302706612,
       "cumFlowBtc": 245449,
-      "cumFlowUsd": 14625035002
+      "cumFlowUsd": 14613211652
     },
     {
       "date": "2024-08-06",
@@ -1651,7 +1651,7 @@
       "holdingsBtc": 912042,
       "holdingsUsd": 51118202979,
       "cumFlowBtc": 244970,
-      "cumFlowUsd": 14598187972
+      "cumFlowUsd": 14586364622
     },
     {
       "date": "2024-08-07",
@@ -1661,7 +1661,7 @@
       "holdingsBtc": 909021,
       "holdingsUsd": 50130781010,
       "cumFlowBtc": 241949,
-      "cumFlowUsd": 14431585561
+      "cumFlowUsd": 14419762212
     },
     {
       "date": "2024-08-08",
@@ -1671,7 +1671,7 @@
       "holdingsBtc": 909198,
       "holdingsUsd": 56102589925,
       "cumFlowBtc": 242126,
-      "cumFlowUsd": 14442507449
+      "cumFlowUsd": 14430684099
     },
     {
       "date": "2024-08-09",
@@ -1681,7 +1681,7 @@
       "holdingsBtc": 915058,
       "holdingsUsd": 55692378954,
       "cumFlowBtc": 247986,
-      "cumFlowUsd": 14799159531
+      "cumFlowUsd": 14787336181
     },
     {
       "date": "2024-08-09",
@@ -1691,7 +1691,7 @@
       "holdingsBtc": 914730,
       "holdingsUsd": 55672416175,
       "cumFlowBtc": 247658,
-      "cumFlowUsd": 14779196752
+      "cumFlowUsd": 14767373403
     },
     {
       "date": "2024-08-12",
@@ -1701,7 +1701,7 @@
       "holdingsBtc": 911428,
       "holdingsUsd": 54101254138,
       "cumFlowBtc": 244356,
-      "cumFlowUsd": 14583194061
+      "cumFlowUsd": 14571370711
     },
     {
       "date": "2024-08-13",
@@ -1711,7 +1711,7 @@
       "holdingsBtc": 911561,
       "holdingsUsd": 55243504480,
       "cumFlowBtc": 244489,
-      "cumFlowUsd": 14591254285
+      "cumFlowUsd": 14579430935
     },
     {
       "date": "2024-08-14",
@@ -1721,7 +1721,7 @@
       "holdingsBtc": 911037,
       "holdingsUsd": 53469326373,
       "cumFlowBtc": 243965,
-      "cumFlowUsd": 14560500400
+      "cumFlowUsd": 14548677050
     },
     {
       "date": "2024-08-15",
@@ -1731,7 +1731,7 @@
       "holdingsBtc": 910455,
       "holdingsUsd": 52390867443,
       "cumFlowBtc": 243383,
-      "cumFlowUsd": 14527010019
+      "cumFlowUsd": 14515186669
     },
     {
       "date": "2024-08-16",
@@ -1741,7 +1741,7 @@
       "holdingsBtc": 910818,
       "holdingsUsd": 53637152094,
       "cumFlowBtc": 243746,
-      "cumFlowUsd": 14548386722
+      "cumFlowUsd": 14536563373
     },
     {
       "date": "2024-08-16",
@@ -1751,7 +1751,7 @@
       "holdingsBtc": 912070,
       "holdingsUsd": 53710881109,
       "cumFlowBtc": 244998,
-      "cumFlowUsd": 14622115738
+      "cumFlowUsd": 14610292388
     },
     {
       "date": "2024-08-19",
@@ -1761,7 +1761,7 @@
       "holdingsBtc": 912021,
       "holdingsUsd": 54222083546,
       "cumFlowBtc": 244949,
-      "cumFlowUsd": 14619202557
+      "cumFlowUsd": 14607379207
     },
     {
       "date": "2024-08-20",
@@ -1771,7 +1771,7 @@
       "holdingsBtc": 913710,
       "holdingsUsd": 53924962159,
       "cumFlowBtc": 246638,
-      "cumFlowUsd": 14718883267
+      "cumFlowUsd": 14707059917
     },
     {
       "date": "2024-08-21",
@@ -1781,7 +1781,7 @@
       "holdingsBtc": 914019,
       "holdingsUsd": 55904400022,
       "cumFlowBtc": 246947,
-      "cumFlowUsd": 14737782720
+      "cumFlowUsd": 14725959370
     },
     {
       "date": "2024-08-22",
@@ -1791,7 +1791,7 @@
       "holdingsBtc": 915373,
       "holdingsUsd": 55273233317,
       "cumFlowBtc": 248301,
-      "cumFlowUsd": 14819541695
+      "cumFlowUsd": 14807718345
     },
     {
       "date": "2024-08-23",
@@ -1801,7 +1801,7 @@
       "holdingsBtc": 917145,
       "holdingsUsd": 58776814814,
       "cumFlowBtc": 250073,
-      "cumFlowUsd": 14933103363
+      "cumFlowUsd": 14921280013
     },
     {
       "date": "2024-08-23",
@@ -1811,7 +1811,7 @@
       "holdingsBtc": 918591,
       "holdingsUsd": 58869484212,
       "cumFlowBtc": 251519,
-      "cumFlowUsd": 15025772760
+      "cumFlowUsd": 15013949410
     },
     {
       "date": "2024-08-26",
@@ -1821,7 +1821,7 @@
       "holdingsBtc": 922331,
       "holdingsUsd": 57959280040,
       "cumFlowBtc": 255259,
-      "cumFlowUsd": 15260794360
+      "cumFlowUsd": 15248971010
     },
     {
       "date": "2024-08-27",
@@ -1831,7 +1831,7 @@
       "holdingsBtc": 920457,
       "holdingsUsd": 54711632715,
       "cumFlowBtc": 253385,
-      "cumFlowUsd": 15149404474
+      "cumFlowUsd": 15137581125
     },
     {
       "date": "2024-08-28",
@@ -1841,7 +1841,7 @@
       "holdingsBtc": 920135,
       "holdingsUsd": 54330180794,
       "cumFlowBtc": 253063,
-      "cumFlowUsd": 15130391701
+      "cumFlowUsd": 15118568351
     },
     {
       "date": "2024-08-29",
@@ -1851,7 +1851,7 @@
       "holdingsBtc": 917545,
       "holdingsUsd": 54469572626,
       "cumFlowBtc": 250473,
-      "cumFlowUsd": 14976637724
+      "cumFlowUsd": 14964814374
     },
     {
       "date": "2024-08-30",
@@ -1861,7 +1861,7 @@
       "holdingsBtc": 916868,
       "holdingsUsd": 54198607204,
       "cumFlowBtc": 249796,
-      "cumFlowUsd": 14936618378
+      "cumFlowUsd": 14924795029
     },
     {
       "date": "2024-08-30",
@@ -1871,7 +1871,7 @@
       "holdingsBtc": 915764,
       "holdingsUsd": 54133346706,
       "cumFlowBtc": 248692,
-      "cumFlowUsd": 14871357880
+      "cumFlowUsd": 14859534531
     },
     {
       "date": "2024-09-02",
@@ -1881,7 +1881,7 @@
       "holdingsBtc": 915545,
       "holdingsUsd": 54145175657,
       "cumFlowBtc": 248473,
-      "cumFlowUsd": 14858406258
+      "cumFlowUsd": 14846582908
     },
     {
       "date": "2024-09-03",
@@ -1891,7 +1891,7 @@
       "holdingsBtc": 910278,
       "holdingsUsd": 52312620738,
       "cumFlowBtc": 243206,
-      "cumFlowUsd": 14555717877
+      "cumFlowUsd": 14543894528
     },
     {
       "date": "2024-09-04",
@@ -1901,7 +1901,7 @@
       "holdingsBtc": 909376,
       "holdingsUsd": 52717436096,
       "cumFlowBtc": 242304,
-      "cumFlowUsd": 14503428035
+      "cumFlowUsd": 14491604686
     },
     {
       "date": "2024-09-05",
@@ -1911,7 +1911,7 @@
       "holdingsBtc": 909376,
       "holdingsUsd": 51067664344,
       "cumFlowBtc": 242304,
-      "cumFlowUsd": 14503428035
+      "cumFlowUsd": 14491604686
     },
     {
       "date": "2024-09-06",
@@ -1921,7 +1921,7 @@
       "holdingsBtc": 905491,
       "holdingsUsd": 48851248505,
       "cumFlowBtc": 238419,
-      "cumFlowUsd": 14293832246
+      "cumFlowUsd": 14282008897
     },
     {
       "date": "2024-09-06",
@@ -1931,7 +1931,7 @@
       "holdingsBtc": 904491,
       "holdingsUsd": 48797298495,
       "cumFlowBtc": 237419,
-      "cumFlowUsd": 14239882236
+      "cumFlowUsd": 14228058887
     },
     {
       "date": "2024-09-09",
@@ -1941,7 +1941,7 @@
       "holdingsBtc": 902755,
       "holdingsUsd": 51505693495,
       "cumFlowBtc": 235683,
-      "cumFlowUsd": 14140836666
+      "cumFlowUsd": 14129013316
     },
     {
       "date": "2024-09-10",
@@ -1951,7 +1951,7 @@
       "holdingsBtc": 902487,
       "holdingsUsd": 52024395582,
       "cumFlowBtc": 235415,
-      "cumFlowUsd": 14125387648
+      "cumFlowUsd": 14113564298
     },
     {
       "date": "2024-09-11",
@@ -1961,7 +1961,7 @@
       "holdingsBtc": 903390,
       "holdingsUsd": 51811936958,
       "cumFlowBtc": 236318,
-      "cumFlowUsd": 14177177217
+      "cumFlowUsd": 14165353868
     },
     {
       "date": "2024-09-12",
@@ -1971,7 +1971,7 @@
       "holdingsBtc": 904309,
       "holdingsUsd": 52574300660,
       "cumFlowBtc": 237237,
-      "cumFlowUsd": 14230605617
+      "cumFlowUsd": 14218782267
     },
     {
       "date": "2024-09-13",
@@ -1981,7 +1981,7 @@
       "holdingsBtc": 903880,
       "holdingsUsd": 54723923198,
       "cumFlowBtc": 236808,
-      "cumFlowUsd": 14204632519
+      "cumFlowUsd": 14192809170
     },
     {
       "date": "2024-09-13",
@@ -1991,7 +1991,7 @@
       "holdingsBtc": 904767,
       "holdingsUsd": 54777625149,
       "cumFlowBtc": 237695,
-      "cumFlowUsd": 14258334471
+      "cumFlowUsd": 14246511121
     },
     {
       "date": "2024-09-16",
@@ -2001,7 +2001,7 @@
       "holdingsBtc": 908128,
       "holdingsUsd": 52860995720,
       "cumFlowBtc": 241056,
-      "cumFlowUsd": 14453974080
+      "cumFlowUsd": 14442150730
     },
     {
       "date": "2024-09-17",
@@ -2011,7 +2011,7 @@
       "holdingsBtc": 908746,
       "holdingsUsd": 54808834000,
       "cumFlowBtc": 241674,
-      "cumFlowUsd": 14491247266
+      "cumFlowUsd": 14479423917
     },
     {
       "date": "2024-09-18",
@@ -2021,7 +2021,7 @@
       "holdingsBtc": 911102,
       "holdingsUsd": 56278023436,
       "cumFlowBtc": 244030,
-      "cumFlowUsd": 14636775455
+      "cumFlowUsd": 14624952105
     },
     {
       "date": "2024-09-19",
@@ -2031,7 +2031,7 @@
       "holdingsBtc": 910640,
       "holdingsUsd": 57334021890,
       "cumFlowBtc": 243568,
-      "cumFlowUsd": 14607687870
+      "cumFlowUsd": 14595864520
     },
     {
       "date": "2024-09-20",
@@ -2041,7 +2041,7 @@
       "holdingsBtc": 912879,
       "holdingsUsd": 57703711477,
       "cumFlowBtc": 245807,
-      "cumFlowUsd": 14749216605
+      "cumFlowUsd": 14737393255
     },
     {
       "date": "2024-09-20",
@@ -2051,7 +2051,7 @@
       "holdingsBtc": 913341,
       "holdingsUsd": 57732914815,
       "cumFlowBtc": 246269,
-      "cumFlowUsd": 14778419944
+      "cumFlowUsd": 14766596594
     },
     {
       "date": "2024-09-23",
@@ -2061,7 +2061,7 @@
       "holdingsBtc": 914107,
       "holdingsUsd": 57898504439,
       "cumFlowBtc": 247035,
-      "cumFlowUsd": 14826937518
+      "cumFlowUsd": 14815114168
     },
     {
       "date": "2024-09-24",
@@ -2071,7 +2071,7 @@
       "holdingsBtc": 914982,
       "holdingsUsd": 58808574037,
       "cumFlowBtc": 247910,
-      "cumFlowUsd": 14883176332
+      "cumFlowUsd": 14871352982
     },
     {
       "date": "2024-09-25",
@@ -2081,7 +2081,7 @@
       "holdingsBtc": 916551,
       "holdingsUsd": 57862680360,
       "cumFlowBtc": 249479,
-      "cumFlowUsd": 14982228698
+      "cumFlowUsd": 14970405348
     },
     {
       "date": "2024-09-26",
@@ -2091,7 +2091,7 @@
       "holdingsBtc": 918258,
       "holdingsUsd": 59849494500,
       "cumFlowBtc": 251186,
-      "cumFlowUsd": 15093486196
+      "cumFlowUsd": 15081662846
     },
     {
       "date": "2024-09-27",
@@ -2101,7 +2101,7 @@
       "holdingsBtc": 923493,
       "holdingsUsd": 60755680977,
       "cumFlowBtc": 256421,
-      "cumFlowUsd": 15437891611
+      "cumFlowUsd": 15426068261
     },
     {
       "date": "2024-09-27",
@@ -2111,7 +2111,7 @@
       "holdingsBtc": 925338,
       "holdingsUsd": 60877061682,
       "cumFlowBtc": 258266,
-      "cumFlowUsd": 15559272316
+      "cumFlowUsd": 15547448966
     },
     {
       "date": "2024-09-30",
@@ -2121,7 +2121,7 @@
       "holdingsBtc": 931502,
       "holdingsUsd": 58965240978,
       "cumFlowBtc": 264430,
-      "cumFlowUsd": 15949461221
+      "cumFlowUsd": 15937637871
     },
     {
       "date": "2024-10-01",
@@ -2131,7 +2131,7 @@
       "holdingsBtc": 933003,
       "holdingsUsd": 56717252370,
       "cumFlowBtc": 265931,
-      "cumFlowUsd": 16040707011
+      "cumFlowUsd": 16028883661
     },
     {
       "date": "2024-10-02",
@@ -2141,7 +2141,7 @@
       "holdingsBtc": 928726,
       "holdingsUsd": 56309929735,
       "cumFlowBtc": 261654,
-      "cumFlowUsd": 15781386641
+      "cumFlowUsd": 15769563291
     },
     {
       "date": "2024-10-04",
@@ -2151,7 +2151,7 @@
       "holdingsBtc": 926741,
       "holdingsUsd": 57542006676,
       "cumFlowBtc": 259669,
-      "cumFlowUsd": 15658136582
+      "cumFlowUsd": 15646313232
     },
     {
       "date": "2024-10-07",
@@ -2161,7 +2161,7 @@
       "holdingsBtc": 927044,
       "holdingsUsd": 57662396372,
       "cumFlowBtc": 259972,
-      "cumFlowUsd": 15676983267
+      "cumFlowUsd": 15665159917
     },
     {
       "date": "2024-10-08",
@@ -2171,7 +2171,7 @@
       "holdingsBtc": 930471,
       "holdingsUsd": 57802738071,
       "cumFlowBtc": 263399,
-      "cumFlowUsd": 15889875429
+      "cumFlowUsd": 15878052079
     },
     {
       "date": "2024-10-09",
@@ -2181,7 +2181,7 @@
       "holdingsBtc": 930398,
       "holdingsUsd": 56361910555,
       "cumFlowBtc": 263326,
-      "cumFlowUsd": 15885453215
+      "cumFlowUsd": 15873629865
     },
     {
       "date": "2024-10-10",
@@ -2191,7 +2191,7 @@
       "holdingsBtc": 930301,
       "holdingsUsd": 56078107039,
       "cumFlowBtc": 263229,
-      "cumFlowUsd": 15879606100
+      "cumFlowUsd": 15867782751
     },
     {
       "date": "2024-10-11",
@@ -2201,7 +2201,7 @@
       "holdingsBtc": 928198,
       "holdingsUsd": 58029778713,
       "cumFlowBtc": 261126,
-      "cumFlowUsd": 15748129169
+      "cumFlowUsd": 15736305819
     },
     {
       "date": "2024-10-11",
@@ -2211,7 +2211,7 @@
       "holdingsBtc": 928459,
       "holdingsUsd": 58046096106,
       "cumFlowBtc": 261387,
-      "cumFlowUsd": 15764446563
+      "cumFlowUsd": 15752623213
     },
     {
       "date": "2024-10-14",
@@ -2221,7 +2221,7 @@
       "holdingsBtc": 931902,
       "holdingsUsd": 61566711366,
       "cumFlowBtc": 264830,
-      "cumFlowUsd": 15991910596
+      "cumFlowUsd": 15980087246
     },
     {
       "date": "2024-10-15",
@@ -2231,7 +2231,7 @@
       "holdingsBtc": 938926,
       "holdingsUsd": 62961185212,
       "cumFlowBtc": 271854,
-      "cumFlowUsd": 16462916154
+      "cumFlowUsd": 16451092804
     },
     {
       "date": "2024-10-16",
@@ -2241,7 +2241,7 @@
       "holdingsBtc": 944878,
       "holdingsUsd": 63881727570,
       "cumFlowBtc": 277806,
-      "cumFlowUsd": 16865321589
+      "cumFlowUsd": 16853498239
     },
     {
       "date": "2024-10-18",
@@ -2251,7 +2251,7 @@
       "holdingsBtc": 960540,
       "holdingsUsd": 65726015699,
       "cumFlowBtc": 293468,
-      "cumFlowUsd": 17937011324
+      "cumFlowUsd": 17925187974
     },
     {
       "date": "2024-10-21",
@@ -2261,7 +2261,7 @@
       "holdingsBtc": 962400,
       "holdingsUsd": 64813934760,
       "cumFlowBtc": 295328,
-      "cumFlowUsd": 18062275163
+      "cumFlowUsd": 18050451813
     },
     {
       "date": "2024-10-22",
@@ -2271,7 +2271,7 @@
       "holdingsBtc": 967334,
       "holdingsUsd": 65179042307,
       "cumFlowBtc": 300262,
-      "cumFlowUsd": 18394728478
+      "cumFlowUsd": 18382905128
     },
     {
       "date": "2024-10-23",
@@ -2281,7 +2281,7 @@
       "holdingsBtc": 967819,
       "holdingsUsd": 64457819679,
       "cumFlowBtc": 300747,
-      "cumFlowUsd": 18427030016
+      "cumFlowUsd": 18415206666
     },
     {
       "date": "2024-10-25",
@@ -2291,7 +2291,7 @@
       "holdingsBtc": 975928,
       "holdingsUsd": 64962169115,
       "cumFlowBtc": 308856,
-      "cumFlowUsd": 18966801627
+      "cumFlowUsd": 18954978278
     },
     {
       "date": "2024-10-28",
@@ -2301,7 +2301,7 @@
       "holdingsBtc": 977275,
       "holdingsUsd": 68335465738,
       "cumFlowBtc": 310203,
-      "cumFlowUsd": 19060989929
+      "cumFlowUsd": 19049166579
     },
     {
       "date": "2024-10-29",
@@ -2311,7 +2311,7 @@
       "holdingsBtc": 984084,
       "holdingsUsd": 71566869245,
       "cumFlowBtc": 317012,
-      "cumFlowUsd": 19556170028
+      "cumFlowUsd": 19544346678
     },
     {
       "date": "2024-10-30",
@@ -2321,7 +2321,7 @@
       "holdingsBtc": 995829,
       "holdingsUsd": 72021251142,
       "cumFlowBtc": 328757,
-      "cumFlowUsd": 20405602606
+      "cumFlowUsd": 20393779256
     },
     {
       "date": "2024-10-31",
@@ -2331,7 +2331,7 @@
       "holdingsBtc": 1008471,
       "holdingsUsd": 70792475818,
       "cumFlowBtc": 341399,
-      "cumFlowUsd": 21293043573
+      "cumFlowUsd": 21281220223
     },
     {
       "date": "2024-11-01",
@@ -2341,7 +2341,7 @@
       "holdingsBtc": 1011005,
       "holdingsUsd": 70231777526,
       "cumFlowBtc": 343933,
-      "cumFlowUsd": 21469073686
+      "cumFlowUsd": 21457250336
     },
     {
       "date": "2024-11-01",
@@ -2351,7 +2351,7 @@
       "holdingsBtc": 1008933,
       "holdingsUsd": 70087841302,
       "cumFlowBtc": 341861,
-      "cumFlowUsd": 21325137461
+      "cumFlowUsd": 21313314111
     },
     {
       "date": "2024-11-04",
@@ -2361,7 +2361,7 @@
       "holdingsBtc": 1008089,
       "holdingsUsd": 68355974706,
       "cumFlowBtc": 341017,
-      "cumFlowUsd": 21267907948
+      "cumFlowUsd": 21256084598
     },
     {
       "date": "2024-11-05",
@@ -2371,7 +2371,7 @@
       "holdingsBtc": 1002640,
       "holdingsUsd": 69563895127,
       "cumFlowBtc": 335568,
-      "cumFlowUsd": 20889852350
+      "cumFlowUsd": 20878029000
     },
     {
       "date": "2024-11-06",
@@ -2381,7 +2381,7 @@
       "holdingsBtc": 998485,
       "holdingsUsd": 75531945477,
       "cumFlowBtc": 331413,
-      "cumFlowUsd": 20575540935
+      "cumFlowUsd": 20563717585
     },
     {
       "date": "2024-11-07",
@@ -2391,7 +2391,7 @@
       "holdingsBtc": 1004656,
       "holdingsUsd": 76273483520,
       "cumFlowBtc": 337584,
-      "cumFlowUsd": 21044043255
+      "cumFlowUsd": 21032219905
     },
     {
       "date": "2024-11-08",
@@ -2401,7 +2401,7 @@
       "holdingsBtc": 1024007,
       "holdingsUsd": 78404867487,
       "cumFlowBtc": 356935,
-      "cumFlowUsd": 22525686047
+      "cumFlowUsd": 22513862697
     },
     {
       "date": "2024-11-08",
@@ -2411,7 +2411,7 @@
       "holdingsBtc": 1027860,
       "holdingsUsd": 78699879098,
       "cumFlowBtc": 360788,
-      "cumFlowUsd": 22820697658
+      "cumFlowUsd": 22808874308
     },
     {
       "date": "2024-11-11",
@@ -2421,7 +2421,7 @@
       "holdingsBtc": 1028291,
       "holdingsUsd": 91282142722,
       "cumFlowBtc": 361219,
-      "cumFlowUsd": 22858957842
+      "cumFlowUsd": 22847134493
     },
     {
       "date": "2024-11-12",
@@ -2431,7 +2431,7 @@
       "holdingsBtc": 1040529,
       "holdingsUsd": 91603417942,
       "cumFlowBtc": 373457,
-      "cumFlowUsd": 23936335435
+      "cumFlowUsd": 23924512085
     },
     {
       "date": "2024-11-13",
@@ -2441,7 +2441,7 @@
       "holdingsBtc": 1050168,
       "holdingsUsd": 95033713962,
       "cumFlowBtc": 383096,
-      "cumFlowUsd": 24808605366
+      "cumFlowUsd": 24796782016
     },
     {
       "date": "2024-11-14",
@@ -2451,7 +2451,7 @@
       "holdingsBtc": 1055139,
       "holdingsUsd": 92156262316,
       "cumFlowBtc": 388067,
-      "cumFlowUsd": 25242774494
+      "cumFlowUsd": 25230951144
     },
     {
       "date": "2024-11-15",
@@ -2461,7 +2461,7 @@
       "holdingsBtc": 1052130,
       "holdingsUsd": 95805232307,
       "cumFlowBtc": 385058,
-      "cumFlowUsd": 24968779889
+      "cumFlowUsd": 24956956539
     },
     {
       "date": "2024-11-15",
@@ -2471,7 +2471,7 @@
       "holdingsBtc": 1051212,
       "holdingsUsd": 95721640732,
       "cumFlowBtc": 384140,
-      "cumFlowUsd": 24885188314
+      "cumFlowUsd": 24873364965
     },
     {
       "date": "2024-11-18",
@@ -2481,7 +2481,7 @@
       "holdingsBtc": 1048096,
       "holdingsUsd": 94873964349,
       "cumFlowBtc": 381024,
-      "cumFlowUsd": 24603127060
+      "cumFlowUsd": 24591303710
     },
     {
       "date": "2024-11-19",
@@ -2491,7 +2491,7 @@
       "holdingsBtc": 1049268,
       "holdingsUsd": 96990021429,
       "cumFlowBtc": 382196,
-      "cumFlowUsd": 24711461923
+      "cumFlowUsd": 24699638573
     },
     {
       "date": "2024-11-20",
@@ -2501,7 +2501,7 @@
       "holdingsBtc": 1058594,
       "holdingsUsd": 99924022231,
       "cumFlowBtc": 391522,
-      "cumFlowUsd": 25591772440
+      "cumFlowUsd": 25579949090
     },
     {
       "date": "2024-11-21",
@@ -2511,7 +2511,7 @@
       "holdingsBtc": 1067188,
       "holdingsUsd": 105053015579,
       "cumFlowBtc": 400116,
-      "cumFlowUsd": 26437757979
+      "cumFlowUsd": 26425934629
     },
     {
       "date": "2024-11-22",
@@ -2521,7 +2521,7 @@
       "holdingsBtc": 1077504,
       "holdingsUsd": 106698788421,
       "cumFlowBtc": 410432,
-      "cumFlowUsd": 27459289872
+      "cumFlowUsd": 27447466523
     },
     {
       "date": "2024-11-22",
@@ -2531,7 +2531,7 @@
       "holdingsBtc": 1082708,
       "holdingsUsd": 107214109473,
       "cumFlowBtc": 415636,
-      "cumFlowUsd": 27974610925
+      "cumFlowUsd": 27962787575
     },
     {
       "date": "2024-11-25",
@@ -2541,7 +2541,7 @@
       "holdingsBtc": 1082927,
       "holdingsUsd": 100712221829,
       "cumFlowBtc": 415855,
-      "cumFlowUsd": 27994977927
+      "cumFlowUsd": 27983154577
     },
     {
       "date": "2024-11-26",
@@ -2551,7 +2551,7 @@
       "holdingsBtc": 1080751,
       "holdingsUsd": 99352942285,
       "cumFlowBtc": 413679,
-      "cumFlowUsd": 27794939248
+      "cumFlowUsd": 27783115898
     },
     {
       "date": "2024-11-27",
@@ -2561,7 +2561,7 @@
       "holdingsBtc": 1076847,
       "holdingsUsd": 103324751098,
       "cumFlowBtc": 409775,
-      "cumFlowUsd": 27420345802
+      "cumFlowUsd": 27408522452
     },
     {
       "date": "2024-11-29",
@@ -2571,7 +2571,7 @@
       "holdingsBtc": 1077433,
       "holdingsUsd": 105039546532,
       "cumFlowBtc": 410361,
-      "cumFlowUsd": 27477475270
+      "cumFlowUsd": 27465651920
     },
     {
       "date": "2024-11-29",
@@ -2581,7 +2581,7 @@
       "holdingsBtc": 1079215,
       "holdingsUsd": 105213274710,
       "cumFlowBtc": 412143,
-      "cumFlowUsd": 27651203448
+      "cumFlowUsd": 27639380098
     },
     {
       "date": "2024-12-02",
@@ -2591,7 +2591,7 @@
       "holdingsBtc": 1080308,
       "holdingsUsd": 103561446970,
       "cumFlowBtc": 413236,
-      "cumFlowUsd": 27755981587
+      "cumFlowUsd": 27744158237
     },
     {
       "date": "2024-12-03",
@@ -2601,7 +2601,7 @@
       "holdingsBtc": 1084775,
       "holdingsUsd": 104056521183,
       "cumFlowBtc": 417703,
-      "cumFlowUsd": 28184476418
+      "cumFlowUsd": 28172653068
     },
     {
       "date": "2024-12-04",
@@ -2611,7 +2611,7 @@
       "holdingsBtc": 1091330,
       "holdingsUsd": 107764734099,
       "cumFlowBtc": 424258,
-      "cumFlowUsd": 28831758021
+      "cumFlowUsd": 28819934671
     },
     {
       "date": "2024-12-05",
@@ -2621,7 +2621,7 @@
       "holdingsBtc": 1097532,
       "holdingsUsd": 106509147840,
       "cumFlowBtc": 430460,
-      "cumFlowUsd": 29433626335
+      "cumFlowUsd": 29421802986
     },
     {
       "date": "2024-12-06",
@@ -2631,7 +2631,7 @@
       "holdingsBtc": 1105357,
       "holdingsUsd": 110415602962,
       "cumFlowBtc": 438285,
-      "cumFlowUsd": 30215276149
+      "cumFlowUsd": 30203452799
     },
     {
       "date": "2024-12-06",
@@ -2641,7 +2641,7 @@
       "holdingsBtc": 1107579,
       "holdingsUsd": 110637561542,
       "cumFlowBtc": 440507,
-      "cumFlowUsd": 30437234729
+      "cumFlowUsd": 30425411379
     },
     {
       "date": "2024-12-09",
@@ -2651,7 +2651,7 @@
       "holdingsBtc": 1110029,
       "holdingsUsd": 108033361519,
       "cumFlowBtc": 442957,
-      "cumFlowUsd": 30675680513
+      "cumFlowUsd": 30663857164
     },
     {
       "date": "2024-12-10",
@@ -2661,7 +2661,7 @@
       "holdingsBtc": 1114773,
       "holdingsUsd": 107754805407,
       "cumFlowBtc": 447701,
-      "cumFlowUsd": 31134239159
+      "cumFlowUsd": 31122415809
     },
     {
       "date": "2024-12-11",
@@ -2671,7 +2671,7 @@
       "holdingsBtc": 1119877,
       "holdingsUsd": 113333915340,
       "cumFlowBtc": 452805,
-      "cumFlowUsd": 31650774728
+      "cumFlowUsd": 31638951378
     },
     {
       "date": "2024-12-12",
@@ -2681,7 +2681,7 @@
       "holdingsBtc": 1121068,
       "holdingsUsd": 112140958942,
       "cumFlowBtc": 453996,
-      "cumFlowUsd": 31769911018
+      "cumFlowUsd": 31758087668
     },
     {
       "date": "2024-12-13",
@@ -2691,7 +2691,7 @@
       "holdingsBtc": 1126801,
       "holdingsUsd": 114290016929,
       "cumFlowBtc": 459729,
-      "cumFlowUsd": 32351402042
+      "cumFlowUsd": 32339578692
     },
     {
       "date": "2024-12-13",
@@ -2701,7 +2701,7 @@
       "holdingsBtc": 1131956,
       "holdingsUsd": 114812882135,
       "cumFlowBtc": 464884,
-      "cumFlowUsd": 32874267248
+      "cumFlowUsd": 32862443898
     },
     {
       "date": "2024-12-16",
@@ -2711,7 +2711,7 @@
       "holdingsBtc": 1132546,
       "holdingsUsd": 120162915416,
       "cumFlowBtc": 465474,
-      "cumFlowUsd": 32936866136
+      "cumFlowUsd": 32925042786
     },
     {
       "date": "2024-12-17",
@@ -2721,7 +2721,7 @@
       "holdingsBtc": 1137374,
       "holdingsUsd": 120717452864,
       "cumFlowBtc": 470302,
-      "cumFlowUsd": 33449295524
+      "cumFlowUsd": 33437472174
     },
     {
       "date": "2024-12-18",
@@ -2731,7 +2731,7 @@
       "holdingsBtc": 1142962,
       "holdingsUsd": 114468478662,
       "cumFlowBtc": 475890,
-      "cumFlowUsd": 34008937803
+      "cumFlowUsd": 33997114453
     },
     {
       "date": "2024-12-19",
@@ -2741,7 +2741,7 @@
       "holdingsBtc": 1145544,
       "holdingsUsd": 111544150932,
       "cumFlowBtc": 478472,
-      "cumFlowUsd": 34260352849
+      "cumFlowUsd": 34248529499
     },
     {
       "date": "2024-12-20",
@@ -2751,7 +2751,7 @@
       "holdingsBtc": 1141377,
       "holdingsUsd": 111586722405,
       "cumFlowBtc": 474305,
-      "cumFlowUsd": 33852966094
+      "cumFlowUsd": 33841142744
     },
     {
       "date": "2024-12-23",
@@ -2761,7 +2761,7 @@
       "holdingsBtc": 1136051,
       "holdingsUsd": 107657373153,
       "cumFlowBtc": 468979,
-      "cumFlowUsd": 33348250047
+      "cumFlowUsd": 33336426698
     },
     {
       "date": "2024-12-25",
@@ -2771,7 +2771,7 @@
       "holdingsBtc": 1130707,
       "holdingsUsd": 112331534220,
       "cumFlowBtc": 463635,
-      "cumFlowUsd": 32817343527
+      "cumFlowUsd": 32805520177
     },
     {
       "date": "2024-12-26",
@@ -2781,7 +2781,7 @@
       "holdingsBtc": 1129855,
       "holdingsUsd": 108092651624,
       "cumFlowBtc": 462783,
-      "cumFlowUsd": 32735833122
+      "cumFlowUsd": 32724009772
     },
     {
       "date": "2024-12-27",
@@ -2791,7 +2791,7 @@
       "holdingsBtc": 1134963,
       "holdingsUsd": 106881610790,
       "cumFlowBtc": 467891,
-      "cumFlowUsd": 33216863136
+      "cumFlowUsd": 33205039786
     },
     {
       "date": "2024-12-27",
@@ -2801,7 +2801,7 @@
       "holdingsBtc": 1134044,
       "holdingsUsd": 106795066823,
       "cumFlowBtc": 466972,
-      "cumFlowUsd": 33130319169
+      "cumFlowUsd": 33118495819
     },
     {
       "date": "2024-12-30",
@@ -2811,7 +2811,7 @@
       "holdingsBtc": 1131760,
       "holdingsUsd": 104824414750,
       "cumFlowBtc": 464688,
-      "cumFlowUsd": 32918773467
+      "cumFlowUsd": 32906950118
     },
     {
       "date": "2024-12-31",
@@ -2821,7 +2821,7 @@
       "holdingsBtc": 1128673,
       "holdingsUsd": 105366387550,
       "cumFlowBtc": 461601,
-      "cumFlowUsd": 32630588990
+      "cumFlowUsd": 32618765640
     },
     {
       "date": "2025-01-01",
@@ -2831,7 +2831,7 @@
       "holdingsBtc": 1126613,
       "holdingsUsd": 106333779481,
       "cumFlowBtc": 459541,
-      "cumFlowUsd": 32436158795
+      "cumFlowUsd": 32424335445
     },
     {
       "date": "2025-01-02",
@@ -2841,7 +2841,7 @@
       "holdingsBtc": 1127006,
       "holdingsUsd": 109210476549,
       "cumFlowBtc": 459934,
-      "cumFlowUsd": 32474241748
+      "cumFlowUsd": 32462418399
     },
     {
       "date": "2025-01-03",
@@ -2851,7 +2851,7 @@
       "holdingsBtc": 1124511,
       "holdingsUsd": 110355584997,
       "cumFlowBtc": 457439,
-      "cumFlowUsd": 32229391156
+      "cumFlowUsd": 32217567806
     },
     {
       "date": "2025-01-03",
@@ -2861,7 +2861,7 @@
       "holdingsBtc": 1129841,
       "holdingsUsd": 110878652595,
       "cumFlowBtc": 462769,
-      "cumFlowUsd": 32752458754
+      "cumFlowUsd": 32740635404
     },
     {
       "date": "2025-01-06",
@@ -2871,7 +2871,7 @@
       "holdingsBtc": 1133521,
       "holdingsUsd": 115935859103,
       "cumFlowBtc": 466449,
-      "cumFlowUsd": 33128846983
+      "cumFlowUsd": 33117023633
     },
     {
       "date": "2025-01-07",
@@ -2881,7 +2881,7 @@
       "holdingsBtc": 1140178,
       "holdingsUsd": 110531112872,
       "cumFlowBtc": 473106,
-      "cumFlowUsd": 33774189744
+      "cumFlowUsd": 33762366394
     },
     {
       "date": "2025-01-08",
@@ -2891,7 +2891,7 @@
       "holdingsBtc": 1145002,
       "holdingsUsd": 108817131423,
       "cumFlowBtc": 477930,
-      "cumFlowUsd": 34232646447
+      "cumFlowUsd": 34220823097
     },
     {
       "date": "2025-01-09",
@@ -2901,7 +2901,7 @@
       "holdingsBtc": 1137689,
       "holdingsUsd": 105290204466,
       "cumFlowBtc": 470617,
-      "cumFlowUsd": 33555847018
+      "cumFlowUsd": 33544023669
     },
     {
       "date": "2025-01-13",
@@ -2911,7 +2911,7 @@
       "holdingsBtc": 1135870,
       "holdingsUsd": 107347041362,
       "cumFlowBtc": 468798,
-      "cumFlowUsd": 33383939786
+      "cumFlowUsd": 33372116436
     },
     {
       "date": "2025-01-14",
@@ -2921,7 +2921,7 @@
       "holdingsBtc": 1133874,
       "holdingsUsd": 109458481235,
       "cumFlowBtc": 466802,
-      "cumFlowUsd": 33191256006
+      "cumFlowUsd": 33179432656
     },
     {
       "date": "2025-01-15",
@@ -2931,7 +2931,7 @@
       "holdingsBtc": 1130679,
       "holdingsUsd": 113644806346,
       "cumFlowBtc": 463607,
-      "cumFlowUsd": 32870125821
+      "cumFlowUsd": 32858302471
     },
     {
       "date": "2025-01-16",
@@ -2941,7 +2941,7 @@
       "holdingsBtc": 1137415,
       "holdingsUsd": 113720776299,
       "cumFlowBtc": 470343,
-      "cumFlowUsd": 33543603091
+      "cumFlowUsd": 33531779741
     },
     {
       "date": "2025-01-17",
@@ -2951,7 +2951,7 @@
       "holdingsBtc": 1145091,
       "holdingsUsd": 119211988737,
       "cumFlowBtc": 478019,
-      "cumFlowUsd": 34342728423
+      "cumFlowUsd": 34330905073
     },
     {
       "date": "2025-01-20",
@@ -2961,7 +2961,7 @@
       "holdingsBtc": 1150989,
       "holdingsUsd": 117568266330,
       "cumFlowBtc": 483917,
-      "cumFlowUsd": 34945182169
+      "cumFlowUsd": 34933358819
     },
     {
       "date": "2025-01-21",
@@ -2971,7 +2971,7 @@
       "holdingsBtc": 1154090,
       "holdingsUsd": 122517340373,
       "cumFlowBtc": 487018,
-      "cumFlowUsd": 35274382034
+      "cumFlowUsd": 35262558684
     },
     {
       "date": "2025-01-22",
@@ -2981,7 +2981,7 @@
       "holdingsBtc": 1160825,
       "holdingsUsd": 120339372966,
       "cumFlowBtc": 493753,
-      "cumFlowUsd": 35972580020
+      "cumFlowUsd": 35960756670
     },
     {
       "date": "2025-01-23",
@@ -2991,7 +2991,7 @@
       "holdingsBtc": 1164945,
       "holdingsUsd": 121068493450,
       "cumFlowBtc": 497873,
-      "cumFlowUsd": 36400756623
+      "cumFlowUsd": 36388933274
     },
     {
       "date": "2025-01-24",
@@ -3001,7 +3001,7 @@
       "holdingsBtc": 1166523,
       "holdingsUsd": 122310251511,
       "cumFlowBtc": 499451,
-      "cumFlowUsd": 36566210349
+      "cumFlowUsd": 36554387000
     },
     {
       "date": "2025-01-27",
@@ -3011,7 +3011,7 @@
       "holdingsBtc": 1170939,
       "holdingsUsd": 119508868012,
       "cumFlowBtc": 503867,
-      "cumFlowUsd": 37016917996
+      "cumFlowUsd": 37005094646
     },
     {
       "date": "2025-01-28",
@@ -3021,7 +3021,7 @@
       "holdingsBtc": 1167629,
       "holdingsUsd": 118269141410,
       "cumFlowBtc": 500557,
-      "cumFlowUsd": 36681648096
+      "cumFlowUsd": 36669824746
     },
     {
       "date": "2025-01-29",
@@ -3031,7 +3031,7 @@
       "holdingsBtc": 1166674,
       "holdingsUsd": 121039219147,
       "cumFlowBtc": 499602,
-      "cumFlowUsd": 36582569472
+      "cumFlowUsd": 36570746123
     },
     {
       "date": "2025-01-30",
@@ -3041,7 +3041,7 @@
       "holdingsBtc": 1166530,
       "holdingsUsd": 122185431839,
       "cumFlowBtc": 499458,
-      "cumFlowUsd": 36567486532
+      "cumFlowUsd": 36555663182
     },
     {
       "date": "2025-01-31",
@@ -3051,7 +3051,7 @@
       "holdingsBtc": 1172971,
       "holdingsUsd": 120125438053,
       "cumFlowBtc": 505899,
-      "cumFlowUsd": 37227117458
+      "cumFlowUsd": 37215294108
     },
     {
       "date": "2025-02-03",
@@ -3061,7 +3061,7 @@
       "holdingsBtc": 1176423,
       "holdingsUsd": 119360112865,
       "cumFlowBtc": 509351,
-      "cumFlowUsd": 37577358068
+      "cumFlowUsd": 37565534718
     },
     {
       "date": "2025-02-04",
@@ -3071,7 +3071,7 @@
       "holdingsBtc": 1173809,
       "holdingsUsd": 114792709845,
       "cumFlowBtc": 506737,
-      "cumFlowUsd": 37321721807
+      "cumFlowUsd": 37309898458
     },
     {
       "date": "2025-02-05",
@@ -3081,7 +3081,7 @@
       "holdingsBtc": 1177049,
       "holdingsUsd": 113748049688,
       "cumFlowBtc": 509977,
-      "cumFlowUsd": 37634829997
+      "cumFlowUsd": 37623006647
     },
     {
       "date": "2025-02-06",
@@ -3091,7 +3091,7 @@
       "holdingsBtc": 1177920,
       "holdingsUsd": 113745397190,
       "cumFlowBtc": 510848,
-      "cumFlowUsd": 37718937781
+      "cumFlowUsd": 37707114431
     },
     {
       "date": "2025-02-07",
@@ -3101,7 +3101,7 @@
       "holdingsBtc": 1176722,
       "holdingsUsd": 113597305852,
       "cumFlowBtc": 509650,
-      "cumFlowUsd": 37603286359
+      "cumFlowUsd": 37591463009
     },
     {
       "date": "2025-02-10",
@@ -3111,7 +3111,7 @@
       "holdingsBtc": 1177885,
       "holdingsUsd": 114778308873,
       "cumFlowBtc": 510813,
-      "cumFlowUsd": 37716614208
+      "cumFlowUsd": 37704790858
     },
     {
       "date": "2025-02-11",
@@ -3121,7 +3121,7 @@
       "holdingsBtc": 1177055,
       "holdingsUsd": 112731359734,
       "cumFlowBtc": 509983,
-      "cumFlowUsd": 37637121721
+      "cumFlowUsd": 37625298372
     },
     {
       "date": "2025-02-12",
@@ -3131,7 +3131,7 @@
       "holdingsBtc": 1175981,
       "holdingsUsd": 115084475892,
       "cumFlowBtc": 508909,
-      "cumFlowUsd": 37532017364
+      "cumFlowUsd": 37520194014
     },
     {
       "date": "2025-02-13",
@@ -3141,7 +3141,7 @@
       "holdingsBtc": 1173347,
       "holdingsUsd": 113374994146,
       "cumFlowBtc": 506275,
-      "cumFlowUsd": 37277506350
+      "cumFlowUsd": 37265683000
     },
     {
       "date": "2025-02-17",
@@ -3151,7 +3151,7 @@
       "holdingsBtc": 1171900,
       "holdingsUsd": 112246691420,
       "cumFlowBtc": 504828,
-      "cumFlowUsd": 37138910086
+      "cumFlowUsd": 37127086736
     },
     {
       "date": "2025-02-18",
@@ -3161,7 +3161,7 @@
       "holdingsBtc": 1172861,
       "holdingsUsd": 112134190771,
       "cumFlowBtc": 505789,
-      "cumFlowUsd": 37230788797
+      "cumFlowUsd": 37218965447
     },
     {
       "date": "2025-02-19",
@@ -3171,7 +3171,7 @@
       "holdingsBtc": 1171743,
       "holdingsUsd": 113227904728,
       "cumFlowBtc": 504671,
-      "cumFlowUsd": 37122754187
+      "cumFlowUsd": 37110930838
     },
     {
       "date": "2025-02-20",
@@ -3181,7 +3181,7 @@
       "holdingsBtc": 1171068,
       "holdingsUsd": 115171258810,
       "cumFlowBtc": 503996,
-      "cumFlowUsd": 37056369827
+      "cumFlowUsd": 37044546478
     },
     {
       "date": "2025-02-21",
@@ -3191,7 +3191,7 @@
       "holdingsBtc": 1168222,
       "holdingsUsd": 112332757901,
       "cumFlowBtc": 501150,
-      "cumFlowUsd": 36782706920
+      "cumFlowUsd": 36770883570
     },
     {
       "date": "2025-02-24",
@@ -3201,7 +3201,7 @@
       "holdingsBtc": 1167175,
       "holdingsUsd": 106809141334,
       "cumFlowBtc": 500103,
-      "cumFlowUsd": 36686895092
+      "cumFlowUsd": 36675071742
     },
     {
       "date": "2025-02-25",
@@ -3211,7 +3211,7 @@
       "holdingsBtc": 1161825,
       "holdingsUsd": 102918803726,
       "cumFlowBtc": 494753,
-      "cumFlowUsd": 36212972083
+      "cumFlowUsd": 36201148733
     },
     {
       "date": "2025-02-26",
@@ -3221,7 +3221,7 @@
       "holdingsBtc": 1150659,
       "holdingsUsd": 96783976663,
       "cumFlowBtc": 483587,
-      "cumFlowUsd": 35273779947
+      "cumFlowUsd": 35261956597
     },
     {
       "date": "2025-02-27",
@@ -3231,7 +3231,7 @@
       "holdingsBtc": 1140884,
       "holdingsUsd": 96547525268,
       "cumFlowBtc": 473812,
-      "cumFlowUsd": 34446568715
+      "cumFlowUsd": 34434745365
     },
     {
       "date": "2025-02-28",
@@ -3241,7 +3241,7 @@
       "holdingsBtc": 1136905,
       "holdingsUsd": 95838510726,
       "cumFlowBtc": 469833,
-      "cumFlowUsd": 34111148047
+      "cumFlowUsd": 34099324697
     },
     {
       "date": "2025-03-03",
@@ -3251,7 +3251,7 @@
       "holdingsBtc": 1138155,
       "holdingsUsd": 98064686771,
       "cumFlowBtc": 471083,
-      "cumFlowUsd": 34218849422
+      "cumFlowUsd": 34207026072
     },
     {
       "date": "2025-03-04",
@@ -3261,7 +3261,7 @@
       "holdingsBtc": 1137429,
       "holdingsUsd": 99240634753,
       "cumFlowBtc": 470357,
-      "cumFlowUsd": 34155505951
+      "cumFlowUsd": 34143682601
     },
     {
       "date": "2025-03-05",
@@ -3271,7 +3271,7 @@
       "holdingsBtc": 1135344,
       "holdingsUsd": 102866401233,
       "cumFlowBtc": 468272,
-      "cumFlowUsd": 33966597174
+      "cumFlowUsd": 33954773824
     },
     {
       "date": "2025-03-06",
@@ -3281,7 +3281,7 @@
       "holdingsBtc": 1135025,
       "holdingsUsd": 102063547796,
       "cumFlowBtc": 467953,
-      "cumFlowUsd": 33937912104
+      "cumFlowUsd": 33926088754
     },
     {
       "date": "2025-03-07",
@@ -3291,7 +3291,7 @@
       "holdingsBtc": 1133869,
       "holdingsUsd": 98371050156,
       "cumFlowBtc": 466797,
-      "cumFlowUsd": 33837621035
+      "cumFlowUsd": 33825797685
     },
     {
       "date": "2025-03-10",
@@ -3301,7 +3301,7 @@
       "holdingsBtc": 1129120,
       "holdingsUsd": 88686402955,
       "cumFlowBtc": 462048,
-      "cumFlowUsd": 33464612207
+      "cumFlowUsd": 33452788858
     },
     {
       "date": "2025-03-11",
@@ -3311,7 +3311,7 @@
       "holdingsBtc": 1124385,
       "holdingsUsd": 93227831326,
       "cumFlowBtc": 457313,
-      "cumFlowUsd": 33072012002
+      "cumFlowUsd": 33060188653
     },
     {
       "date": "2025-03-12",
@@ -3321,7 +3321,7 @@
       "holdingsBtc": 1119962,
       "holdingsUsd": 93695382542,
       "cumFlowBtc": 452890,
-      "cumFlowUsd": 32701986344
+      "cumFlowUsd": 32690162994
     },
     {
       "date": "2025-03-13",
@@ -3331,7 +3331,7 @@
       "holdingsBtc": 1119908,
       "holdingsUsd": 90794782844,
       "cumFlowBtc": 452836,
-      "cumFlowUsd": 32697608378
+      "cumFlowUsd": 32685785029
     },
     {
       "date": "2025-03-17",
@@ -3341,7 +3341,7 @@
       "holdingsBtc": 1118465,
       "holdingsUsd": 93963810501,
       "cumFlowBtc": 451393,
-      "cumFlowUsd": 32576379928
+      "cumFlowUsd": 32564556578
     },
     {
       "date": "2025-03-18",
@@ -3351,7 +3351,7 @@
       "holdingsBtc": 1121578,
       "holdingsUsd": 92753109843,
       "cumFlowBtc": 454506,
-      "cumFlowUsd": 32833821168
+      "cumFlowUsd": 32821997818
     },
     {
       "date": "2025-03-19",
@@ -3361,7 +3361,7 @@
       "holdingsBtc": 1124287,
       "holdingsUsd": 97675761015,
       "cumFlowBtc": 457215,
-      "cumFlowUsd": 33069173562
+      "cumFlowUsd": 33057350212
     },
     {
       "date": "2025-03-20",
@@ -3371,7 +3371,7 @@
       "holdingsBtc": 1124421,
       "holdingsUsd": 94657605300,
       "cumFlowBtc": 457349,
-      "cumFlowUsd": 33080454140
+      "cumFlowUsd": 33068630790
     },
     {
       "date": "2025-03-21",
@@ -3381,7 +3381,7 @@
       "holdingsBtc": 1126391,
       "holdingsUsd": 94686635186,
       "cumFlowBtc": 459319,
-      "cumFlowUsd": 33246056201
+      "cumFlowUsd": 33234232851
     },
     {
       "date": "2025-03-24",
@@ -3391,7 +3391,7 @@
       "holdingsBtc": 1127742,
       "holdingsUsd": 98704062266,
       "cumFlowBtc": 460670,
-      "cumFlowUsd": 33364300612
+      "cumFlowUsd": 33352477262
     },
     {
       "date": "2025-03-25",
@@ -3401,7 +3401,7 @@
       "holdingsBtc": 1128303,
       "holdingsUsd": 98645139288,
       "cumFlowBtc": 461231,
-      "cumFlowUsd": 33413347652
+      "cumFlowUsd": 33401524303
     },
     {
       "date": "2025-03-26",
@@ -3411,7 +3411,7 @@
       "holdingsBtc": 1128655,
       "holdingsUsd": 98109475817,
       "cumFlowBtc": 461583,
-      "cumFlowUsd": 33443945608
+      "cumFlowUsd": 33432122258
     },
     {
       "date": "2025-03-27",
@@ -3421,7 +3421,7 @@
       "holdingsBtc": 1129686,
       "holdingsUsd": 98528366111,
       "cumFlowBtc": 462614,
-      "cumFlowUsd": 33533866830
+      "cumFlowUsd": 33522043480
     },
     {
       "date": "2025-03-28",
@@ -3431,7 +3431,7 @@
       "holdingsBtc": 1130694,
       "holdingsUsd": 95409994969,
       "cumFlowBtc": 463622,
-      "cumFlowUsd": 33618923684
+      "cumFlowUsd": 33607100335
     },
     {
       "date": "2025-03-31",
@@ -3441,7 +3441,7 @@
       "holdingsBtc": 1128193,
       "holdingsUsd": 93114642084,
       "cumFlowBtc": 461121,
-      "cumFlowUsd": 33412505350
+      "cumFlowUsd": 33400682000
     },
     {
       "date": "2025-04-01",
@@ -3451,7 +3451,7 @@
       "holdingsBtc": 1126319,
       "holdingsUsd": 95929005968,
       "cumFlowBtc": 459247,
-      "cumFlowUsd": 33252896077
+      "cumFlowUsd": 33241072727
     },
     {
       "date": "2025-04-02",
@@ -3461,7 +3461,7 @@
       "holdingsBtc": 1125282,
       "holdingsUsd": 92824602203,
       "cumFlowBtc": 458210,
-      "cumFlowUsd": 33167353864
+      "cumFlowUsd": 33155530514
     },
     {
       "date": "2025-04-03",
@@ -3471,7 +3471,7 @@
       "holdingsBtc": 1124696,
       "holdingsUsd": 93545836254,
       "cumFlowBtc": 457624,
-      "cumFlowUsd": 33118613706
+      "cumFlowUsd": 33106790356
     },
     {
       "date": "2025-04-04",
@@ -3481,7 +3481,7 @@
       "holdingsBtc": 1126871,
       "holdingsUsd": 94499582359,
       "cumFlowBtc": 459799,
-      "cumFlowUsd": 33301009554
+      "cumFlowUsd": 33289186204
     },
     {
       "date": "2025-04-09",
@@ -3491,7 +3491,7 @@
       "holdingsBtc": 1119303,
       "holdingsUsd": 92448551459,
       "cumFlowBtc": 452231,
-      "cumFlowUsd": 32675932486
+      "cumFlowUsd": 32664109136
     },
     {
       "date": "2025-04-10",
@@ -3501,7 +3501,7 @@
       "holdingsBtc": 1118009,
       "holdingsUsd": 88940232091,
       "cumFlowBtc": 450937,
-      "cumFlowUsd": 32572991758
+      "cumFlowUsd": 32561168409
     },
     {
       "date": "2025-04-16",
@@ -3511,7 +3511,7 @@
       "holdingsBtc": 1116510,
       "holdingsUsd": 93818906167,
       "cumFlowBtc": 449438,
-      "cumFlowUsd": 32447032707
+      "cumFlowUsd": 32435209357
     },
     {
       "date": "2025-04-17",
@@ -3521,7 +3521,7 @@
       "holdingsBtc": 1115788,
       "holdingsUsd": 94799546582,
       "cumFlowBtc": 448716,
-      "cumFlowUsd": 32385690165
+      "cumFlowUsd": 32373866815
     },
     {
       "date": "2025-04-18",
@@ -3531,7 +3531,7 @@
       "holdingsBtc": 1116815,
       "holdingsUsd": 94333420693,
       "cumFlowBtc": 449743,
-      "cumFlowUsd": 32472437229
+      "cumFlowUsd": 32460613880
     },
     {
       "date": "2025-04-21",
@@ -3541,7 +3541,7 @@
       "holdingsBtc": 1117120,
       "holdingsUsd": 97772654838,
       "cumFlowBtc": 450048,
-      "cumFlowUsd": 32499131461
+      "cumFlowUsd": 32487308111
     },
     {
       "date": "2025-04-22",
@@ -3551,7 +3551,7 @@
       "holdingsBtc": 1119249,
       "holdingsUsd": 104637581686,
       "cumFlowBtc": 452177,
-      "cumFlowUsd": 32698169755
+      "cumFlowUsd": 32686346405
     },
     {
       "date": "2025-04-23",
@@ -3561,7 +3561,7 @@
       "holdingsBtc": 1130123,
       "holdingsUsd": 105938769733,
       "cumFlowBtc": 463051,
-      "cumFlowUsd": 33717508519
+      "cumFlowUsd": 33705685169
     },
     {
       "date": "2025-04-24",
@@ -3571,7 +3571,7 @@
       "holdingsBtc": 1139944,
       "holdingsUsd": 107179769170,
       "cumFlowBtc": 472872,
-      "cumFlowUsd": 34640898188
+      "cumFlowUsd": 34629074838
     },
     {
       "date": "2025-04-25",
@@ -3581,7 +3581,7 @@
       "holdingsBtc": 1144646,
       "holdingsUsd": 108408037638,
       "cumFlowBtc": 477574,
-      "cumFlowUsd": 35086218918
+      "cumFlowUsd": 35074395569
     },
     {
       "date": "2025-04-28",
@@ -3591,7 +3591,7 @@
       "holdingsBtc": 1148440,
       "holdingsUsd": 109150689091,
       "cumFlowBtc": 481368,
-      "cumFlowUsd": 35446810429
+      "cumFlowUsd": 35434987079
     },
     {
       "date": "2025-04-29",
@@ -3601,7 +3601,7 @@
       "holdingsBtc": 1155350,
       "holdingsUsd": 108916103832,
       "cumFlowBtc": 488278,
-      "cumFlowUsd": 36098223661
+      "cumFlowUsd": 36086400311
     },
     {
       "date": "2025-04-30",
@@ -3611,7 +3611,7 @@
       "holdingsBtc": 1156677,
       "holdingsUsd": 108938777820,
       "cumFlowBtc": 489605,
-      "cumFlowUsd": 36223203891
+      "cumFlowUsd": 36211380542
     },
     {
       "date": "2025-05-01",
@@ -3621,7 +3621,7 @@
       "holdingsBtc": 1156406,
       "holdingsUsd": 111622066022,
       "cumFlowBtc": 489334,
-      "cumFlowUsd": 36197045622
+      "cumFlowUsd": 36185222272
     },
     {
       "date": "2025-05-02",
@@ -3631,7 +3631,7 @@
       "holdingsBtc": 1159452,
       "holdingsUsd": 112385462064,
       "cumFlowBtc": 492380,
-      "cumFlowUsd": 36492293823
+      "cumFlowUsd": 36480470473
     },
     {
       "date": "2025-05-05",
@@ -3641,7 +3641,7 @@
       "holdingsBtc": 1167224,
       "holdingsUsd": 110575786744,
       "cumFlowBtc": 500152,
-      "cumFlowUsd": 37228566393
+      "cumFlowUsd": 37216743044
     },
     {
       "date": "2025-05-06",
@@ -3651,7 +3651,7 @@
       "holdingsBtc": 1171859,
       "holdingsUsd": 113481852917,
       "cumFlowBtc": 504787,
-      "cumFlowUsd": 37677415946
+      "cumFlowUsd": 37665592597
     },
     {
       "date": "2025-05-07",
@@ -3661,7 +3661,7 @@
       "holdingsBtc": 1171702,
       "holdingsUsd": 113723427661,
       "cumFlowBtc": 504630,
-      "cumFlowUsd": 37662177790
+      "cumFlowUsd": 37650354440
     },
     {
       "date": "2025-05-08",
@@ -3671,7 +3671,7 @@
       "holdingsBtc": 1172140,
       "holdingsUsd": 121027545769,
       "cumFlowBtc": 505068,
-      "cumFlowUsd": 37707402819
+      "cumFlowUsd": 37695579469
     },
     {
       "date": "2025-05-09",
@@ -3681,7 +3681,7 @@
       "holdingsBtc": 1173290,
       "holdingsUsd": 120833570298,
       "cumFlowBtc": 506218,
-      "cumFlowUsd": 37825837823
+      "cumFlowUsd": 37814014473
     },
     {
       "date": "2025-05-12",
@@ -3691,7 +3691,7 @@
       "holdingsBtc": 1177172,
       "holdingsUsd": 121013528806,
       "cumFlowBtc": 510100,
-      "cumFlowUsd": 38224908238
+      "cumFlowUsd": 38213084888
     },
     {
       "date": "2025-05-13",
@@ -3701,7 +3701,7 @@
       "holdingsBtc": 1176857,
       "holdingsUsd": 122547366878,
       "cumFlowBtc": 509785,
-      "cumFlowUsd": 38192106954
+      "cumFlowUsd": 38180283604
     },
     {
       "date": "2025-05-14",
@@ -3711,7 +3711,7 @@
       "holdingsBtc": 1175652,
       "holdingsUsd": 121733333088,
       "cumFlowBtc": 508580,
-      "cumFlowUsd": 38067334771
+      "cumFlowUsd": 38055511421
     },
     {
       "date": "2025-05-15",
@@ -3721,7 +3721,7 @@
       "holdingsBtc": 1178320,
       "holdingsUsd": 122293626198,
       "cumFlowBtc": 511248,
-      "cumFlowUsd": 38344236966
+      "cumFlowUsd": 38332413617
     },
     {
       "date": "2025-05-16",
@@ -3731,7 +3731,7 @@
       "holdingsBtc": 1180220,
       "holdingsUsd": 122152805407,
       "cumFlowBtc": 513148,
-      "cumFlowUsd": 38540887023
+      "cumFlowUsd": 38529063674
     },
     {
       "date": "2025-05-19",
@@ -3741,7 +3741,7 @@
       "holdingsBtc": 1182298,
       "holdingsUsd": 124869798382,
       "cumFlowBtc": 515226,
-      "cumFlowUsd": 38760357445
+      "cumFlowUsd": 38748534096
     },
     {
       "date": "2025-05-20",
@@ -3751,7 +3751,7 @@
       "holdingsBtc": 1188644,
       "holdingsUsd": 127046121927,
       "cumFlowBtc": 521572,
-      "cumFlowUsd": 39438638486
+      "cumFlowUsd": 39426815137
     },
     {
       "date": "2025-05-21",
@@ -3761,7 +3761,7 @@
       "holdingsBtc": 1191744,
       "holdingsUsd": 130733768598,
       "cumFlowBtc": 524672,
-      "cumFlowUsd": 39778707060
+      "cumFlowUsd": 39766883711
     },
     {
       "date": "2025-05-22",
@@ -3771,7 +3771,7 @@
       "holdingsBtc": 1197149,
       "holdingsUsd": 133748515067,
       "cumFlowBtc": 530077,
-      "cumFlowUsd": 40382567335
+      "cumFlowUsd": 40370743985
     },
     {
       "date": "2025-05-23",
@@ -3781,7 +3781,7 @@
       "holdingsBtc": 1205819,
       "holdingsUsd": 129420083001,
       "cumFlowBtc": 538747,
-      "cumFlowUsd": 41313115054
+      "cumFlowUsd": 41301291704
     },
     {
       "date": "2025-05-26",
@@ -3791,7 +3791,7 @@
       "holdingsBtc": 1209088,
       "holdingsUsd": 132351995740,
       "cumFlowBtc": 542016,
-      "cumFlowUsd": 41670953916
+      "cumFlowUsd": 41659130566
     },
     {
       "date": "2025-05-27",
@@ -3801,7 +3801,7 @@
       "holdingsBtc": 1208411,
       "holdingsUsd": 131690769827,
       "cumFlowBtc": 541339,
-      "cumFlowUsd": 41597175498
+      "cumFlowUsd": 41585352149
     },
     {
       "date": "2025-05-28",
@@ -3811,7 +3811,7 @@
       "holdingsBtc": 1211072,
       "holdingsUsd": 130576923179,
       "cumFlowBtc": 544000,
-      "cumFlowUsd": 41884082629
+      "cumFlowUsd": 41872259279
     },
     {
       "date": "2025-05-29",
@@ -3821,7 +3821,7 @@
       "holdingsBtc": 1215244,
       "holdingsUsd": 128296444410,
       "cumFlowBtc": 548172,
-      "cumFlowUsd": 42324531433
+      "cumFlowUsd": 42312708083
     },
     {
       "date": "2025-05-30",
@@ -3831,7 +3831,7 @@
       "holdingsBtc": 1213167,
       "holdingsUsd": 126209717934,
       "cumFlowBtc": 546095,
-      "cumFlowUsd": 42108454352
+      "cumFlowUsd": 42096631002
     },
     {
       "date": "2025-06-02",
@@ -3841,7 +3841,7 @@
       "holdingsBtc": 1205297,
       "holdingsUsd": 127646906467,
       "cumFlowBtc": 538225,
-      "cumFlowUsd": 41274982474
+      "cumFlowUsd": 41263159124
     },
     {
       "date": "2025-06-04",
@@ -3851,7 +3851,7 @@
       "holdingsBtc": 1206625,
       "holdingsUsd": 126398047143,
       "cumFlowBtc": 539553,
-      "cumFlowUsd": 41414094963
+      "cumFlowUsd": 41402271613
     },
     {
       "date": "2025-06-05",
@@ -3861,7 +3861,7 @@
       "holdingsBtc": 1207688,
       "holdingsUsd": 122665111698,
       "cumFlowBtc": 540616,
-      "cumFlowUsd": 41522064085
+      "cumFlowUsd": 41510240736
     },
     {
       "date": "2025-06-06",
@@ -3871,7 +3871,7 @@
       "holdingsBtc": 1205402,
       "holdingsUsd": 125841545942,
       "cumFlowBtc": 538330,
-      "cumFlowUsd": 41283410280
+      "cumFlowUsd": 41271586931
     },
     {
       "date": "2025-06-09",
@@ -3881,7 +3881,7 @@
       "holdingsBtc": 1204313,
       "holdingsUsd": 132837108860,
       "cumFlowBtc": 537241,
-      "cumFlowUsd": 41163292328
+      "cumFlowUsd": 41151468978
     },
     {
       "date": "2025-06-10",
@@ -3891,7 +3891,7 @@
       "holdingsBtc": 1207891,
       "holdingsUsd": 133230667194,
       "cumFlowBtc": 540819,
-      "cumFlowUsd": 41557946587
+      "cumFlowUsd": 41546123237
     },
     {
       "date": "2025-06-11",
@@ -3901,7 +3901,7 @@
       "holdingsBtc": 1211854,
       "holdingsUsd": 131691410712,
       "cumFlowBtc": 544782,
-      "cumFlowUsd": 41988603300
+      "cumFlowUsd": 41976779950
     },
     {
       "date": "2025-06-12",
@@ -3911,7 +3911,7 @@
       "holdingsBtc": 1213214,
       "holdingsUsd": 128262257955,
       "cumFlowBtc": 546142,
-      "cumFlowUsd": 42132383928
+      "cumFlowUsd": 42120560578
     },
     {
       "date": "2025-06-13",
@@ -3921,7 +3921,7 @@
       "holdingsBtc": 1214096,
       "holdingsUsd": 128838289195,
       "cumFlowBtc": 547024,
-      "cumFlowUsd": 42225980621
+      "cumFlowUsd": 42214157272
     },
     {
       "date": "2025-06-16",
@@ -3931,7 +3931,7 @@
       "holdingsBtc": 1216997,
       "holdingsUsd": 130040242900,
       "cumFlowBtc": 549925,
-      "cumFlowUsd": 42535962277
+      "cumFlowUsd": 42524138927
     },
     {
       "date": "2025-06-17",
@@ -3941,7 +3941,7 @@
       "holdingsBtc": 1220818,
       "holdingsUsd": 127685891780,
       "cumFlowBtc": 553746,
-      "cumFlowUsd": 42935602348
+      "cumFlowUsd": 42923778998
     },
     {
       "date": "2025-06-18",
@@ -3951,7 +3951,7 @@
       "holdingsBtc": 1223046,
       "holdingsUsd": 128316604918,
       "cumFlowBtc": 555974,
-      "cumFlowUsd": 43169354305
+      "cumFlowUsd": 43157530955
     },
     {
       "date": "2025-06-19",
@@ -3961,7 +3961,7 @@
       "holdingsBtc": 1225830,
       "holdingsUsd": 128309955177,
       "cumFlowBtc": 558758,
-      "cumFlowUsd": 43460760874
+      "cumFlowUsd": 43448937525
     },
     {
       "date": "2025-06-20",
@@ -3971,7 +3971,7 @@
       "holdingsBtc": 1226832,
       "holdingsUsd": 126753583210,
       "cumFlowBtc": 559760,
-      "cumFlowUsd": 43564285310
+      "cumFlowUsd": 43552461960
     },
     {
       "date": "2025-06-23",
@@ -3981,7 +3981,7 @@
       "holdingsBtc": 1226817,
       "holdingsUsd": 129330299782,
       "cumFlowBtc": 559745,
-      "cumFlowUsd": 43562704019
+      "cumFlowUsd": 43550880669
     },
     {
       "date": "2025-06-24",
@@ -3991,7 +3991,7 @@
       "holdingsBtc": 1230090,
       "holdingsUsd": 130562982690,
       "cumFlowBtc": 563018,
-      "cumFlowUsd": 43910103512
+      "cumFlowUsd": 43898280162
     },
     {
       "date": "2025-06-25",
@@ -4001,7 +4001,7 @@
       "holdingsBtc": 1235571,
       "holdingsUsd": 132700597226,
       "cumFlowBtc": 568499,
-      "cumFlowUsd": 44498764118
+      "cumFlowUsd": 44486940768
     },
     {
       "date": "2025-06-26",
@@ -4011,7 +4011,7 @@
       "holdingsBtc": 1240689,
       "holdingsUsd": 132790497022,
       "cumFlowBtc": 573617,
-      "cumFlowUsd": 45046541815
+      "cumFlowUsd": 45034718466
     },
     {
       "date": "2025-06-27",
@@ -4021,7 +4021,7 @@
       "holdingsBtc": 1242887,
       "holdingsUsd": 133129827528,
       "cumFlowBtc": 575815,
-      "cumFlowUsd": 45281977025
+      "cumFlowUsd": 45270153675
     },
     {
       "date": "2025-06-30",
@@ -4031,7 +4031,7 @@
       "holdingsBtc": 1247402,
       "holdingsUsd": 133688076500,
       "cumFlowBtc": 580330,
-      "cumFlowUsd": 45765864068
+      "cumFlowUsd": 45754040718
     },
     {
       "date": "2025-07-01",
@@ -4041,7 +4041,7 @@
       "holdingsBtc": 1248453,
       "holdingsUsd": 131976188876,
       "cumFlowBtc": 581381,
-      "cumFlowUsd": 45876967149
+      "cumFlowUsd": 45865143799
     },
     {
       "date": "2025-07-02",
@@ -4051,7 +4051,7 @@
       "holdingsBtc": 1246294,
       "holdingsUsd": 135706859886,
       "cumFlowBtc": 579222,
-      "cumFlowUsd": 45641877266
+      "cumFlowUsd": 45630053916
     },
     {
       "date": "2025-07-03",
@@ -4061,7 +4061,7 @@
       "holdingsBtc": 1247512,
       "holdingsUsd": 136763280971,
       "cumFlowBtc": 580440,
-      "cumFlowUsd": 45775405181
+      "cumFlowUsd": 45763581831
     },
     {
       "date": "2025-07-04",
@@ -4071,7 +4071,7 @@
       "holdingsBtc": 1250962,
       "holdingsUsd": 135139673513,
       "cumFlowBtc": 583890,
-      "cumFlowUsd": 46148103851
+      "cumFlowUsd": 46136280501
     },
     {
       "date": "2025-07-08",
@@ -4081,7 +4081,7 @@
       "holdingsBtc": 1256214,
       "holdingsUsd": 136874615261,
       "cumFlowBtc": 589142,
-      "cumFlowUsd": 46720351477
+      "cumFlowUsd": 46708528127
     },
     {
       "date": "2025-07-09",
@@ -4091,7 +4091,7 @@
       "holdingsBtc": 1256842,
       "holdingsUsd": 139864959760,
       "cumFlowBtc": 589770,
-      "cumFlowUsd": 46790237106
+      "cumFlowUsd": 46778413757
     },
     {
       "date": "2025-07-10",
@@ -4101,7 +4101,7 @@
       "holdingsBtc": 1258692,
       "holdingsUsd": 146047669060,
       "cumFlowBtc": 591620,
-      "cumFlowUsd": 47004895011
+      "cumFlowUsd": 46993071662
     },
     {
       "date": "2025-07-11",
@@ -4111,7 +4111,7 @@
       "holdingsBtc": 1266567,
       "holdingsUsd": 148925683645,
       "cumFlowBtc": 599495,
-      "cumFlowUsd": 47930854521
+      "cumFlowUsd": 47919031172
     },
     {
       "date": "2025-07-11",
@@ -4121,7 +4121,7 @@
       "holdingsBtc": 1269322,
       "holdingsUsd": 149249622496,
       "cumFlowBtc": 602250,
-      "cumFlowUsd": 48254793372
+      "cumFlowUsd": 48242970023
     },
     {
       "date": "2025-07-11",
@@ -4131,7 +4131,7 @@
       "holdingsBtc": 1269322,
       "holdingsUsd": 149249622496,
       "cumFlowBtc": 602250,
-      "cumFlowUsd": 48254793372
+      "cumFlowUsd": 48242970023
     },
     {
       "date": "2025-07-14",
@@ -4141,7 +4141,7 @@
       "holdingsBtc": 1277562,
       "holdingsUsd": 153133321075,
       "cumFlowBtc": 610490,
-      "cumFlowUsd": 49242470343
+      "cumFlowUsd": 49230646993
     },
     {
       "date": "2025-07-15",
@@ -4151,7 +4151,7 @@
       "holdingsBtc": 1280038,
       "holdingsUsd": 150764974902,
       "cumFlowBtc": 612966,
-      "cumFlowUsd": 49534097683
+      "cumFlowUsd": 49522274334
     },
     {
       "date": "2025-07-16",
@@ -4161,7 +4161,7 @@
       "holdingsBtc": 1283690,
       "holdingsUsd": 152350485799,
       "cumFlowBtc": 616618,
-      "cumFlowUsd": 49967523179
+      "cumFlowUsd": 49955699829
     },
     {
       "date": "2025-07-17",
@@ -4171,7 +4171,7 @@
       "holdingsBtc": 1290309,
       "holdingsUsd": 153899915670,
       "cumFlowBtc": 623237,
-      "cumFlowUsd": 50756995733
+      "cumFlowUsd": 50745172383
     },
     {
       "date": "2025-07-18",
@@ -4181,7 +4181,7 @@
       "holdingsBtc": 1294606,
       "holdingsUsd": 152793348668,
       "cumFlowBtc": 627534,
-      "cumFlowUsd": 51264140779
+      "cumFlowUsd": 51252317429
     },
     {
       "date": "2025-07-18",
@@ -4191,7 +4191,7 @@
       "holdingsBtc": 1294372,
       "holdingsUsd": 152765731275,
       "cumFlowBtc": 627300,
-      "cumFlowUsd": 51236523385
+      "cumFlowUsd": 51224700035
     },
     {
       "date": "2025-07-21",
@@ -4201,7 +4201,7 @@
       "holdingsBtc": 1298444,
       "holdingsUsd": 152474707803,
       "cumFlowBtc": 631372,
-      "cumFlowUsd": 51714693418
+      "cumFlowUsd": 51702870068
     },
     {
       "date": "2025-07-22",
@@ -4211,7 +4211,7 @@
       "holdingsBtc": 1296924,
       "holdingsUsd": 155665144732,
       "cumFlowBtc": 629852,
-      "cumFlowUsd": 51532253259
+      "cumFlowUsd": 51520429910
     },
     {
       "date": "2025-07-23",
@@ -4221,7 +4221,7 @@
       "holdingsBtc": 1296006,
       "holdingsUsd": 153979043103,
       "cumFlowBtc": 628934,
-      "cumFlowUsd": 51423185276
+      "cumFlowUsd": 51411361926
     },
     {
       "date": "2025-07-24",
@@ -4231,7 +4231,7 @@
       "holdingsBtc": 1295209,
       "holdingsUsd": 153348911781,
       "cumFlowBtc": 628137,
-      "cumFlowUsd": 51328822835
+      "cumFlowUsd": 51316999485
     },
     {
       "date": "2025-07-28",
@@ -4241,7 +4241,7 @@
       "holdingsBtc": 1297980,
       "holdingsUsd": 153253264408,
       "cumFlowBtc": 630908,
-      "cumFlowUsd": 51655996440
+      "cumFlowUsd": 51644173090
     },
     {
       "date": "2025-07-29",
@@ -4251,7 +4251,7 @@
       "holdingsBtc": 1299499,
       "holdingsUsd": 153254322372,
       "cumFlowBtc": 632427,
-      "cumFlowUsd": 51835137259
+      "cumFlowUsd": 51823313909
     },
     {
       "date": "2025-07-30",
@@ -4261,7 +4261,7 @@
       "holdingsBtc": 1300630,
       "holdingsUsd": 153253427995,
       "cumFlowBtc": 633558,
-      "cumFlowUsd": 51968403159
+      "cumFlowUsd": 51956579809
     },
     {
       "date": "2025-07-31",
@@ -4271,7 +4271,7 @@
       "holdingsBtc": 1300658,
       "holdingsUsd": 150565639824,
       "cumFlowBtc": 633586,
-      "cumFlowUsd": 51971644470
+      "cumFlowUsd": 51959821121
     },
     {
       "date": "2025-08-01",
@@ -4281,7 +4281,7 @@
       "holdingsBtc": 1294333,
       "holdingsUsd": 146581568447,
       "cumFlowBtc": 627261,
-      "cumFlowUsd": 51255346253
+      "cumFlowUsd": 51243522903
     },
     {
       "date": "2025-08-04",
@@ -4291,7 +4291,7 @@
       "holdingsBtc": 1293691,
       "holdingsUsd": 148841542878,
       "cumFlowBtc": 626619,
-      "cumFlowUsd": 51181482965
+      "cumFlowUsd": 51169659616
     },
     {
       "date": "2025-08-06",
@@ -4301,7 +4301,7 @@
       "holdingsBtc": 1287801,
       "holdingsUsd": 148134242303,
       "cumFlowBtc": 620729,
-      "cumFlowUsd": 50503963157
+      "cumFlowUsd": 50492139807
     },
     {
       "date": "2025-08-08",
@@ -4311,7 +4311,7 @@
       "holdingsBtc": 1288809,
       "holdingsUsd": 150383118706,
       "cumFlowBtc": 621737,
-      "cumFlowUsd": 50621580417
+      "cumFlowUsd": 50609757067
     },
     {
       "date": "2025-08-11",
@@ -4321,7 +4321,7 @@
       "holdingsBtc": 1293969,
       "holdingsUsd": 153596501203,
       "cumFlowBtc": 626897,
-      "cumFlowUsd": 51234081911
+      "cumFlowUsd": 51222258562
     },
     {
       "date": "2025-08-12",
@@ -4331,7 +4331,7 @@
       "holdingsBtc": 1295524,
       "holdingsUsd": 155609507406,
       "cumFlowBtc": 628452,
-      "cumFlowUsd": 51420857906
+      "cumFlowUsd": 51409034557
     },
     {
       "date": "2025-08-13",
@@ -4341,7 +4341,7 @@
       "holdingsBtc": 1296738,
       "holdingsUsd": 159972900315,
       "cumFlowBtc": 629666,
-      "cumFlowUsd": 51570623781
+      "cumFlowUsd": 51558800431
     },
     {
       "date": "2025-08-14",
@@ -4351,7 +4351,7 @@
       "holdingsBtc": 1296828,
       "holdingsUsd": 153531194586,
       "cumFlowBtc": 629756,
-      "cumFlowUsd": 51581278862
+      "cumFlowUsd": 51569455512
     },
     {
       "date": "2025-08-15",
@@ -4361,7 +4361,7 @@
       "holdingsBtc": 1300121,
       "holdingsUsd": 152682257872,
       "cumFlowBtc": 633049,
-      "cumFlowUsd": 51967998771
+      "cumFlowUsd": 51956175422
     },
     {
       "date": "2025-08-18",
@@ -4371,7 +4371,7 @@
       "holdingsBtc": 1300998,
       "holdingsUsd": 151288842186,
       "cumFlowBtc": 633926,
-      "cumFlowUsd": 52069982260
+      "cumFlowUsd": 52058158910
     },
     {
       "date": "2025-08-19",
@@ -4381,7 +4381,7 @@
       "holdingsBtc": 1299798,
       "holdingsUsd": 146690250050,
       "cumFlowBtc": 632726,
-      "cumFlowUsd": 51934554832
+      "cumFlowUsd": 51922731482
     },
     {
       "date": "2025-08-20",
@@ -4391,7 +4391,7 @@
       "holdingsBtc": 1296773,
       "holdingsUsd": 148190031348,
       "cumFlowBtc": 629701,
-      "cumFlowUsd": 51588869932
+      "cumFlowUsd": 51577046582
     },
     {
       "date": "2025-08-21",
@@ -4401,7 +4401,7 @@
       "holdingsBtc": 1293753,
       "holdingsUsd": 145521725566,
       "cumFlowBtc": 626681,
-      "cumFlowUsd": 51249179426
+      "cumFlowUsd": 51237356076
     },
     {
       "date": "2025-08-22",
@@ -4411,7 +4411,7 @@
       "holdingsBtc": 1293632,
       "holdingsUsd": 151236809526,
       "cumFlowBtc": 626560,
-      "cumFlowUsd": 51235033476
+      "cumFlowUsd": 51223210126
     },
     {
       "date": "2025-08-25",
@@ -4421,7 +4421,7 @@
       "holdingsBtc": 1291205,
       "holdingsUsd": 142197488527,
       "cumFlowBtc": 624133,
-      "cumFlowUsd": 50967753451
+      "cumFlowUsd": 50955930101
     },
     {
       "date": "2025-08-26",
@@ -4431,7 +4431,7 @@
       "holdingsBtc": 1292757,
       "holdingsUsd": 144514732444,
       "cumFlowBtc": 625685,
-      "cumFlowUsd": 51141248442
+      "cumFlowUsd": 51129425092
     },
     {
       "date": "2025-08-28",
@@ -4441,7 +4441,7 @@
       "holdingsBtc": 1291006,
       "holdingsUsd": 145334806799,
       "cumFlowBtc": 623934,
-      "cumFlowUsd": 50944129880
+      "cumFlowUsd": 50932306530
     },
     {
       "date": "2025-09-01",
@@ -4451,7 +4451,7 @@
       "holdingsBtc": 1292771,
       "holdingsUsd": 141223015064,
       "cumFlowBtc": 625699,
-      "cumFlowUsd": 51136939451
+      "cumFlowUsd": 51125116101
     },
     {
       "date": "2025-09-02",
@@ -4461,7 +4461,7 @@
       "holdingsBtc": 1292161,
       "holdingsUsd": 143750249398,
       "cumFlowBtc": 625089,
-      "cumFlowUsd": 51069078207
+      "cumFlowUsd": 51057254857
     },
     {
       "date": "2025-09-03",
@@ -4471,7 +4471,7 @@
       "holdingsBtc": 1294829,
       "holdingsUsd": 144705440604,
       "cumFlowBtc": 627757,
-      "cumFlowUsd": 51367244309
+      "cumFlowUsd": 51355420959
     },
     {
       "date": "2025-09-04",
@@ -4481,7 +4481,7 @@
       "holdingsBtc": 1297375,
       "holdingsUsd": 143646384926,
       "cumFlowBtc": 630303,
-      "cumFlowUsd": 51649139440
+      "cumFlowUsd": 51637316091
     },
     {
       "date": "2025-09-08",
@@ -4491,7 +4491,7 @@
       "holdingsBtc": 1294380,
       "holdingsUsd": 145064493157,
       "cumFlowBtc": 627308,
-      "cumFlowUsd": 51313482093
+      "cumFlowUsd": 51301658744
     },
     {
       "date": "2025-09-09",
@@ -4501,7 +4501,7 @@
       "holdingsBtc": 1296825,
       "holdingsUsd": 144659946909,
       "cumFlowBtc": 629753,
-      "cumFlowUsd": 51586220181
+      "cumFlowUsd": 51574396831
     },
     {
       "date": "2025-09-10",
@@ -4511,7 +4511,7 @@
       "holdingsBtc": 1297351,
       "holdingsUsd": 147877217463,
       "cumFlowBtc": 630279,
-      "cumFlowUsd": 51646175749
+      "cumFlowUsd": 51634352399
     },
     {
       "date": "2025-09-11",
@@ -4521,7 +4521,7 @@
       "holdingsBtc": 1303544,
       "holdingsUsd": 150611473760,
       "cumFlowBtc": 636472,
-      "cumFlowUsd": 52361714969
+      "cumFlowUsd": 52349891619
     },
     {
       "date": "2025-09-15",
@@ -4531,7 +4531,7 @@
       "holdingsBtc": 1311476,
       "holdingsUsd": 151319517274,
       "cumFlowBtc": 644404,
-      "cumFlowUsd": 53276917695
+      "cumFlowUsd": 53265094346
     },
     {
       "date": "2025-09-16",
@@ -4541,7 +4541,7 @@
       "holdingsBtc": 1316478,
       "holdingsUsd": 153807494924,
       "cumFlowBtc": 649406,
-      "cumFlowUsd": 53861314161
+      "cumFlowUsd": 53849490811
     },
     {
       "date": "2025-09-18",
@@ -4551,7 +4551,7 @@
       "holdingsBtc": 1318626,
       "holdingsUsd": 154434826682,
       "cumFlowBtc": 651554,
-      "cumFlowUsd": 54112883603
+      "cumFlowUsd": 54101060253
     },
     {
       "date": "2025-09-19",
@@ -4561,7 +4561,7 @@
       "holdingsBtc": 1318728,
       "holdingsUsd": 152564367620,
       "cumFlowBtc": 651656,
-      "cumFlowUsd": 54124684039
+      "cumFlowUsd": 54112860689
     },
     {
       "date": "2025-09-22",
@@ -4571,7 +4571,7 @@
       "holdingsBtc": 1319912,
       "holdingsUsd": 148802377980,
       "cumFlowBtc": 652840,
-      "cumFlowUsd": 54258164162
+      "cumFlowUsd": 54246340812
     },
     {
       "date": "2025-09-25",
@@ -4581,7 +4581,7 @@
       "holdingsBtc": 1319241,
       "holdingsUsd": 143844392289,
       "cumFlowBtc": 652169,
-      "cumFlowUsd": 54185001194
+      "cumFlowUsd": 54173177844
     },
     {
       "date": "2025-09-29",
@@ -4591,7 +4591,7 @@
       "holdingsBtc": 1313609,
       "holdingsUsd": 150230985238,
       "cumFlowBtc": 646537,
-      "cumFlowUsd": 53540897119
+      "cumFlowUsd": 53529073770
     },
     {
       "date": "2025-09-30",
@@ -4601,7 +4601,7 @@
       "holdingsBtc": 1317397,
       "holdingsUsd": 150272458951,
       "cumFlowBtc": 650325,
-      "cumFlowUsd": 53972985605
+      "cumFlowUsd": 53961162255
     },
     {
       "date": "2025-10-02",
@@ -4611,7 +4611,7 @@
       "holdingsBtc": 1328026,
       "holdingsUsd": 160188249114,
       "cumFlowBtc": 660954,
-      "cumFlowUsd": 55255069615
+      "cumFlowUsd": 55243246265
     },
     {
       "date": "2025-10-08",
@@ -4621,7 +4621,7 @@
       "holdingsBtc": 1358081,
       "holdingsUsd": 167510124303,
       "cumFlowBtc": 691009,
-      "cumFlowUsd": 58962150994
+      "cumFlowUsd": 58950327644
     },
     {
       "date": "2025-10-13",
@@ -4631,7 +4631,7 @@
       "holdingsBtc": 1363333,
       "holdingsUsd": 157156889142,
       "cumFlowBtc": 696261,
-      "cumFlowUsd": 59567570199
+      "cumFlowUsd": 59555746850
     },
     {
       "date": "2025-10-15",
@@ -4641,7 +4641,7 @@
       "holdingsBtc": 1361085,
       "holdingsUsd": 150813825670,
       "cumFlowBtc": 694013,
-      "cumFlowUsd": 59318482538
+      "cumFlowUsd": 59306659188
     },
     {
       "date": "2025-10-16",
@@ -4651,7 +4651,7 @@
       "holdingsBtc": 1360242,
       "holdingsUsd": 147175463916,
       "cumFlowBtc": 693170,
-      "cumFlowUsd": 59227271624
+      "cumFlowUsd": 59215448274
     },
     {
       "date": "2025-10-20",
@@ -4661,7 +4661,7 @@
       "holdingsBtc": 1354667,
       "holdingsUsd": 149782902136,
       "cumFlowBtc": 687595,
-      "cumFlowUsd": 58610854689
+      "cumFlowUsd": 58599031339
     },
     {
       "date": "2025-10-22",
@@ -4671,7 +4671,7 @@
       "holdingsBtc": 1351235,
       "holdingsUsd": 145373941685,
       "cumFlowBtc": 684163,
-      "cumFlowUsd": 58241619606
+      "cumFlowUsd": 58229796256
     },
     {
       "date": "2025-10-28",
@@ -4681,7 +4681,7 @@
       "holdingsBtc": 1356271,
       "holdingsUsd": 153132150729,
       "cumFlowBtc": 689199,
-      "cumFlowUsd": 58810217999
+      "cumFlowUsd": 58798394649
     },
     {
       "date": "2025-10-30",
@@ -4691,7 +4691,7 @@
       "holdingsBtc": 1349655,
       "holdingsUsd": 146178676678,
       "cumFlowBtc": 682583,
-      "cumFlowUsd": 58093651080
+      "cumFlowUsd": 58081827730
     },
     {
       "date": "2025-10-31",
@@ -4701,7 +4701,7 @@
       "holdingsBtc": 1350120,
       "holdingsUsd": 147912761132,
       "cumFlowBtc": 683048,
-      "cumFlowUsd": 58144594280
+      "cumFlowUsd": 58132770931
     },
     {
       "date": "2025-11-03",
@@ -4711,7 +4711,7 @@
       "holdingsBtc": 1348087,
       "holdingsUsd": 143649427584,
       "cumFlowBtc": 681015,
-      "cumFlowUsd": 57927961907
+      "cumFlowUsd": 57916138557
     },
     {
       "date": "2025-11-04",
@@ -4721,7 +4721,7 @@
       "holdingsBtc": 1346338,
       "holdingsUsd": 136610426135,
       "cumFlowBtc": 679266,
-      "cumFlowUsd": 57750494113
+      "cumFlowUsd": 57738670763
     },
     {
       "date": "2025-11-05",
@@ -4731,7 +4731,7 @@
       "holdingsBtc": 1341233,
       "holdingsUsd": 139312530477,
       "cumFlowBtc": 674161,
-      "cumFlowUsd": 57220242868
+      "cumFlowUsd": 57208419518
     },
     {
       "date": "2025-11-07",
@@ -4741,7 +4741,7 @@
       "holdingsBtc": 1339212,
       "holdingsUsd": 138319533795,
       "cumFlowBtc": 672140,
-      "cumFlowUsd": 57011505358
+      "cumFlowUsd": 56999682008
     },
     {
       "date": "2025-11-10",
@@ -4751,7 +4751,7 @@
       "holdingsBtc": 1336171,
       "holdingsUsd": 141606574154,
       "cumFlowBtc": 669099,
-      "cumFlowUsd": 56689222064
+      "cumFlowUsd": 56677398714
     },
     {
       "date": "2025-11-13",
@@ -4761,7 +4761,7 @@
       "holdingsBtc": 1341089,
       "holdingsUsd": 133591963834,
       "cumFlowBtc": 674017,
-      "cumFlowUsd": 57179126371
+      "cumFlowUsd": 57167303022
     },
     {
       "date": "2025-11-14",
@@ -4771,7 +4771,7 @@
       "holdingsBtc": 1337809,
       "holdingsUsd": 126428248224,
       "cumFlowBtc": 670737,
-      "cumFlowUsd": 56869153382
+      "cumFlowUsd": 56857330033
     },
     {
       "date": "2025-11-17",
@@ -4781,7 +4781,7 @@
       "holdingsBtc": 1324892,
       "holdingsUsd": 122023348135,
       "cumFlowBtc": 657820,
-      "cumFlowUsd": 55679489932
+      "cumFlowUsd": 55667666583
     },
     {
       "date": "2025-11-18",
@@ -4791,7 +4791,7 @@
       "holdingsBtc": 1322501,
       "holdingsUsd": 122879466264,
       "cumFlowBtc": 655429,
-      "cumFlowUsd": 55457331458
+      "cumFlowUsd": 55445508109
     },
     {
       "date": "2025-11-19",
@@ -4801,7 +4801,7 @@
       "holdingsBtc": 1316352,
       "holdingsUsd": 120395660083,
       "cumFlowBtc": 649280,
-      "cumFlowUsd": 54894934080
+      "cumFlowUsd": 54883110730
     },
     {
       "date": "2025-11-20",
@@ -4811,7 +4811,7 @@
       "holdingsBtc": 1318226,
       "holdingsUsd": 114075165175,
       "cumFlowBtc": 651154,
-      "cumFlowUsd": 55057104193
+      "cumFlowUsd": 55045280843
     },
     {
       "date": "2025-11-21",
@@ -4821,7 +4821,7 @@
       "holdingsBtc": 1313094,
       "holdingsUsd": 111703435915,
       "cumFlowBtc": 646022,
-      "cumFlowUsd": 54620530701
+      "cumFlowUsd": 54608707351
     },
     {
       "date": "2025-11-24",
@@ -4831,7 +4831,7 @@
       "holdingsBtc": 1308743,
       "holdingsUsd": 115517771387,
       "cumFlowBtc": 641671,
-      "cumFlowUsd": 54236484465
+      "cumFlowUsd": 54224661115
     },
     {
       "date": "2025-11-25",
@@ -4841,7 +4841,7 @@
       "holdingsBtc": 1308851,
       "holdingsUsd": 114295426664,
       "cumFlowBtc": 641779,
-      "cumFlowUsd": 54245915566
+      "cumFlowUsd": 54234092216
     },
     {
       "date": "2025-11-26",
@@ -4851,7 +4851,7 @@
       "holdingsBtc": 1310746,
       "holdingsUsd": 118581670155,
       "cumFlowBtc": 643674,
-      "cumFlowUsd": 54417354018
+      "cumFlowUsd": 54405530668
     },
     {
       "date": "2025-11-27",
@@ -4861,7 +4861,7 @@
       "holdingsBtc": 1310792,
       "holdingsUsd": 119697199826,
       "cumFlowBtc": 643720,
-      "cumFlowUsd": 54421554586
+      "cumFlowUsd": 54409731236
     },
     {
       "date": "2025-11-28",
@@ -4871,7 +4871,7 @@
       "holdingsBtc": 1310488,
       "holdingsUsd": 119126897518,
       "cumFlowBtc": 643416,
-      "cumFlowUsd": 54393920165
+      "cumFlowUsd": 54382096815
     },
     {
       "date": "2025-12-02",
@@ -4881,7 +4881,7 @@
       "holdingsBtc": 1311348,
       "holdingsUsd": 119736628751,
       "cumFlowBtc": 644276,
-      "cumFlowUsd": 54472445088
+      "cumFlowUsd": 54460621738
     },
     {
       "date": "2025-12-04",
@@ -4891,7 +4891,7 @@
       "holdingsBtc": 1311974,
       "holdingsUsd": 120824330048,
       "cumFlowBtc": 644902,
-      "cumFlowUsd": 54530095644
+      "cumFlowUsd": 54518272294
     },
     {
       "date": "2025-12-05",
@@ -4901,7 +4901,7 @@
       "holdingsBtc": 1311807,
       "holdingsUsd": 117203776839,
       "cumFlowBtc": 644735,
-      "cumFlowUsd": 54515174981
+      "cumFlowUsd": 54503351631
     },
     {
       "date": "2025-12-09",
@@ -4911,7 +4911,7 @@
       "holdingsBtc": 1309974,
       "holdingsUsd": 121421490060,
       "cumFlowBtc": 642902,
-      "cumFlowUsd": 54345274211
+      "cumFlowUsd": 54333450861
     },
     {
       "date": "2025-12-10",
@@ -4921,7 +4921,7 @@
       "holdingsBtc": 1310437,
       "holdingsUsd": 120607366628,
       "cumFlowBtc": 643365,
-      "cumFlowUsd": 54387886874
+      "cumFlowUsd": 54376063524
     },
     {
       "date": "2025-12-11",
@@ -4931,7 +4931,7 @@
       "holdingsBtc": 1313365,
       "holdingsUsd": 121541423830,
       "cumFlowBtc": 646293,
-      "cumFlowUsd": 54658849850
+      "cumFlowUsd": 54647026500
     },
     {
       "date": "2025-12-12",
@@ -4941,7 +4941,7 @@
       "holdingsBtc": 1312995,
       "holdingsUsd": 118534562610,
       "cumFlowBtc": 645923,
-      "cumFlowUsd": 54625446990
+      "cumFlowUsd": 54613623640
     },
     {
       "date": "2025-12-15",
@@ -4951,7 +4951,7 @@
       "holdingsBtc": 1313090,
       "holdingsUsd": 113473955075,
       "cumFlowBtc": 646018,
-      "cumFlowUsd": 54633656653
+      "cumFlowUsd": 54621833303
     },
     {
       "date": "2025-12-16",
@@ -4961,7 +4961,7 @@
       "holdingsBtc": 1308101,
       "holdingsUsd": 114921918335,
       "cumFlowBtc": 641029,
-      "cumFlowUsd": 54195352997
+      "cumFlowUsd": 54183529647
     },
     {
       "date": "2025-12-17",
@@ -4971,7 +4971,7 @@
       "holdingsBtc": 1305917,
       "holdingsUsd": 112582804209,
       "cumFlowBtc": 638845,
-      "cumFlowUsd": 54007070859
+      "cumFlowUsd": 53995247509
     },
     {
       "date": "2025-12-18",
@@ -4981,7 +4981,7 @@
       "holdingsBtc": 1310880,
       "holdingsUsd": 112027831018,
       "cumFlowBtc": 643808,
-      "cumFlowUsd": 54431208938
+      "cumFlowUsd": 54419385589
     },
     {
       "date": "2025-12-22",
@@ -4991,7 +4991,7 @@
       "holdingsBtc": 1307310,
       "holdingsUsd": 115771150989,
       "cumFlowBtc": 640238,
-      "cumFlowUsd": 54115061269
+      "cumFlowUsd": 54103237920
     },
     {
       "date": "2025-12-23",
@@ -5001,7 +5001,7 @@
       "holdingsBtc": 1306673,
       "holdingsUsd": 114241531852,
       "cumFlowBtc": 639601,
-      "cumFlowUsd": 54059368792
+      "cumFlowUsd": 54047545443
     },
     {
       "date": "2025-12-25",
@@ -5011,7 +5011,7 @@
       "holdingsBtc": 1302260,
       "holdingsUsd": 113520191997,
       "cumFlowBtc": 635188,
-      "cumFlowUsd": 53674680169
+      "cumFlowUsd": 53662856819
     },
     {
       "date": "2025-12-26",
@@ -5021,7 +5021,7 @@
       "holdingsBtc": 1299295,
       "holdingsUsd": 113423269313,
       "cumFlowBtc": 632223,
-      "cumFlowUsd": 53415847499
+      "cumFlowUsd": 53404024149
     },
     {
       "date": "2025-12-29",
@@ -5031,7 +5031,7 @@
       "holdingsBtc": 1298445,
       "holdingsUsd": 113108556737,
       "cumFlowBtc": 631373,
-      "cumFlowUsd": 53341803336
+      "cumFlowUsd": 53329979986
     },
     {
       "date": "2025-12-30",
@@ -5041,7 +5041,7 @@
       "holdingsBtc": 1299617,
       "holdingsUsd": 114882893758,
       "cumFlowBtc": 632545,
-      "cumFlowUsd": 53445405206
+      "cumFlowUsd": 53433581856
     },
     {
       "date": "2025-12-31",
@@ -5051,7 +5051,7 @@
       "holdingsBtc": 1299986,
       "holdingsUsd": 113746097029,
       "cumFlowBtc": 632914,
-      "cumFlowUsd": 53477691946
+      "cumFlowUsd": 53465868596
     },
     {
       "date": "2026-01-05",
@@ -5061,7 +5061,7 @@
       "holdingsBtc": 1303109,
       "holdingsUsd": 122322920017,
       "cumFlowBtc": 636037,
-      "cumFlowUsd": 53770848143
+      "cumFlowUsd": 53759024794
     },
     {
       "date": "2026-01-06",
@@ -5071,7 +5071,7 @@
       "holdingsBtc": 1310486,
       "holdingsUsd": 122821381997,
       "cumFlowBtc": 643414,
-      "cumFlowUsd": 54462235411
+      "cumFlowUsd": 54450412061
     },
     {
       "date": "2026-01-07",
@@ -5081,7 +5081,7 @@
       "holdingsBtc": 1309502,
       "holdingsUsd": 119530988994,
       "cumFlowBtc": 642430,
-      "cumFlowUsd": 54372416157
+      "cumFlowUsd": 54360592807
     },
     {
       "date": "2026-01-08",
@@ -5091,7 +5091,7 @@
       "holdingsBtc": 1302880,
       "holdingsUsd": 118595954880,
       "cumFlowBtc": 635808,
-      "cumFlowUsd": 53769641985
+      "cumFlowUsd": 53757818635
     },
     {
       "date": "2026-01-09",
@@ -5101,7 +5101,7 @@
       "holdingsBtc": 1298104,
       "holdingsUsd": 117498467707,
       "cumFlowBtc": 631032,
-      "cumFlowUsd": 53337340195
+      "cumFlowUsd": 53325516846
     },
     {
       "date": "2026-01-12",
@@ -5111,7 +5111,7 @@
       "holdingsBtc": 1295314,
       "holdingsUsd": 118117209610,
       "cumFlowBtc": 628242,
-      "cumFlowUsd": 53082925424
+      "cumFlowUsd": 53071102075
     },
     {
       "date": "2026-01-13",
@@ -5121,7 +5121,7 @@
       "holdingsBtc": 1299295,
       "holdingsUsd": 123932253118,
       "cumFlowBtc": 632223,
-      "cumFlowUsd": 53462650044
+      "cumFlowUsd": 53450826694
     },
     {
       "date": "2026-01-14",
@@ -5131,7 +5131,7 @@
       "holdingsBtc": 1304359,
       "holdingsUsd": 126464335542,
       "cumFlowBtc": 637287,
-      "cumFlowUsd": 53953630974
+      "cumFlowUsd": 53941807625
     },
     {
       "date": "2026-01-15",
@@ -5141,7 +5141,7 @@
       "holdingsBtc": 1311808,
       "holdingsUsd": 125392643971,
       "cumFlowBtc": 644736,
-      "cumFlowUsd": 54665663379
+      "cumFlowUsd": 54653840029
     },
     {
       "date": "2026-01-16",
@@ -5151,7 +5151,7 @@
       "holdingsBtc": 1316639,
       "holdingsUsd": 125744291056,
       "cumFlowBtc": 649567,
-      "cumFlowUsd": 55127043203
+      "cumFlowUsd": 55115219853
     },
     {
       "date": "2026-01-19",
@@ -5161,7 +5161,7 @@
       "holdingsBtc": 1312816,
       "holdingsUsd": 121513802603,
       "cumFlowBtc": 645744,
-      "cumFlowUsd": 54773187623
+      "cumFlowUsd": 54761364273
     },
     {
       "date": "2026-01-20",
@@ -5171,7 +5171,7 @@
       "holdingsBtc": 1310660,
       "holdingsUsd": 115745170996,
       "cumFlowBtc": 643588,
-      "cumFlowUsd": 54582789969
+      "cumFlowUsd": 54570966620
     },
     {
       "date": "2026-01-21",
@@ -5181,7 +5181,7 @@
       "holdingsBtc": 1306703,
       "holdingsUsd": 116771827948,
       "cumFlowBtc": 639631,
-      "cumFlowUsd": 54229177769
+      "cumFlowUsd": 54217354419
     },
     {
       "date": "2026-01-22",
@@ -5191,7 +5191,7 @@
       "holdingsBtc": 1297299,
       "holdingsUsd": 116060909087,
       "cumFlowBtc": 630227,
-      "cumFlowUsd": 53387863015
+      "cumFlowUsd": 53376039665
     },
     {
       "date": "2026-01-23",
@@ -5201,7 +5201,7 @@
       "holdingsBtc": 1296906,
       "holdingsUsd": 116040573567,
       "cumFlowBtc": 629834,
-      "cumFlowUsd": 53352699367
+      "cumFlowUsd": 53340876018
     },
     {
       "date": "2026-01-26",
@@ -5211,7 +5211,7 @@
       "holdingsBtc": 1295383,
       "holdingsUsd": 114317562704,
       "cumFlowBtc": 628311,
-      "cumFlowUsd": 53218294602
+      "cumFlowUsd": 53206471252
     },
     {
       "date": "2026-01-27",
@@ -5221,7 +5221,7 @@
       "holdingsBtc": 1295321,
       "holdingsUsd": 115435069744,
       "cumFlowBtc": 628249,
-      "cumFlowUsd": 53212769351
+      "cumFlowUsd": 53200946001
     },
     {
       "date": "2026-01-28",
@@ -5231,7 +5231,7 @@
       "holdingsBtc": 1293777,
       "holdingsUsd": 115356262385,
       "cumFlowBtc": 626705,
-      "cumFlowUsd": 53075102605
+      "cumFlowUsd": 53063279255
     },
     {
       "date": "2026-01-29",
@@ -5241,7 +5241,7 @@
       "holdingsBtc": 1293549,
       "holdingsUsd": 109321965347,
       "cumFlowBtc": 626477,
-      "cumFlowUsd": 53055833595
+      "cumFlowUsd": 53044010246
     },
     {
       "date": "2026-01-30",
@@ -5251,7 +5251,7 @@
       "holdingsBtc": 1287842,
       "holdingsUsd": 108321665584,
       "cumFlowBtc": 620770,
-      "cumFlowUsd": 52575812175
+      "cumFlowUsd": 52563988826
     },
     {
       "date": "2026-02-02",
@@ -5261,7 +5261,7 @@
       "holdingsBtc": 1277770,
       "holdingsUsd": 100518140925,
       "cumFlowBtc": 610698,
-      "cumFlowUsd": 51783479662
+      "cumFlowUsd": 51771656313
     },
     {
       "date": "2026-02-03",
@@ -5271,7 +5271,7 @@
       "holdingsBtc": 1283579,
       "holdingsUsd": 97117499673,
       "cumFlowBtc": 616507,
-      "cumFlowUsd": 52222997258
+      "cumFlowUsd": 52211173908
     },
     {
       "date": "2026-02-05",
@@ -5281,7 +5281,7 @@
       "holdingsBtc": 1274424,
       "holdingsUsd": 80022357384,
       "cumFlowBtc": 607352,
-      "cumFlowUsd": 51648145653
+      "cumFlowUsd": 51636322303
     },
     {
       "date": "2026-02-06",
@@ -5291,7 +5291,7 @@
       "holdingsBtc": 1270194,
       "holdingsUsd": 89583861374,
       "cumFlowBtc": 603122,
-      "cumFlowUsd": 51349813482
+      "cumFlowUsd": 51337990132
     },
     {
       "date": "2026-02-09",
@@ -5301,7 +5301,7 @@
       "holdingsBtc": 1271387,
       "holdingsUsd": 89126758760,
       "cumFlowBtc": 604315,
-      "cumFlowUsd": 51433445156
+      "cumFlowUsd": 51421621806
     },
     {
       "date": "2026-02-11",
@@ -5311,7 +5311,7 @@
       "holdingsBtc": 1275375,
       "holdingsUsd": 85481920099,
       "cumFlowBtc": 608303,
-      "cumFlowUsd": 51700740577
+      "cumFlowUsd": 51688917227
     },
     {
       "date": "2026-02-12",
@@ -5321,7 +5321,7 @@
       "holdingsBtc": 1272173,
       "holdingsUsd": 84228029984,
       "cumFlowBtc": 605101,
-      "cumFlowUsd": 51488742561
+      "cumFlowUsd": 51476919211
     },
     {
       "date": "2026-02-13",
@@ -5331,7 +5331,7 @@
       "holdingsBtc": 1269612,
       "holdingsUsd": 87364540944,
       "cumFlowBtc": 602540,
-      "cumFlowUsd": 51312515029
+      "cumFlowUsd": 51300691679
     },
     {
       "date": "2026-02-16",
@@ -5341,7 +5341,7 @@
       "holdingsBtc": 1265931,
       "holdingsUsd": 87169641369,
       "cumFlowBtc": 598859,
-      "cumFlowUsd": 51059048252
+      "cumFlowUsd": 51047224902
     },
     {
       "date": "2026-02-18",
@@ -5351,7 +5351,7 @@
       "holdingsBtc": 1264251,
       "holdingsUsd": 83971285927,
       "cumFlowBtc": 597179,
-      "cumFlowUsd": 50947463005
+      "cumFlowUsd": 50935639655
     },
     {
       "date": "2026-02-19",
@@ -5361,7 +5361,7 @@
       "holdingsBtc": 1262615,
       "holdingsUsd": 84560483088,
       "cumFlowBtc": 595543,
-      "cumFlowUsd": 50837895995
+      "cumFlowUsd": 50826072645
     },
     {
       "date": "2026-02-20",
@@ -5371,7 +5371,7 @@
       "holdingsBtc": 1260159,
       "holdingsUsd": 85671178723,
       "cumFlowBtc": 593087,
-      "cumFlowUsd": 50670926259
+      "cumFlowUsd": 50659102910
     },
     {
       "date": "2026-02-23",
@@ -5381,7 +5381,7 @@
       "holdingsBtc": 1261505,
       "holdingsUsd": 81525744599,
       "cumFlowBtc": 594433,
-      "cumFlowUsd": 50757912559
+      "cumFlowUsd": 50746089210
     },
     {
       "date": "2026-02-24",
@@ -5391,7 +5391,7 @@
       "holdingsBtc": 1258414,
       "holdingsUsd": 80624483429,
       "cumFlowBtc": 591342,
-      "cumFlowUsd": 50559877351
+      "cumFlowUsd": 50548054002
     },
     {
       "date": "2026-02-25",
@@ -5401,7 +5401,7 @@
       "holdingsBtc": 1261970,
       "holdingsUsd": 85804722380,
       "cumFlowBtc": 594898,
-      "cumFlowUsd": 50801659321
+      "cumFlowUsd": 50789835972
     },
     {
       "date": "2026-02-26",
@@ -5411,7 +5411,7 @@
       "holdingsBtc": 1267642,
       "holdingsUsd": 85553805077,
       "cumFlowBtc": 600570,
-      "cumFlowUsd": 51184465494
+      "cumFlowUsd": 51172642144
     },
     {
       "date": "2026-02-27",
@@ -5421,7 +5421,7 @@
       "holdingsBtc": 1273299,
       "holdingsUsd": 83859395742,
       "cumFlowBtc": 606227,
-      "cumFlowUsd": 51557035175
+      "cumFlowUsd": 51545211825
     },
     {
       "date": "2026-03-02",
@@ -5431,7 +5431,7 @@
       "holdingsBtc": 1273866,
       "holdingsUsd": 87682757251,
       "cumFlowBtc": 606794,
-      "cumFlowUsd": 51596062924
+      "cumFlowUsd": 51584239575
     },
     {
       "date": "2026-03-03",
@@ -5441,7 +5441,7 @@
       "holdingsBtc": 1279007,
       "holdingsUsd": 87402209562,
       "cumFlowBtc": 611935,
-      "cumFlowUsd": 51947378249
+      "cumFlowUsd": 51935554899
     },
     {
       "date": "2026-03-05",
@@ -5451,7 +5451,7 @@
       "holdingsBtc": 1287992,
       "holdingsUsd": 91302661699,
       "cumFlowBtc": 620920,
-      "cumFlowUsd": 52584303335
+      "cumFlowUsd": 52572479985
     },
     {
       "date": "2026-03-06",
@@ -5461,7 +5461,7 @@
       "holdingsBtc": 1285864,
       "holdingsUsd": 87577933919,
       "cumFlowBtc": 618792,
-      "cumFlowUsd": 52439369000
+      "cumFlowUsd": 52427545650
     },
     {
       "date": "2026-03-09",
@@ -5471,7 +5471,7 @@
       "holdingsBtc": 1280763,
       "holdingsUsd": 87645391346,
       "cumFlowBtc": 613691,
-      "cumFlowUsd": 52090296501
+      "cumFlowUsd": 52078473151
     },
     {
       "date": "2026-03-10",
@@ -5481,7 +5481,7 @@
       "holdingsBtc": 1282620,
       "holdingsUsd": 89733159775,
       "cumFlowBtc": 615548,
-      "cumFlowUsd": 52220213762
+      "cumFlowUsd": 52208390413
     },
     {
       "date": "2026-03-11",
@@ -5491,7 +5491,7 @@
       "holdingsBtc": 1286109,
       "holdingsUsd": 90295140672,
       "cumFlowBtc": 619037,
-      "cumFlowUsd": 52465169474
+      "cumFlowUsd": 52453346125
     },
     {
       "date": "2026-03-12",
@@ -5501,7 +5501,7 @@
       "holdingsBtc": 1287848,
       "holdingsUsd": 90833928483,
       "cumFlowBtc": 620776,
-      "cumFlowUsd": 52587823857
+      "cumFlowUsd": 52576000507
     },
     {
       "date": "2026-03-13",
@@ -5511,7 +5511,7 @@
       "holdingsBtc": 1288722,
       "holdingsUsd": 91427518846,
       "cumFlowBtc": 621650,
-      "cumFlowUsd": 52649829202
+      "cumFlowUsd": 52638005852
     },
     {
       "date": "2026-03-16",
@@ -5521,7 +5521,7 @@
       "holdingsBtc": 1291066,
       "holdingsUsd": 96683375277,
       "cumFlowBtc": 623994,
-      "cumFlowUsd": 52825363087
+      "cumFlowUsd": 52813539738
     },
     {
       "date": "2026-03-17",
@@ -5531,7 +5531,7 @@
       "holdingsBtc": 1293953,
       "holdingsUsd": 95667263437,
       "cumFlowBtc": 626881,
-      "cumFlowUsd": 53038810863
+      "cumFlowUsd": 53026987513
     },
     {
       "date": "2026-03-18",
@@ -5541,7 +5541,7 @@
       "holdingsBtc": 1296488,
       "holdingsUsd": 92368313490,
       "cumFlowBtc": 629416,
-      "cumFlowUsd": 53219416988
+      "cumFlowUsd": 53207593639
     },
     {
       "date": "2026-03-19",
@@ -5551,7 +5551,7 @@
       "holdingsBtc": 1294264,
       "holdingsUsd": 90492738631,
       "cumFlowBtc": 627192,
-      "cumFlowUsd": 53063918689
+      "cumFlowUsd": 53052095340
     },
     {
       "date": "2026-03-20",
@@ -5561,7 +5561,7 @@
       "holdingsBtc": 1292948,
       "holdingsUsd": 91148968085,
       "cumFlowBtc": 625876,
-      "cumFlowUsd": 52971144624
+      "cumFlowUsd": 52959321274
     },
     {
       "date": "2026-03-23",
@@ -5571,7 +5571,7 @@
       "holdingsBtc": 1292030,
       "holdingsUsd": 91571631387,
       "cumFlowBtc": 624958,
-      "cumFlowUsd": 52906082081
+      "cumFlowUsd": 52894258731
     },
     {
       "date": "2026-03-24",
@@ -5581,7 +5581,7 @@
       "holdingsBtc": 1294886,
       "holdingsUsd": 91332828732,
       "cumFlowBtc": 627814,
-      "cumFlowUsd": 53107525728
+      "cumFlowUsd": 53095702379
     },
     {
       "date": "2026-03-25",
@@ -5591,7 +5591,7 @@
       "holdingsBtc": 1292367,
       "holdingsUsd": 92147744422,
       "cumFlowBtc": 625295,
-      "cumFlowUsd": 52927917174
+      "cumFlowUsd": 52916093825
     },
     {
       "date": "2026-03-26",
@@ -5601,7 +5601,7 @@
       "holdingsBtc": 1291997,
       "holdingsUsd": 88849367533,
       "cumFlowBtc": 624925,
-      "cumFlowUsd": 52902472637
+      "cumFlowUsd": 52890649287
     },
     {
       "date": "2026-03-27",
@@ -5611,7 +5611,7 @@
       "holdingsBtc": 1290748,
       "holdingsUsd": 85645440898,
       "cumFlowBtc": 623676,
-      "cumFlowUsd": 52819597315
+      "cumFlowUsd": 52807773966
     },
     {
       "date": "2026-03-30",
@@ -5621,7 +5621,7 @@
       "holdingsBtc": 1287605,
       "holdingsUsd": 85931126654,
       "cumFlowBtc": 620533,
-      "cumFlowUsd": 52609842359
+      "cumFlowUsd": 52598019009
     },
     {
       "date": "2026-03-31",
@@ -5631,7 +5631,7 @@
       "holdingsBtc": 1288629,
       "holdingsUsd": 87912654344,
       "cumFlowBtc": 621557,
-      "cumFlowUsd": 52679701533
+      "cumFlowUsd": 52667878183
     },
     {
       "date": "2026-04-02",
@@ -5641,7 +5641,7 @@
       "holdingsBtc": 1287749,
       "holdingsUsd": 86143299726,
       "cumFlowBtc": 620677,
-      "cumFlowUsd": 52620834391
+      "cumFlowUsd": 52609011041
     },
     {
       "date": "2026-04-06",
@@ -5651,7 +5651,7 @@
       "holdingsBtc": 1287812,
       "holdingsUsd": 88670505201,
       "cumFlowBtc": 620740,
-      "cumFlowUsd": 52625172168
+      "cumFlowUsd": 52613348818
     },
     {
       "date": "2026-04-07",
@@ -5661,7 +5661,7 @@
       "holdingsBtc": 1294365,
       "holdingsUsd": 93078046023,
       "cumFlowBtc": 627293,
-      "cumFlowUsd": 53096399709
+      "cumFlowUsd": 53084576359
     },
     {
       "date": "2026-04-08",
@@ -5671,7 +5671,7 @@
       "holdingsBtc": 1293028,
       "holdingsUsd": 91916175478,
       "cumFlowBtc": 625956,
-      "cumFlowUsd": 53001357740
+      "cumFlowUsd": 52989534390
     },
     {
       "date": "2026-04-09",
@@ -5681,7 +5681,7 @@
       "holdingsBtc": 1290526,
       "holdingsUsd": 92657198653,
       "cumFlowBtc": 623454,
-      "cumFlowUsd": 52821719119
+      "cumFlowUsd": 52809895769
     },
     {
       "date": "2026-04-10",
@@ -5691,7 +5691,7 @@
       "holdingsBtc": 1295309,
       "holdingsUsd": 94554810945,
       "cumFlowBtc": 628237,
-      "cumFlowUsd": 53170867979
+      "cumFlowUsd": 53159044629
     },
     {
       "date": "2026-04-10",
@@ -5701,7 +5701,7 @@
       "holdingsBtc": 1295309,
       "holdingsUsd": 94554810945,
       "cumFlowBtc": 628237,
-      "cumFlowUsd": 53170867979
+      "cumFlowUsd": 53159044629
     },
     {
       "date": "2026-04-13",
@@ -5711,7 +5711,7 @@
       "holdingsBtc": 1298682,
       "holdingsUsd": 96681680172,
       "cumFlowBtc": 631610,
-      "cumFlowUsd": 53421974337
+      "cumFlowUsd": 53410150987
     },
     {
       "date": "2026-04-14",
@@ -5721,7 +5721,7 @@
       "holdingsBtc": 1296151,
       "holdingsUsd": 96147236875,
       "cumFlowBtc": 629079,
-      "cumFlowUsd": 53234227187
+      "cumFlowUsd": 53222403837
     },
     {
       "date": "2026-04-15",
@@ -5731,7 +5731,7 @@
       "holdingsBtc": 1300828,
       "holdingsUsd": 97349167465,
       "cumFlowBtc": 633756,
-      "cumFlowUsd": 53584236609
+      "cumFlowUsd": 53572413259
     },
     {
       "date": "2026-04-16",
@@ -5741,7 +5741,7 @@
       "holdingsBtc": 1303819,
       "holdingsUsd": 97999064841,
       "cumFlowBtc": 636747,
-      "cumFlowUsd": 53809049411
+      "cumFlowUsd": 53797226061
     },
     {
       "date": "2026-04-17",
@@ -5751,7 +5751,7 @@
       "holdingsBtc": 1303874,
       "holdingsUsd": 100526090691,
       "cumFlowBtc": 636802,
-      "cumFlowUsd": 53813289801
+      "cumFlowUsd": 53801466452
     },
     {
       "date": "2026-04-20",
@@ -5761,7 +5761,7 @@
       "holdingsBtc": 1311883,
       "holdingsUsd": 99525820131,
       "cumFlowBtc": 644811,
-      "cumFlowUsd": 54420891465
+      "cumFlowUsd": 54409068115
     },
     {
       "date": "2026-04-21",
@@ -5771,7 +5771,7 @@
       "holdingsBtc": 1315801,
       "holdingsUsd": 100459537913,
       "cumFlowBtc": 648729,
-      "cumFlowUsd": 54720025202
+      "cumFlowUsd": 54708201852
     },
     {
       "date": "2026-04-23",
@@ -5781,7 +5781,7 @@
       "holdingsBtc": 1319955,
       "holdingsUsd": 103327819741,
       "cumFlowBtc": 652883,
-      "cumFlowUsd": 55045205805
+      "cumFlowUsd": 55033382455
     },
     {
       "date": "2026-04-24",
@@ -5791,7 +5791,7 @@
       "holdingsBtc": 1322878,
       "holdingsUsd": 102472511060,
       "cumFlowBtc": 655806,
-      "cumFlowUsd": 55271626646
+      "cumFlowUsd": 55259803296
     },
     {
       "date": "2026-04-27",
@@ -5801,7 +5801,7 @@
       "holdingsBtc": 1322937,
       "holdingsUsd": 102348253702,
       "cumFlowBtc": 655865,
-      "cumFlowUsd": 55276191147
+      "cumFlowUsd": 55264367797
     },
     {
       "date": "2026-04-28",
@@ -5811,7 +5811,7 @@
       "holdingsBtc": 1320260,
       "holdingsUsd": 100759589477,
       "cumFlowBtc": 653188,
-      "cumFlowUsd": 55071887888
+      "cumFlowUsd": 55060064538
     },
     {
       "date": "2026-04-29",
@@ -5821,7 +5821,7 @@
       "holdingsBtc": 1318282,
       "holdingsUsd": 99863658152,
       "cumFlowBtc": 651210,
-      "cumFlowUsd": 54922048691
+      "cumFlowUsd": 54910225341
     },
     {
       "date": "2026-04-30",
@@ -5831,7 +5831,7 @@
       "holdingsBtc": 1316732,
       "holdingsUsd": 100474262311,
       "cumFlowBtc": 649660,
-      "cumFlowUsd": 54803774732
+      "cumFlowUsd": 54791951382
     },
     {
       "date": "2026-05-01",
@@ -5841,7 +5841,7 @@
       "holdingsBtc": 1318159,
       "holdingsUsd": 103124917114,
       "cumFlowBtc": 651087,
-      "cumFlowUsd": 54915414721
+      "cumFlowUsd": 54903591372
     },
     {
       "date": "2026-05-04",
@@ -5851,7 +5851,7 @@
       "holdingsBtc": 1324468,
       "holdingsUsd": 105761908789,
       "cumFlowBtc": 657396,
-      "cumFlowUsd": 55419203324
+      "cumFlowUsd": 55407379974
     },
     {
       "date": "2026-05-05",
@@ -5861,7 +5861,7 @@
       "holdingsBtc": 1331249,
       "holdingsUsd": 107708321342,
       "cumFlowBtc": 664177,
-      "cumFlowUsd": 55967838573
+      "cumFlowUsd": 55956015223
     },
     {
       "date": "2026-05-06",
@@ -5871,7 +5871,7 @@
       "holdingsBtc": 1337267,
       "holdingsUsd": 108904483673,
       "cumFlowBtc": 670195,
-      "cumFlowUsd": 56457933059
+      "cumFlowUsd": 56446109709
     },
     {
       "date": "2026-05-07",
@@ -5881,7 +5881,7 @@
       "holdingsBtc": 1337597,
       "holdingsUsd": 107014956272,
       "cumFlowBtc": 670525,
-      "cumFlowUsd": 56484334834
+      "cumFlowUsd": 56472511485
     },
     {
       "date": "2026-05-08",
@@ -5891,7 +5891,7 @@
       "holdingsBtc": 1334369,
       "holdingsUsd": 107001475555,
       "cumFlowBtc": 667297,
-      "cumFlowUsd": 56225485323
+      "cumFlowUsd": 56213661974
     },
     {
       "date": "2026-05-11",
@@ -5901,7 +5901,7 @@
       "holdingsBtc": 1331981,
       "holdingsUsd": 108858891106,
       "cumFlowBtc": 664909,
-      "cumFlowUsd": 56030321104
+      "cumFlowUsd": 56018497754
     },
     {
       "date": "2026-05-12",
@@ -5911,7 +5911,7 @@
       "holdingsBtc": 1332252,
       "holdingsUsd": 107225929189,
       "cumFlowBtc": 665180,
-      "cumFlowUsd": 56052132463
+      "cumFlowUsd": 56040309113
     },
     {
       "date": "2026-05-13",
@@ -5921,7 +5921,7 @@
       "holdingsBtc": 1329732,
       "holdingsUsd": 105432136546,
       "cumFlowBtc": 662660,
-      "cumFlowUsd": 55852326048
+      "cumFlowUsd": 55840502698
     },
     {
       "date": "2026-05-14",
@@ -5931,7 +5931,7 @@
       "holdingsBtc": 1321463,
       "holdingsUsd": 107143413948,
       "cumFlowBtc": 654391,
-      "cumFlowUsd": 55181880572
+      "cumFlowUsd": 55170057222
     },
     {
       "date": "2026-05-18",
@@ -5941,7 +5941,7 @@
       "holdingsBtc": 1320434,
       "holdingsUsd": 101599447287,
       "cumFlowBtc": 653362,
-      "cumFlowUsd": 55102705217
+      "cumFlowUsd": 55090881867
     },
     {
       "date": "2026-05-19",
@@ -5951,7 +5951,7 @@
       "holdingsBtc": 1317732,
       "holdingsUsd": 101158964955,
       "cumFlowBtc": 650660,
-      "cumFlowUsd": 54895279486
+      "cumFlowUsd": 54883456136
     },
     {
       "date": "2026-05-20",
@@ -5961,7 +5961,7 @@
       "holdingsBtc": 1306587,
       "holdingsUsd": 101229121346,
       "cumFlowBtc": 639515,
-      "cumFlowUsd": 54031809577
+      "cumFlowUsd": 54019986227
     },
     {
       "date": "2026-05-21",
@@ -5971,7 +5971,7 @@
       "holdingsBtc": 1305672,
       "holdingsUsd": 101251756101,
       "cumFlowBtc": 638600,
-      "cumFlowUsd": 53960853505
+      "cumFlowUsd": 53949030155
     },
     {
       "date": "2026-05-22",
@@ -5981,7 +5981,7 @@
       "holdingsBtc": 1304360,
       "holdingsUsd": 98406018448,
       "cumFlowBtc": 637288,
-      "cumFlowUsd": 53861871095
+      "cumFlowUsd": 53850047745
     },
     {
       "date": "2026-05-25",
@@ -5991,7 +5991,7 @@
       "holdingsBtc": 1303453,
       "holdingsUsd": 100690532039,
       "cumFlowBtc": 636381,
-      "cumFlowUsd": 53791806188
+      "cumFlowUsd": 53779982839
     },
     {
       "date": "2026-05-26",
@@ -6001,7 +6001,7 @@
       "holdingsBtc": 1302974,
       "holdingsUsd": 98799436821,
       "cumFlowBtc": 635902,
-      "cumFlowUsd": 53755485487
+      "cumFlowUsd": 53743662137
     },
     {
       "date": "2026-05-27",
@@ -6011,7 +6011,7 @@
       "holdingsBtc": 1298134,
       "holdingsUsd": 96472100381,
       "cumFlowBtc": 631062,
-      "cumFlowUsd": 53395796143
+      "cumFlowUsd": 53383972794
     },
     {
       "date": "2026-05-28",
@@ -6021,7 +6021,7 @@
       "holdingsBtc": 1290281,
       "holdingsUsd": 94851859429,
       "cumFlowBtc": 623209,
-      "cumFlowUsd": 52818502010
+      "cumFlowUsd": 52806678660
     },
     {
       "date": "2026-05-29",
@@ -6031,7 +6031,7 @@
       "holdingsBtc": 1284506,
       "holdingsUsd": 94240056266,
       "cumFlowBtc": 617434,
-      "cumFlowUsd": 52394808913
+      "cumFlowUsd": 52382985563
     },
     {
       "date": "2026-06-01",
@@ -6041,7 +6041,7 @@
       "holdingsBtc": 1277628,
       "holdingsUsd": 91113299796,
       "cumFlowBtc": 610556,
-      "cumFlowUsd": 51904308332
+      "cumFlowUsd": 51892484982
     },
     {
       "date": "2026-06-02",
@@ -6051,7 +6051,7 @@
       "holdingsBtc": 1277061,
       "holdingsUsd": 85126779109,
       "cumFlowBtc": 609989,
-      "cumFlowUsd": 51866513048
+      "cumFlowUsd": 51854689698
     },
     {
       "date": "2026-06-03",
@@ -6061,7 +6061,7 @@
       "holdingsBtc": 1263267,
       "holdingsUsd": 80899618680,
       "cumFlowBtc": 596195,
-      "cumFlowUsd": 50983145288
+      "cumFlowUsd": 50971321938
     },
     {
       "date": "2026-06-04",
@@ -6071,7 +6071,7 @@
       "holdingsBtc": 1263383,
       "holdingsUsd": 80611440966,
       "cumFlowBtc": 596311,
-      "cumFlowUsd": 50990546786
+      "cumFlowUsd": 50978723436
     },
     {
       "date": "2026-06-05",
@@ -6081,7 +6081,7 @@
       "holdingsBtc": 1263163,
       "holdingsUsd": 77093364216,
       "cumFlowBtc": 596091,
-      "cumFlowUsd": 50977119746
+      "cumFlowUsd": 50965296396
     },
     {
       "date": "2026-06-08",
@@ -6091,7 +6091,7 @@
       "holdingsBtc": 1256183,
       "holdingsUsd": 79218643405,
       "cumFlowBtc": 589111,
-      "cumFlowUsd": 50536940146
+      "cumFlowUsd": 50525116796
     },
     {
       "date": "2026-06-10",
@@ -6101,7 +6101,7 @@
       "holdingsBtc": 1254854,
       "holdingsUsd": 77110100679,
       "cumFlowBtc": 587782,
-      "cumFlowUsd": 50455273813
+      "cumFlowUsd": 50443450464
     },
     {
       "date": "2026-06-11",
@@ -6111,7 +6111,7 @@
       "holdingsBtc": 1252581,
       "holdingsUsd": 79618332187,
       "cumFlowBtc": 585509,
-      "cumFlowUsd": 50310794160
+      "cumFlowUsd": 50298970810
     },
     {
       "date": "2026-06-12",
@@ -6121,7 +6121,7 @@
       "holdingsBtc": 1251727,
       "holdingsUsd": 79532768369,
       "cumFlowBtc": 584655,
-      "cumFlowUsd": 50256532340
+      "cumFlowUsd": 50244708991
     },
     {
       "date": "2026-06-15",
@@ -6131,7 +6131,7 @@
       "holdingsBtc": 1252999,
       "holdingsUsd": 83044764123,
       "cumFlowBtc": 585927,
-      "cumFlowUsd": 50340836430
+      "cumFlowUsd": 50329013080
     },
     {
       "date": "2026-06-16",
@@ -6141,7 +6141,7 @@
       "holdingsBtc": 1252435,
       "holdingsUsd": 82180576518,
       "cumFlowBtc": 585363,
-      "cumFlowUsd": 50303828645
+      "cumFlowUsd": 50292005295
     },
     {
       "date": "2026-06-17",
@@ -6151,7 +6151,7 @@
       "holdingsBtc": 1251852,
       "holdingsUsd": 80676904066,
       "cumFlowBtc": 584780,
-      "cumFlowUsd": 50266256604
+      "cumFlowUsd": 50254433254
     },
     {
       "date": "2026-06-18",
@@ -6161,7 +6161,7 @@
       "holdingsBtc": 1250540,
       "holdingsUsd": 78632717165,
       "cumFlowBtc": 583468,
-      "cumFlowUsd": 50183759343
+      "cumFlowUsd": 50171935993
     },
     {
       "date": "2026-06-19",
@@ -6171,7 +6171,7 @@
       "holdingsBtc": 1249002,
       "holdingsUsd": 79280651750,
       "cumFlowBtc": 581930,
-      "cumFlowUsd": 50086134485
+      "cumFlowUsd": 50074311135
     },
     {
       "date": "2026-06-23",
@@ -6181,7 +6181,7 @@
       "holdingsBtc": 1248565,
       "holdingsUsd": 78216179626,
       "cumFlowBtc": 581493,
-      "cumFlowUsd": 50058758681
+      "cumFlowUsd": 50046935331
     },
     {
       "date": "2026-06-24",
@@ -6191,7 +6191,7 @@
       "holdingsBtc": 1246011,
       "holdingsUsd": 75985650794,
       "cumFlowBtc": 578939,
-      "cumFlowUsd": 49903007767
+      "cumFlowUsd": 49891184417
     },
     {
       "date": "2026-06-25",
@@ -6201,7 +6201,7 @@
       "holdingsBtc": 1238659,
       "holdingsUsd": 73952463405,
       "cumFlowBtc": 571587,
-      "cumFlowUsd": 49464066532
+      "cumFlowUsd": 49452243183
     },
     {
       "date": "2026-06-26",
@@ -6211,7 +6211,7 @@
       "holdingsBtc": 1227476,
       "holdingsUsd": 73651665514,
       "cumFlowBtc": 560404,
-      "cumFlowUsd": 48793058239
+      "cumFlowUsd": 48781234890
     },
     {
       "date": "2026-06-29",
@@ -6221,7 +6221,7 @@
       "holdingsBtc": 1218945,
       "holdingsUsd": 73335058920,
       "cumFlowBtc": 551873,
-      "cumFlowUsd": 48279809990
+      "cumFlowUsd": 48267986640
     },
     {
       "date": "2026-06-30",
@@ -6231,7 +6231,7 @@
       "holdingsBtc": 1215078,
       "holdingsUsd": 71111139817,
       "cumFlowBtc": 548006,
-      "cumFlowUsd": 48053497952
+      "cumFlowUsd": 48041674603
     },
     {
       "date": "2026-07-01",
@@ -6241,7 +6241,7 @@
       "holdingsBtc": 1211164,
       "holdingsUsd": 72623149628,
       "cumFlowBtc": 544092,
-      "cumFlowUsd": 47818808837
+      "cumFlowUsd": 47806985487
     },
     {
       "date": "2026-07-02",
@@ -6251,7 +6251,7 @@
       "holdingsBtc": 1206681,
       "holdingsUsd": 74191598738,
       "cumFlowBtc": 539609,
-      "cumFlowUsd": 47543175975
+      "cumFlowUsd": 47531352626
     },
     {
       "date": "2026-07-03",
@@ -6261,7 +6261,7 @@
       "holdingsBtc": 1207192,
       "holdingsUsd": 75473909422,
       "cumFlowBtc": 540120,
-      "cumFlowUsd": 47575123808
+      "cumFlowUsd": 47563300458
     },
     {
       "date": "2026-07-06",
@@ -6271,7 +6271,7 @@
       "holdingsBtc": 1209890,
       "holdingsUsd": 77435186198,
       "cumFlowBtc": 542818,
-      "cumFlowUsd": 47747800772
+      "cumFlowUsd": 47735977423
     },
     {
       "date": "2026-07-07",
@@ -6281,7 +6281,7 @@
       "holdingsBtc": 1214099,
       "holdingsUsd": 76880718784,
       "cumFlowBtc": 547027,
-      "cumFlowUsd": 48014328416
+      "cumFlowUsd": 48002505066
     },
     {
       "date": "2026-07-08",
@@ -6291,7 +6291,7 @@
       "holdingsBtc": 1214276,
       "holdingsUsd": 75573745405,
       "cumFlowBtc": 547204,
-      "cumFlowUsd": 48025344489
+      "cumFlowUsd": 48013521139
     },
     {
       "date": "2026-07-10",
@@ -6301,7 +6301,7 @@
       "holdingsBtc": 1211310,
       "holdingsUsd": 77679481222,
       "cumFlowBtc": 544238,
-      "cumFlowUsd": 47835139387
+      "cumFlowUsd": 47823316037
     },
     {
       "date": "2026-07-13",
@@ -6311,7 +6311,7 @@
       "holdingsBtc": 1212748,
       "holdingsUsd": 75511681455,
       "cumFlowBtc": 545676,
-      "cumFlowUsd": 47924676371
+      "cumFlowUsd": 47912853021
     },
     {
       "date": "2026-07-15",
@@ -6321,7 +6321,7 @@
       "holdingsBtc": 1208733,
       "holdingsUsd": 78225126330,
       "cumFlowBtc": 541661,
-      "cumFlowUsd": 47664839101
+      "cumFlowUsd": 47653015752
     },
     {
       "date": "2026-07-17",
@@ -6331,7 +6331,7 @@
       "holdingsBtc": 1210621,
       "holdingsUsd": 77351418174,
       "cumFlowBtc": 543549,
-      "cumFlowUsd": 47785470973
+      "cumFlowUsd": 47773647624
     },
     {
       "date": "2026-07-20",
@@ -6341,7 +6341,7 @@
       "holdingsBtc": 1215022,
       "holdingsUsd": 79235290437,
       "cumFlowBtc": 547950,
-      "cumFlowUsd": 48072473607
+      "cumFlowUsd": 48060650257
     },
     {
       "date": "2026-07-21",
@@ -6351,7 +6351,7 @@
       "holdingsBtc": 1217181,
       "holdingsUsd": 80962230489,
       "cumFlowBtc": 550109,
-      "cumFlowUsd": 48216082039
+      "cumFlowUsd": 48204258689
     },
     {
       "date": "2026-07-22",
@@ -6361,7 +6361,7 @@
       "holdingsBtc": 1220106,
       "holdingsUsd": 80632669381,
       "cumFlowBtc": 553034,
-      "cumFlowUsd": 48409385373
+      "cumFlowUsd": 48397562024
     },
     {
       "date": "2026-07-23",
@@ -6371,7 +6371,7 @@
       "holdingsBtc": 1221140,
       "holdingsUsd": 79436659002,
       "cumFlowBtc": 554068,
-      "cumFlowUsd": 48476648345
+      "cumFlowUsd": 48464824996
     },
     {
       "date": "2026-07-24",
@@ -6381,7 +6381,7 @@
       "holdingsBtc": 1217839,
       "holdingsUsd": 78043166345,
       "cumFlowBtc": 550767,
-      "cumFlowUsd": 48265109306
+      "cumFlowUsd": 48253285956
     },
     {
       "date": "2026-07-27",
@@ -6391,7 +6391,7 @@
       "holdingsBtc": 1214012,
       "holdingsUsd": 77325802353,
       "cumFlowBtc": 546940,
-      "cumFlowUsd": 48021350722
+      "cumFlowUsd": 48009527373
     },
     {
       "date": "2026-07-29",
@@ -6401,7 +6401,7 @@
       "holdingsBtc": 1212948,
       "holdingsUsd": 77502695221,
       "cumFlowBtc": 545876,
-      "cumFlowUsd": 47953365229
+      "cumFlowUsd": 47941541880
     },
     {
       "date": "2026-07-30",
@@ -6411,7 +6411,7 @@
       "holdingsBtc": 1211551,
       "holdingsUsd": 78413882667,
       "cumFlowBtc": 544479,
-      "cumFlowUsd": 47862948735
+      "cumFlowUsd": 47851125385
     },
     {
       "date": "2026-07-31",
@@ -6421,7 +6421,7 @@
       "holdingsBtc": 1216806,
       "holdingsUsd": 76446932075,
       "cumFlowBtc": 549734,
-      "cumFlowUsd": 48193098840
+      "cumFlowUsd": 48181275490
     },
     {
       "date": "2026-08-03",
@@ -6431,7 +6431,7 @@
       "holdingsBtc": 1213093,
       "holdingsUsd": 76990779015,
       "cumFlowBtc": 546021,
-      "cumFlowUsd": 47957447688
+      "cumFlowUsd": 47945624338
     },
     {
       "date": "2026-08-05",
@@ -6441,7 +6441,7 @@
       "holdingsBtc": 1218781,
       "holdingsUsd": 78736945506,
       "cumFlowBtc": 551709,
-      "cumFlowUsd": 48324909723
+      "cumFlowUsd": 48313086373
     },
     {
       "date": "2026-08-06",
@@ -6451,7 +6451,7 @@
       "holdingsBtc": 1223024,
       "holdingsUsd": 78600450315,
       "cumFlowBtc": 555952,
-      "cumFlowUsd": 48597595876
+      "cumFlowUsd": 48585772527
     },
     {
       "date": "2026-08-07",
@@ -6461,7 +6461,7 @@
       "holdingsBtc": 1224393,
       "holdingsUsd": 79452833043,
       "cumFlowBtc": 557321,
-      "cumFlowUsd": 48686432491
+      "cumFlowUsd": 48674609141
     },
     {
       "date": "2026-08-10",
@@ -6471,7 +6471,7 @@
       "holdingsBtc": 1226360,
       "holdingsUsd": 78378973157,
       "cumFlowBtc": 559288,
-      "cumFlowUsd": 48812147158
+      "cumFlowUsd": 48800323809
     },
     {
       "date": "2026-08-11",
@@ -6481,7 +6481,7 @@
       "holdingsBtc": 1223568,
       "holdingsUsd": 77735416284,
       "cumFlowBtc": 556496,
-      "cumFlowUsd": 48634766512
+      "cumFlowUsd": 48622943163
     },
     {
       "date": "2026-08-12",
@@ -6491,7 +6491,7 @@
       "holdingsBtc": 1223847,
       "holdingsUsd": 77606243287,
       "cumFlowBtc": 556775,
-      "cumFlowUsd": 48652458382
+      "cumFlowUsd": 48640635033
     },
     {
       "date": "2026-08-13",
@@ -6501,7 +6501,7 @@
       "holdingsBtc": 1222719,
       "holdingsUsd": 77551380527,
       "cumFlowBtc": 555647,
-      "cumFlowUsd": 48580914588
+      "cumFlowUsd": 48569091238
     },
     {
       "date": "2026-08-14",
@@ -6511,7 +6511,7 @@
       "holdingsBtc": 1220766,
       "holdingsUsd": 76877970796,
       "cumFlowBtc": 553694,
-      "cumFlowUsd": 48457924041
+      "cumFlowUsd": 48446100692
     },
     {
       "date": "2026-08-17",
@@ -6521,7 +6521,7 @@
       "holdingsBtc": 1220096,
       "holdingsUsd": 78676890081,
       "cumFlowBtc": 553024,
-      "cumFlowUsd": 48414719641
+      "cumFlowUsd": 48402896291
     },
     {
       "date": "2026-08-18",
@@ -6531,7 +6531,7 @@
       "holdingsBtc": 1227688,
       "holdingsUsd": 79408492665,
       "cumFlowBtc": 560616,
-      "cumFlowUsd": 48905780298
+      "cumFlowUsd": 48893956949
     },
     {
       "date": "2026-08-19",
@@ -6541,7 +6541,7 @@
       "holdingsBtc": 1229131,
       "holdingsUsd": 85178790591,
       "cumFlowBtc": 562059,
-      "cumFlowUsd": 49005780213
+      "cumFlowUsd": 48993956863
     },
     {
       "date": "2026-08-20",
@@ -6551,7 +6551,7 @@
       "holdingsBtc": 1242265,
       "holdingsUsd": 90700090686,
       "cumFlowBtc": 575193,
-      "cumFlowUsd": 49964718113
+      "cumFlowUsd": 49952894764
     },
     {
       "date": "2026-08-21",
@@ -6561,7 +6561,7 @@
       "holdingsBtc": 1243362,
       "holdingsUsd": 97387000065,
       "cumFlowBtc": 576290,
-      "cumFlowUsd": 50050641231
+      "cumFlowUsd": 50038817881
     },
     {
       "date": "2026-08-24",
@@ -6571,7 +6571,7 @@
       "holdingsBtc": 1246907,
       "holdingsUsd": 98482697442,
       "cumFlowBtc": 579835,
-      "cumFlowUsd": 50330630967
+      "cumFlowUsd": 50318807617
     },
     {
       "date": "2026-08-25",
@@ -6581,7 +6581,7 @@
       "holdingsBtc": 1247122,
       "holdingsUsd": 97932499870,
       "cumFlowBtc": 580050,
-      "cumFlowUsd": 50347514229
+      "cumFlowUsd": 50335690879
     },
     {
       "date": "2026-08-26",
@@ -6591,7 +6591,7 @@
       "holdingsBtc": 1255372,
       "holdingsUsd": 99207253639,
       "cumFlowBtc": 588300,
-      "cumFlowUsd": 50999480214
+      "cumFlowUsd": 50987656864
     },
     {
       "date": "2026-08-27",
@@ -6601,7 +6601,7 @@
       "holdingsBtc": 1262516,
       "holdingsUsd": 101348901155,
       "cumFlowBtc": 595444,
-      "cumFlowUsd": 51572967243
+      "cumFlowUsd": 51561143893
     },
     {
       "date": "2026-08-28",
@@ -6611,7 +6611,7 @@
       "holdingsBtc": 1258914,
       "holdingsUsd": 97992846040,
       "cumFlowBtc": 591842,
-      "cumFlowUsd": 51292590481
+      "cumFlowUsd": 51280767131
     },
     {
       "date": "2026-08-31",
@@ -6621,7 +6621,7 @@
       "holdingsBtc": 1258900,
       "holdingsUsd": 98902633386,
       "cumFlowBtc": 591828,
-      "cumFlowUsd": 51291490602
+      "cumFlowUsd": 51279667253
     },
     {
       "date": "2026-09-01",
@@ -6631,7 +6631,7 @@
       "holdingsBtc": 1261500,
       "holdingsUsd": 97638447435,
       "cumFlowBtc": 594428,
-      "cumFlowUsd": 51492727196
+      "cumFlowUsd": 51480903847
     },
     {
       "date": "2026-09-03",
@@ -6641,7 +6641,7 @@
       "holdingsBtc": 1261703,
       "holdingsUsd": 102531019975,
       "cumFlowBtc": 594631,
-      "cumFlowUsd": 51509223786
+      "cumFlowUsd": 51497400437
     },
     {
       "date": "2026-09-04",
@@ -6651,7 +6651,7 @@
       "holdingsBtc": 1268574,
       "holdingsUsd": 101073785679,
       "cumFlowBtc": 601502,
-      "cumFlowUsd": 52056671536
+      "cumFlowUsd": 52044848186
     },
     {
       "date": "2026-09-07",
@@ -6661,7 +6661,7 @@
       "holdingsBtc": 1269908,
       "holdingsUsd": 100439525439,
       "cumFlowBtc": 602836,
-      "cumFlowUsd": 52162180224
+      "cumFlowUsd": 52150356874
     },
     {
       "date": "2026-09-08",
@@ -6671,7 +6671,7 @@
       "holdingsBtc": 1270984,
       "holdingsUsd": 99705021656,
       "cumFlowBtc": 603912,
-      "cumFlowUsd": 52246589314
+      "cumFlowUsd": 52234765965
     },
     {
       "date": "2026-09-09",
@@ -6681,7 +6681,7 @@
       "holdingsBtc": 1269127,
       "holdingsUsd": 99352312685,
       "cumFlowBtc": 602055,
-      "cumFlowUsd": 52101215963
+      "cumFlowUsd": 52089392614
     },
     {
       "date": "2026-09-10",
@@ -6691,7 +6691,7 @@
       "holdingsBtc": 1268529,
       "holdingsUsd": 97088833235,
       "cumFlowBtc": 601457,
-      "cumFlowUsd": 52055447106
+      "cumFlowUsd": 52043623757
     },
     {
       "date": "2026-09-11",
@@ -6701,7 +6701,7 @@
       "holdingsBtc": 1264596,
       "holdingsUsd": 97637623496,
       "cumFlowBtc": 597524,
-      "cumFlowUsd": 51751785879
+      "cumFlowUsd": 51739962530
     },
     {
       "date": "2026-09-14",
@@ -6711,7 +6711,7 @@
       "holdingsBtc": 1264484,
       "holdingsUsd": 98851049345,
       "cumFlowBtc": 597412,
-      "cumFlowUsd": 51743030278
+      "cumFlowUsd": 51731206929
     },
     {
       "date": "2026-09-15",
@@ -6721,7 +6721,7 @@
       "holdingsBtc": 1265843,
       "holdingsUsd": 95677692505,
       "cumFlowBtc": 598771,
-      "cumFlowUsd": 51845749165
+      "cumFlowUsd": 51833925816
     },
     {
       "date": "2026-09-16",
@@ -6731,7 +6731,7 @@
       "holdingsBtc": 1261164,
       "holdingsUsd": 96031320168,
       "cumFlowBtc": 594092,
-      "cumFlowUsd": 51489466757
+      "cumFlowUsd": 51477643407
     },
     {
       "date": "2026-09-17",
@@ -6741,7 +6741,7 @@
       "holdingsBtc": 1259509,
       "holdingsUsd": 96161925169,
       "cumFlowBtc": 592437,
-      "cumFlowUsd": 51363109592
+      "cumFlowUsd": 51351286243
     },
     {
       "date": "2026-09-18",
@@ -6751,7 +6751,7 @@
       "holdingsBtc": 1258848,
       "holdingsUsd": 101809382354,
       "cumFlowBtc": 591776,
-      "cumFlowUsd": 51309651191
+      "cumFlowUsd": 51297827841
     },
     {
       "date": "2026-09-21",
@@ -6761,7 +6761,7 @@
       "holdingsBtc": 1264051,
       "holdingsUsd": 109460420502,
       "cumFlowBtc": 596979,
-      "cumFlowUsd": 51760204664
+      "cumFlowUsd": 51748381314
     },
     {
       "date": "2026-09-22",
@@ -6771,7 +6771,7 @@
       "holdingsBtc": 1280825,
       "holdingsUsd": 110404617391,
       "cumFlowBtc": 613753,
-      "cumFlowUsd": 53206090754
+      "cumFlowUsd": 53194267405
     },
     {
       "date": "2026-09-23",
@@ -6781,7 +6781,7 @@
       "holdingsBtc": 1283804,
       "holdingsUsd": 108325211891,
       "cumFlowBtc": 616732,
-      "cumFlowUsd": 53457453740
+      "cumFlowUsd": 53445630390
     },
     {
       "date": "2026-09-24",
@@ -6791,7 +6791,7 @@
       "holdingsBtc": 1287987,
       "holdingsUsd": 108687375469,
       "cumFlowBtc": 620915,
-      "cumFlowUsd": 53810438119
+      "cumFlowUsd": 53798614769
     },
     {
       "date": "2026-09-25",
@@ -6801,7 +6801,7 @@
       "holdingsBtc": 1290292,
       "holdingsUsd": 108504692894,
       "cumFlowBtc": 623220,
-      "cumFlowUsd": 54004272784
+      "cumFlowUsd": 53992449434
     },
     {
       "date": "2026-09-29",
@@ -6811,7 +6811,7 @@
       "holdingsBtc": 1292349,
       "holdingsUsd": 108090028449,
       "cumFlowBtc": 625277,
-      "cumFlowUsd": 54176317014
+      "cumFlowUsd": 54164493664
     },
     {
       "date": "2026-09-30",
@@ -6821,7 +6821,7 @@
       "holdingsBtc": 1292965,
       "holdingsUsd": 108035164555,
       "cumFlowBtc": 625893,
-      "cumFlowUsd": 54227787596
+      "cumFlowUsd": 54215964246
     },
     {
       "date": "2026-10-01",
@@ -6831,7 +6831,7 @@
       "holdingsBtc": 1291182,
       "holdingsUsd": 109555152899,
       "cumFlowBtc": 624110,
-      "cumFlowUsd": 54076502310
+      "cumFlowUsd": 54064678961
     },
     {
       "date": "2026-10-02",
@@ -6841,7 +6841,7 @@
       "holdingsBtc": 1291088,
       "holdingsUsd": 109103236509,
       "cumFlowBtc": 624016,
-      "cumFlowUsd": 54068558852
+      "cumFlowUsd": 54056735502
     },
     {
       "date": "2026-10-05",
@@ -6851,7 +6851,7 @@
       "holdingsBtc": 1294603,
       "holdingsUsd": 111010860863,
       "cumFlowBtc": 627531,
-      "cumFlowUsd": 54369966446
+      "cumFlowUsd": 54358143096
     },
     {
       "date": "2026-10-06",
@@ -6861,7 +6861,7 @@
       "holdingsBtc": 1294549,
       "holdingsUsd": 110735423714,
       "cumFlowBtc": 627477,
-      "cumFlowUsd": 54365347298
+      "cumFlowUsd": 54353523949
     },
     {
       "date": "2026-10-07",
@@ -6871,7 +6871,7 @@
       "holdingsBtc": 1293623,
       "holdingsUsd": 107726532942,
       "cumFlowBtc": 626551,
-      "cumFlowUsd": 54288234593
+      "cumFlowUsd": 54276411243
     },
     {
       "date": "2026-10-08",
@@ -6881,7 +6881,7 @@
       "holdingsBtc": 1289437,
       "holdingsUsd": 105337706059,
       "cumFlowBtc": 622365,
-      "cumFlowUsd": 53946268574
+      "cumFlowUsd": 53934445224
     },
     {
       "date": "2026-10-09",
@@ -6891,7 +6891,7 @@
       "holdingsBtc": 1288440,
       "holdingsUsd": 106353906152,
       "cumFlowBtc": 621368,
-      "cumFlowUsd": 53863971498
+      "cumFlowUsd": 53852148148
     },
     {
       "date": "2026-10-12",
@@ -6901,7 +6901,7 @@
       "holdingsBtc": 1286192,
       "holdingsUsd": 105136549560,
       "cumFlowBtc": 619120,
-      "cumFlowUsd": 53680214358
+      "cumFlowUsd": 53668391008
     },
     {
       "date": "2026-10-13",
@@ -6911,7 +6911,7 @@
       "holdingsBtc": 1285368,
       "holdingsUsd": 106816638682,
       "cumFlowBtc": 618296,
-      "cumFlowUsd": 53611738318
+      "cumFlowUsd": 53599914969
     },
     {
       "date": "2026-10-14",
@@ -6921,7 +6921,7 @@
       "holdingsBtc": 1287475,
       "holdingsUsd": 105014559218,
       "cumFlowBtc": 620403,
-      "cumFlowUsd": 53783598491
+      "cumFlowUsd": 53771775142
     },
     {
       "date": "2026-10-15",
@@ -6931,7 +6931,7 @@
       "holdingsBtc": 1284267,
       "holdingsUsd": 105478723740,
       "cumFlowBtc": 617195,
-      "cumFlowUsd": 53520120768
+      "cumFlowUsd": 53508297418
     },
     {
       "date": "2026-10-16",
@@ -6941,7 +6941,7 @@
       "holdingsBtc": 1284466,
       "holdingsUsd": 104684030379,
       "cumFlowBtc": 617394,
-      "cumFlowUsd": 53536339276
+      "cumFlowUsd": 53524515926
     },
     {
       "date": "2026-10-19",
@@ -6951,7 +6951,7 @@
       "holdingsBtc": 1284221,
       "holdingsUsd": 105097680089,
       "cumFlowBtc": 617149,
-      "cumFlowUsd": 53516289042
+      "cumFlowUsd": 53504465692
     },
     {
       "date": "2026-10-20",
@@ -6961,7 +6961,7 @@
       "holdingsBtc": 1289591,
       "holdingsUsd": 106956433652,
       "cumFlowBtc": 622519,
-      "cumFlowUsd": 53961667498
+      "cumFlowUsd": 53949844148
     },
     {
       "date": "2026-10-21",
@@ -6971,7 +6971,7 @@
       "holdingsBtc": 1289953,
       "holdingsUsd": 108387875141,
       "cumFlowBtc": 622881,
-      "cumFlowUsd": 53992084428
+      "cumFlowUsd": 53980261079
     },
     {
       "date": "2026-10-22",
@@ -6981,7 +6981,7 @@
       "holdingsBtc": 1289736,
       "holdingsUsd": 104864771310,
       "cumFlowBtc": 622664,
-      "cumFlowUsd": 53974440775
+      "cumFlowUsd": 53962617425
     },
     {
       "date": "2026-10-23",
@@ -6991,7 +6991,7 @@
       "holdingsBtc": 1287121,
       "holdingsUsd": 104357247923,
       "cumFlowBtc": 620049,
-      "cumFlowUsd": 53762421700
+      "cumFlowUsd": 53750598350
     },
     {
       "date": "2026-10-26",
@@ -7001,7 +7001,7 @@
       "holdingsBtc": 1286713,
       "holdingsUsd": 102948350207,
       "cumFlowBtc": 619641,
-      "cumFlowUsd": 53729778114
+      "cumFlowUsd": 53717954764
     },
     {
       "date": "2026-10-27",
@@ -7011,7 +7011,7 @@
       "holdingsBtc": 1288134,
       "holdingsUsd": 104080596014,
       "cumFlowBtc": 621062,
-      "cumFlowUsd": 53844594217
+      "cumFlowUsd": 53832770868
     },
     {
       "date": "2026-10-28",
@@ -7021,7 +7021,7 @@
       "holdingsBtc": 1290008,
       "holdingsUsd": 104812259894,
       "cumFlowBtc": 622936,
-      "cumFlowUsd": 53996855424
+      "cumFlowUsd": 53985032075
     },
     {
       "date": "2026-10-29",
@@ -7031,7 +7031,7 @@
       "holdingsBtc": 1291998,
       "holdingsUsd": 100492030799,
       "cumFlowBtc": 624926,
-      "cumFlowUsd": 54151638281
+      "cumFlowUsd": 54139814931
     },
     {
       "date": "2026-10-30",
@@ -7041,7 +7041,7 @@
       "holdingsBtc": 1292440,
       "holdingsUsd": 99751062025,
       "cumFlowBtc": 625368,
-      "cumFlowUsd": 54185752027
+      "cumFlowUsd": 54173928677
     },
     {
       "date": "2026-11-02",
@@ -7051,7 +7051,7 @@
       "holdingsBtc": 1283762,
       "holdingsUsd": 98431334477,
       "cumFlowBtc": 616690,
-      "cumFlowUsd": 53520373926
+      "cumFlowUsd": 53508550577
     },
     {
       "date": "2026-11-03",
@@ -7061,7 +7061,7 @@
       "holdingsBtc": 1277634,
       "holdingsUsd": 98808061250,
       "cumFlowBtc": 610562,
-      "cumFlowUsd": 53046454322
+      "cumFlowUsd": 53034630973
     },
     {
       "date": "2026-11-05",
@@ -7071,7 +7071,7 @@
       "holdingsBtc": 1277921,
       "holdingsUsd": 97082457124,
       "cumFlowBtc": 610849,
-      "cumFlowUsd": 53068257443
+      "cumFlowUsd": 53056434093
     },
     {
       "date": "2026-11-06",
@@ -7081,7 +7081,7 @@
       "holdingsBtc": 1271578,
       "holdingsUsd": 96297924381,
       "cumFlowBtc": 604506,
-      "cumFlowUsd": 52587895456
+      "cumFlowUsd": 52576072106
     },
     {
       "date": "2026-11-09",
@@ -7091,7 +7091,7 @@
       "holdingsBtc": 1266660,
       "holdingsUsd": 95327919605,
       "cumFlowBtc": 599588,
-      "cumFlowUsd": 52217770317
+      "cumFlowUsd": 52205946967
     },
     {
       "date": "2026-11-10",
@@ -7101,7 +7101,7 @@
       "holdingsBtc": 1263970,
       "holdingsUsd": 93151896744,
       "cumFlowBtc": 596898,
-      "cumFlowUsd": 52019523047
+      "cumFlowUsd": 52007699697
     },
     {
       "date": "2026-11-11",
@@ -7111,7 +7111,7 @@
       "holdingsBtc": 1258774,
       "holdingsUsd": 93058178526,
       "cumFlowBtc": 591702,
-      "cumFlowUsd": 51635395081
+      "cumFlowUsd": 51623571731
     },
     {
       "date": "2026-11-12",
@@ -7121,7 +7121,7 @@
       "holdingsBtc": 1259201,
       "holdingsUsd": 89869049450,
       "cumFlowBtc": 592129,
-      "cumFlowUsd": 51665870028
+      "cumFlowUsd": 51654046679
     },
     {
       "date": "2026-11-13",
@@ -7131,7 +7131,7 @@
       "holdingsBtc": 1258376,
       "holdingsUsd": 85867224259,
       "cumFlowBtc": 591304,
-      "cumFlowUsd": 51609574883
+      "cumFlowUsd": 51597751533
     },
     {
       "date": "2026-11-16",
@@ -7141,7 +7141,7 @@
       "holdingsBtc": 1251823,
       "holdingsUsd": 81139148508,
       "cumFlowBtc": 584751,
-      "cumFlowUsd": 51184830458
+      "cumFlowUsd": 51173007108
     },
     {
       "date": "2026-11-17",
@@ -7151,7 +7151,7 @@
       "holdingsBtc": 1250805,
       "holdingsUsd": 81143697910,
       "cumFlowBtc": 583733,
-      "cumFlowUsd": 51118789561
+      "cumFlowUsd": 51106966211
     },
     {
       "date": "2026-11-18",
@@ -7161,7 +7161,7 @@
       "holdingsBtc": 1248335,
       "holdingsUsd": 78622272953,
       "cumFlowBtc": 581263,
-      "cumFlowUsd": 50963224737
+      "cumFlowUsd": 50951401387
     },
     {
       "date": "2026-11-19",
@@ -7171,7 +7171,7 @@
       "holdingsBtc": 1246969,
       "holdingsUsd": 77203878500,
       "cumFlowBtc": 579897,
-      "cumFlowUsd": 50878651265
+      "cumFlowUsd": 50866827915
     },
     {
       "date": "2026-11-20",
@@ -7181,7 +7181,7 @@
       "holdingsBtc": 1246686,
       "holdingsUsd": 73323824623,
       "cumFlowBtc": 579614,
-      "cumFlowUsd": 50862006623
+      "cumFlowUsd": 50850183273
     },
     {
       "date": "2026-11-23",
@@ -7191,27 +7191,27 @@
       "holdingsBtc": 1223457,
       "holdingsUsd": 74863297126,
       "cumFlowBtc": 556385,
-      "cumFlowUsd": 49440624810
+      "cumFlowUsd": 49428801460
     },
     {
       "date": "2026-11-24",
-      "flowBtc": 217,
-      "flowUsd": 12963769,
+      "flowBtc": -1586,
+      "flowUsd": -94749020,
       "price": 59740.87,
-      "holdingsBtc": 1223674,
-      "holdingsUsd": 73103349356,
-      "cumFlowBtc": 556602,
-      "cumFlowUsd": 49453588578
+      "holdingsBtc": 1221871,
+      "holdingsUsd": 72995636568,
+      "cumFlowBtc": 554799,
+      "cumFlowUsd": 49334052440
     },
     {
       "date": "2026-11-25",
-      "flowBtc": -13288,
-      "flowUsd": -800262359,
-      "price": 60224.44,
-      "holdingsBtc": 1210386,
-      "holdingsUsd": 72894819034,
-      "cumFlowBtc": 543314,
-      "cumFlowUsd": 48653326220
+      "flowBtc": -12163,
+      "flowUsd": -734444632,
+      "price": 60383.51,
+      "holdingsBtc": 1209708,
+      "holdingsUsd": 73046415115,
+      "cumFlowBtc": 542636,
+      "cumFlowUsd": 48599607808
     }
   ]
 }
